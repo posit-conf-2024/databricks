@@ -3,7 +3,7 @@ Using Databricks with R
 
 ### posit::conf(2024)
 
-by INSTRUCTOR_NAME
+by Edgar Ruiz
 
 -----
 
