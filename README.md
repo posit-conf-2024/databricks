@@ -1,4 +1,4 @@
-WORKSHOP_TITLE
+Using Databricks with R
 ================
 
 ### posit::conf(2024)
