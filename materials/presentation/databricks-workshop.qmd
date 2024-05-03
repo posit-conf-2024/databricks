@@ -1,0 +1,33 @@
+---
+format: 
+  revealjs:
+    width: 1255
+    height: 740
+    max-scale: 1
+    min-scale: 1
+    smaller: true
+    transition: fade
+    background-transition: fade
+    theme: [default, theme.scss]
+    code-line-numbers: false
+    menu: false
+execute: 
+  echo: false
+engine: knitr
+---
+
+# Using Databricks with R {background-image="assets/background/title-slide-white.png" background-size="1500px" background-color="white"}
+
+Edgar Ruiz \@ Posit
+
+[linkedin.com/in/edgararuiz](https://www.linkedin.com/in/edgararuiz/)
+
+## Simple {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+## Frame Dark {background-image="assets/background/slide-frame-dark.png" background-size="1500px" background-color="#2a7070"}
+
+## Frame Bright {background-image="assets/background/slide-frame.png" background-size="1500px" background-color="white"}
+
+## Thank you {background-image="assets/background/thank-you.png" background-size="1500px" background-color="#2a7070"}
+
+![](assets/background/racoon.jpg){.absolute top=210 left=820 width=450}

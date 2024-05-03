@@ -1,0 +1,62 @@
+---
+title: Exercises
+---
+
+```{r}
+#| include: false
+
+library(remotes)
+library(dplyr)
+library(dbplyr)
+library(sparklyr)
+library(pysparklyr)
+```
+
+
+### Using the Connection to Access Data
+
+```{r}
+library(dplyr)
+library(dbplyr)
+library(sparklyr)
+
+sc <- spark_connect(
+    cluster_id = "1026-175310-7cpsh3g8",
+    method = "databricks_connect"
+)
+```
+
+
+```{r}
+trips <- tbl(sc, in_catalog("samples", "nyctaxi", "trips"))
+
+trips
+```
+
+```{r}
+glimpse(trips)
+```
+
+```{r}
+trips %>% 
+  count(pickup_zip)
+```
+
+```{r}
+trips %>% 
+  count(pickup_zip, sort = TRUE) 
+```
+
+```{r}
+trips %>%
+  group_by(pickup_zip) %>%
+  summarise(
+    count = n(),
+    avg_distance = mean(trip_distance, na.rm = TRUE)
+  )
+```
+
+```{r}
+spark_disconnect(sc)
+```
+
