@@ -33,7 +33,19 @@ trips <- tbl(sc, in_catalog("samples", "nyctaxi", "trips"))
 trips
 ```
 
+```{r}
+glimpse(trips)
+```
 
+```{r}
+trips %>% 
+  count(pickup_zip)
+```
+
+```{r}
+trips %>% 
+  count(pickup_zip, sort = TRUE) 
+```
 
 ```{r}
 trips %>%
