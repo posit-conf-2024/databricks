@@ -38,13 +38,13 @@ library(odbc)
 odbcListDrivers()[1:2]
 ```
 
-1. Click on the *ellipsis* button located in the **Files** tab
+2. Click on the *ellipsis* button located in the **Files** tab
 
-1. Type: `/etc`
+3. Type: `/etc`
 
-1. Locate and open the `odbcinst.ini` file
+4. Locate and open the `odbcinst.ini` file
 
-1. To see a list of DSNs available in the server
+5. To see a list of DSNs available in the server
 ```{r}
 odbcListDataSources()
 ```
@@ -59,34 +59,34 @@ library(DBI)
 con <- dbConnect(odbc::odbc(), dsn = "warehouse")
 ```
 
-1. Use `dbListTables()` to retrieve a list of tables
+2. Use `dbListTables()` to retrieve a list of tables
 
 ```{r}
 dbListTables(con)
 ```
 
-1. Use `dbGetQuery()` to run a quick query
+3. Use `dbGetQuery()` to run a quick query
 ```{r}
 odbc::dbGetQuery(con, "SELECT * FROM samples.tpch.customer LIMIT 10")
 ```
 
-1. Use the SQL chunk
+4. Use the SQL chunk
 ```{sql}
 #| connection: con
 SELECT * FROM samples.tpch.customer LIMIT 10
 ```
 
-1. Use the `output.var` option to load results to a variable
+5. Use the `output.var` option to load results to a variable
 ```{sql, connection = con, output.var = "sql_top10"}
 SELECT * FROM samples.tpch.customer LIMIT 10
 ```
 
-1. Test the variable
+6. Test the variable
 ```{r}
 sql_top10
 ```
 
-1. Disconnect from the database using `dbDisconnect()`
+7. Disconnect from the database using `dbDisconnect()`
 ```{r}
 dbDisconnect(con)
 ```
@@ -131,7 +131,7 @@ dbDisconnect(con)
 ```
 
 ## 1.6 - Connect to a database without a DSN, a better option
-*A more complex way of connecting to a database https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcodbc-function*
+*A more complex way of connecting to a database https://solutions.posit.co/connections/db/databases/databricks/#using-the-new-odbcdatabricks-function*
 
 1. Use the newer `odbc::databricks()` as the driver, which automatically sets the
 defaults for you
