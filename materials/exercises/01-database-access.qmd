@@ -1,8 +1,7 @@
 ---
 title: "Access a database"
-output: html_notebook
 execute: 
-  eval: false
+  eval: true
 ---
 
 ## 1.1 - Connect to a database
@@ -39,13 +38,13 @@ library(odbc)
 odbcListDrivers()[1:2]
 ```
 
-2. Click on the *ellipsis* button located in the **Files** tab
+1. Click on the *ellipsis* button located in the **Files** tab
 
-3. Type: `/etc`
+1. Type: `/etc`
 
-4. Locate and open the `odbcinst.ini` file
+1. Locate and open the `odbcinst.ini` file
 
-5. To see a list of DSNs available in the server
+1. To see a list of DSNs available in the server
 ```{r}
 odbcListDataSources()
 ```
@@ -59,156 +58,93 @@ odbcListDataSources()
 library(DBI)
 con <- dbConnect(odbc::odbc(), dsn = "warehouse")
 ```
-2. Use `dbListTables()` to retrieve a list of tables
+
+1. Use `dbListTables()` to retrieve a list of tables
+
 ```{r}
 dbListTables(con)
 ```
 
-3. Use `dbGetQuery()` to run a quick query
+1. Use `dbGetQuery()` to run a quick query
 ```{r}
 odbc::dbGetQuery(con, "SELECT * FROM samples.tpch.customer LIMIT 10")
 ```
 
-4. Use the SQL chunk
+1. Use the SQL chunk
 ```{sql}
 #| connection: con
 SELECT * FROM samples.tpch.customer LIMIT 10
 ```
 
-5. Use the `output.var` option to load results to a variable
+1. Use the `output.var` option to load results to a variable
 ```{sql, connection = con, output.var = "sql_top10"}
 SELECT * FROM samples.tpch.customer LIMIT 10
 ```
 
-6. Test the variable
+1. Test the variable
 ```{r}
 sql_top10
 ```
 
-7. Disconnect from the database using `dbDisconnect()`
+1. Disconnect from the database using `dbDisconnect()`
 ```{r}
 dbDisconnect(con)
 ```
 
 ## 1.5 - RStudio SQL Script
-*Try out the new SQL Script support in RStudio 1.2*
+
+*Try out the new SQL Script support in RStudio*
 
 1. Open the *query-example.sql* file
 
-2. Click the *Preview* button. It is located in the top-right area of the script
+1. Click the *Preview* button. It is located in the top-right area of the script
 
-3. In the script, change *airport* to *carrier*
+1. In the script, change *customer* to *orders*
 
-4. Click on *Preview* again
+1. Click on *Preview* again
 
 ## 1.6 - Connect to a database without a DSN
-*A more complex way of connecting to a database, using best practices: http://db.rstudio.com/best-practices/managing-credentials/#prompt-for-credentials *
+*A more complex way of connecting to a database https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcodbc-function*
 
 1. Use the following code to start a new connection that does not use the pre-defined DSN
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 con <- dbConnect(
   odbc::odbc(),
-  Driver = "PostgreSQL",
-  Server = "localhost",
-  UID    = rstudioapi::askForPassword("Database user"),
-  PWD    = rstudioapi::askForPassword("Database password"),
-  Port = 5432,
-  Database = "postgres"
-)
+  Driver = "/Library/simba/spark/lib/libsparkodbc_sb64-universal.dylib",
+  Host = Sys.getenv("DATABRICKS_HOST"),
+  Port = 443,
+  AuthMech = 3,
+  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e",
+  Protocol = "https",
+  ThriftTransport = 2,
+  SSL = 1,
+  UID = "token",
+  PWD = Sys.getenv("DATABRICKS_TOKEN")
+  )
 ```
 
-2. When prompted, type in **rstudio_dev** for the user, and **dev_user** as the password
-
-3. Disconnect from the database using `dbDisconnect()`
+2. Disconnect from the database using `dbDisconnect()`
 ```{r}
+#| eval: false
 dbDisconnect(con)
 ```
 
-## 1.7 - Secure credentials in a file
+## 1.6 - Connect to a database without a DSN, a better option
+*A more complex way of connecting to a database https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcodbc-function*
 
-1. Open and explore the `config.yml` file available in your working directory
-
-2. Load the `datawarehouse-dev` values to a variable
+1. Use the newer `odbc::databricks()` as the driver, which automatically sets the
+defaults for you
 ```{r}
-dw <- config::get("datawarehouse-dev")
-```
-
-3. Check that the variable loaded propery, by checking the `driver` value
-```{r}
-dw$driver
-```
-4. Use info in the config.yml file to connect to the database
-```{r}
-con <- dbConnect(odbc::odbc(),
-   Driver = dw$driver,
-   Server = dw$server,
-   UID    = dw$uid,
-   PWD    = dw$pwd,
-   Port   = dw$port,
-   Database = dw$database
-)
-```
-
-5. Disconnect from the database using `dbDisconnect()`
-```{r}
-dbDisconnect(con)
-```
-
-## 1.8 - Environment variables
-
-1. Open and explore the `.Renviron` file available in your working directory
-
-2. Confirm that the environment variables are loaded by using `Sys.getenv()`
-```{r}
-Sys.getenv("uid")
-```
-
-3. Pass the credentials using the environment variables
-```{r}
+#| eval: false
 con <- dbConnect(
-  odbc::odbc(),
-  Driver = "PostgreSQL",
-  Server = "localhost",
-  UID    = Sys.getenv("uid"),
-  PWD    = Sys.getenv("pwd"),
-  Port = 5432,
-  Database = "postgres"
-)
+  odbc::databricks(),
+  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e"
+  )
 ```
 
-4. Disconnect from the database using `dbDisconnect()`
+2. Disconnect from the database using `dbDisconnect()`
 ```{r}
-dbDisconnect(con)
-```
-
-## 1.9 - Use options()
-
-1. Open and explore the `options.R` script available in your working directory
-
-2. Source the `options.R` script
-```{r}
-source("options.R")
-```
-
-3. Confirm that the environment variables are loaded by using `Sys.getenv()`
-```{r}
-getOption("database_userid")
-```
-
-4. Pass the credentials using the environment variables
-```{r, eval = FALSE}
-con <- dbConnect(
-  odbc::odbc(),
-  Driver = "PostgreSQL",
-  Server = "localhost",
-  UID    = getOption("database_userid"),
-  PWD    = getOption("database_password"),
-  Port = 5432,
-  Database = "postgres"
-)
-```
-
-5. Disconnect from the database using `dbDisconnect()`
-```{r}
+#| eval: false
 dbDisconnect(con)
 ```
