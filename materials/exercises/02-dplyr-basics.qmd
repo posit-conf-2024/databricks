@@ -2,6 +2,7 @@
 title: "dplyr basics"
 execute: 
   eval: true
+  freeze: true
 ---
 
 

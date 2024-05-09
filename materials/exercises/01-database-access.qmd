@@ -2,9 +2,10 @@
 title: "Access a database"
 execute: 
   eval: true
+  freeze: true
 ---
 
-## 1.1 - Connect to a database
+## Connect to a database
 
 1. Click on the `Connections` tab
 
@@ -14,7 +15,7 @@ execute:
 
 1. Click OK
 
-## 1.2 - Explore the database using the RStudio IDE
+## Explore the database using the RStudio IDE
 
 1. Expand the `samples` catalog
 
@@ -29,7 +30,7 @@ execute:
 1. Click on the *disconnect* icon to close the connection
 
 
-## 1.3 - List drivers and DSNs 
+## List drivers and DSNs 
 
 1. To get a list of drivers available in the server
 ```{r, access}
@@ -51,7 +52,7 @@ odbcListDataSources()
 
 6. Using the *ellipsis* button again, navigate to `/etc/odbc.ini`
 
-## 1.4 - Connect to a database using code
+## Connect to a database using code
 
 1. Run the following code to connect
 ```{r}
@@ -91,7 +92,7 @@ sql_top10
 dbDisconnect(con)
 ```
 
-## 1.5 - RStudio SQL Script
+## RStudio SQL Script
 
 *Try out the new SQL Script support in RStudio*
 
@@ -103,7 +104,7 @@ dbDisconnect(con)
 
 1. Click on *Preview* again
 
-## 1.6 - Connect to a database without a DSN
+## Connect to a database without a DSN
 *A more complex way of connecting to a database https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcodbc-function*
 
 1. Use the following code to start a new connection that does not use the pre-defined DSN
@@ -130,7 +131,7 @@ con <- dbConnect(
 dbDisconnect(con)
 ```
 
-## 1.6 - Connect to a database without a DSN, a better option
+## Connect to a database without a DSN, a better option
 *A more complex way of connecting to a database https://solutions.posit.co/connections/db/databases/databricks/#using-the-new-odbcdatabricks-function*
 
 1. Use the newer `odbc::databricks()` as the driver, which automatically sets the
