@@ -22,6 +22,20 @@ Edgar Ruiz \@ Posit
 
 [linkedin.com/in/edgararuiz](https://www.linkedin.com/in/edgararuiz/)
 
+## Today's Schedule {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+::: schedule
+| Time         | Activity          |
+|:-------------|:------------------|
+| 9 - 10:30    | **Session 1** 🙂  |
+| 10:30 - 11   | *Coffee break* ☕ |
+| 11 - 12:30   | **Session 2** 😀  |
+| 12:30 - 1:30 | *Lunch break* 🥣  |
+| 1:30 - 3     | **Session 3** 😄  |
+| 3 - 3:30     | *Coffee break* ☕ |
+| 3:30 - 5     | **Session 4** 😁  |
+:::
+
 ## Simple {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
 ## Frame Dark {background-image="assets/background/slide-frame-dark.png" background-size="1500px" background-color="#2a7070"}
@@ -30,4 +44,4 @@ Edgar Ruiz \@ Posit
 
 ## Thank you {background-image="assets/background/thank-you.png" background-size="1500px" background-color="#2a7070"}
 
-![](assets/background/racoon.jpg){.absolute top=210 left=820 width=450}
+![](assets/background/racoon.jpg){.absolute top="210" left="820" width="450"}

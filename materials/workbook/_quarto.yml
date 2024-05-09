@@ -1,0 +1,19 @@
+project:
+  type: book
+
+book:
+  chapters:
+    - index.qmd
+    - part: odbc.qmd
+      chapters:
+      - 01-database-access.qmd
+      - 02-dplyr-basics.qmd
+    
+format:
+  html:
+    toc: true
+
+knitr:
+  opts_chunk: 
+    collapse: true
+    comment: "#>"     

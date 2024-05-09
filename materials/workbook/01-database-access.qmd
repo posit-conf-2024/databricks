@@ -1,0 +1,152 @@
+---
+title: "Access a database"
+execute: 
+  eval: true
+  freeze: true
+---
+
+## Connect to a database
+
+1. Click on the `Connections` tab
+
+1. Click on the `New Connection` button
+
+1. Select `Databricks Warehouse`
+
+1. Click OK
+
+## Explore the database using the RStudio IDE
+
+1. Expand the `samples` catalog
+
+1. Expand the `tpch` schema
+
+1. Expand the `customer` table
+
+1. Click on the table icon to the right of the `customer` table 
+
+1. *(Optional)* Expand and explore the other tables
+
+1. Click on the *disconnect* icon to close the connection
+
+
+## List drivers and DSNs 
+
+1. To get a list of drivers available in the server
+```{r, access}
+library(odbc)
+
+odbcListDrivers()[1:2]
+```
+
+2. Click on the *ellipsis* button located in the **Files** tab
+
+3. Type: `/etc`
+
+4. Locate and open the `odbcinst.ini` file
+
+5. To see a list of DSNs available in the server
+```{r}
+odbcListDataSources()
+```
+
+6. Using the *ellipsis* button again, navigate to `/etc/odbc.ini`
+
+## Connect to a database using code
+
+1. Run the following code to connect
+```{r}
+library(DBI)
+
+con <- dbConnect(odbc::odbc(), dsn = "warehouse")
+```
+
+2. Use `dbListTables()` to retrieve a list of tables
+
+```{r}
+dbListTables(con)
+```
+
+3. Use `dbGetQuery()` to run a quick query
+```{r}
+odbc::dbGetQuery(con, "SELECT * FROM samples.nyctaxi.trips LIMIT 10")
+```
+
+4. Use the SQL chunk
+```{sql}
+#| connection: con
+SELECT * FROM samples.nyctaxi.trips LIMIT 10
+```
+
+5. Use the `output.var` option to load results to a variable
+```{sql, connection = con, output.var = "sql_top10"}
+SELECT * FROM samples.nyctaxi.trips LIMIT 10
+```
+
+6. Test the variable
+```{r}
+sql_top10
+```
+
+7. Disconnect from the database using `dbDisconnect()`
+```{r}
+dbDisconnect(con)
+```
+
+## RStudio SQL Script
+
+*Try out the new SQL Script support in RStudio*
+
+1. Open the *query-example.sql* file
+
+1. Click the *Preview* button. It is located in the top-right area of the script
+
+1. In the script, change *customer* to *orders*
+
+1. Click on *Preview* again
+
+## Connect to a database without a DSN
+*A more complex way of connecting to a database https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcodbc-function*
+
+1. Use the following code to start a new connection that does not use the pre-defined DSN
+```{r}
+#| eval: false
+con <- dbConnect(
+  odbc::odbc(),
+  Driver = "/Library/simba/spark/lib/libsparkodbc_sb64-universal.dylib",
+  Host = Sys.getenv("DATABRICKS_HOST"),
+  Port = 443,
+  AuthMech = 3,
+  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e",
+  Protocol = "https",
+  ThriftTransport = 2,
+  SSL = 1,
+  UID = "token",
+  PWD = Sys.getenv("DATABRICKS_TOKEN")
+  )
+```
+
+2. Disconnect from the database using `dbDisconnect()`
+```{r}
+#| eval: false
+dbDisconnect(con)
+```
+
+## Connect to a database without a DSN, a better option
+*A more complex way of connecting to a database https://solutions.posit.co/connections/db/databases/databricks/#using-the-new-odbcdatabricks-function*
+
+1. Use the newer `odbc::databricks()` as the driver, which automatically sets the
+defaults for you
+```{r}
+#| eval: false
+con <- dbConnect(
+  odbc::databricks(),
+  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e"
+  )
+```
+
+2. Disconnect from the database using `dbDisconnect()`
+```{r}
+#| eval: false
+dbDisconnect(con)
+```

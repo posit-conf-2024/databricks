@@ -1,0 +1,27 @@
+---
+format:
+  html:
+    toc: false
+---
+# Using R with Databricks  {.unnumbered}
+
+As most organization’s data migrate to the cloud, the ability to analyze data 
+in-place becomes more important. This workshop will walk you through how to
+think about remote data, how to access it, and how to analyze it efficiently. 
+We will review the latest in integrations between R and Databricks. The two 
+integrations that we will review are:
+
+- Spark via Databricks Connect
+
+- ODBC connection
+
+During the workshop, we will discuss best practices for when to use which
+integration, as well as techniques to take your analysis into production.
+
+This course is for you if you:
+
+- Are an R user
+
+- Plan, or are currently, using Databricks services
+
+- Need to learn how to access and analyze data in Databricks
