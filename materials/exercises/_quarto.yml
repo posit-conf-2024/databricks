@@ -2,13 +2,13 @@ project:
   type: book
 
 book:
-  title: "Using R with Databricks"
   chapters:
     - index.qmd
     - 01-database-access.qmd
     - 02-dplyr-basics.qmd
+    
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    fontsize: 1em
+    linestretch: 1.3
     toc: true
