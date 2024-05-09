@@ -6,7 +6,7 @@ execute:
 ---
 
 
-```{r}
+```{r, setup}
 #| include: false
 library(dplyr)
 library(dbplyr)
@@ -95,6 +95,7 @@ customers %>%
 ```{r}
 customers %>%
   mutate(today = Sys.time()) %>%
+  select(today) %>% 
   show_query()
 ```
 
@@ -103,6 +104,7 @@ customers %>%
 ```{r}
 customers %>%
   mutate(today = current_date()) %>%
+  select(today) %>% 
   show_query()
 ```
 
@@ -145,12 +147,13 @@ customers %>%
 ```{r}
 customers %>%
   mutate(today = !!Sys.time()) %>%
+  select(today) %>% 
   show_query()
 ```
 
 2. Paste the result in this SQL chunk
 ```{sql, connection = con}
-SELECT `customer`.*, '2024-05-09T13:37:11Z' AS `today`
+SELECT '2024-05-09T19:35:08Z' AS `today`
 FROM `samples`.`tpch`.`customer`
 ```
 

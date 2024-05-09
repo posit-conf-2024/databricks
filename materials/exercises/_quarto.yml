@@ -4,11 +4,16 @@ project:
 book:
   chapters:
     - index.qmd
-    - 01-database-access.qmd
-    - 02-dplyr-basics.qmd
+    - part: odbc.qmd
+      chapters:
+      - 01-database-access.qmd
+      - 02-dplyr-basics.qmd
     
 format:
   html:
-    fontsize: 1em
-    linestretch: 1.3
     toc: true
+
+knitr:
+  opts_chunk: 
+    collapse: true
+    comment: "#>"     

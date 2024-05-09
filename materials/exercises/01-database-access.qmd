@@ -57,6 +57,7 @@ odbcListDataSources()
 1. Run the following code to connect
 ```{r}
 library(DBI)
+
 con <- dbConnect(odbc::odbc(), dsn = "warehouse")
 ```
 
@@ -68,18 +69,18 @@ dbListTables(con)
 
 3. Use `dbGetQuery()` to run a quick query
 ```{r}
-odbc::dbGetQuery(con, "SELECT * FROM samples.tpch.customer LIMIT 10")
+odbc::dbGetQuery(con, "SELECT * FROM samples.nyctaxi.trips LIMIT 10")
 ```
 
 4. Use the SQL chunk
 ```{sql}
 #| connection: con
-SELECT * FROM samples.tpch.customer LIMIT 10
+SELECT * FROM samples.nyctaxi.trips LIMIT 10
 ```
 
 5. Use the `output.var` option to load results to a variable
 ```{sql, connection = con, output.var = "sql_top10"}
-SELECT * FROM samples.tpch.customer LIMIT 10
+SELECT * FROM samples.nyctaxi.trips LIMIT 10
 ```
 
 6. Test the variable
