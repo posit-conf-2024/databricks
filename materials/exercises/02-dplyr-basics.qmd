@@ -1,0 +1,198 @@
+---
+title: "dplyr basics"
+execute: 
+  eval: true
+---
+
+
+```{r}
+#| include: false
+library(dplyr)
+library(dbplyr)
+library(DBI)
+```
+
+## Create a table variable
+
+*Basics to how to point a variable in R to a table or view inside the database*
+
+
+1. Load the `dplyr`, `DBI` and `dbplyr` libraries
+```{r, dplyr}
+library(dplyr)
+library(dbplyr)
+library(DBI)
+```
+
+2. *(Optional)* Open a connection to the database if it's currently closed
+```{r}
+con <- dbConnect(odbc::odbc(), "warehouse")
+```
+
+
+3. Use the `tbl()` and `in_catalog()` functions to create a reference to a table
+```{r}
+tbl(con, in_catalog("samples", "tpch", "customer"))
+```
+
+4. Load the reference, not the table data, into a variable
+```{r}
+customers <- tbl(con, in_catalog("samples", "tpch", "customer"))
+```
+
+
+5. Call the variable to see preview the data in the table
+```{r}
+customers
+```
+
+6. Set up the pointers to the other of the tables
+```{r}
+orders <- tbl(con, in_catalog("samples", "tpch", "orders"))
+regions <- tbl(con, in_catalog("samples", "tpch", "region"))
+```
+
+## Under the hood 
+*Use `show_query()` to preview the SQL statement that will be sent to the database*
+
+1. SQL statement that actually runs when we ran `customers` as a command
+```{r}
+show_query(customers)
+```
+
+2. Easily view the resulting query by adding `show_query()` in another piped command
+```{r}
+customers %>%
+  show_query()
+```
+
+3. Insert `head()` in between the two statements to see how the SQL changes
+```{r}
+customers %>%
+  head() %>%
+  show_query()
+```
+
+4. Use `sql_render()` and `simulate_mssql()` to see how the SQL statement changes from vendor to vendor
+```{r}
+customers %>%
+  head() %>%
+  sql_render(con = simulate_mssql()) 
+```
+
+5. Use `explain()` to explore the query plan
+```{r}
+customers %>% 
+  head() %>% 
+  explain()
+```
+
+## Un-translated R commands
+*Review of how `dbplyr` handles R commands that have not been translated into a like-SQL command*
+
+1. Preview how `Sys.time()` is translated
+```{r}
+customers %>%
+  mutate(today = Sys.time()) %>%
+  show_query()
+```
+
+2. Use Databricks's native commands, in this case `current_date()` 
+(https://docs.databricks.com/en/sql/language-manual/functions/current_date.html)
+```{r}
+customers %>%
+  mutate(today = current_date()) %>%
+  show_query()
+```
+
+3. Run the `dplyr` code to confirm it works
+```{r}
+customers %>%
+  mutate(today = current_date()) %>%
+  select(today) %>%
+  head()
+```
+
+## Using bang-bang
+*Intro on passing unevaluated code to a dplyr verb*
+
+1. Preview how `Sys.time()` is translated
+```{r}
+customers %>%
+  mutate(today = Sys.time()) %>%
+  show_query()
+```
+
+2. Preview how `Sys.time()` is translated when prefixing `!!`
+```{r}
+customers %>%
+  mutate(today = !! Sys.time()) %>%
+  show_query()
+```
+
+3. Preview how `Sys.time()` is translated when prefixing `!!`
+```{r}
+customers %>%
+  mutate(today = !!Sys.time()) %>%
+  select(today) %>%
+  head()
+```
+
+## knitr SQL engine
+
+1. Copy the result of the latest `show_query()` exercise
+```{r}
+customers %>%
+  mutate(today = !!Sys.time()) %>%
+  show_query()
+```
+
+2. Paste the result in this SQL chunk
+```{sql, connection = con}
+SELECT `customer`.*, '2024-05-09T13:37:11Z' AS `today`
+FROM `samples`.`tpch`.`customer`
+```
+
+
+## Basic aggregation
+*A couple of `dplyr` commands that run in-database*
+
+1. How many records are in the **airport** table?
+```{r}
+customers  %>%
+  count()
+```
+
+2. What is the average character length of the airport codes? How many characters is the longest and the shortest airport name?
+```{r}
+customers %>%
+  summarise(
+    avg_customer_balance = mean(c_acctbal, na.rm = TRUE),
+    max_customer_balance = max(c_acctbal, na.rm = TRUE),
+    min_customer_balance = min(c_acctbal, na.rm = TRUE),
+    total_records = n()
+  )
+```
+
+3. How many records are in the **orders** table?
+```{r}
+orders %>%
+  count()
+```
+
+4. What is the highest total price of an order?
+```{r}
+orders %>%
+  summarise(x = max(o_totalprice, na.rm = TRUE))
+```
+
+5. What is the SQL statement sent in exercise 4?
+```{r}
+orders %>%
+  summarise(x = max(o_totalprice, na.rm = TRUE)) %>%
+  show_query()
+```
+
+```{r, include = FALSE}
+dbDisconnect(con)
+```
