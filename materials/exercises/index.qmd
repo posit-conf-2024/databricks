@@ -1,3 +1,8 @@
+---
+format:
+  html:
+    toc: false
+---
 # Using R with Databricks  {.unnumbered}
 
 As most organization’s data migrate to the cloud, the ability to analyze data 
