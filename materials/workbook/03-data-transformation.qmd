@@ -23,14 +23,31 @@ lineitems <- tbl(con, in_catalog("samples", "tpch", "lineitem"))
 1. How many orders are there per year?
 ```{r}
 orders %>% 
-  group_by(year(o_orderdate)) %>% 
-  count()
+  count(year(o_orderdate))
 ```
 
 2. Sort them by from highest to lowest 
 ```{r}
 orders %>% 
-  group_by(year(o_orderdate)) %>% 
-  count(sort = TRUE)
+  count(year(o_orderdate), sort = TRUE)
+```
+
+
+```{r}
+orders_view <- orders %>% 
+  left_join(customers, by = c("o_custkey" = "c_custkey"))
+```
+
+```{r}
+orders_view %>% 
+  show_query()
+```
+```{r}
+orders_view %>% 
+  group_by(c_mktsegment) %>% 
+  count()
+```
+```{r}
+orders
 ```
 

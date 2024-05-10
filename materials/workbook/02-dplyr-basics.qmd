@@ -50,7 +50,7 @@ customers
 6. Set up the pointers to the other of the tables
 ```{r}
 orders <- tbl(con, in_catalog("samples", "tpch", "orders"))
-regions <- tbl(con, in_catalog("samples", "tpch", "region"))
+lineitems <- tbl(con, in_catalog("samples", "tpch", "lineitem"))
 ```
 
 ## Under the hood 
@@ -161,7 +161,7 @@ FROM `samples`.`tpch`.`customer`
 ## Basic aggregation
 *A couple of `dplyr` commands that run in-database*
 
-1. How many records are in the **airport** table?
+1. How many records are in the **customers** table?
 ```{r}
 customers  %>%
   count()
