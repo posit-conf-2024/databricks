@@ -9,6 +9,7 @@ $presentation-h1-font-size: 3.4em;
 $presentation-h2-font-size: 2em;
 $presentation-h3-font-size: 1.8em;
 $mermaid-font-size: 100px;
+$font-family-sans-serif: "Source Sans Pro", !default;
 /*-- scss:rules --*/
 
 .reveal .slide blockquote {
@@ -54,7 +55,12 @@ $mermaid-font-size: 100px;
   color: #fff;
 }
 
-.schedule {
-  text-align: center;
-  font-size: 40px;
+.schedule p {
+  font-size: 60px;
+  line-height: 1.6;
+}
+
+.schedule1 p {
+  font-size: 120px;
+  color: #579297;
 }
