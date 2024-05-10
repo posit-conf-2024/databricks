@@ -16,11 +16,22 @@ execute:
 engine: knitr
 ---
 
-# Using Databricks with R {background-image="assets/background/title-slide-white.png" background-size="1500px" background-color="white"}
+# Welcome to<br/> *Using Databricks<br/> with R* {background-image="assets/background/title-slide-white.png" background-size="1500px" background-color="white"}
 
-Edgar Ruiz \@ Posit
+## Housekeeping items {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
-[linkedin.com/in/edgararuiz](https://www.linkedin.com/in/edgararuiz/)
+:::: {.columns}
+::: {.column width="20%"}
+:::
+::: {.column width="60%"}
+:::custom
+- **posit::conf** mobile app
+- Wi-fi password
+- Accessing your server
+:::
+:::
+::::
+
 
 ## {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 :::: {.columns}
