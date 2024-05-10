@@ -1,0 +1,36 @@
+---
+title: "Data Transformation"
+execute: 
+  eval: true
+  freeze: true
+---
+
+
+```{r, setup}
+#| include: false
+library(dplyr)
+library(dbplyr)
+library(DBI)
+con <- dbConnect(odbc::odbc(), "warehouse", catalog = "samples")
+customers <- tbl(con, in_catalog("samples", "tpch", "customer"))
+orders <- tbl(con, in_catalog("samples", "tpch", "orders"))
+lineitems <- tbl(con, in_catalog("samples", "tpch", "lineitem"))
+```
+
+## Group and sort records
+*Learn how to use `group_by()` and `arrange()` to better understand aggregated data*
+
+1. How many orders are there per year?
+```{r}
+orders %>% 
+  group_by(year(o_orderdate)) %>% 
+  count()
+```
+
+2. Sort them by from highest to lowest 
+```{r}
+orders %>% 
+  group_by(year(o_orderdate)) %>% 
+  count(sort = TRUE)
+```
+
