@@ -1,7 +1,7 @@
 ---
 format: 
   revealjs:
-    width: 1255
+    width: 1400
     height: 740
     max-scale: 1
     min-scale: 1
@@ -56,6 +56,25 @@ Lunch (1hr)
 Break (30mins)
 
 **3:30pm - 5pm**
+:::
+:::
+::::
+
+## The team {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+[TODO: add names and pictures]
+
+## Materials {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+:::: {.columns}
+::: {.column width="30%"}
+:::
+::: {.column width="60%"}
+:::custom
+- Posit Server
+- Databricks Cluster
+- Deck
+- Exercise book
 :::
 :::
 ::::
