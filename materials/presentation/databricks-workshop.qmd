@@ -8,7 +8,7 @@ format:
     smaller: true
     transition: fade
     background-transition: fade
-    theme: [default, theme.scss]
+    theme: theme.scss
     code-line-numbers: false
     menu: false
 execute: 
