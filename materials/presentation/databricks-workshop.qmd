@@ -16,31 +16,32 @@ execute:
 engine: knitr
 ---
 
-# Welcome to<br/> *Using Databricks<br/> with R* {background-image="assets/background/title-slide-white.png" background-size="1500px" background-color="white"}
+# Welcome to<br/> *Using Databricks*<br/> with R {background-image="assets/background/title-slide-white.png" background-size="1500px" background-color="white"}
 
 ## Housekeeping items {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
-:::: {.columns}
+::: columns
 ::: {.column width="20%"}
 :::
+
 ::: {.column width="60%"}
-:::custom
-- **posit::conf** mobile app
-- Wi-fi password
-- Accessing your server
+::: custom
+-   **posit::conf** mobile app
+-   Wi-fi password
+-   Accessing your server
 :::
 :::
-::::
+:::
 
+##  {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
-## {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
-:::: {.columns}
+::: columns
 ::: {.column width="60%"}
 ::: schedule1
-<br/><br/>
-Schedule
+<br/><br/> Schedule
 :::
 :::
+
 ::: {.column width="40%"}
 ::: schedule
 **9am - 10:30am**
@@ -58,26 +59,34 @@ Break (30mins)
 **3:30pm - 5pm**
 :::
 :::
-::::
+:::
 
 ## The team {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
-[TODO: add names and pictures]
+\[TODO: add names and pictures\]
 
 ## Materials {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
-:::: {.columns}
+::: columns
 ::: {.column width="30%"}
 :::
+
 ::: {.column width="60%"}
-:::custom
-- Posit Server
-- Databricks Cluster
-- Deck
-- Exercise book
+::: custom
+-   Posit Server
+-   Databricks Cluster
+-   Deck
+-   Exercise book
 :::
 :::
-::::
+:::
+
+## Wrangle inside the database {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+![](assets/diagrams/extract-data.png){.absolute top="255" left="100" width="500"}
+
+![](assets/diagrams/push-collect.png){.absolute top="140" left="800" width="500"}
+
 
 ## Simple {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
