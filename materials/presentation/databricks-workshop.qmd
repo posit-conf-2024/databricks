@@ -88,7 +88,41 @@ Break (30mins)
 ![](assets/diagrams/push-collect.png){.absolute top="140" left="800" width="500"}
 
 
+## Options to "push compute" {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+::: columns
+::: {.column width="45%"}
+
+Write SQL statement
+
+```sql
+SELECT 
+  `o_orderpriority`, 
+  SUM(`o_totalprice`) AS `total`
+FROM 
+  `samples`.`tpch`.`orders`
+GROUP BY 
+  `o_orderpriority`
+```
+
+:::
+::: {.column width="55%"}
+
+Use `dplyr` verbs
+
+```r
+orders %>% 
+  group_by(o_orderpriority) %>% 
+  summarise(
+  total = sum(o_totalprice, na.rm = TRUE)
+  )
+```
+
+:::
+:::
+
 ## Simple {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
 
 ## Frame Dark {background-image="assets/background/slide-frame-dark.png" background-size="1500px" background-color="#2a7070"}
 
