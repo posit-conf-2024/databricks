@@ -87,18 +87,17 @@ $font-family-sans-serif: "Source Sans Pro", !default;
 
 .content-slide-title p {
   color: #579297;
-  font-size: 130px;
-  font-weight: 1000;
+  font-size: 100px;
 }
 
 .content-slide p {
-  color: #888;
-  font-weight: 1000;
-  font-size: 90px;
+  color: #666;
+  line-height: 1;
+  font-size: 120px;
 }
 
 .content-slide code {
-  font-size: 80px;
+  font-size: 100px;
 }
 
 .content-slide-thin p {
