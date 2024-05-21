@@ -48,16 +48,26 @@ $font-family-sans-serif: "Source Sans Pro", !default;
 }
 
 .dark-slide p {
+  line-height: 0.4;
+  padding-top: 0.7em;
+  padding-left: 1.3em;
+  font-size: 90px;
   color: #fff;
 }
 
+.dark-slide code {
+  line-height: 0.1;
+  font-size: 80px;
+}
+
 .dark-slide li {
+  line-height: 1;
   color: #fff;
 }
 
 .schedule p {
   font-size: 60px;
-  line-height: 1.6;
+  line-height: 1;
 }
 
 .schedule1 p {
