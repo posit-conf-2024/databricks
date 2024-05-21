@@ -121,6 +121,24 @@ orders %>%
 :::
 :::
 
+## Advantages {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+::: columns
+::: {.column width="60%"}
+
+::: {.custom}
+- `dplyr` translates to SQL
+- Modularity of piped code
+- All your code is in R!
+:::
+
+:::
+::: {.column width="40%"}
+
+![](assets/diagrams/dplyr-push.png){.absolute width="550"}
+:::
+:::
+
 ## Simple {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
 
