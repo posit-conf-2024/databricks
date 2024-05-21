@@ -38,7 +38,7 @@ engine: knitr
 ::: columns
 ::: {.column width="60%"}
 ::: schedule1
-<br/><br/> Schedule
+<br/> Schedule
 :::
 :::
 
@@ -81,18 +81,19 @@ Break (30mins)
 :::
 :::
 
-## {background-image="assets/background/slide-frame-dark.png" background-size="1500px" background-color="#2a7070"}
+## {background-image="assets/background/content.png" background-size="1500px" background-color="#2a7070"}
 
-
-
-:::{.dark-slide}
-**Unit 2 & 3**
-<br/><br/><br/><br/><br/>
-Using `dplyr`
-
-*/dee-plier/*
+:::{.content-slide-title}
+Unit 2 & 3
 :::
 
+:::{.content-slide}
+Using `dplyr`
+:::
+
+:::{.content-slide-thin}
+/dee-plier/
+:::
 
 ## Wrangle inside the database {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 

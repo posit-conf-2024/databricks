@@ -67,7 +67,7 @@ $font-family-sans-serif: "Source Sans Pro", !default;
 
 .schedule p {
   font-size: 60px;
-  line-height: 1;
+  line-height: 1.4;
 }
 
 .schedule1 p {
@@ -83,4 +83,26 @@ $font-family-sans-serif: "Source Sans Pro", !default;
 .custom code {
   font-size: 70px;
   line-height: 1.6;
+}
+
+.content-slide-title p {
+  color: #579297;
+  font-size: 130px;
+  font-weight: 1000;
+}
+
+.content-slide p {
+  color: #888;
+  font-weight: 1000;
+  font-size: 90px;
+}
+
+.content-slide code {
+  font-size: 80px;
+}
+
+.content-slide-thin p {
+  font-size: 70px;
+  font-weight: 100;
+  font-family:Helvetica Neue
 }
