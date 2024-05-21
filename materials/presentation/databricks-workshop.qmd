@@ -102,6 +102,12 @@ Unit 1
 Accessing <br/> Databricks 
 :::
 
+## {background-image="assets/background/green.png" background-size="1500px" background-color="#799857"}
+
+:::{.green-slide}
+Exercises 1.1 - 1.7
+:::
+
 ## {background-image="assets/background/content.png" background-size="1500px" background-color="#2a7070"}
 
 :::{.content-slide-title}
@@ -183,6 +189,12 @@ orders %>% <br/>
 
 ![](assets/diagrams/dplyr-push.png){.absolute width="550"}
 :::
+:::
+
+## {background-image="assets/background/green.png" background-size="1500px" background-color="#799857"}
+
+:::{.green-slide}
+Exercises 2.1 - 2.6
 :::
 
 ## {background-image="assets/background/thank-you.png" background-size="1500px" background-color="#2a7070"}

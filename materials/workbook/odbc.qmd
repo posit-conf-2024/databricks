@@ -1,1 +1,1 @@
-# ODBC {.unumbered}
+# Databricks Warehouse  {.unumbered}
