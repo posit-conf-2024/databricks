@@ -105,3 +105,22 @@ $font-family-sans-serif: "Source Sans Pro", !default;
   font-weight: 100;
   font-family:Helvetica Neue
 }
+
+
+.push-thin p {
+  font-size: 50px;
+  font-weight: 200;
+  font-family:Helvetica Neue
+}
+
+.push p {
+  text-align: center;
+  color: #579297;
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.push code {
+  font-size: 50px;
+  font-weight: 1000;
+}

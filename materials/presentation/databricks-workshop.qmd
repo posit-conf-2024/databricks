@@ -16,7 +16,18 @@ execute:
 engine: knitr
 ---
 
-# Welcome to<br/> *Using Databricks*<br/> with R {background-image="assets/background/title-slide-white.png" background-size="1500px" background-color="white"}
+# {background-image="assets/background/title-slide-white.png" background-size="1500px" background-color="white"}
+
+::: {.content-slide}
+**Using** **Databricks** <br/> **with** **R** 
+:::
+
+::: {.content-slide-thin}
+Workshop 
+<br/>
+August 12
+:::
+
 
 ## Housekeeping items {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
@@ -88,7 +99,7 @@ Unit 1
 :::
 
 :::{.content-slide}
-Accessing <br/> databases
+Accessing <br/> Databricks 
 :::
 
 ## {background-image="assets/background/content.png" background-size="1500px" background-color="#2a7070"}
@@ -114,33 +125,44 @@ Using `dplyr`
 
 ## Options to "push compute" {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
+<br/>
+
 ::: columns
-::: {.column width="45%"}
+::: {.column width="50%"}
 
+:::{.push}
 Write SQL statement
+:::
 
-```sql
-SELECT 
-  `o_orderpriority`, 
-  SUM(`o_totalprice`) AS `total`
-FROM 
-  `samples`.`tpch`.`orders`
-GROUP BY 
-  `o_orderpriority`
-```
+<br/>
+
+:::{.push-thin}
+
+*SELECT*
+  'o_orderpriority', 
+  SUM('o_totalprice') AS 'total'
+  <br/>
+*FROM*
+  'samples'.'tpch'.'orders'
+  <br/>
+*GROUP BY *
+  'o_orderpriority'
+:::
 
 :::
-::: {.column width="55%"}
+::: {.column width="50%"}
 
+:::{.push}
 Use `dplyr` verbs
+:::
 
-```r
-orders %>% 
-  group_by(o_orderpriority) %>% 
-  summarise(
-  total = sum(o_totalprice, na.rm = TRUE)
-  )
-```
+<br/>
+
+:::{.push-thin}
+orders %>% <br/>
+  *group_by*(o_orderpriority) %>% <br/>
+  *summarise*(total = sum(o_totalprice, na.rm = TRUE))
+:::
 
 :::
 :::
@@ -163,6 +185,10 @@ orders %>%
 :::
 :::
 
+## {background-image="assets/background/thank-you.png" background-size="1500px" background-color="#2a7070"}
+
+![](assets/background/racoon.jpg){.absolute top="220" left="900" width="430"}
+
 ## Simple {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
 
@@ -170,6 +196,4 @@ orders %>%
 
 ## Frame Bright {background-image="assets/background/slide-frame.png" background-size="1500px" background-color="white"}
 
-## Thank you {background-image="assets/background/thank-you.png" background-size="1500px" background-color="#2a7070"}
 
-![](assets/background/racoon.jpg){.absolute top="210" left="820" width="450"}
