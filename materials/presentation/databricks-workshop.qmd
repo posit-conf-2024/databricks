@@ -139,6 +139,24 @@ Data and processing <br/> need to be as **close** as possible
 
 ![](assets/diagrams/topology.png){.absolute top="80" left="120" width="1100"}
 
+## "Default" approach {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+
+![](assets/diagrams/topology.png){.absolute top="80" left="120" width="1100"}
+![](assets/diagrams/data.png){.absolute top="230" left="850" width="120"}
+![](assets/diagrams/data.png){.absolute top="610" left="850" width="120"}
+![](assets/diagrams/processing.png){.absolute top="400" left="0" width="140"}
+![](assets/diagrams/download-data.png){.absolute top="250" left="300" width="550"}
+
+## Better approach! {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+
+![](assets/diagrams/topology.png){.absolute top="80" left="120" width="1100"}
+![](assets/diagrams/data.png){.absolute top="230" left="850" width="120"}
+![](assets/diagrams/data.png){.absolute top="610" left="850" width="120"}
+![](assets/diagrams/processing.png){.absolute top="400" left="0" width="140"}
+![](assets/diagrams/download.png){.absolute top="250" left="300" width="550"}
+
 ## {background-image="assets/background/content.png" background-size="1500px" background-color="#2a7070"}
 
 :::{.content-slide-title}
