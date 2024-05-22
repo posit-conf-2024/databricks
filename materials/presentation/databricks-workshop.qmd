@@ -74,7 +74,29 @@ Break (30mins)
 
 ## The team {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
-\[TODO: add names and pictures\]
+![](assets/diagrams/edgar.png){.absolute top="230" left="100" width="500"}
+![](assets/diagrams/james.png){.absolute top="230" left="820" width="500"}
+
+:::{.columns}
+:::{.column}
+:::{.team}
+Edgar Ruiz 
+:::
+:::{.team-thin}
+Instructor
+:::
+:::
+:::{.column}
+:::{.team}
+James Blair
+:::
+:::{.team-thin}
+TA
+:::
+:::
+:::
+
+
 
 ## Materials {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
