@@ -177,6 +177,10 @@ Exercises 1.1 - 1.2
 Exercises 1.3 - 1.5
 :::
 
+## How everything connects {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+![](assets/diagrams/odbc.png){.absolute top="100" left="80" width="1300"}
+
 ## Drivers and DSNs {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
 :::{.push}
