@@ -194,7 +194,7 @@ Using `dplyr`
 /dee-plier/
 :::
 
-## Wrangle inside the database {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Approaches {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
 ![](assets/diagrams/extract-data.png){.absolute top="255" left="100" width="500"}
 
