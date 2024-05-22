@@ -138,6 +138,22 @@ interact with the database. Use `odbcListDrivers()` to see what is installed in 
 Exercise 1.6
 :::
 
+## Using DBI  {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+:::{.push}
+- `dbConnect()` - Connects to the database
+- `dbDisconnect()` - Disconnects the database
+- `dbListTables()` - Lists the tables 
+- `dbListFields()` - Lists the fields of a table 
+- `dbGetQuery()` - Main function, runs the query & collects results
+:::
+
+## {background-image="assets/background/green.png" background-size="1500px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise 1.7
+:::
+
 ## {background-image="assets/background/content.png" background-size="1500px" background-color="#2a7070"}
 
 :::{.content-slide}
