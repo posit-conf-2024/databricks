@@ -108,10 +108,34 @@ Accessing <br/> Databricks
 Exercises 1.1 - 1.2
 :::
 
+## Connecting {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+:::{.incremental}
+:::{.push}
+- `odbc::odbc()` - Needs all required arguments to be passed to the connection **(Good)**
+- `odbc::databricks()` - Sets "sensible" defaults to arguments not passed to the connection **(Better)**
+- Data Source Name (DSN) - A named connection that is set within the machine **(Best)**
+:::
+:::
+
 ## {background-image="assets/background/green.png" background-size="1500px" background-color="#799857"}
 
 :::{.green-slide}
-Exercises 1.3 - 1.7
+Exercises 1.3 - 1.5
+:::
+
+## Drivers and DSNs {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+:::{.push}
+- **Database drivers** - Operating system specific application used to connect and
+interact with the database. Use `odbcListDrivers()` to see what is installed in your machine
+- **DSN** - Use `odbcListDataSources()` to see the database connections pre-set in your machine
+:::
+
+## {background-image="assets/background/green.png" background-size="1500px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise 1.6
 :::
 
 ## {background-image="assets/background/content.png" background-size="1500px" background-color="#2a7070"}
