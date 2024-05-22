@@ -134,6 +134,10 @@ Key concept 🔑
 Data and processing <br/> need to be as **close** as possible
 :::
 
+## Working with Databricks {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+
+![](assets/diagrams/topology.png){.absolute top="80" left="120" width="1100"}
 
 ## {background-image="assets/background/content.png" background-size="1500px" background-color="#2a7070"}
 
