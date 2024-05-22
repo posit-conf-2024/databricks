@@ -178,7 +178,17 @@ Data and processing <br/> need to be as **close** as possible
 ![](assets/diagrams/processing.png){.absolute top="430" left="800" width="140"}
 ![](assets/diagrams/data.png){.absolute top="610" left="850" width="120"}
 
+## Takeaways {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
+
+:::{.incremental}
+:::{.push}
+- Downloading data is a valid approach, as long as we are doing something that only R can do
+-  🔑 Data and processing need to be as **close** as possible
+- It is possible to move most, if not all, of the processing to the database and Spark
+- But how?...
+:::
+:::
 
 ## {background-image="assets/background/content.png" background-size="1500px" background-color="#2a7070"}
 
