@@ -1,1 +1,1 @@
-# Databricks Warehouse  {.unumbered}
+# Databricks SQL Warehouse  {.unumbered}
