@@ -105,8 +105,35 @@ Accessing <br/> Databricks
 ## {background-image="assets/background/green.png" background-size="1500px" background-color="#799857"}
 
 :::{.green-slide}
-Exercises 1.1 - 1.7
+Exercises 1.1 - 1.2
 :::
+
+## {background-image="assets/background/green.png" background-size="1500px" background-color="#799857"}
+
+:::{.green-slide}
+Exercises 1.3 - 1.7
+:::
+
+## {background-image="assets/background/content.png" background-size="1500px" background-color="#2a7070"}
+
+:::{.content-slide}
+**A bit of **<br/>
+**"mental** <br/>
+**modeling"**
+:::
+
+## {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+:::{.content-slide-title}
+Key concept 🔑
+:::
+
+<br/>
+
+:::{.content-slide}
+Data and processing <br/> need to be as **close** as possible
+:::
+
 
 ## {background-image="assets/background/content.png" background-size="1500px" background-color="#2a7070"}
 
