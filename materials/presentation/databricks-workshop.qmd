@@ -97,7 +97,6 @@ TA
 :::
 
 
-
 ## Materials {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
 
 ::: columns
@@ -123,6 +122,38 @@ Unit 1
 :::{.content-slide}
 Accessing <br/> Databricks 
 :::
+
+## Using RStudio {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+:::{.push}
+In the *"Connections"* pane, select *"New Connection"*
+:::
+
+![](assets/diagrams/connection-1.png){.absolute top="200" left="200" width="1000"}
+
+## Using RStudio {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+:::{.push}
+Select *'warehouse'*
+:::
+
+![](assets/diagrams/connection-2.png){.absolute top="170" left="350" width="700"}
+
+## Using RStudio {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+:::{.push}
+Click *'OK'*
+:::
+
+![](assets/diagrams/connection-3.png){.absolute top="170" left="350" width="700"}
+
+## RStudio DB Navigator {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+
+:::{.push}
+Explore the catalogs, schema and tables
+:::
+
+![](assets/diagrams/connection-4.png){.absolute top="180" left="250" width="900"}
 
 ## {background-image="assets/background/green.png" background-size="1500px" background-color="#799857"}
 
