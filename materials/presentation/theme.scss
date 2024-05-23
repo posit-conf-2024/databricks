@@ -70,6 +70,12 @@ $font-family-sans-serif: "Source Sans Pro", !default;
   font-family:Helvetica Neue
 }
 
+.reveal line-block {
+  font-size: 50px;
+  font-weight: 200;
+  font-family:Helvetica Neue
+}
+
 .custom2 p {
   text-align: center;
   color: #579297;
@@ -86,6 +92,8 @@ $font-family-sans-serif: "Source Sans Pro", !default;
   font-size: 60px;
   font-weight: 1000;
 }
+
+
 
 .content-slide-title p {
   color: #579297;

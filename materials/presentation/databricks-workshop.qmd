@@ -174,7 +174,11 @@ Explore the catalogs, schema and tables
 Exercises 1.1 - 1.2
 :::
 
-## Connecting - Option 1{background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## How everything connects {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+![](assets/diagrams/odbc.png){.absolute top="120" left="120"}
+
+## Connecting - Good{background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.sample-code}
 
@@ -201,15 +205,44 @@ con <- dbConnect(
 ```
 :::
 
+## Connecting - Better{background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+![](assets/diagrams/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
+
+:::{.sample-code}
+
+`odbc::databricks()` super simplifies the setup. <br/>
+Automatically detects credentials, driver, and sets default arguments <br/>
+`HTTPPath` is the only argument that you will need.
+:::
+
+<br/>
+
+::: columns
+::: {.column width="10%"}
+:::
+
+::: {.column width="80%"}
+:::{.sample-code}
+```{r}
+#| eval: false
+#| echo: true
+
+con <- dbConnect(
+  odbc::databricks(),
+  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e"
+)
+```
+:::
+:::
+:::
+
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
 Exercises 1.3 - 1.4
 :::
 
-## How everything connects {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
-
-![](assets/diagrams/odbc.png){.absolute top="50" left="50"}
 
 ## Using DBI  {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
@@ -227,6 +260,27 @@ Exercises 1.3 - 1.4
 
 :::{.green-slide}
 Exercise 1.5
+:::
+
+## How everything connects (Revisited)  {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+![](assets/diagrams/odbc.png){.absolute top="120" left="120"}
+
+## Other interfaces {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.custom}
+- `knitr` SQL engine 
+- RStudio SQL script
+:::
+
+```{=latex}
+\renewcommand*{\labelitemi}{\textgreater}
+```
+
+## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise 1.6 - 1.7
 :::
 
 ## {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
