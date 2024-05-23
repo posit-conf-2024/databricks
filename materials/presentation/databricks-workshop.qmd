@@ -53,13 +53,13 @@ August 12
 ##  {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="55%"}
 ::: {.schedule1}
 Schedule
 :::
 :::
 
-::: {.column width="50%"}
+::: {.column width="45%"}
 ::: {.schedule}
 **9am - 10:30am**
 

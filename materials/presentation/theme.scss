@@ -18,13 +18,13 @@ $font-family-sans-serif: "Source Sans Pro", !default;
 }
 
 
-.slide h1 {
-  margin-top: -280px;
-  margin-left: -1000px;
-}
 
 .slide h2 {
   margin-top: -80px;
+  margin-left: -100px;
+}
+
+.slide p {
   margin-left: -100px;
 }
 
@@ -53,8 +53,9 @@ $font-family-sans-serif: "Source Sans Pro", !default;
 }
 
 .schedule1 p {
-  padding-top: 350px;
-  font-size: 120px;
+  padding-left: 170px;
+  padding-top: 330px;
+  font-size: 130px;
   color: #579297;
 }
 
