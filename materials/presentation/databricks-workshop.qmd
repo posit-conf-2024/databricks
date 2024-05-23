@@ -16,7 +16,11 @@ execute:
 engine: knitr
 ---
 
-# {background-image="assets/background/title-slide-white.png" background-size="1500px" background-color="white"}
+# {background-image="assets/background/title-slide-white.png" background-size="1700px" background-color="white"}
+
+::: {.content-slide-thin}
+Welcome to
+:::
 
 ::: {.content-slide}
 **Using** **Databricks** <br/> **with** **R** 
@@ -29,13 +33,15 @@ August 12
 :::
 
 
-## Housekeeping items {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Housekeeping items {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+<br/>
 
 ::: columns
-::: {.column width="20%"}
+::: {.column width="15%"}
 :::
 
-::: {.column width="60%"}
+::: {.column width="80%"}
 ::: custom
 -   **posit::conf** mobile app
 -   Wi-fi password
@@ -44,7 +50,7 @@ August 12
 :::
 :::
 
-##  {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+##  {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ::: columns
 ::: {.column width="60%"}
@@ -72,7 +78,7 @@ Break (30mins)
 :::
 :::
 
-## The team {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## The team {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ![](assets/diagrams/edgar.png){.absolute top="230" left="100" width="500"}
 ![](assets/diagrams/james.png){.absolute top="230" left="820" width="500"}
@@ -97,15 +103,15 @@ TA
 :::
 
 
-## Materials {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Materials {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ::: columns
-::: {.column width="30%"}
+::: {.column width="20%"}
 :::
 
-::: {.column width="60%"}
+::: {.column width="80%"}
 ::: custom
--   Posit Server
+-   Posit Workbench Server
 -   Databricks Cluster
 -   Deck
 -   Exercise book
@@ -113,7 +119,7 @@ TA
 :::
 :::
 
-## {background-image="assets/background/content.png" background-size="1500px" background-color="#2a7070"}
+## {background-image="assets/background/content.png" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
 Unit 1
@@ -123,95 +129,97 @@ Unit 1
 Accessing <br/> Databricks 
 :::
 
-## Using RStudio {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Using RStudio {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-:::{.push}
+:::{.custom2}
 In the *"Connections"* pane, select *"New Connection"*
 :::
 
 ![](assets/diagrams/connection-1.png){.absolute top="200" left="200" width="1000"}
 
-## Using RStudio {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Using RStudio {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-:::{.push}
+:::{.custom2}
 Select *'warehouse'*
 :::
 
 ![](assets/diagrams/connection-2.png){.absolute top="170" left="350" width="700"}
 
-## Using RStudio {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Using RStudio {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-:::{.push}
+:::{.custom2}
 Click *'OK'*
 :::
 
 ![](assets/diagrams/connection-3.png){.absolute top="170" left="350" width="700"}
 
-## RStudio DB Navigator {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## RStudio DB Navigator {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-:::{.push}
+:::{.custom2}
 Explore the catalogs, schema and tables
 :::
 
 ![](assets/diagrams/connection-4.png){.absolute top="180" left="250" width="900"}
 
-## {background-image="assets/background/green.png" background-size="1500px" background-color="#799857"}
+## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
 Exercises 1.1 - 1.2
 :::
 
-## Connecting {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Connecting {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.incremental}
-:::{.push}
+:::{.custom2}
 - `odbc::odbc()` - Needs all required arguments to be passed to the connection **(Good)**
 - `odbc::databricks()` - Sets "sensible" defaults to arguments not passed to the connection **(Better)**
 - Data Source Name (DSN) - A named connection that is set within the machine **(Best)**
 :::
 :::
 
-## {background-image="assets/background/green.png" background-size="1500px" background-color="#799857"}
+## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
 Exercises 1.3 - 1.5
 :::
 
-## How everything connects {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## How everything connects {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ![](assets/diagrams/odbc.png){.absolute top="100" left="80" width="1300"}
 
-## Drivers and DSNs {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Drivers and DSNs {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-:::{.push}
+:::{.custom2}
 - **Database drivers** - Operating system specific application used to connect and
 interact with the database. Use `odbcListDrivers()` to see what is installed in your machine
 - **DSN** - Use `odbcListDataSources()` to see the database connections pre-set in your machine
 :::
 
-## {background-image="assets/background/green.png" background-size="1500px" background-color="#799857"}
+## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
 Exercise 1.6
 :::
 
-## Using DBI  {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Using DBI  {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-:::{.push}
+:::{.custom2}
+:::{.incremental}
 - `dbConnect()` - Connects to the database
 - `dbDisconnect()` - Disconnects the database
 - `dbListTables()` - Lists the tables 
 - `dbListFields()` - Lists the fields of a table 
-- `dbGetQuery()` - Main function, runs the query & collects results
+- `dbGetQuery()` - Runs the query & collects results
+:::
 :::
 
-## {background-image="assets/background/green.png" background-size="1500px" background-color="#799857"}
+## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
 Exercise 1.7
 :::
 
-## {background-image="assets/background/content.png" background-size="1500px" background-color="#2a7070"}
+## {background-image="assets/background/content.png" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide}
 **A bit of **<br/>
@@ -219,7 +227,7 @@ Exercise 1.7
 **modeling"**
 :::
 
-## {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.content-slide-title}
 Key concept 🔑
@@ -231,18 +239,18 @@ Key concept 🔑
 Data and processing <br/> need to be as **close** as possible
 :::
 
-## Working with Databricks {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Working with Databricks {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 
 ![](assets/diagrams/topology.png){.absolute top="80" left="120" width="1100"}
 
-## "Default" approach {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## "Default" approach {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ![](assets/diagrams/topology.png){.absolute top="80" left="120" width="1100"}
 ![](assets/diagrams/data.png){.absolute top="210" left="850" width="120"}
 ![](assets/diagrams/data.png){.absolute top="610" left="850" width="120"}
 
-## "Default" approach {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## "Default" approach {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ![](assets/diagrams/topology.png){.absolute top="80" left="120" width="1100"}
 ![](assets/diagrams/data.png){.absolute top="210" left="850" width="120"}
@@ -251,13 +259,13 @@ Data and processing <br/> need to be as **close** as possible
 ![](assets/diagrams/download-data.png){.absolute top="250" left="300" width="550"}
 
 
-## Better approach! {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Better approach! {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ![](assets/diagrams/topology.png){.absolute top="80" left="120" width="1100"}
 ![](assets/diagrams/data.png){.absolute top="210" left="850" width="120"}
 ![](assets/diagrams/data.png){.absolute top="610" left="850" width="120"}
 
-## Better approach! {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Better approach! {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ![](assets/diagrams/topology.png){.absolute top="80" left="120" width="1100"}
 ![](assets/diagrams/data.png){.absolute top="210" left="850" width="120"}
@@ -265,7 +273,7 @@ Data and processing <br/> need to be as **close** as possible
 ![](assets/diagrams/processing.png){.absolute top="430" left="800" width="140"}
 ![](assets/diagrams/data.png){.absolute top="610" left="850" width="120"}
 
-## Better approach! {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Better approach! {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 
 ![](assets/diagrams/topology.png){.absolute top="80" left="120" width="1100"}
@@ -275,11 +283,11 @@ Data and processing <br/> need to be as **close** as possible
 ![](assets/diagrams/processing.png){.absolute top="430" left="800" width="140"}
 ![](assets/diagrams/data.png){.absolute top="610" left="850" width="120"}
 
-## Takeaways {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Takeaways {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 
 :::{.incremental}
-:::{.push}
+:::{.custom2}
 - Downloading data is a valid approach, as long as we are doing something that only R can do
 -  🔑 Data and processing need to be as **close** as possible
 - It is possible to move most, if not all, of the processing to the database and Spark
@@ -287,7 +295,7 @@ Data and processing <br/> need to be as **close** as possible
 :::
 :::
 
-## {background-image="assets/background/content.png" background-size="1500px" background-color="#2a7070"}
+## {background-image="assets/background/content.png" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
 Unit 2 & 3
@@ -301,27 +309,27 @@ Using `dplyr`
 /dee-plier/
 :::
 
-## Approaches {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Approaches {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ![](assets/diagrams/extract-data.png){.absolute top="255" left="100" width="500"}
 
 ![](assets/diagrams/push-collect.png){.absolute top="140" left="800" width="500"}
 
 
-## Options to "push compute" {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Options to "push compute" {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 <br/>
 
 ::: columns
 ::: {.column width="50%"}
 
-:::{.push}
+:::{.custom2}
 Write SQL statement
 :::
 
 <br/>
 
-:::{.push-thin}
+:::{.custom2-thin}
 
 *SELECT*
   'o_orderpriority', 
@@ -337,13 +345,13 @@ Write SQL statement
 :::
 ::: {.column width="50%"}
 
-:::{.push}
+:::{.custom2}
 Use `dplyr` verbs
 :::
 
 <br/>
 
-:::{.push-thin}
+:::{.custom2-thin}
 orders %>% <br/>
   *group_by*(o_orderpriority) %>% <br/>
   *summarise*(total = sum(o_totalprice, na.rm = TRUE))
@@ -352,7 +360,7 @@ orders %>% <br/>
 :::
 :::
 
-## Advantages {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Advantages {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ::: columns
 ::: {.column width="60%"}
@@ -370,21 +378,21 @@ orders %>% <br/>
 :::
 :::
 
-## {background-image="assets/background/green.png" background-size="1500px" background-color="#799857"}
+## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
 Exercises 2.1 - 2.6
 :::
 
-## {background-image="assets/background/thank-you.png" background-size="1500px" background-color="#2a7070"}
+## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"}
 
 ![](assets/background/racoon.jpg){.absolute top="220" left="900" width="430"}
 
-## Simple {background-image="assets/background/slide.png" background-size="1500px" background-color="white"}
+## Simple {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 
-## Frame Dark {background-image="assets/background/slide-frame-dark.png" background-size="1500px" background-color="#2a7070"}
+## Frame Dark {background-image="assets/background/slide-frame-dark.png" background-size="1700px" background-color="#2a7070"}
 
-## Frame Bright {background-image="assets/background/slide-frame.png" background-size="1500px" background-color="white"}
+## Frame Bright {background-image="assets/background/slide-frame.png" background-size="1700px" background-color="white"}
 
 

@@ -6,7 +6,7 @@ $link-color: #666;
 $code-block-bg: #fff;
 $code-block-border-color: #f5f4f4;
 $presentation-h1-font-size: 3.4em;
-$presentation-h2-font-size: 2em;
+$presentation-h2-font-size: 2.3em;
 $presentation-h3-font-size: 1.8em;
 $mermaid-font-size: 100px;
 $font-family-sans-serif: "Source Sans Pro", !default;
@@ -17,12 +17,24 @@ $font-family-sans-serif: "Source Sans Pro", !default;
   padding-left: 0.5em;
 }
 
+
+.slide h1 {
+  margin-top: -280px;
+  margin-left: -1000px;
+}
+
+.slide h2 {
+  margin-top: -80px;
+  margin-left: -100px;
+}
+
 .slide li {
     font-size: 40px;
     color: #666;
 }
 
 .slide p {
+    padding-top: 0px;
     font-size: 38px;
     color: #666;
 }
@@ -33,36 +45,6 @@ $font-family-sans-serif: "Source Sans Pro", !default;
 
 .slide code {
   font-size: 30px;
-}
-
-.sample-large code {
-  font-size: 28px;
-}
-
-.sample-medium code {
-  font-size: 23px;
-}
-
-.sample-small code {
-  font-size: 19px;
-}
-
-.dark-slide p {
-  line-height: 0.4;
-  padding-top: 0.7em;
-  padding-left: 1.3em;
-  font-size: 90px;
-  color: #fff;
-}
-
-.dark-slide code {
-  line-height: 0.1;
-  font-size: 80px;
-}
-
-.dark-slide li {
-  line-height: 1;
-  color: #fff;
 }
 
 .schedule p {
@@ -76,13 +58,36 @@ $font-family-sans-serif: "Source Sans Pro", !default;
 }
 
 .custom li {
-  font-size: 70px;
-  line-height: 1.6;
+  font-size: 90px;
+  line-height: 1.3;
 }
 
 .custom code {
   font-size: 70px;
   line-height: 1.6;
+}
+
+.custom2-thin p {
+  font-size: 50px;
+  font-weight: 200;
+  font-family:Helvetica Neue
+}
+
+.custom2 p {
+  text-align: center;
+  color: #579297;
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.custom2 li {
+  font-size: 60px;
+  font-weight: 100;
+}
+
+.custom2 code {
+  font-size: 50px;
+  font-weight: 1000;
 }
 
 .content-slide-title p {
@@ -106,30 +111,6 @@ $font-family-sans-serif: "Source Sans Pro", !default;
   font-family:Helvetica Neue
 }
 
-
-.push-thin p {
-  font-size: 50px;
-  font-weight: 200;
-  font-family:Helvetica Neue
-}
-
-.push p {
-  text-align: center;
-  color: #579297;
-  font-size: 60px;
-  font-weight: 700;
-}
-
-.push li {
-  font-size: 60px;
-  font-weight: 100;
-}
-
-.push code {
-  font-size: 50px;
-  font-weight: 1000;
-}
-
 .green-slide p {
   padding-top: 1.8em;
   text-align: center;
@@ -137,7 +118,6 @@ $font-family-sans-serif: "Source Sans Pro", !default;
   font-weight: 800;
   color: #fff;
 }
-
 
 .team-thin p {
   line-height: 0.8;
