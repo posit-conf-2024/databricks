@@ -80,8 +80,8 @@ Break (30mins)
 
 ## The team {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-![](assets/diagrams/edgar.png){.absolute top="230" left="100" width="500"}
-![](assets/diagrams/james.png){.absolute top="230" left="820" width="500"}
+![](assets/diagrams/edgar.png){.absolute top="170" left="80" width="550"}
+![](assets/diagrams/james.png){.absolute top="170" left="800" width="550"}
 
 :::{.columns}
 :::{.column}
