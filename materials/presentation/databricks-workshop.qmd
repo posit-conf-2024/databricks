@@ -119,6 +119,14 @@ TA
 :::
 :::
 
+## Posit + Databricks {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Special work we have done as part of the new partnership
+:::
+
+![](assets/diagrams/posit-databricks.png){.absolute top="200" left="250"}
+
 ## {background-image="assets/background/content.png" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
