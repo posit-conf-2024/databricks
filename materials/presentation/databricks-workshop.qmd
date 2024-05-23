@@ -171,35 +171,20 @@ Exercises 1.1 - 1.2
 
 :::{.incremental}
 :::{.custom2}
-- `odbc::odbc()` - Needs all required arguments to be passed to the connection **(Good)**
-- `odbc::databricks()` - Sets "sensible" defaults to arguments not passed to the connection **(Better)**
-- Data Source Name (DSN) - A named connection that is set within the machine **(Best)**
+- `odbc::odbc()` - Needs all required arguments to be passed to the connection 
+- `odbc::databricks()` - Sets "sensible" defaults to arguments not passed to the connection
 :::
 :::
 
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercises 1.3 - 1.5
+Exercises 1.3 - 1.4
 :::
 
 ## How everything connects {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-![](assets/diagrams/odbc.png){.absolute top="100" left="80" width="1300"}
-
-## Drivers and DSNs {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
-
-:::{.custom2}
-- **Database drivers** - Operating system specific application used to connect and
-interact with the database. Use `odbcListDrivers()` to see what is installed in your machine
-- **DSN** - Use `odbcListDataSources()` to see the database connections pre-set in your machine
-:::
-
-## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
-
-:::{.green-slide}
-Exercise 1.6
-:::
+![](assets/diagrams/odbc.png){.absolute top="50" left="50"}
 
 ## Using DBI  {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
@@ -216,7 +201,7 @@ Exercise 1.6
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise 1.7
+Exercise 1.5
 :::
 
 ## {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}

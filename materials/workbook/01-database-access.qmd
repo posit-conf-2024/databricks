@@ -34,7 +34,8 @@ execute:
 
 1. Use the following code to start a new connection
 ```{r}
-#| eval: false
+library(DBI)
+
 con <- dbConnect(
   odbc::odbc(),
   Driver = "/Library/simba/spark/lib/libsparkodbc_sb64-universal.dylib",
@@ -52,7 +53,6 @@ con <- dbConnect(
 
 2. Disconnect from the database using `dbDisconnect()`
 ```{r}
-#| eval: false
 dbDisconnect(con)
 ```
 
@@ -64,49 +64,11 @@ defaults for you. Also, it will automatically look for the Databricks Host
 and Token, so you won't to specify it in the code.
 
 ```{r}
-#| eval: false
 con <- dbConnect(
   odbc::databricks(),
   HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e"
 )
 ```
-
-2. Disconnect from the database using `dbDisconnect()`
-```{r}
-#| eval: false
-dbDisconnect(con)
-```
-
-## Connecting using a DSN
-
-1. Use 'warehouse' as the `dsn` argument to connect
-```{r}
-library(DBI)
-
-con <- dbConnect(odbc::odbc(), dsn = "warehouse")
-```
-
-## List drivers and DSNs 
-
-1. To get a list of drivers available in the server
-```{r, access}
-library(odbc)
-
-odbcListDrivers()[1:2]
-```
-
-2. Click on the *ellipsis* button located in the **Files** tab
-
-3. Type: `/etc`
-
-4. Locate and open the `odbcinst.ini` file
-
-5. To see a list of DSNs available in the server
-```{r}
-odbcListDataSources()
-```
-
-6. Using the *ellipsis* button again, navigate to `/etc/odbc.ini`
 
 ## Interact with database
 
