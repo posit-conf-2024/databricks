@@ -439,7 +439,7 @@ orders %>% <br/>
 ## Advantages {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ::: columns
-::: {.column width="60%"}
+::: {.column width="65%"}
 
 ::: {.custom}
 - `dplyr` translates to SQL
@@ -448,7 +448,7 @@ orders %>% <br/>
 :::
 
 :::
-::: {.column width="40%"}
+::: {.column width="30%"}
 
 ![](assets/diagrams/dplyr-push.png){.absolute width="550"}
 :::
