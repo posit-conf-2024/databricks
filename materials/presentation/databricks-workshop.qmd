@@ -11,9 +11,7 @@ format:
     theme: theme.scss
     code-line-numbers: false
     menu: false
-    scrollable: false
-execute: 
-  echo: false
+    code-block-height: 640px
 engine: knitr
 ---
 
@@ -178,23 +176,27 @@ Exercises 1.1 - 1.2
 
 ## Connecting - Option 1{background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-[`dbConnect()` along with `odbc::odbc()` lets you easily connect to the SQL Warehouse]{style="padding-left:100px;"}
-
-
 :::{.sample-code}
-```r
+
+`dbConnect()` & `odbc::odbc()` lets you easily connect to the SQL Warehouse
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|1|2|3|4-5|6|7-12"
+
 con <- dbConnect(
   odbc::odbc(),
-  Driver = "/Library/simba/spark/lib/libsparkodbc_sb64-universal.dylib",
+  Driver = ".../lib/libsparkodbc_sb64-universal.dylib",
   Host = Sys.getenv("DATABRICKS_HOST"),
+  PWD = Sys.getenv("DATABRICKS_TOKEN"),
+  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e",
   Port = 443,
   AuthMech = 3,
-  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e",
   Protocol = "https",
   ThriftTransport = 2,
   SSL = 1,
-  UID = "token",
-  PWD = Sys.getenv("DATABRICKS_TOKEN")
+  UID = "token"
 )
 ```
 :::
