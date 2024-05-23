@@ -17,6 +17,10 @@ $font-family-sans-serif: "Source Sans Pro", !default;
   padding-left: 0.5em;
 }
 
+.slide h1 {
+  margin-top: -100px;
+}
+
 .slide li {
     font-size: 40px;
     color: #666;
@@ -42,7 +46,7 @@ $font-family-sans-serif: "Source Sans Pro", !default;
 }
 
 .schedule1 p {
-  padding-left: 170px;
+  padding-left: 140px;
   padding-top: 330px;
   font-size: 130px;
   color: #579297;

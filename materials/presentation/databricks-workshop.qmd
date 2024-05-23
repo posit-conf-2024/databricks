@@ -39,7 +39,7 @@ August 12
 <br/>
 
 ::: columns
-::: {.column width="15%"}
+::: {.column width="20%"}
 :::
 
 ::: {.column width="80%"}
@@ -54,13 +54,13 @@ August 12
 ##  {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ::: columns
-::: {.column width="55%"}
+::: {.column width="50%"}
 ::: {.schedule1}
 Schedule
 :::
 :::
 
-::: {.column width="45%"}
+::: {.column width="50%"}
 ::: {.schedule}
 **9am - 10:30am**
 
@@ -81,8 +81,8 @@ Break (30mins)
 
 ## The team {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-![](assets/diagrams/edgar.png){.absolute top="170" left="80" width="550"}
-![](assets/diagrams/james.png){.absolute top="170" left="800" width="550"}
+![](assets/diagrams/edgar.png){.absolute top="250" left="120" width="550"}
+![](assets/diagrams/james.png){.absolute top="250" left="920" width="550"}
 
 :::{.columns}
 :::{.column}
@@ -126,7 +126,7 @@ TA
 Special work we have done as part of the new partnership
 :::
 
-![](assets/diagrams/posit-databricks.png){.absolute top="200" left="250"}
+![](assets/diagrams/posit-databricks.png){.absolute top="300" left="380"}
 
 ## {background-image="assets/background/content.png" background-size="1700px" background-color="#2a7070"}
 
@@ -144,7 +144,7 @@ Accessing <br/> Databricks
 In the *"Connections"* pane, select *"New Connection"*
 :::
 
-![](assets/diagrams/connection-1.png){.absolute top="230" left="80" width="1200"}
+![](assets/diagrams/connection-1.png){.absolute top="230" left="130" width="1200"}
 
 ## Using RStudio {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
@@ -152,7 +152,7 @@ In the *"Connections"* pane, select *"New Connection"*
 Select *'warehouse'*
 :::
 
-![](assets/diagrams/connection-2.png){.absolute top="120" left="310" width="700"}
+![](assets/diagrams/connection-2.png){.absolute top="230" left="450" width="700"}
 
 ## Using RStudio {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
@@ -160,7 +160,7 @@ Select *'warehouse'*
 Click *'OK'*
 :::
 
-![](assets/diagrams/connection-3.png){.absolute top="120" left="330" width="700"}
+![](assets/diagrams/connection-3.png){.absolute top="230" left="450" width="700"}
 
 ## RStudio DB Navigator {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
@@ -168,7 +168,7 @@ Click *'OK'*
 Explore the catalogs, schema and tables
 :::
 
-![](assets/diagrams/connection-4.png){.absolute top="120" left="210" width="900"}
+![](assets/diagrams/connection-4.png){.absolute top="230" left="350" width="900"}
 
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
