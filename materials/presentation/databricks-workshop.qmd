@@ -293,13 +293,22 @@ RStudio SQL script
 Exercise 1.6 - 1.7
 :::
 
+## {background-image="assets/background/content.png" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide}
+"Embrace <br/> the <br/> remoteness" 
+:::
+:::{.content-slide-thin}
+[Martin Grund, *Databricks*]{style="font-size:70px;"}
+:::
+
 ## {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.content-slide-title}
-Key concept 🔑
+🔑 Key concept 
 :::
 
-<br/>
+<br/><br/>
 
 :::{.content-slide}
 Data and processing need to be as **close** as possible
