@@ -17,19 +17,6 @@ $font-family-sans-serif: "Source Sans Pro", !default;
   padding-left: 0.5em;
 }
 
-.slide h1 {
-  margin-top: -180px;
-}
-
-.slide h2 {
-  margin-top: -80px;
-  margin-left: -100px;
-}
-
-.slide p {
-  margin-left: -100px;
-}
-
 .slide li {
     font-size: 40px;
     color: #666;
@@ -137,4 +124,14 @@ $font-family-sans-serif: "Source Sans Pro", !default;
   color: #579297;
   font-size: 65px;
   font-weight: 700;
+}
+
+.sample-code pre code {
+  block-size: 1000px;
+  max-height: 400px;
+}
+
+.sample-code code {
+  block-size: 1000px;
+  font-size: 40px;
 }

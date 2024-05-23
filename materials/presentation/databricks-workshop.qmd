@@ -1,8 +1,8 @@
 ---
 format: 
   revealjs:
-    width: 1400
-    height: 740
+    width: 1600
+    height: 920
     max-scale: 1
     min-scale: 1
     smaller: true
@@ -11,6 +11,7 @@ format:
     theme: theme.scss
     code-line-numbers: false
     menu: false
+    scrollable: false
 execute: 
   echo: false
 engine: knitr
@@ -175,13 +176,27 @@ Explore the catalogs, schema and tables
 Exercises 1.1 - 1.2
 :::
 
-## Connecting {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## Connecting - Option 1{background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-:::{.incremental}
-:::{.custom2}
-- `odbc::odbc()` - Needs all required arguments to be passed to the connection 
-- `odbc::databricks()` - Sets "sensible" defaults to arguments not passed to the connection
-:::
+[`dbConnect()` along with `odbc::odbc()` lets you easily connect to the SQL Warehouse]{style="padding-left:100px;"}
+
+
+:::{.sample-code}
+```r
+con <- dbConnect(
+  odbc::odbc(),
+  Driver = "/Library/simba/spark/lib/libsparkodbc_sb64-universal.dylib",
+  Host = Sys.getenv("DATABRICKS_HOST"),
+  Port = 443,
+  AuthMech = 3,
+  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e",
+  Protocol = "https",
+  ThriftTransport = 2,
+  SSL = 1,
+  UID = "token",
+  PWD = Sys.getenv("DATABRICKS_TOKEN")
+)
+```
 :::
 
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
