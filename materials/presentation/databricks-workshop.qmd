@@ -266,16 +266,26 @@ Exercise 1.5
 
 ![](assets/diagrams/odbc.png){.absolute top="120" left="120"}
 
-## Other interfaces {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## Other RStudio interfaces {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-:::{.custom}
-- `knitr` SQL engine 
-- RStudio SQL script
+<br/>
+
+:::{.columns}
+:::{.column}
+:::{.custom2}
+`knitr` SQL engine 
+:::
+:::
+:::{.column}
+:::{.custom2}
+RStudio SQL script
+:::
+:::
 :::
 
-```{=latex}
-\renewcommand*{\labelitemi}{\textgreater}
-```
+![](assets/diagrams/sql-knitr.png){.absolute top="300" left="20" width="800"}
+![](assets/diagrams/sql-script.png){.absolute top="300" left="850" width="600"}
+![](assets/diagrams/sql-script-result.png){.absolute top="450" left="975" width="600"}
 
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
