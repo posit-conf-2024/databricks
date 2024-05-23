@@ -53,14 +53,14 @@ August 12
 ##  {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ::: columns
-::: {.column width="60%"}
-::: schedule1
-<br/> Schedule
+::: {.column width="50%"}
+::: {.schedule1}
+Schedule
 :::
 :::
 
-::: {.column width="40%"}
-::: schedule
+::: {.column width="50%"}
+::: {.schedule}
 **9am - 10:30am**
 
 Break (30mins)
