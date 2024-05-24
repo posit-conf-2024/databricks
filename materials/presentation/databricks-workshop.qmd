@@ -433,21 +433,24 @@ group by 'am' order by 'avg_mpg' desc
 <br/>
 
 :::{.columns}
-:::{.column}
+:::{.column width="55%"}
 
 :::{.custom2}
 - Guardrails against pulling all of the data 
+- SQL is not sent until `print()` or `collect()` runs (Lazy eval)
 :::
 
 :::
-:::{.column}
+:::{.column width="45%"}
 
-:::{.custom2-thin}
-tbl(con, "cars") %>% <br/>
-  group_by(cyl) %>% <br/>
-  summarise(avg_mpg = mean(mpg, na.rm = TRUE)) %>% <br/>
-  arrange(desc(avg_mpg))
-:::
+[
+tbl(con, "cars") %>% 
+<br/>[X]{style="color: #fff;"}group_by(cyl) %>% 
+<br/>[X]{style="color: #fff;"}summarise(
+<br/>[XX]{style="color: #fff;"}avg_mpg = mean(mpg, na.rm = TRUE)
+<br/>[XX]{style="color: #fff;"}) %>% 
+<br/>[X]{style="color: #fff;"}arrange(desc(avg_mpg))
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:40px;"}
 
 :::
 :::
