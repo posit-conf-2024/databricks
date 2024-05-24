@@ -407,32 +407,24 @@ Preferred
 
 ## [SQL not practical]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
+<br/>
+
+:::{.columns}
+:::{.column}
+
 :::{.custom2}
 - SQL language was not meant for exploratory data analysis
 - "Cognitive cost" of switching between SQL and R 
 :::
 
-<br/>
+:::
+:::{.column}
 
-:::{.columns}
-:::{.column}
-:::{.sample-code}
-```sql
-select `am`, avg(`mpg`) as 
-`avg_mpg` from `cars`  group by 
-`am` order by `avg_mpg` desc
-```
+:::{.content-slide-thin}
+select 'am', avg('mpg') as 'avg_mpg' from 'cars'
+group by 'am' order by 'avg_mpg' desc
 :::
-:::
-:::{.column}
-:::{.sample-code}
-```bash
-     am avg_mpg
-  <dbl>   <dbl>
-1     1    24.4
-2     0    17.1
-```
-:::
+
 :::
 :::
 
@@ -504,15 +496,7 @@ orders %>% <br/>
 Exercises 2.1 - 2.6
 :::
 
-## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"}
+## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
 ![](assets/background/racoon.jpg){.absolute top="220" left="900" width="430"}
-
-## Simple {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
-
-
-## Frame Dark {background-image="assets/background/slide-frame-dark.png" background-size="1700px" background-color="#2a7070"}
-
-## Frame Bright {background-image="assets/background/slide-frame.png" background-size="1700px" background-color="white"}
-
 
