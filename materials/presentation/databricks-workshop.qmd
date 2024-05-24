@@ -376,16 +376,13 @@ Data and processing need to be as **close** as possible
 ## {background-image="assets/background/content.png" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
-Unit 2 & 3
+Unit 2
 :::
 
 :::{.content-slide}
-Using `dplyr`
+Remote <br/> processing 
 :::
 
-:::{.content-slide-thin}
-/dee-plier/
-:::
 
 ## [Approaches]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
@@ -411,37 +408,34 @@ Preferred
 
 :::{.columns}
 :::{.column}
-
 :::{.custom2}
 - SQL language was not meant for exploratory data analysis
 - "Cognitive cost" of switching between SQL and R 
 :::
-
 :::
 :::{.column}
-
-:::{.content-slide-thin}
+[
 select 'am', avg('mpg') as 'avg_mpg' from 'cars'
 group by 'am' order by 'avg_mpg' desc
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:60px;"}
+:::
 :::
 
-:::
-:::
-
-## [Using dplyr]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Using dplyr & dbplyr]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 <br/>
 
 :::{.columns}
-:::{.column width="55%"}
+:::{.column width="50%"}
 
 :::{.custom2}
-- Guardrails against pulling all of the data 
-- SQL is not sent until `print()` or `collect()` runs (Lazy eval)
+- Translates your R code to SQL!
+- Modularity of piped code
+- All your code is in R
 :::
 
 :::
-:::{.column width="45%"}
+:::{.column width="50%"}
 
 [
 tbl(con, "cars") %>% 
@@ -450,64 +444,26 @@ tbl(con, "cars") %>%
 <br/>[XX]{style="color: #fff;"}avg_mpg = mean(mpg, na.rm = TRUE)
 <br/>[XX]{style="color: #fff;"}) %>% 
 <br/>[X]{style="color: #fff;"}arrange(desc(avg_mpg))
-]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:40px;"}
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:45px;"}
 
 :::
 :::
 
-## [Options to "push compute"]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-<br/>
+## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
-::: columns
-::: {.column width="50%"}
-
-:::{.custom2}
-Write SQL statement
+:::{.green-slide}
+Exercise 2.1 
 :::
 
-<br/>
-
-:::{.custom2-thin}
-
-*SELECT*
-  'o_orderpriority', 
-  SUM('o_totalprice') AS 'total'
-  <br/>
-*FROM*
-  'samples'.'tpch'.'orders'
-  <br/>
-*GROUP BY *
-  'o_orderpriority'
-:::
-
-:::
-::: {.column width="50%"}
-
-:::{.custom2}
-Use `dplyr` verbs
-:::
-
-<br/>
-
-:::{.custom2-thin}
-orders %>% <br/>
-  *group_by*(o_orderpriority) %>% <br/>
-  *summarise*(total = sum(o_totalprice, na.rm = TRUE))
-:::
-
-:::
-:::
-
-## [Advantages]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [More Advantages!]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ::: columns
 ::: {.column width="65%"}
 
-::: {.custom}
-- `dplyr` translates to SQL
-- Modularity of piped code
-- All your code is in R!
+::: {.custom2}
+- Guardrails against pulling all of the data 
+- SQL is not sent until `print()` or `collect()` runs (Lazy eval)
 :::
 
 :::
@@ -515,12 +471,6 @@ orders %>% <br/>
 
 ![](assets/diagrams/dplyr-push.png){.absolute width="550"}
 :::
-:::
-
-## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
-
-:::{.green-slide}
-Exercises 2.1 - 2.6
 :::
 
 ## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
