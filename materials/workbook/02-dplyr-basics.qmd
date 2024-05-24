@@ -27,13 +27,23 @@ library(DBI)
 
 2. *(Optional)* Open a connection to the database if it's currently closed
 ```{r}
-con <- dbConnect(odbc::odbc(), "warehouse")
+con <- dbConnect(
+  odbc::databricks(),
+  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e"
+)
 ```
 
+3. Using `dbGetQuery()` create a query that pulls the top 10 rows form `cars`
 
-3. Use the `tbl()` and `in_catalog()` functions to create a reference to a table
 ```{r}
-tbl(con, in_catalog("samples", "tpch", "customer"))
+dbGetQuery(con, "select * from cars limit 10")
+```
+
+4. Use the `tbl()` to perform the same. Notice how it automatically only shows 
+the top 10
+
+```{r}
+tbl(con, "cars")
 ```
 
 4. Load the reference, not the table data, into a variable

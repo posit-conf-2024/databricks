@@ -428,6 +428,30 @@ group by 'am' order by 'avg_mpg' desc
 :::
 :::
 
+## [Using dplyr]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+<br/>
+
+:::{.columns}
+:::{.column}
+
+:::{.custom2}
+- Guardrails against pulling all of the data 
+:::
+
+:::
+:::{.column}
+
+:::{.custom2-thin}
+tbl(con, "cars") %>% <br/>
+  group_by(cyl) %>% <br/>
+  summarise(avg_mpg = mean(mpg, na.rm = TRUE)) %>% <br/>
+  arrange(desc(avg_mpg))
+:::
+
+:::
+:::
+
 ## [Options to "push compute"]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 <br/>
