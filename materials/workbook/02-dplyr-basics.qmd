@@ -41,26 +41,38 @@ dbGetQuery(con, "select * from cars limit 10")
 
 4. Use the `tbl()` to perform the same. Notice how it automatically only shows 
 the top 10
-
 ```{r}
 tbl(con, "cars")
 ```
 
 4. Load the reference, not the table data, into a variable
 ```{r}
-customers <- tbl(con, in_catalog("samples", "tpch", "customer"))
+tbl_cars <- tbl(con, "cars")
 ```
 
 
 5. Call the variable to see preview the data in the table
 ```{r}
-customers
+tbl_cars
 ```
 
-6. Set up the pointers to the other of the tables
+6. Using `dplyr`, get the average `mpg` for each `am`, and sort it by the
+average
+
 ```{r}
-orders <- tbl(con, in_catalog("samples", "tpch", "orders"))
-lineitems <- tbl(con, in_catalog("samples", "tpch", "lineitem"))
+mtcars %>% 
+  group_by(cyl) %>% 
+  summarise(avg_mpg = mean(mpg, na.rm = TRUE)) %>% 
+  arrange(desc(avg_mpg))
+```
+
+7. Run the same code against the remote table 
+
+```{r}
+tbl_cars %>% 
+  group_by(cyl) %>% 
+  summarise(avg_mpg = mean(mpg, na.rm = TRUE)) %>% 
+  arrange(desc(avg_mpg))
 ```
 
 ## Under the hood 
