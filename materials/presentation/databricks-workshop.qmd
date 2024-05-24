@@ -389,8 +389,52 @@ Using `dplyr`
 
 ## Approaches {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-![](assets/diagrams/extract-data.png){.absolute top="255" left="100" width="500"}
-![](assets/diagrams/push-collect.png){.absolute top="140" left="800" width="500"}
+:::{.columns}
+:::{.column}
+:::{.custom2}
+Preferred
+:::
+:::
+:::{.column}
+:::{.custom2}
+"Use in case of emergencies"
+:::
+:::
+:::
+
+![](assets/diagrams/push-collect.png){.absolute top="255" left="150" width="500"}
+![](assets/diagrams/extract-data.png){.absolute top="350" left="950" width="500"}
+
+## SQL not practical {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+- SQL language was not meant for exploratory data analysis
+- "Cognitive cost" of switching between SQL and R 
+:::
+
+<br/>
+
+:::{.columns}
+:::{.column}
+:::{.sample-code}
+```sql
+select `am`, avg(`mpg`) as 
+`avg_mpg` from `cars`  group by 
+`am` order by `avg_mpg` desc
+```
+:::
+:::
+:::{.column}
+:::{.sample-code}
+```bash
+     am avg_mpg
+  <dbl>   <dbl>
+1     1    24.4
+2     0    17.1
+```
+:::
+:::
+:::
 
 ## Options to "push compute" {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
