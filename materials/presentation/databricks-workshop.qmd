@@ -450,14 +450,13 @@ tbl(con, "cars") %>%
 
 ## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-<br/>
 
 :::{.columns}
 :::{.column width="40%"}
 
 :::{.custom2}
-- `dplyr` creates a "virtual" table inside your R session
-- The "virtual" table can be used just like a regular table
+- `dplyr` creates a "virtual" table in R
+- It can be used just like a regular data frame
 :::
 
 :::
@@ -474,6 +473,36 @@ Source:   SQL [1 x 1]<br/>
 Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]<br/>
 [XX]{style="color: #fff;"}        n<br/>
 1      32<br/>
+]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:35px;"} 
+
+:::
+:::
+
+## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="40%"}
+
+:::{.custom2}
+- `dplyr` creates a "virtual" table in R
+- It can be used just like a regular data frame
+- Behind the scenes, `dbplyr` translates R code to SQL
+:::
+
+:::
+:::{.column width="60%"}
+[
+tbl_cars <- tbl(con, "cars")<br/>
+<br/>
+tbl_cars %>% <br/>
+[XX]{style="color: #fff;"}count() %>%<br/>
+[XX]{style="color: #fff;"}show_query()<br/>
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:45px;"} 
+[
+<br/>
+\<SQL\><br/>
+SELECT COUNT(*) AS `n`<br/>
+FROM `cars`<br/>
 ]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:35px;"} 
 
 :::
