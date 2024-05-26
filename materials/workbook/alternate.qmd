@@ -1,0 +1,82 @@
+---
+title: "dplyr basics"
+execute: 
+  eval: true
+  freeze: true
+---
+
+
+
+## Un-translated R commands
+*Review of how `dbplyr` handles R commands that have not been translated into a like-SQL command*
+
+1. Preview how `Sys.time()` is translated
+```{r}
+tbl_cars %>%
+  mutate(today = Sys.time()) %>%
+  select(today) %>% 
+  show_query()
+```
+
+2. Use Databricks's native commands, in this case `current_date()` 
+(https://docs.databricks.com/en/sql/language-manual/functions/current_date.html)
+```{r}
+tbl_cars %>%
+  mutate(today = current_date()) %>%
+  select(today) %>% 
+  show_query()
+```
+
+3. Run the `dplyr` code to confirm it works
+```{r}
+tbl_cars %>%
+  mutate(today = current_date()) %>%
+  select(today) %>%
+  head()
+```
+
+## Using bang-bang
+*Intro on passing unevaluated code to a dplyr verb*
+
+1. Preview how `Sys.time()` is translated
+```{r}
+tbl_cars %>%
+  mutate(today = Sys.time()) %>%
+  show_query()
+```
+
+2. Preview how `Sys.time()` is translated when prefixing `!!`
+```{r}
+tbl_cars %>%
+  mutate(today = !! Sys.time()) %>%
+  show_query()
+```
+
+3. Preview how `Sys.time()` is translated when prefixing `!!`
+```{r}
+tbl_cars %>%
+  mutate(today = !!Sys.time()) %>%
+  select(today) %>%
+  head()
+```
+
+## knitr SQL engine
+
+1. Copy the result of the latest `show_query()` exercise
+```{r}
+tbl_cars %>%
+  mutate(today = !!Sys.time()) %>%
+  select(today) %>% 
+  show_query()
+```
+
+2. Paste the result in this SQL chunk
+```{sql, connection = con}
+SELECT '2024-05-26T20:35:56Z' AS `today`
+FROM `cars`
+```
+
+
+```{r, include = FALSE}
+dbDisconnect(con)
+```
