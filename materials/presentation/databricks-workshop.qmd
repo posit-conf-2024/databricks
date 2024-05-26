@@ -453,7 +453,7 @@ tbl(con, "cars") %>%
 <br/>
 
 :::{.columns}
-:::{.column width="50%"}
+:::{.column width="40%"}
 
 :::{.custom2}
 - `dplyr` creates a "virtual" table inside your R session
@@ -461,11 +461,20 @@ tbl(con, "cars") %>%
 :::
 
 :::
-:::{.column width="50%"}
-<br/>
+:::{.column width="60%"}
 [
-tbl_cars <- tbl(con, "cars")
-]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:45px;"}
+tbl_cars <- tbl(con, "cars")<br/>
+<br/>
+tbl_cars %>% <br/>
+[XX]{style="color: #fff;"}count()<br/>
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:45px;"} 
+[
+<br/>
+Source:   SQL [1 x 1]<br/>
+Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]<br/>
+[XX]{style="color: #fff;"}        n<br/>
+1      32<br/>
+]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:35px;"} 
 
 :::
 :::
