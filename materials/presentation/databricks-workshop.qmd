@@ -432,8 +432,9 @@ group by 'am' order by 'avg_mpg' desc
 :::{.column width="50%"}
 
 :::{.custom2}
-- Translates your R code to SQL!
-- Modularity of piped code
+- Translates R code to SQL!
+- 'Modularity' of piped code
+- Guardrails against pulling all of the data 
 - All your code is in R
 :::
 
@@ -452,41 +453,21 @@ tbl(con, "cars") %>%
 :::
 :::
 
-
-## [More Advantages!]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
-
-::: columns
-::: {.column width="65%"}
-
-::: {.custom2}
-- Guardrails against pulling all of the data 
-- SQL is not sent until `print()` or `collect()` runs (Lazy eval)
-- Use `dplyr` against over a 12 different databases (MSSQL, Oracle, Teradata, etc.)
-:::
-:::
-::: {.column width="30%"}
-
-![](assets/diagrams/dplyr-push.png){.absolute width="550"}
-:::
-:::
-
-
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise 2.1 
+Exercises 2.1 - 2.2
 :::
 
-## [More Advantages!]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Other Advantages]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ::: columns
 ::: {.column width="65%"}
 
 ::: {.custom2}
-- Guardrails against pulling all of the data 
 - SQL is not sent until `print()` or `collect()` runs (Lazy eval)
+- Use `dplyr` against over a 12 different databases (MSSQL, Oracle, Teradata, etc.)
 :::
-
 :::
 ::: {.column width="30%"}
 

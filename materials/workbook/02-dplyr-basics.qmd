@@ -17,7 +17,6 @@ library(DBI)
 
 *Basics to how to point a variable in R to a table or view inside the database*
 
-
 1. Load the `dplyr`, `DBI` and `dbplyr` libraries
 ```{r, dplyr}
 library(dplyr)
@@ -36,7 +35,7 @@ con <- dbConnect(
 3. Using `dbGetQuery()` create a query that pulls the top 10 rows form `cars`
 
 ```{r}
-dbGetQuery(con, "select * from cars limit 10")
+dbGetQuery(con, "select * from cars")
 ```
 
 4. Use the `tbl()` to perform the same. Notice how it automatically only shows 
@@ -56,8 +55,31 @@ tbl_cars <- tbl(con, "cars")
 tbl_cars
 ```
 
-6. Using `dplyr`, get the average `mpg` for each `am`, and sort it by the
-average
+6. Add `count()` to easily get the number of rows
+```{r}
+tbl_cars %>% 
+  count()
+```
+
+7. Add `am` as an argument to `count()` to see the count by that field
+```{r}
+tbl_cars %>% 
+  count(am)
+```
+
+8. Add `show_query()` to see the how `dplyr` translates your code to 
+SQL 
+
+```{r}
+tbl_cars %>% 
+  count(am) %>% 
+  show_query()
+```
+## Easily aggretate data
+*An example of how we can use the same code against a local R data frame and a remote table*
+
+1. Using `dplyr`, get the average `mpg` for each `am`, and sort it by the
+average for `mtcars`
 
 ```{r}
 mtcars %>% 
@@ -66,7 +88,7 @@ mtcars %>%
   arrange(desc(avg_mpg))
 ```
 
-7. Run the same code against the remote table 
+2. Use `tbl_cars` to perform the exact same operation 
 
 ```{r}
 tbl_cars %>% 
@@ -75,39 +97,14 @@ tbl_cars %>%
   arrange(desc(avg_mpg))
 ```
 
-## Under the hood 
-*Use `show_query()` to preview the SQL statement that will be sent to the database*
+3. Add `show_query()` to see what R sent to Databricks
 
-1. SQL statement that actually runs when we ran `customers` as a command
 ```{r}
-show_query(customers)
-```
-
-2. Easily view the resulting query by adding `show_query()` in another piped command
-```{r}
-customers %>%
+tbl_cars %>% 
+  group_by(cyl) %>% 
+  summarise(avg_mpg = mean(mpg, na.rm = TRUE)) %>% 
+  arrange(desc(avg_mpg)) %>%
   show_query()
-```
-
-3. Insert `head()` in between the two statements to see how the SQL changes
-```{r}
-customers %>%
-  head() %>%
-  show_query()
-```
-
-4. Use `sql_render()` and `simulate_mssql()` to see how the SQL statement changes from vendor to vendor
-```{r}
-customers %>%
-  head() %>%
-  sql_render(con = simulate_mssql()) 
-```
-
-5. Use `explain()` to explore the query plan
-```{r}
-customers %>% 
-  head() %>% 
-  explain()
 ```
 
 ## Un-translated R commands
@@ -115,7 +112,7 @@ customers %>%
 
 1. Preview how `Sys.time()` is translated
 ```{r}
-customers %>%
+tbl_cars %>%
   mutate(today = Sys.time()) %>%
   select(today) %>% 
   show_query()
@@ -124,7 +121,7 @@ customers %>%
 2. Use Databricks's native commands, in this case `current_date()` 
 (https://docs.databricks.com/en/sql/language-manual/functions/current_date.html)
 ```{r}
-customers %>%
+tbl_cars %>%
   mutate(today = current_date()) %>%
   select(today) %>% 
   show_query()
@@ -132,7 +129,7 @@ customers %>%
 
 3. Run the `dplyr` code to confirm it works
 ```{r}
-customers %>%
+tbl_cars %>%
   mutate(today = current_date()) %>%
   select(today) %>%
   head()
@@ -143,21 +140,21 @@ customers %>%
 
 1. Preview how `Sys.time()` is translated
 ```{r}
-customers %>%
+tbl_cars %>%
   mutate(today = Sys.time()) %>%
   show_query()
 ```
 
 2. Preview how `Sys.time()` is translated when prefixing `!!`
 ```{r}
-customers %>%
+tbl_cars %>%
   mutate(today = !! Sys.time()) %>%
   show_query()
 ```
 
 3. Preview how `Sys.time()` is translated when prefixing `!!`
 ```{r}
-customers %>%
+tbl_cars %>%
   mutate(today = !!Sys.time()) %>%
   select(today) %>%
   head()
@@ -167,7 +164,7 @@ customers %>%
 
 1. Copy the result of the latest `show_query()` exercise
 ```{r}
-customers %>%
+tbl_cars %>%
   mutate(today = !!Sys.time()) %>%
   select(today) %>% 
   show_query()
@@ -175,49 +172,10 @@ customers %>%
 
 2. Paste the result in this SQL chunk
 ```{sql, connection = con}
-SELECT '2024-05-09T19:35:08Z' AS `today`
-FROM `samples`.`tpch`.`customer`
+SELECT '2024-05-26T20:35:56Z' AS `today`
+FROM `cars`
 ```
 
-
-## Basic aggregation
-*A couple of `dplyr` commands that run in-database*
-
-1. How many records are in the **customers** table?
-```{r}
-customers  %>%
-  count()
-```
-
-2. What is the average character length of the airport codes? How many characters is the longest and the shortest airport name?
-```{r}
-customers %>%
-  summarise(
-    avg_customer_balance = mean(c_acctbal, na.rm = TRUE),
-    max_customer_balance = max(c_acctbal, na.rm = TRUE),
-    min_customer_balance = min(c_acctbal, na.rm = TRUE),
-    total_records = n()
-  )
-```
-
-3. How many records are in the **orders** table?
-```{r}
-orders %>%
-  count()
-```
-
-4. What is the highest total price of an order?
-```{r}
-orders %>%
-  summarise(x = max(o_totalprice, na.rm = TRUE))
-```
-
-5. What is the SQL statement sent in exercise 4?
-```{r}
-orders %>%
-  summarise(x = max(o_totalprice, na.rm = TRUE)) %>%
-  show_query()
-```
 
 ```{r, include = FALSE}
 dbDisconnect(con)
