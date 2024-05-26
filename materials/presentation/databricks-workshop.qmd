@@ -411,6 +411,7 @@ Preferred
 :::{.custom2}
 - SQL language was not meant for exploratory data analysis
 - "Cognitive cost" of switching between SQL and R 
+- It is not as easy to plot, model, or present results in SQL as it is with R
 :::
 :::
 :::{.column}
@@ -424,6 +425,8 @@ group by 'am' order by 'avg_mpg' desc
 ## [Using dplyr & dbplyr]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 <br/>
+
+
 
 :::{.columns}
 :::{.column width="50%"}
@@ -446,6 +449,24 @@ tbl(con, "cars") %>%
 <br/>[X]{style="color: #fff;"}arrange(desc(avg_mpg))
 ]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:45px;"}
 
+:::
+:::
+
+
+## [More Advantages!]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+::: columns
+::: {.column width="65%"}
+
+::: {.custom2}
+- Guardrails against pulling all of the data 
+- SQL is not sent until `print()` or `collect()` runs (Lazy eval)
+- Use `dplyr` against over a 12 different databases (MSSQL, Oracle, Teradata, etc.)
+:::
+:::
+::: {.column width="30%"}
+
+![](assets/diagrams/dplyr-push.png){.absolute width="550"}
 :::
 :::
 
