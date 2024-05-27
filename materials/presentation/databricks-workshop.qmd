@@ -316,7 +316,7 @@ Exercise 1.6 - 1.7
 <br/><br/>
 
 :::{.content-slide}
-Data and processing need to be as **close** as possible
+Data & processing need to be as **physically close** as possible
 :::
 
 ## [Working with Databricks]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
@@ -370,10 +370,10 @@ Data and processing need to be as **close** as possible
 ## [Takeaways]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.custom2}
-- [Download data only if doing something R can do]{style="font-size:80px;"}
-- [🔑 Data & processing need to be as **close** as possible]{style="font-size:80px;"}
-- [Move most of the processing to Databricks]{style="font-size:80px;"}
-- [But how?...]{style="font-size:80px;"}
+- [Download data if doing something only R can do]{style="font-size:75px;"}
+- [🔑 Data & processing need to be as **physically close** as possible]{style="font-size:75px;"}
+- [Move most of the processing to Databricks]{style="font-size:75px;"}
+- [But how?...]{style="font-size:75px;"}
 :::
 
 ## {background-image="assets/background/content.png" background-size="1700px" background-color="#2a7070"}
@@ -420,8 +420,8 @@ Preferred
 <br/>
 <br/>
 [
-select 'am', avg('mpg') as 'avg_mpg' from 'cars'
-group by 'am' order by 'avg_mpg' desc
+select 'cut', avg('price') as 'avg_price' from 'diamonds'
+group by 'cut' order by 'avg_price' desc
 ]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:60px;"}
 :::
 :::
@@ -434,7 +434,7 @@ group by 'am' order by 'avg_mpg' desc
 <br/>
 
 :::{.columns}
-:::{.column width="50%"}
+:::{.column width="45%"}
 
 :::{.custom2}
 - Translates R code to SQL!
@@ -444,15 +444,15 @@ group by 'am' order by 'avg_mpg' desc
 :::
 
 :::
-:::{.column width="50%"}
+:::{.column width="55%"}
 <br/>
 [
-tbl(con, "cars") %>% 
-<br/>[X]{style="color: #fff;"}group_by(cyl) %>% 
-<br/>[X]{style="color: #fff;"}summarise(
-<br/>[XX]{style="color: #fff;"}avg_mpg = mean(mpg, na.rm = TRUE)
+**tbl**(con, "diamonds") %>% 
+<br/>[X]{style="color: #fff;"}**group_by**(cut) %>% 
+<br/>[X]{style="color: #fff;"}**summarise**(
+<br/>[XX]{style="color: #fff;"}avg_price = **mean**(price, na.rm = TRUE)
 <br/>[XX]{style="color: #fff;"}) %>% 
-<br/>[X]{style="color: #fff;"}arrange(desc(avg_mpg))
+<br/>[X]{style="color: #fff;"}**arrange**(**desc**(avg_price))
 ]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:45px;"}
 
 :::
@@ -462,6 +462,8 @@ tbl(con, "cars") %>%
 
 ![](assets/diagrams/dplyr.png){.absolute top="0" left="1300" width="150"}
 ![](assets/diagrams/dbplyr.png){.absolute top="0" left="1450" width="150"}
+
+<br/>
 
 :::{.columns}
 :::{.column width="40%"}
@@ -476,11 +478,12 @@ tbl(con, "cars") %>%
 
 :::
 :::{.column width="60%"}
+
 [
-tbl_cars <- tbl(con, "cars")<br/>
+tbl_diamonds <- **tbl**(con, "diamonds")<br/>
 <br/>
-tbl_cars %>% <br/>
-[XX]{style="color: #fff;"}count()<br/>
+tbl_diamonds %>% <br/>
+[XX]{style="color: #fff;"}**count**()<br/>
 ]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:45px;"} 
 [
 <br/>
@@ -488,7 +491,7 @@ tbl_cars %>% <br/>
 [Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]]{style="color:#aaa;"}<br/>
 [XXX]{style="color: #fff;"}n<br/>
 [\<int64\>]{style="color:#aaa;"} <br/>
-1      32<br/>
+1      53940<br/>
 ]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:35px;"} 
 
 :::
@@ -502,28 +505,28 @@ tbl_cars %>% <br/>
 <br/>
 
 :::{.columns}
-:::{.column width="60%"}
+:::{.column width="55%"}
 
 :::{.custom2}
-- Behind the scenes, translates code to SQL
+- Create a variable in R without importing data
 - SQL is sent **only** when data is requested
+- Behind the scenes, translates code to SQL
 :::
 
 :::
-:::{.column width="40%"}
-[
-tbl_cars <- tbl(con, "cars")<br/>
+:::{.column width="45%"}
 <br/>
-tbl_cars %>% <br/>
-[XX]{style="color: #fff;"}count() %>%<br/>
-[XX]{style="color: #fff;"}show_query()<br/>
-]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:45px;"} 
+[
+tbl_diamonds %>% <br/>
+[XX]{style="color: #fff;"}**count**() %>%<br/>
+[XX]{style="color: #fff;"}**show_query**()<br/>
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:55px;"} 
 [
 <br/>
 \<SQL\><br/>
 SELECT COUNT(*) AS 'n'<br/>
-FROM 'cars'<br/>
-]{style="color:#999; font-family:Helvetica Neue; font-weight:300;font-size:35px;"} 
+FROM 'diamonds'<br/>
+]{style="color:#999; font-family:Helvetica Neue; font-weight:300;font-size:45px;"} 
 
 :::
 :::
@@ -542,7 +545,7 @@ There are 3 commands that download data:
 :::{.columns}
 
 :::{.column}
-- `print()` - Downloads the top 10 rows by default (Guardrails)
+- `print()` - Downloads the first 1K rows by default (Guardrails)
 - `collect()` - Downloads **all** of the data
 - `pull()` -Downloads **all** of the data, but of a single field/variable. It
 will return it to R as a vector.
@@ -550,12 +553,12 @@ will return it to R as a vector.
 
 :::{.column}
 [
-tbl_cars <- tbl(con, "cars")<br/>
-print(tbl_cars)<br/>
+tbl_cars <- **tbl**(con, "cars")<br/>
+**print**(tbl_cars)<br/>
 tbl_cars [#Print is implied]{style="color:#aaa"} <br/>
-collect(tbl_cars) <br/>
-pull(tbl_cars, mpg) 
-]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:50px;line-height:1.8;"} 
+**collect**(tbl_cars) <br/>
+**pull**(tbl_cars, mpg) 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:150;font-size:50px;line-height:1.6;"} 
 :::
 :::
 
@@ -570,9 +573,9 @@ Exercises 2.3
 <br/><br/>
 
 :::{.custom2}
-1. Use `collect()`, and `pull()`, only if absolutely needed
-1. Use `select()` to download only necessary fields
-1. Do **not** pass a full SQL statement to `tbl()`
+- Use `collect()`, and `pull()`, only if absolutely needed
+- Use `select()` to download only necessary fields
+- Do **not** pass a full SQL statement to `tbl()`
 :::
 
 
