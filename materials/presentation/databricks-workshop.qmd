@@ -426,7 +426,10 @@ group by 'am' order by 'avg_mpg' desc
 :::
 :::
 
-## [Using dplyr & dbplyr]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Use dplyr & dbplyr]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+![](assets/diagrams/dplyr.png){.absolute top="0" left="1300" width="150"}
+![](assets/diagrams/dbplyr.png){.absolute top="0" left="1450" width="150"}
 
 <br/>
 
@@ -457,6 +460,8 @@ tbl(con, "cars") %>%
 
 ## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
+![](assets/diagrams/dplyr.png){.absolute top="0" left="1300" width="150"}
+![](assets/diagrams/dbplyr.png){.absolute top="0" left="1450" width="150"}
 
 :::{.columns}
 :::{.column width="40%"}
@@ -490,6 +495,11 @@ tbl_cars %>% <br/>
 :::
 
 ## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+![](assets/diagrams/dplyr.png){.absolute top="0" left="1300" width="150"}
+![](assets/diagrams/dbplyr.png){.absolute top="0" left="1450" width="150"}
+
+<br/>
 
 :::{.columns}
 :::{.column width="60%"}
@@ -555,21 +565,16 @@ pull(tbl_cars, mpg)
 Exercises 2.3
 :::
 
-## [Other Advantages]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Some advice...]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-:::{.columns}
-::: {.column width="65%"}
+<br/><br/>
 
-::: {.custom2}
-- SQL is not sent until `print()` or `collect()` runs (Lazy eval)
-- Use `dplyr` against over a 12 different databases (MSSQL, Oracle, Teradata, etc.)
+:::{.custom2}
+1. Use `collect()`, and `pull()`, only if absolutely needed
+1. Use `select()` to download only necessary fields
+1. Do **not** pass a full SQL statement to `tbl()`
 :::
-:::
-::: {.column width="30%"}
 
-![](assets/diagrams/dplyr-push.png){.absolute width="550"}
-:::
-:::
 
 ## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
