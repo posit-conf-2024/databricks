@@ -32,7 +32,7 @@ con <- dbConnect(
 )
 ```
 
-3. Using `dbGetQuery()` create a query that pulls the top 10 rows form `cars`
+3. Using `dbGetQuery()` create a query to pull the `cars` table
 
 ```{r}
 dbGetQuery(con, "select * from cars")
@@ -97,12 +97,63 @@ tbl_cars %>%
   arrange(desc(avg_mpg))
 ```
 
-3. Add `show_query()` to see what R sent to Databricks
+3. Load code into a variable named `mpg_by_cyl`
+
+```{r}
+mpg_by_cyl <- tbl_cars %>% 
+  group_by(cyl) %>% 
+  summarise(avg_mpg = mean(mpg, na.rm = TRUE)) %>% 
+  arrange(desc(avg_mpg)) 
+```
+
+4. Call `mpg_by_cyl` 
+
+```{r}
+mpg_by_cyl
+```
+
+
+## Data collection
+*Understand the difference between printing and collecting*
+
+
+1. Call the `tbl_cars` variable directly
+
+```{r}
+tbl_cars
+```
+
+2. Call `tbl_cars` via `print()`. Notice is the same exact behavior, only top 
+10 rows
+
+```{r}
+print(tbl_cars)
+```
+
+3. Call `tbl_cars` via `collect()`. Notice it prints the **entire** table 
+
+```{r}
+collect(tbl_cars)
+```
+
+4. Load the previous operation to a variable named `local_cars`
+
+```{r}
+local_cars <- collect(tbl_cars)
+```
+
+5. Use `pull()` to extract the values from `mpg` only
 
 ```{r}
 tbl_cars %>% 
-  group_by(cyl) %>% 
-  summarise(avg_mpg = mean(mpg, na.rm = TRUE)) %>% 
-  arrange(desc(avg_mpg)) %>%
-  show_query()
+  pull(mpg)
 ```
+
+6. Load the previous operation to a variable named `mpg`. Notice that this time,
+the variable is a vector, not a data frame.
+
+```{r}
+mpg <- tbl_cars %>% 
+  pull(mpg)
+```
+
