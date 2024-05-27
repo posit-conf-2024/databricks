@@ -537,6 +537,43 @@ FROM 'diamonds'<br/>
 Exercises 2.1 - 2.2
 :::
 
+## [PSA]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Please, please, please...never pass a full query to `tbl()`
+:::
+
+<br/>
+
+:::{.columns}
+:::{.column width="15%"}
+:::
+:::{.column width="85%"}
+[
+tbl(con, "Select * from 'table'")
+]{style="font-size: 100px;font-family:Helvetica Neue; font-weight:150;"}
+:::
+:::
+
+## [PSA]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Please, please, please...never pass a full query to `tbl()`
+:::
+
+<br/>
+
+:::{.columns}
+:::{.column width="15%"}
+:::
+:::{.column width="85%"}
+[
+tbl(con, "Select * from 'table'")
+]{style="text-decoration: line-through; font-size: 100px;font-family:Helvetica Neue; font-weight:150;"}
+:::
+:::
+
+
 ## [Data collection]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 :::{.custom2}
 There are 3 commands that download data:
@@ -568,18 +605,21 @@ tbl_cars [#Print is implied]{style="color:#aaa"} <br/>
 Exercises 2.3
 :::
 
-## [Some advice...]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## {background-image="assets/background/content.png" background-size="1700px" background-color="#2a7070"}
 
-<br/><br/>
-
-:::{.custom2}
-- Use `collect()`, and `pull()`, only if absolutely needed
-- Use `select()` to download only necessary fields
-- Do **not** pass a full SQL statement to `tbl()`
+:::{.content-slide-title}
+Unit 3
 :::
 
+:::{.content-slide}
+More about <br/>
+`dplyr` & <br/>
+`dbplyr`
+:::
 
 ## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
 ![](assets/background/racoon.jpg){.absolute top="220" left="900" width="430"}
+
+
 
