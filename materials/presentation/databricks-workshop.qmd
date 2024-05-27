@@ -10,7 +10,7 @@ format:
     background-transition: fade
     theme: theme.scss
     code-line-numbers: false
-    menu: false
+    menu: true
     code-block-height: 640px
 engine: knitr
 ---
@@ -211,9 +211,9 @@ con <- dbConnect(
 
 :::{.sample-code}
 
-`odbc::databricks()` super simplifies the setup. <br/>
-Automatically detects credentials, driver, and sets default arguments <br/>
-`HTTPPath` is the only argument that you will need.
+- `odbc::databricks()` super simplifies the setup
+- Automatically detects credentials, driver, and sets default arguments
+- `HTTPPath` is the only argument that you will need
 :::
 
 <br/>
@@ -246,12 +246,19 @@ Exercises 1.3 - 1.4
 
 ## [Using DBI]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
+:::{.columns}
+:::{.column width="10%"}
+
+:::
+:::{.column width="90%"}
 :::{.custom2}
 - `dbConnect()` - Connects to the database
 - `dbDisconnect()` - Disconnects the database
 - `dbListTables()` - Lists the tables 
 - `dbListFields()` - Lists the fields of a table 
 - `dbGetQuery()` - Runs the query & collects results
+:::
+:::
 :::
 
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
@@ -455,8 +462,11 @@ tbl(con, "cars") %>%
 :::{.column width="40%"}
 
 :::{.custom2}
-- `dplyr` creates a "virtual" table in R
-- It can be used just like a regular data frame
+- Creates a "virtual" table 
+- Behaves like a regular data frame
+- It contains no data
+- It's a pointer to the database table
+
 :::
 
 :::
@@ -469,9 +479,10 @@ tbl_cars %>% <br/>
 ]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:45px;"} 
 [
 <br/>
-Source:   SQL [1 x 1]<br/>
-Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]<br/>
-[XX]{style="color: #fff;"}        n<br/>
+[Source:   SQL [1 x 1]]{style="color:#aaa;"}<br/>
+[Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]]{style="color:#aaa;"}<br/>
+[XXX]{style="color: #fff;"}n<br/>
+[\<int64\>]{style="color:#aaa;"} <br/>
 1      32<br/>
 ]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:35px;"} 
 
@@ -481,16 +492,15 @@ Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]<br/>
 ## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.columns}
-:::{.column width="40%"}
+:::{.column width="60%"}
 
 :::{.custom2}
-- `dplyr` creates a "virtual" table in R
-- It can be used just like a regular data frame
-- Behind the scenes, `dbplyr` translates R code to SQL
+- Behind the scenes, translates code to SQL
+- SQL is sent **only** when data is requested
 :::
 
 :::
-:::{.column width="60%"}
+:::{.column width="40%"}
 [
 tbl_cars <- tbl(con, "cars")<br/>
 <br/>
@@ -501,9 +511,9 @@ tbl_cars %>% <br/>
 [
 <br/>
 \<SQL\><br/>
-SELECT COUNT(*) AS `n`<br/>
-FROM `cars`<br/>
-]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:35px;"} 
+SELECT COUNT(*) AS 'n'<br/>
+FROM 'cars'<br/>
+]{style="color:#999; font-family:Helvetica Neue; font-weight:300;font-size:35px;"} 
 
 :::
 :::
