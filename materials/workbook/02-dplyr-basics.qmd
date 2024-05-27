@@ -1,5 +1,5 @@
 ---
-title: "dplyr basics"
+title: "Remote processing"
 execute: 
   eval: true
   freeze: true
