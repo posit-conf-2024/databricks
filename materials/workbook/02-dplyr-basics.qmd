@@ -32,84 +32,84 @@ con <- dbConnect(
 )
 ```
 
-3. Using `dbGetQuery()` create a query to pull the `cars` table
+3. Using `dbGetQuery()` create a query to pull the `diamonds` table
 
 ```{r}
-dbGetQuery(con, "select * from cars")
+#| eval: false
+dbGetQuery(con, "select * from diamonds")
 ```
 
-4. Use the `tbl()` to perform the same. Notice how it automatically only shows 
-the top 10
+4. Use the `tbl()` to perform the same
 ```{r}
-tbl(con, "cars")
+tbl(con, "diamonds")
 ```
 
 4. Load the reference, not the table data, into a variable
 ```{r}
-tbl_cars <- tbl(con, "cars")
+tbl_diamonds <- tbl(con, "diamonds")
 ```
 
 
 5. Call the variable to see preview the data in the table
 ```{r}
-tbl_cars
+tbl_diamonds
 ```
 
 6. Add `count()` to easily get the number of rows
 ```{r}
-tbl_cars %>% 
+tbl_diamonds %>% 
   count()
 ```
 
-7. Add `am` as an argument to `count()` to see the count by that field
+7. Add `cut` as an argument to `count()` to see the count by that field
 ```{r}
-tbl_cars %>% 
-  count(am)
+tbl_diamonds %>% 
+  count(cut)
 ```
 
 8. Add `show_query()` to see the how `dplyr` translates your code to 
 SQL 
 
 ```{r}
-tbl_cars %>% 
-  count(am) %>% 
+tbl_diamonds %>% 
+  count(cut) %>% 
   show_query()
 ```
 ## Easily aggretate data
 *An example of how we can use the same code against a local R data frame and a remote table*
 
-1. Using `dplyr`, get the average `mpg` for each `am`, and sort it by the
-average for `mtcars`
+1. Using `dplyr`, get the average price for each `cut`, and sort it by the
+average for `diamonds`, from the `ggplot2` package
 
 ```{r}
-mtcars %>% 
-  group_by(cyl) %>% 
-  summarise(avg_mpg = mean(mpg, na.rm = TRUE)) %>% 
-  arrange(desc(avg_mpg))
+ggplot2::diamonds %>% 
+  group_by(cut) %>% 
+  summarise(avg_price = mean(price, na.rm = TRUE)) %>% 
+  arrange(desc(avg_price))
 ```
 
-2. Use `tbl_cars` to perform the exact same operation 
+2. Use `tbl_diamonds` to perform the exact same operation 
 
 ```{r}
-tbl_cars %>% 
-  group_by(cyl) %>% 
-  summarise(avg_mpg = mean(mpg, na.rm = TRUE)) %>% 
-  arrange(desc(avg_mpg))
+tbl_diamonds %>% 
+  group_by(cut) %>% 
+  summarise(avg_price = mean(price, na.rm = TRUE)) %>% 
+  arrange(desc(avg_price))
 ```
 
-3. Load code into a variable named `mpg_by_cyl`
+3. Load code into a variable named `price_by_cut`
 
 ```{r}
-mpg_by_cyl <- tbl_cars %>% 
-  group_by(cyl) %>% 
-  summarise(avg_mpg = mean(mpg, na.rm = TRUE)) %>% 
-  arrange(desc(avg_mpg)) 
+price_by_cut <- tbl_diamonds %>% 
+  group_by(cut) %>% 
+  summarise(avg_price = mean(price, na.rm = TRUE)) %>% 
+  arrange(desc(avg_price))
 ```
 
-4. Call `mpg_by_cyl` 
+4. Call `price_by_cut` 
 
 ```{r}
-mpg_by_cyl
+price_by_cut
 ```
 
 
@@ -117,43 +117,44 @@ mpg_by_cyl
 *Understand the difference between printing and collecting*
 
 
-1. Call the `tbl_cars` variable directly
+1. Call the `tbl_diamonds` variable directly
 
 ```{r}
-tbl_cars
+tbl_diamonds
 ```
 
-2. Call `tbl_cars` via `print()`. Notice is the same exact behavior, only top 
+2. Call `tbl_diamonds` via `print()`. Notice is the same exact behavior, only top 
 10 rows
 
 ```{r}
-print(tbl_cars)
+print(tbl_diamonds)
 ```
 
-3. Call `tbl_cars` via `collect()`. Notice it prints the **entire** table 
+3. Call `tbl_diamonds` via `collect()`. Notice it prints the **entire** table 
 
 ```{r}
-collect(tbl_cars)
+collect(tbl_diamonds)
 ```
 
-4. Load the previous operation to a variable named `local_cars`
+4. Load the previous operation to a variable named `local_diamonds`
 
 ```{r}
-local_cars <- collect(tbl_cars)
+local_diamonds <- collect(tbl_diamonds)
 ```
 
-5. Use `pull()` to extract the values from `mpg` only
+5. Use `pull()` to extract the values from `price` only
 
 ```{r}
-tbl_cars %>% 
-  pull(mpg)
+#| eval: false
+tbl_diamonds %>% 
+  pull(price)
 ```
 
-6. Load the previous operation to a variable named `mpg`. Notice that this time,
+6. Load the previous operation to a variable named `price`. Notice that this time,
 the variable is a vector, not a data frame.
 
 ```{r}
-mpg <- tbl_cars %>% 
-  pull(mpg)
+price <- tbl_diamonds %>% 
+  pull(price)
 ```
 
