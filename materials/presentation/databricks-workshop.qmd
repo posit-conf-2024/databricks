@@ -524,6 +524,37 @@ FROM 'cars'<br/>
 Exercises 2.1 - 2.2
 :::
 
+## [Data collection]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+:::{.custom2}
+There are 3 commands that download data:
+:::
+
+:::{.columns}
+
+:::{.column}
+- `print()` - Downloads the top 10 rows by default (Guardrails)
+- `collect()` - Downloads **all** of the data
+- `pull()` -Downloads **all** of the data, but of a single field/variable. It
+will return it to R as a vector.
+:::
+
+:::{.column}
+[
+tbl_cars <- tbl(con, "cars")<br/>
+print(tbl_cars)<br/>
+tbl_cars [#Print is implied]{style="color:#aaa"} <br/>
+collect(tbl_cars) <br/>
+pull(tbl_cars, mpg) 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:50px;line-height:1.8;"} 
+:::
+:::
+
+## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercises 2.3
+:::
+
 ## [Other Advantages]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.columns}
