@@ -582,6 +582,18 @@ x_1 <- tbl_table %>% <br/>
 :::
 :::
 
+## {background-image="assets/background/content.png" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide-title}
+Unit 3
+:::
+
+:::{.content-slide}
+More about <br/>
+`dplyr` & <br/>
+`dbplyr`
+:::
+
 
 ## [Data collection]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 :::{.custom2}
@@ -611,20 +623,9 @@ tbl_cars [#Print is implied]{style="color:#aaa"} <br/>
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercises 2.3
+Exercises 3.1
 :::
 
-## {background-image="assets/background/content.png" background-size="1700px" background-color="#2a7070"}
-
-:::{.content-slide-title}
-Unit 3
-:::
-
-:::{.content-slide}
-More about <br/>
-`dplyr` & <br/>
-`dbplyr`
-:::
 
 ## [Catalogs and schema]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
