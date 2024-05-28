@@ -632,7 +632,7 @@ Exercise 3.1
 ## [Databricks Unity Catalog]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.custom2}
-Centralizes access control, auditing, lineage, and data discovery across Databricks workspaces.
+Centralizes access control, auditing, lineage, and data discovery across workspaces.
 :::
 
 ![](assets/diagrams/object-model.png){.absolute top="280" left="300"}
@@ -640,6 +640,33 @@ Centralizes access control, auditing, lineage, and data discovery across Databri
 ::: footer
 https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 :::
+
+## [Databricks Unity Catalog]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+<br/><br/><br/>
+<br/><br/>
+[
+# Why do you work?! <br/>
+]{style="color:#999; font-family:Helvetica Neue; font-weight:200;font-size:60px; line-height: 0.8"} 
+[
+**tbl**(con, "diamonds") 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:80px; line-height: 1.1"} 
+
+![](assets/diagrams/uc-default1.png){.absolute top="120" left="700" width="950"}
+
+## [Databricks Unity Catalog]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+<br/><br/><br/>
+<br/><br/>
+[
+# Oooh, that's why! <br/>
+]{style="color:#999; font-family:Helvetica Neue; font-weight:200;font-size:60px; line-height: 0.8"} 
+[
+**tbl**(con, "diamonds") 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:80px; line-height: 1.1"} 
+
+![](assets/diagrams/uc-default2.png){.absolute top="120" left="700" width="950"}
+
 
 ## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
