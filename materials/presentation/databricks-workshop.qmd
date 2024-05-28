@@ -540,36 +540,45 @@ Exercises 2.1 - 2.2
 ## [PSA]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.custom2}
-Please, please, please...never pass a full query to `tbl()`
+Please, please, please...don't pass a full query to `tbl()`
 :::
-
-<br/>
 
 :::{.columns}
-:::{.column width="15%"}
+:::{.column width="2%"}
 :::
-:::{.column width="85%"}
+:::{.column width="98%"}
 [
-tbl(con, "Select * from 'table'")
-]{style="font-size: 100px;font-family:Helvetica Neue; font-weight:150;"}
+**tbl**(con, "Select * from 'table' where x = 1")
+]{style="font-size: 90px;font-family:Helvetica Neue; font-weight:150;"}
 :::
 :::
 
 ## [PSA]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.custom2}
-Please, please, please...never pass a full query to `tbl()`
+Please, please, please...don't pass a full query to `tbl()`
 :::
-
-<br/>
 
 :::{.columns}
-:::{.column width="15%"}
+:::{.column width="2%"}
 :::
-:::{.column width="85%"}
+:::{.column width="98%"}
 [
-tbl(con, "Select * from 'table'")
-]{style="text-decoration: line-through; font-size: 100px;font-family:Helvetica Neue; font-weight:150;"}
+**tbl**(con, "Select * from 'table' where x = 1")
+]{style="text-decoration: line-through; font-size: 90px;font-family:Helvetica Neue; font-weight:150;"}
+:::
+:::
+
+:::{.columns}
+:::{.column width="25%"}
+:::
+:::{.column width="75%"}
+<br/>
+[
+tbl_table <- **tbl**(con, "table") <br/><br/>
+x_1 <- tbl_table %>% <br/>
+[XX]{style="color: #fff;"}**filter**(x == 1) 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:80px; line-height: 0.8"} 
 :::
 :::
 
@@ -616,6 +625,15 @@ More about <br/>
 `dplyr` & <br/>
 `dbplyr`
 :::
+
+## [Catalogs and schema]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+
+
+:::{.sample-code}
+tbl(con, in_catalog("hive_metastore", "default", "diamonds"))
+:::
+
 
 ## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
