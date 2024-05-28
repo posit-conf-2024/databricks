@@ -6,8 +6,8 @@ book:
     - index.qmd
     - part: odbc.qmd
       chapters:
-      - 01-database-access.qmd
-      - 02-dplyr-basics.qmd
+      - 01-connecting-interacting.qmd
+      - 02-remote-processing.qmd
     
 format:
   html:
