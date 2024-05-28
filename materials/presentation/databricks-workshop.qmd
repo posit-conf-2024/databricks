@@ -632,14 +632,10 @@ Exercise 3.1
 ## [Databricks Unity Catalog]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.custom2}
-Centralizes access control, auditing, lineage, and data discovery across 
-Databricks workspaces
+Centralizes access control, auditing, lineage, and data discovery across Databricks workspaces.
 :::
 
-:::{.sample-code}
-tbl(con, in_catalog("hive_metastore", "default", "diamonds"))
-:::
-
+![](assets/diagrams/object-model.png){.absolute top="280" left="300"}
 
 ::: footer
 https://docs.databricks.com/en/data-governance/unity-catalog/index.html
