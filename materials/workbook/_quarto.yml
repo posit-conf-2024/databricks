@@ -8,7 +8,7 @@ book:
       chapters:
       - 01-connecting-interacting.qmd
       - 02-remote-processing.qmd
-    
+      - 03-more-dplyr-dbplyr.qmd
 format:
   html:
     toc: true
