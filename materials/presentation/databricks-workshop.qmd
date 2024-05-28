@@ -166,6 +166,8 @@ Click *'OK'*
 Explore the catalogs, schema and tables
 :::
 
+![](assets/diagrams/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
+
 ![](assets/diagrams/connection-4.png){.absolute top="230" left="350" width="900"}
 
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
@@ -623,18 +625,25 @@ tbl_cars [#Print is implied]{style="color:#aaa"} <br/>
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercises 3.1
+Exercise 3.1
 :::
 
 
-## [Catalogs and schema]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Databricks Unity Catalog]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-
+:::{.custom2}
+Centralizes access control, auditing, lineage, and data discovery across 
+Databricks workspaces
+:::
 
 :::{.sample-code}
 tbl(con, in_catalog("hive_metastore", "default", "diamonds"))
 :::
 
+
+::: footer
+https://docs.databricks.com/en/data-governance/unity-catalog/index.html
+:::
 
 ## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
