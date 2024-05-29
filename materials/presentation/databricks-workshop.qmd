@@ -639,7 +639,6 @@ tbl_cars [#Print is implied]{style="color:#aaa"} <br/>
 Exercise 3.1
 :::
 
-
 ## [Databricks Unity Catalog (UC)]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.custom2}
@@ -745,6 +744,30 @@ Use `I()` to create the correct table reference
 
 :::{.footer}
 https://www.tidyverse.org/blog/2024/04/dbplyr-2-5-0/#referring-to-tables-in-a-schema
+:::
+
+## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise 3.2
+:::
+
+## [Variable selection]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+:::{.custom2}
+Using `select()` with these functions make variable selection easy: 
+:::
+
+:::{.columns}
+:::{.column width="10%"}
+:::
+:::{.column width="80%"}
+:::{.custom2}
+- `starts_with()` - Starts with an exact prefix
+- `ends_with()` - Ends with an exact suffix
+- `contains()` - Contains a literal string
+- `everything()` - Selects everything else. Use with other selection functions.
+:::
+:::
 :::
 
 ## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
