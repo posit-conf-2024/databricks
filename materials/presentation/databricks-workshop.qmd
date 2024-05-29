@@ -667,6 +667,26 @@ https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 
 ![](assets/diagrams/uc-default2.png){.absolute top="120" left="700" width="950"}
 
+## [Non default catalog]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+How do I access tables not in the default catalog?
+:::
+
+<br/>
+[
+**tbl**(con, "customer") 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px; line-height: 1.1"} 
+<br/><br/>
+[
+**tbl**(<br/>
+[X]{style="color: #fff;"}con, <br/>
+[X]{style="color: #fff;"}"samples.tpch.customer"<br/>
+  )<br/>
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px; line-height: 1.1"} 
+
+![](assets/diagrams/uc-customer.png){.absolute top="200" left="800" width="830"}
+
 
 ## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
