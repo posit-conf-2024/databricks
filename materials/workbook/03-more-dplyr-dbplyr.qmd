@@ -86,3 +86,47 @@ tbl(con, I("samples.tpch.customer"))
 ```{r}
 tbl(con, I("ferit.sales_order_in_la"))
 ```
+
+## Selecting variables
+**Simple strategies to order, and reduce, data to work with*
+
+1. Load the `customer` table to a variable called `customer` 
+
+```{r}
+customer <- tbl(con, I("samples.tpch.customer"))
+```
+2. Select all columns that end with "key"
+
+```{r}
+customer %>% 
+  select(ends_with("key"))
+```
+
+3. Move all columns that end with "key" to the front
+
+```{r}
+customer %>% 
+  select(ends_with("key"), everything())
+```
+
+4. Select all columns that **do not** end with "key"
+
+```{r}
+customer %>% 
+  select(-ends_with("key"))
+```
+
+
+## Join to tables
+**Using left_join() to relate two tables**
+
+```{r}
+customer <- tbl(con, in_catalog("samples", "tpch", "customer"))
+orders <- tbl(con, in_catalog("samples", "tpch", "orders"))
+```
+
+```{r}
+orders %>% 
+  left_join(customer, by = c("o_custkey" = "c_custkey")) %>% 
+  select(-ends_with("key"))
+```
