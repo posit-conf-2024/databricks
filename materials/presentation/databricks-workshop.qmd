@@ -673,7 +673,7 @@ https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 
 ![](assets/diagrams/uc-default2.png){.absolute top="280" left="800" width="850"}
 
-## [Non default catalog]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 How do I access tables not in the default catalog?
@@ -687,9 +687,9 @@ How do I access tables not in the default catalog?
 x (31740) Table or view not found: ..customer
 ]{style="color:#bc544b; font-family:Helvetica Neue; font-weight:400;font-size:35px; line-height: 1.1"} 
 
-![](assets/diagrams/uc-customer.png){.absolute top="200" left="800" width="830"}
+![](assets/diagrams/uc-customer.png){.absolute top="210" left="820" width="820"}
 
-## [Non default catalog]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 How do I access tables not in the default catalog?
@@ -713,8 +713,28 @@ x (31740) Table or view not found: ..customer
 x (31740) Table or view not found: ..samples.tpch.<br/>customer
 ]{style="color:#bc544b; font-family:Helvetica Neue; font-weight:400;font-size:35px; line-height: 1.1"} 
 
-![](assets/diagrams/uc-customer.png){.absolute top="200" left="800" width="830"}
+![](assets/diagrams/uc-customer.png){.absolute top="210" left="820" width="820"}
 
+
+## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Use `I()` to create the correct table reference
+:::
+<br/>
+<br/>
+[
+**tbl**(<br/>
+[X]{style="color: #fff;"}con, <br/>
+[X]{style="color: #fff;"}**I**("samples.tpch.customer")<br/>
+[X]{style="color: #fff;"})<br/>
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px; line-height: 1.1"} 
+
+![](assets/diagrams/uc-customer.png){.absolute top="210" left="820" width="820"}
+
+:::{.footer}
+https://www.tidyverse.org/blog/2024/04/dbplyr-2-5-0/#referring-to-tables-in-a-schema
+:::
 
 ## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
