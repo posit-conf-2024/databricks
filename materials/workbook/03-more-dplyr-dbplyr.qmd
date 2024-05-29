@@ -71,3 +71,18 @@ price <- tbl_diamonds %>%
   pull(price)
 ```
 
+## Referring to non-default catalog tables
+*Using I() to create non-default table references*
+
+1. Create a reference to the `customer` table, which is under the `tpch` schema, 
+inside the `samples` catalog
+
+```{r}
+tbl(con, I("samples.tpch.customer"))
+```
+
+2. Create a reference to the `sales_order_in_la` table, under the `ferit` schema
+
+```{r}
+tbl(con, I("ferit.sales_order_in_la"))
+```
