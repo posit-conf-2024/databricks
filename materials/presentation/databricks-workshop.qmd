@@ -207,6 +207,10 @@ con <- dbConnect(
 ```
 :::
 
+:::{.footer}
+https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcodbc-function
+:::
+
 ## [Connecting - Better]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 ![](assets/diagrams/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
@@ -239,6 +243,10 @@ con <- dbConnect(
 :::
 :::
 
+:::{.footer}
+https://solutions.posit.co/connections/db/databases/databricks/#using-the-new-odbcdatabricks-function
+:::
+
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
@@ -247,6 +255,7 @@ Exercises 1.3 - 1.4
 
 
 ## [Using DBI]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+<br/>
 
 :::{.columns}
 :::{.column width="10%"}
@@ -604,21 +613,22 @@ There are 3 commands that download data:
 
 :::{.columns}
 
-:::{.column}
+:::{.column width="55%"}
+
 - `print()` - Downloads the first 1K rows by default (Guardrails)
 - `collect()` - Downloads **all** of the data
 - `pull()` -Downloads **all** of the data, but of a single field/variable. It
 will return it to R as a vector.
 :::
 
-:::{.column}
+:::{.column width="45%"}
 [
 tbl_cars <- **tbl**(con, "cars")<br/>
 **print**(tbl_cars)<br/>
 tbl_cars [#Print is implied]{style="color:#aaa"} <br/>
 **collect**(tbl_cars) <br/>
 **pull**(tbl_cars, mpg) 
-]{style="color:#666; font-family:Helvetica Neue; font-weight:150;font-size:50px;line-height:1.6;"} 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:150;font-size:65px;line-height:1.8;"} 
 :::
 :::
 
