@@ -443,8 +443,8 @@ group by 'cut' order by 'avg_price' desc
 ![](assets/diagrams/dbplyr.png){.absolute top="0" left="1450" width="150"}
 
 <br/>
-
 :::{.columns}
+
 :::{.column width="45%"}
 
 :::{.custom2}
@@ -615,10 +615,11 @@ There are 3 commands that download data:
 
 :::{.column width="55%"}
 
+:::{.custom2}
 - `print()` - Downloads the first 1K rows by default (Guardrails)
 - `collect()` - Downloads **all** of the data
-- `pull()` -Downloads **all** of the data, but of a single field/variable. It
-will return it to R as a vector.
+- `pull()` - Download **all** the data of a single field
+:::
 :::
 
 :::{.column width="45%"}
@@ -654,7 +655,7 @@ https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 ## [Accessing the UC]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.custom2}
-"diamonds" can be accessed without specifying catalog and schema
+*"diamonds"* can be accessed without specifying catalog and schema
 :::
 
 <br/><br/><br/>
@@ -670,7 +671,7 @@ https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 ## [Accessing the UC]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.custom2}
-"hive_metastore" & "default" are the default catalog & schema respectively 
+*"hive_metastore"* & *"default"* are the default catalog & schema respectively 
 :::
 
 <br/><br/><br/>
@@ -749,6 +750,3 @@ https://www.tidyverse.org/blog/2024/04/dbplyr-2-5-0/#referring-to-tables-in-a-sc
 ## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
 ![](assets/background/racoon.jpg){.absolute top="220" left="900" width="430"}
-
-
-
