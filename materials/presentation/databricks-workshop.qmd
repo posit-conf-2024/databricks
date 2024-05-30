@@ -443,17 +443,15 @@ group by 'cut' order by 'avg_price' desc
 ![](assets/diagrams/dbplyr.png){.absolute top="0" left="1450" width="150"}
 
 <br/>
+
 :::{.columns}
-
 :::{.column width="45%"}
-
 :::{.custom2}
 - Translates R code to SQL!
 - 'Modularity' of piped code
 - Guardrails against pulling all of the data 
 - All your code is in R
 :::
-
 :::
 :::{.column width="55%"}
 <br/>
