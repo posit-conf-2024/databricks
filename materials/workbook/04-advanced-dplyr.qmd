@@ -12,113 +12,61 @@ library(dplyr)
 library(dbplyr)
 library(DBI)
 con <- dbConnect(odbc::odbc(), "warehouse", catalog = "samples")
-customers <- tbl(con, in_catalog("samples", "tpch", "customer"))
-orders <- tbl(con, in_catalog("samples", "tpch", "orders"))
-lineitems <- tbl(con, in_catalog("samples", "tpch", "lineitem"))
-```
-
-## Group and sort records
-*Learn how to use `group_by()` and `arrange()` to better understand aggregated data*
-
-1. How many orders are there per year?
-```{r}
-orders %>% 
-  count(year(o_orderdate))
-```
-
-2. Sort them by from highest to lowest 
-```{r}
-orders %>% 
-  count(year(o_orderdate), sort = TRUE)
-```
-
-
-```{r}
-orders_view <- orders %>% 
-  left_join(customers, by = c("o_custkey" = "c_custkey"))
+customers <- tbl(con, I("samples.tpch.customer"))
+orders <- tbl(con, I("samples.tpch.orders"))
+nation <- tbl(con, I("samples.tpch.nation"))
 ```
 
 ```{r}
-orders_view %>% 
-  show_query()
+prep_orders <- orders %>% 
+  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
+  left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
+  mutate(customer = o_custkey, order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
+  select(customer, everything(), -ends_with("comment"), -ends_with("key"), -c_name, -c_address, -o_clerk, -c_phone, -c_acctbal) 
+```
+
+```{r}
+prep_orders %>% 
+  glimpse()
 ```
 ```{r}
-orders_view %>% 
-  group_by(c_mktsegment) %>% 
-  count()
+prep_orders %>% 
+  group_by(n_name) %>% 
+  summarise(
+    total_price = sum(o_totalprice, na.rm = TRUE)
+  ) %>% 
+  arrange(desc(total_price))
 ```
+
+
 ```{r}
-orders
+prep_orders %>% 
+  filter(order_year == 1998) %>% 
+  group_by(n_name) %>% 
+  summarise(
+    total_price = sum(o_totalprice, na.rm = TRUE)
+  ) %>% 
+  arrange(desc(total_price))
 ```
 
-
-
-
-## Un-translated R commands
-*Review of how `dbplyr` handles R commands that have not been translated into a like-SQL command*
-
-1. Preview how `Sys.time()` is translated
 ```{r}
-tbl_cars %>%
-  mutate(today = Sys.time()) %>%
-  select(today) %>% 
-  show_query()
+prep_orders %>% 
+  group_by(n_name, order_year) %>% 
+  summarise(
+    total_price = sum(o_totalprice, na.rm = TRUE)
+  ) %>% 
+  group_by(order_year) %>% 
+  filter(total_price == max(total_price))
 ```
 
-2. Use Databricks's native commands, in this case `current_date()` 
-(https://docs.databricks.com/en/sql/language-manual/functions/current_date.html)
 ```{r}
-tbl_cars %>%
-  mutate(today = current_date()) %>%
-  select(today) %>% 
-  show_query()
+prep_orders %>% 
+  group_by(customer) %>% 
+  summarise(
+    country = first(n_name), 
+    segment = first(c_mktsegment),
+    total_price = sum(o_totalprice, na.rm = TRUE)
+    ) %>% 
+  arrange(desc(total_price))
 ```
 
-3. Run the `dplyr` code to confirm it works
-```{r}
-tbl_cars %>%
-  mutate(today = current_date()) %>%
-  select(today) %>%
-  head()
-```
-
-## Using bang-bang
-*Intro on passing unevaluated code to a dplyr verb*
-
-1. Preview how `Sys.time()` is translated
-```{r}
-tbl_cars %>%
-  mutate(today = Sys.time()) %>%
-  show_query()
-```
-
-2. Preview how `Sys.time()` is translated when prefixing `!!`
-```{r}
-tbl_cars %>%
-  mutate(today = !! Sys.time()) %>%
-  show_query()
-```
-
-3. Preview how `Sys.time()` is translated when prefixing `!!`
-```{r}
-tbl_cars %>%
-  mutate(today = !!Sys.time()) %>%
-  select(today) %>%
-  head()
-```
-
-## knitr SQL engine
-
-1. Copy the result of the latest `show_query()` exercise
-```{r}
-tbl_cars %>%
-  mutate(today = !!Sys.time()) %>%
-  select(today) %>% 
-  show_query()
-```
-
-2. Paste the result in this SQL chunk
-```{sql, connection = con}
-SELECT '2024-05-26T20:35:56Z' AS `today`
-FROM `cars`
-```
