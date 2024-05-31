@@ -10,7 +10,6 @@ execute:
 
 library(dplyr)
 library(dbplyr)
-library(DBI)
 ```
 
 ## Catch up {.unnumbered}
@@ -30,15 +29,24 @@ nation <- tbl(con, I("samples.tpch.nation"))
 ```
 
 ## Prepare base 
+*Building the base variable/query*
+
+1. Load the `orders` table in a variable called `orders`
 
 ```{r}
 orders <- tbl(con, I("samples.tpch.orders"))
 ```
 
+2. Join `orders` to the `customers` variable (table). Relate them on the
+`o_custkey` and `c_custkey` fields.
+
 ```{r}
 orders %>% 
   left_join(customers, by = c("o_custkey" = "c_custkey"))
 ```
+
+2. Join `orders` to the `customers` variable (table). Relate them on the
+`o_custkey` and `c_custkey` fields.
 
 ```{r}
 orders %>% 
@@ -127,7 +135,7 @@ prep_orders %>%
   group_by(order_year) %>% 
   filter(total_price == max(total_price))
 ```
-Who are the top 5 customers by amount ordered?
+4. Who are the top 5 customers by amount ordered?
 
 ```{r}
 prep_orders %>% 
@@ -139,7 +147,7 @@ prep_orders %>%
   head(5)
 ```
 
-What is the country, and market segment, of the top 5 customers by amount ordered?
+5. What is the country, and market segment, of the top 5 customers by amount ordered?
 
 ```{r}
 prep_orders %>% 
