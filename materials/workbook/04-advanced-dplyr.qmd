@@ -45,8 +45,8 @@ orders %>%
   left_join(customers, by = c("o_custkey" = "c_custkey"))
 ```
 
-2. Join `orders` to the `customers` variable (table). Relate them on the
-`o_custkey` and `c_custkey` fields.
+3. Join the `nation` variable/table to the `orders` and `customers` variables. 
+Use the `c_nationkey` and the `n_nationkey` to relate them.
 
 ```{r}
 orders %>% 
@@ -54,49 +54,57 @@ orders %>%
   left_join(nation, by = c("c_nationkey" = "n_nationkey"))
 ```
 
-```{r}
-orders %>% 
-  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
-  left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
-  mutate(customer = o_custkey, order_year = year(o_orderdate), order_month = month(o_orderdate))
-```
-```{r}
-orders %>% 
-  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
-  left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
-  mutate(customer = o_custkey, order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
-  select(customer, everything()) 
-```
+4. Load the resulting code into a variable called `rel_orders`. **We do this 
+so to get autocomplete working**
 
 ```{r}
-orders %>% 
+rel_orders <- orders %>% 
   left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
-  left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
-  mutate(customer = o_custkey, order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
-  select(customer, everything(), -ends_with("comment")) 
+  left_join(nation, by = c("c_nationkey" = "n_nationkey"))
 ```
+
+5. Create new columns for the year of the order date, and another for the
+month of the order date. Name them `order_year` and `order_month` respectively.
 
 ```{r}
-orders %>% 
-  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
-  left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
-  mutate(customer = o_custkey, order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
-  select(customer, everything(), -ends_with("comment"), -ends_with("key")) 
+rel_orders %>% 
+  mutate(order_year = year(o_orderdate), order_month = month(o_orderdate))
 ```
 
+6. Remove any columns that end in "comment", and end in "key"
 
 ```{r}
-prep_orders <- orders %>% 
-  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
-  left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
-  mutate(customer = o_custkey, order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
-  select(customer, everything(), -ends_with("comment"), -ends_with("key")) 
+rel_orders %>% 
+  mutate(order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
+  select(-ends_with("comment"), -ends_with("key")) 
 ```
+
+7. Rename `o_custkey` to `customer`, insert code before the selection
+
+```{r}
+rel_orders %>% 
+  mutate(order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
+  rename(customer = o_custkey) %>% 
+  select(-ends_with("comment"), -ends_with("key")) 
+```
+
+8. Load resulting code to a variable called `prep_orders`
+
+```{r}
+prep_orders <- rel_orders %>% 
+  mutate(order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
+  rename(customer = o_custkey) %>% 
+  select(-ends_with("comment"), -ends_with("key")) 
+```
+
+9. Preview `prep_orders` using `glimpse()`
 
 ```{r}
 prep_orders %>% 
   glimpse()
 ```
+
+
 ## Answering questions
 *Using the base query to answer more complex questions*
 
