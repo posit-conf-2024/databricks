@@ -5,24 +5,84 @@ execute:
   freeze: true
 ---
 
-
 ```{r, setup}
 #| include: false
+
 library(dplyr)
 library(dbplyr)
 library(DBI)
-con <- dbConnect(odbc::odbc(), "warehouse", catalog = "samples")
+```
+
+## Catch up {.unumbered}
+
+```{r}
+library(dplyr)
+library(dbplyr)
+library(DBI)
+
+con <- dbConnect(
+  odbc::databricks(),
+  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e"
+)
+
 customers <- tbl(con, I("samples.tpch.customer"))
-orders <- tbl(con, I("samples.tpch.orders"))
 nation <- tbl(con, I("samples.tpch.nation"))
 ```
+
+## Prepare base 
+
+```{r}
+orders <- tbl(con, I("samples.tpch.orders"))
+```
+
+```{r}
+orders %>% 
+  left_join(customers, by = c("o_custkey" = "c_custkey"))
+```
+
+```{r}
+orders %>% 
+  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
+  left_join(nation, by = c("c_nationkey" = "n_nationkey"))
+```
+
+```{r}
+orders %>% 
+  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
+  left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
+  mutate(customer = o_custkey, order_year = year(o_orderdate), order_month = month(o_orderdate))
+```
+```{r}
+orders %>% 
+  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
+  left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
+  mutate(customer = o_custkey, order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
+  select(customer, everything()) 
+```
+
+```{r}
+orders %>% 
+  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
+  left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
+  mutate(customer = o_custkey, order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
+  select(customer, everything(), -ends_with("comment")) 
+```
+
+```{r}
+orders %>% 
+  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
+  left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
+  mutate(customer = o_custkey, order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
+  select(customer, everything(), -ends_with("comment"), -ends_with("key")) 
+```
+
 
 ```{r}
 prep_orders <- orders %>% 
   left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
   left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
   mutate(customer = o_custkey, order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
-  select(customer, everything(), -ends_with("comment"), -ends_with("key"), -c_name, -c_address, -o_clerk, -c_phone, -c_acctbal) 
+  select(customer, everything(), -ends_with("comment"), -ends_with("key")) 
 ```
 
 ```{r}
@@ -57,6 +117,15 @@ prep_orders %>%
   ) %>% 
   group_by(order_year) %>% 
   filter(total_price == max(total_price))
+```
+
+```{r}
+prep_orders %>% 
+  group_by(customer) %>% 
+  summarise(
+    total_price = sum(o_totalprice, na.rm = TRUE)
+    ) %>% 
+  arrange(desc(total_price))
 ```
 
 ```{r}

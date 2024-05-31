@@ -5,16 +5,6 @@ execute:
   freeze: true
 ---
 
-```{r, setup}
-#| include: false
-library(dplyr)
-library(dbplyr)
-library(DBI)
-```
-
-## Data collection
-*Understand the difference between printing and collecting*
-
 0. Catch up
 
 ```{r}
@@ -29,6 +19,9 @@ con <- dbConnect(
 
 tbl_diamonds <- tbl(con, "diamonds")
 ```
+
+## Data collection
+*Understand the difference between printing and collecting*
 
 
 1. Call the `tbl_diamonds` variable directly
