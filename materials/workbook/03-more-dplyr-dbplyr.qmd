@@ -5,7 +5,14 @@ execute:
   freeze: true
 ---
 
-0. Catch up
+```{r, setup}
+#| include: false
+
+library(dplyr)
+library(dbplyr)
+```
+
+## Catch up {.unnumbered}
 
 ```{r}
 library(dplyr)

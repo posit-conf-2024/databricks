@@ -9,7 +9,7 @@ book:
       - 01-connecting-interacting.qmd
       - 02-remote-processing.qmd
       - 03-more-dplyr-dbplyr.qmd
-      - 04-advanced-dplyr.qmd
+      - 04-preparing-exploring.qmd
 format:
   html:
     toc: true
