@@ -1,5 +1,5 @@
 ---
-title: "Preparing and Exploring Data"
+title: "Preparing and exploring Data"
 execute: 
   eval: true
   freeze: true
