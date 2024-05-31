@@ -13,7 +13,7 @@ library(dbplyr)
 library(DBI)
 ```
 
-## Catch up {.unumbered}
+## Catch up {.unnumbered}
 
 ```{r}
 library(dplyr)
@@ -89,15 +89,21 @@ prep_orders <- orders %>%
 prep_orders %>% 
   glimpse()
 ```
+## Answering questions
+*Using the base query to answer more complex questions*
+
+1. What are the top 5 countries for total amount ordered?
+
 ```{r}
 prep_orders %>% 
   group_by(n_name) %>% 
   summarise(
     total_price = sum(o_totalprice, na.rm = TRUE)
   ) %>% 
-  arrange(desc(total_price))
+  arrange(desc(total_price)) %>% 
+  head(5)
 ```
-
+2. What are the top 5 countries for total amount ordered for 1998?
 
 ```{r}
 prep_orders %>% 
@@ -106,8 +112,11 @@ prep_orders %>%
   summarise(
     total_price = sum(o_totalprice, na.rm = TRUE)
   ) %>% 
-  arrange(desc(total_price))
+  arrange(desc(total_price)) %>% 
+  head(5)
 ```
+
+3. What has been the top (1) country, in orders, by year?
 
 ```{r}
 prep_orders %>% 
@@ -118,6 +127,7 @@ prep_orders %>%
   group_by(order_year) %>% 
   filter(total_price == max(total_price))
 ```
+Who are the top 5 customers by amount ordered?
 
 ```{r}
 prep_orders %>% 
@@ -125,8 +135,11 @@ prep_orders %>%
   summarise(
     total_price = sum(o_totalprice, na.rm = TRUE)
     ) %>% 
-  arrange(desc(total_price))
+  arrange(desc(total_price)) %>% 
+  head(5)
 ```
+
+What is the country, and market segment, of the top 5 customers by amount ordered?
 
 ```{r}
 prep_orders %>% 
@@ -136,6 +149,7 @@ prep_orders %>%
     segment = first(c_mktsegment),
     total_price = sum(o_totalprice, na.rm = TRUE)
     ) %>% 
-  arrange(desc(total_price))
+  arrange(desc(total_price)) %>% 
+  head(5)
 ```
 
