@@ -39,10 +39,17 @@ prep_orders <- orders %>%
   select(-ends_with("comment"),  -ends_with("key"))
 ```
 
+## Auto-collect
+**See how `ggplot2` auto-collects data before plotting**
+
+1. Load `ggplot2`
+
 ```{r}
 library(ggplot2)
 ```
 
+2. Plot the `n_name` over `n_region_key` from the `nation` table. Use the
+column geom.
 
 ```{r}
 nation %>% 

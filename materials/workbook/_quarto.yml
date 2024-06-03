@@ -10,6 +10,7 @@ book:
       - 02-remote-processing.qmd
       - 03-more-dplyr-dbplyr.qmd
       - 04-preparing-exploring.qmd
+      - 05-visualizations.qmd
 format:
   html:
     toc: true
