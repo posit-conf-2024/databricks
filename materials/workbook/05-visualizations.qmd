@@ -57,6 +57,7 @@ nation %>%
   geom_col(aes(n_name, n_regionkey))
 ```
 
+## Plot data
 
 ```{r}
 prep_orders %>% 
@@ -113,6 +114,7 @@ sales_by_year %>%
   theme_light()
 ```
 
+## Plot data by country
 
 ```{r}
 country <- "FRANCE"
