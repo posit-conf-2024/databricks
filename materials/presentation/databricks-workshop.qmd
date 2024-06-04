@@ -881,6 +881,10 @@ Unit 5
 
 ![](assets/diagrams/plotting-local.png){.absolute top="110" left="50" width="1500"}
 
+## [Plotting remote data]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+![](assets/diagrams/plotting-remote.png){.absolute top="110" left="50" width="1500"}
+
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
