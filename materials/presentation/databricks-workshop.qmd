@@ -979,18 +979,91 @@ nation %>%
 Exercise 5.1
 :::
 
-## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
+## [The truth about ggplot2]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-:::{.green-slide}
-Exercise 5.2
+:::{.custom2}
+A plot gets refined iteratively, data must be local.
+:::
+
+:::{.columns}
+:::{.column width="6%"}
+:::
+:::{.column width="90%"}
+<br/>
+
+:::{.incremental1}
+- *'Improve scales'*
+- *'Add labels to the data'*
+- *'Add title and subtitle'*
+- *'Improve colors'*
+- *'Change the theme'*
+:::
+:::
+:::
+
+![](assets/diagrams/ggplot-dev.png){.absolute top="215" left="700" width="850"}
+
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Collect (download) the data into an R variable
+:::
+
+<br/>
+
+```r
+sales_by_year <- prep_orders %>% 
+  group_by(order_year) %>% 
+  summarise(
+    total_price = sum(o_totalprice, na.rm = TRUE)
+  ) %>% 
+  collect()
+```
+
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Iterate on the plot using the local data
+:::
+
+<br/>
+
+```r
+sales_by_year %>% 
+  ggplot() +
+  geom_col(aes(order_year, total_price)) 
+```
+
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Iterate on the plot using the local data
+:::
+
+:::{.sample-code}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|1|3|6|7|8-10|11|"
+breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
+breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
+sales_by_year %>% 
+  ggplot() +
+  geom_col(aes(order_year, total_price)) +
+  scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+  scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+  xlab("Year") +
+  ylab("Total Sales") +
+  labs(title = "Sales by year") +
+  theme_light()
+```
 :::
 
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise 5.3
+Exercises 5.2 - 5.3
 :::
-
 
 ## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
