@@ -59,6 +59,8 @@ nation %>%
 
 ## Plot data
 
+1. Using `prep_order`, pull the total sales by year (`o_totalprice`)
+
 ```{r}
 prep_orders %>% 
   group_by(order_year) %>% 
@@ -67,6 +69,8 @@ prep_orders %>%
   ) %>% 
   arrange(order_year)
 ```
+
+2. Add to the code, a step to plot the data. Use a column geom
 
 ```{r}
 prep_orders %>% 
@@ -79,6 +83,8 @@ prep_orders %>%
   geom_col(aes(order_year, total_price)) 
 ```
 
+3. Download the results to R to a variable called `sales_by_year`
+
 ```{r}
 sales_by_year <- prep_orders %>% 
   group_by(order_year) %>% 
@@ -88,15 +94,21 @@ sales_by_year <- prep_orders %>%
   collect()
 ```
 
+4. Preview `sales_by_year`
+
 ```{r}
 sales_by_year
 ```
+
+5. Use `sales_by_year` to create the same plot
 
 ```{r}
 sales_by_year %>% 
   ggplot() +
   geom_col(aes(order_year, total_price)) 
 ```
+
+6. An example of what multiple iterations of the plot would result in
 
 ```{r}
 breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
