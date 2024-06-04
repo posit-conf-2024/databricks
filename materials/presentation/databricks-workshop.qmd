@@ -885,6 +885,94 @@ Unit 5
 
 ![](assets/diagrams/plotting-remote.png){.absolute top="110" left="50" width="1500"}
 
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Pipe the prepared data into a `ggplot2` 
+:::
+<br/>
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|1-6|7-8"
+prep_orders %>% 
+  group_by(order_year) %>% 
+  summarise(
+    total_price = sum(o_totalprice, na.rm = TRUE)
+  ) %>% 
+  arrange(order_year) %>% 
+  ggplot() +
+  geom_col(aes(order_year, total_price)) 
+```
+
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Pipe the prepared data into a `ggplot2` 
+:::
+
+:::{.columns}
+:::{.column width="55%"}
+
+:::{.sample-code}
+```r
+prep_orders %>% 
+  group_by(order_year) %>% 
+  summarise(
+    total_price = sum(o_totalprice, na.rm = TRUE)
+  ) %>% 
+  arrange(order_year) %>% 
+  ggplot() +
+  geom_col(
+    aes(order_year, total_price)
+    ) 
+```
+:::
+
+:::
+:::{.column width="45%"}
+
+![](assets/diagrams/plotting-example.png){.absolute top="200" left="900" width="700"}
+
+:::
+:::
+
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Pipe the prepared data into a `ggplot2` 
+:::
+<br/>
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "6"
+prep_orders %>% 
+  group_by(order_year) %>% 
+  summarise(
+    total_price = sum(o_totalprice, na.rm = TRUE)
+  ) %>% 
+  collect() %>% # Why are you missing?
+  arrange(order_year) %>% 
+  ggplot() +
+  geom_col(aes(order_year, total_price)) 
+```
+
+## [ggplot2 "auto-collects"]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+*Be careful! It downloads all of the data!*
+:::
+
+<br/>
+
+```r
+nation <- tbl(con, I("samples.tpch.nation"))
+
+nation %>% 
+  ggplot() +
+  geom_col(aes(n_name, n_regionkey))
+```
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
