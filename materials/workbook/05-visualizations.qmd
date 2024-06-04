@@ -128,8 +128,17 @@ sales_by_year %>%
 
 ## Plot data by country
 
+1. Create a variable called `country`, with the value "FRANCE"
+
 ```{r}
 country <- "FRANCE"
+```
+
+
+2. Modify `sales_by_year`, by adding a `filter` step to have the `n_name` match
+the value of `country`
+
+```{r}
 sales_by_year <- prep_orders %>% 
   filter(n_name == country) %>% 
   group_by(order_year) %>% 
@@ -138,6 +147,9 @@ sales_by_year <- prep_orders %>%
   ) %>% 
   collect()
 ```
+
+3. Copy and use the same code from the finalized plot. Add a subtitle with the
+value of `country`
 
 ```{r}
 breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
