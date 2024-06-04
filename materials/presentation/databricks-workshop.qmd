@@ -867,6 +867,35 @@ Exercises 4.1 - 4.2
 :::
 
 
+## {background-image="assets/background/content.png" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide-title}
+Unit 5
+:::
+
+:::{.content-slide}
+Visualizations
+:::
+
+## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise 5.1
+:::
+
+## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise 5.2
+:::
+
+## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise 5.3
+:::
+
+
 ## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
 ![](assets/background/racoon.jpg){.absolute top="220" left="900" width="430"}
