@@ -182,8 +182,8 @@ shinyApp(
 )
 ```
 
-## Adding click-through 
-*Using `ggiraph` to add click-through interactivity to the app*
+## Plot interactivity
+*Using `ggiraph` to add plot interactivity*
 
 1. Load the `ggiraph` library
 
@@ -191,15 +191,91 @@ shinyApp(
 library(ggiraph)
 ```
 
-2. In the Shiny app's code, do the following:
-- Replace `plotOUtput()` with `girafeOutput()`
-- Replace `renderPlot()` with `renderGirafe()`
-- Replace `geom_col()` with `geom_col_interactive()` 
--  In `geom_col_interactive()` add the following arguments: 
+2. In the Shiny app's code, replace:
+- `plotOUtput()` with `girafeOutput()`
+- `renderPlot()` with `renderGirafe()`
+- `geom_col()` with `geom_col_interactive()` 
+
+```{r}
+#| eval: false
+
+shinyApp(
+  ui = fluidPage(
+    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
+    girafeOutput("sales_plot")
+  ),
+  server = function(input, output) {
+    output$sales_plot <- renderGirafe({
+      sales_by_year <- prep_orders %>%
+        filter(n_name == !!input$country) %>%
+        group_by(order_year) %>%
+        summarise(
+          total_price = sum(o_totalprice, na.rm = TRUE)
+        ) %>%
+        collect()
+
+      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
+      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
+
+      sales_by_year %>%
+        ggplot() +
+        geom_col_interactive(aes(order_year, total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+    })
+  },
+  options = list(height = 200)
+)
+```
+
+3. Load the `ggplot` code to a variable called `g`, and then insert 
+`girafe(ggobj = g)` as the last code in the output's code
+
+```{r}
+#| eval: false
+
+shinyApp(
+  ui = fluidPage(
+    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
+    girafeOutput("sales_plot")
+  ),
+  server = function(input, output) {
+    output$sales_plot <- renderGirafe({
+      sales_by_year <- prep_orders %>%
+        filter(n_name == !!input$country) %>%
+        group_by(order_year) %>%
+        summarise(
+          total_price = sum(o_totalprice, na.rm = TRUE)
+        ) %>%
+        collect()
+
+      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
+      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
+
+      g <- sales_by_year %>%
+        ggplot() +
+        geom_col_interactive(aes(order_year, total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+
+      girafe(ggobj = g)
+    })
+  },
+  options = list(height = 200)
+)
+```
+
+4. In `geom_col_interactive()` add the following arguments: 
     - `data_id` = `order_year` 
     - `tooltip` = `total_price`
-- Load the `ggplot` code to a variable called `g`
-- Insert `girafe(ggobj = g)` as the last code in the output's code
 
 ```{r}
 #| eval: false
@@ -239,6 +315,12 @@ shinyApp(
 )
 ```
 
+## Plot drill-down
+*Shows how to go a level deeper in to what has been clicked*
+
+1. Add a `showModal()` that reacts when a column in the plot is clicked:
+`observeEvent(input$sales_plot_selected, {showModal(modalDialog())})`
+  
 ```{r}
 #| eval: false
 
@@ -272,18 +354,63 @@ shinyApp(
 
       girafe(ggobj = g)
     })
-
+    
     observeEvent(input$sales_plot_selected, {
-      showModal(
-        modalDialog(
-          title = paste0(input$country, " - ", input$sales_plot_selected)
-        )
-      )
-    })
+      showModal(modalDialog())
+      })
   },
   options = list(height = 200)
 )
 ```
+
+2. Add an `options` argument to the `girafe()` function call: 
+`options = list(opts_selection(type = "single"))`. Notice how only one column
+is highlighted at a time.
+
+```{r}
+#| eval: false
+
+shinyApp(
+  ui = fluidPage(
+    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
+    girafeOutput("sales_plot")
+  ),
+  server = function(input, output) {
+    output$sales_plot <- renderGirafe({
+      sales_by_year <- prep_orders %>%
+        filter(n_name == !!input$country) %>%
+        group_by(order_year) %>%
+        summarise(
+          total_price = sum(o_totalprice, na.rm = TRUE)
+        ) %>%
+        collect()
+
+      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
+      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
+
+      g <- sales_by_year %>%
+        ggplot() +
+        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+
+      girafe(ggobj = g, options = list(opts_selection(type = "single")))
+    })
+    
+    observeEvent(input$sales_plot_selected, {
+      showModal(modalDialog())
+      })
+  },
+  options = list(height = 200)
+)
+```
+
+3. Add a `title` argument to the `modalDialog()` call. Use combination of the
+`country` and `sales_plot_selected` values from `input` 
 
 ```{r}
 #| eval: false
@@ -330,6 +457,8 @@ shinyApp(
   options = list(height = 200)
 )
 ```
+
+4. Finalize the plot
 
 ```{r}
 #| eval: false
