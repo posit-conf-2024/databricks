@@ -118,10 +118,10 @@ shinyApp(
         ylab("Total Sales") +
         labs(title = "Sales by year", subtitle = input$country) +
         theme_light()
-      
+
       girafe(ggobj = g, options = list(opts_selection(type = "single")))
     })
-    
+
     output$monthly_sales <- renderPlot({
       sales_by_month <- prep_orders %>%
         filter(n_name == !!input$country, order_year == !!input$sales_plot_selected) %>%
@@ -141,20 +141,17 @@ shinyApp(
         scale_y_continuous(breaks = breaks, labels = breaks_labels) +
         xlab("Year") +
         ylab("Total Sales") +
-        labs(title = "Sales by year", subtitle = input$country) +
+        labs(title = "Sales by month", subtitle = paste0(input$country, " - ", input$sales_plot_selected)) +
         theme_light()
-      
     })
-    
+
     observeEvent(input$sales_plot_selected, {
-      print(input$sales_plot_selected)
-      print(input$country)
       showModal(
         modalDialog(
           title = paste0(input$country, " - ", input$sales_plot_selected),
           plotOutput("monthly_sales")
-          )
         )
+      )
     })
   },
   options = list(height = 200)
