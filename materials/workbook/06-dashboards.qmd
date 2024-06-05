@@ -44,14 +44,49 @@ library(shiny)
 library(ggplot2)
 ```
 
+```{r}
+#| eval: false
+
+shinyApp(
+  ui = fluidPage(
+    selectInput("country", "Country:", choices = "FRANCE", selected = "FRANCE"),
+    plotOutput("sales_plot")
+  ),
+  server = function(input, output) {
+    output$sales_plot <- renderPlot({
+      # Your code here
+    })
+  },
+  options = list(height = 200)
+)
+```
+
 
 ```{r}
 countries <- nation %>% 
   pull(n_name)
 ```
 
+```{r}
+#| eval: false
+
+shinyApp(
+  ui = fluidPage(
+    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
+    plotOutput("sales_plot")
+  ),
+  server = function(input, output) {
+    output$sales_plot <- renderPlot({
+      # Your code here
+    })
+  },
+  options = list(height = 200)
+)
+```
 
 ```{r}
+#| eval: false
+
 shinyApp(
   ui = fluidPage(
     selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
@@ -89,8 +124,93 @@ shinyApp(
 library(ggiraph)
 ```
 
+```{r}
+#| eval: false
+
+shinyApp(
+  ui = fluidPage(
+    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
+    girafeOutput("sales_plot")
+  ),
+  server = function(input, output) {
+    output$sales_plot <- renderGirafe({
+      sales_by_year <- prep_orders %>%
+        filter(n_name == !!input$country) %>%
+        group_by(order_year) %>%
+        summarise(
+          total_price = sum(o_totalprice, na.rm = TRUE)
+        ) %>%
+        collect()
+
+      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
+      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
+
+      g <- sales_by_year %>%
+        ggplot() +
+        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+
+      girafe(ggobj = g, options = list(opts_selection(type = "single")))
+    })
+  },
+  options = list(height = 200)
+)
+```
 
 ```{r}
+#| eval: false
+
+shinyApp(
+  ui = fluidPage(
+    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
+    girafeOutput("sales_plot")
+  ),
+  server = function(input, output) {
+    output$sales_plot <- renderGirafe({
+      sales_by_year <- prep_orders %>%
+        filter(n_name == !!input$country) %>%
+        group_by(order_year) %>%
+        summarise(
+          total_price = sum(o_totalprice, na.rm = TRUE)
+        ) %>%
+        collect()
+
+      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
+      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
+
+      g <- sales_by_year %>%
+        ggplot() +
+        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+
+      girafe(ggobj = g, options = list(opts_selection(type = "single")))
+    })
+
+    observeEvent(input$sales_plot_selected, {
+      showModal(
+        modalDialog(
+          title = paste0(input$country, " - ", input$sales_plot_selected)
+        )
+      )
+    })
+  },
+  options = list(height = 200)
+)
+```
+
+```{r}
+#| eval: false
+
 shinyApp(
   ui = fluidPage(
     selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
