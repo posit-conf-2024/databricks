@@ -1,0 +1,86 @@
+---
+title: "Dashboards"
+execute: 
+  eval: true
+  freeze: true
+---
+
+```{r, setup}
+#| include: false
+
+library(dplyr)
+library(dbplyr)
+```
+
+## Catch up {.unnumbered}
+
+```{r}
+library(dplyr)
+library(dbplyr)
+library(DBI)
+
+con <- dbConnect(
+  odbc::databricks(),
+  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e"
+)
+
+orders <- tbl(con, I("samples.tpch.orders"))
+customers <- tbl(con, I("samples.tpch.customer"))
+nation <- tbl(con, I("samples.tpch.nation"))
+
+prep_orders <- orders %>% 
+  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
+  left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
+  mutate(
+    order_year = year(o_orderdate), 
+    order_month = month(o_orderdate)
+  ) %>% 
+  rename(customer = o_custkey) %>% 
+  select(-ends_with("comment"),  -ends_with("key"))
+```
+
+```{r}
+library(shiny)
+library(ggplot2)
+```
+
+
+```{r}
+countries <- nation %>% 
+  pull(n_name)
+```
+
+
+```{r}
+shinyApp(
+  ui = fluidPage(
+    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
+    plotOutput("sales_plot")
+  ),
+  server = function(input, output) {
+    output$sales_plot <- renderPlot({
+      sales_by_year <- prep_orders %>%
+        filter(n_name == !!input$country) %>%
+        group_by(order_year) %>%
+        summarise(
+          total_price = sum(o_totalprice, na.rm = TRUE)
+        ) %>%
+        collect()
+
+      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
+      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
+
+      sales_by_year %>%
+        ggplot() +
+        geom_col(aes(order_year, total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+    })
+  },
+  options = list(height = 200)
+)
+```
