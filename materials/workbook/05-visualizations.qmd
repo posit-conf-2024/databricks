@@ -167,5 +167,47 @@ sales_by_year %>%
   theme_light()
 ```
 
+## Plot data by month
+
+1. Create a new variable called `year`, load it with the value of 1998
+
+```{r}
+year <- 1998
+```
+
+2. Using the same structure, create a new variable called `sales_by_month`. In
+addition to country, the filter should include the `order_year`. Group by 
+`order_month`
+
+```{r}
+sales_by_month <- prep_orders %>%
+  filter(n_name == country, order_year == year) %>%
+  group_by(order_month) %>%
+  summarise(
+    total_price = sum(o_totalprice, na.rm = TRUE)
+  ) %>%
+  collect()
+```
+
+3. Create the same finalized plot, but using `sales_by_month`. Make sure to
+update the the axis, and aesthetics. Also, expand the subtitle to include
+the `year` as well.
+
+```{r}
+breaks <- as.double(quantile(c(0, max(sales_by_month$total_price))))
+breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
+
+sales_by_month %>%
+  ggplot() +
+  geom_col(aes(order_month, total_price)) +
+  scale_x_continuous(breaks = unique(sales_by_month$order_month)) +
+  scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+  xlab("Year") +
+  ylab("Total Sales") +
+  labs(title = "Sales by month", subtitle = paste0(country, " - ", year)) +
+  theme_light()
+```
+
+
 
 
