@@ -1,8 +1,8 @@
 ---
 title: "Dashboards"
 execute: 
-  eval: true
-  freeze: true
+  eval: false
+  freeze: false
 ---
 
 ```{r, setup}
@@ -39,10 +39,17 @@ prep_orders <- orders %>%
   select(-ends_with("comment"),  -ends_with("key"))
 ```
 
+## Initial Shiny app
+*Reivew of best practices to create a Shiny app that is connected to Databricks*
+
+1. Load the `shiny` and `ggplot2` libraries
+
 ```{r}
 library(shiny)
 library(ggplot2)
 ```
+
+2. Run the following code to see the "stub" Shiny app
 
 ```{r}
 #| eval: false
@@ -61,11 +68,22 @@ shinyApp(
 )
 ```
 
+3. Retrieve the country names from `nation` into a character vector. Save the
+values to a variable called `countries`
 
 ```{r}
 countries <- nation %>% 
   pull(n_name)
 ```
+
+4. Preview `countries`
+
+```{r}
+countries
+```
+5. Replace the values of `choices` in the Shiny app. Now use `countries` as its
+source. Preview the app, the drop-down should now have the 25 countries as
+options
 
 ```{r}
 #| eval: false
@@ -83,6 +101,50 @@ shinyApp(
   options = list(height = 200)
 )
 ```
+
+6. Insert the full code that makes the country sales plot, the one in previous
+section. It should include the code that creates the local data, and the one
+that creates the plot itself. Place them in the area that says *# Your code here*.
+Make sure to replace, `country`, with `input$country`. Preview the app.
+
+```{r}
+#| eval: false
+
+shinyApp(
+  ui = fluidPage(
+    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
+    plotOutput("sales_plot")
+  ),
+  server = function(input, output) {
+    output$sales_plot <- renderPlot({
+      sales_by_year <- prep_orders %>%
+        filter(n_name == input$country) %>%
+        group_by(order_year) %>%
+        summarise(
+          total_price = sum(o_totalprice, na.rm = TRUE)
+        ) %>%
+        collect()
+
+      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
+      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
+
+      sales_by_year %>%
+        ggplot() +
+        geom_col(aes(order_year, total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+    })
+  },
+  options = list(height = 200)
+)
+```
+
+7. Prefix `!!` to the `input$countries` entry where we create the `sales_by_year`
+variable. Preview the app.
 
 ```{r}
 #| eval: false
@@ -120,8 +182,61 @@ shinyApp(
 )
 ```
 
+## Adding click-through 
+*Using `ggiraph` to add click-through interactivity to the app*
+
+1. Load the `ggiraph` library
+
 ```{r}
 library(ggiraph)
+```
+
+2. In the Shiny app's code, do the following:
+- Replace `plotOUtput()` with `girafeOutput()`
+- Replace `renderPlot()` with `renderGirafe()`
+- Replace `geom_col()` with `geom_col_interactive()` 
+-  In `geom_col_interactive()` add the following arguments: 
+    - `data_id` = `order_year` 
+    - `tooltip` = `total_price`
+- Load the `ggplot` code to a variable called `g`
+- Insert `girafe(ggobj = g)` as the last code in the output's code
+
+```{r}
+#| eval: false
+
+shinyApp(
+  ui = fluidPage(
+    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
+    girafeOutput("sales_plot")
+  ),
+  server = function(input, output) {
+    output$sales_plot <- renderGirafe({
+      sales_by_year <- prep_orders %>%
+        filter(n_name == !!input$country) %>%
+        group_by(order_year) %>%
+        summarise(
+          total_price = sum(o_totalprice, na.rm = TRUE)
+        ) %>%
+        collect()
+
+      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
+      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
+
+      g <- sales_by_year %>%
+        ggplot() +
+        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+
+      girafe(ggobj = g)
+    })
+  },
+  options = list(height = 200)
+)
 ```
 
 ```{r}
@@ -155,7 +270,15 @@ shinyApp(
         labs(title = "Sales by year", subtitle = input$country) +
         theme_light()
 
-      girafe(ggobj = g, options = list(opts_selection(type = "single")))
+      girafe(ggobj = g)
+    })
+
+    observeEvent(input$sales_plot_selected, {
+      showModal(
+        modalDialog(
+          title = paste0(input$country, " - ", input$sales_plot_selected)
+        )
+      )
     })
   },
   options = list(height = 200)
