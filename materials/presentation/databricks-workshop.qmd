@@ -1062,9 +1062,60 @@ sales_by_year %>%
 ## {background-image="assets/background/green.png" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercises 5.2 - 5.3
+Exercises 5.2 - 5.4
 :::
 
-## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
 ![](assets/background/racoon.jpg){.absolute top="220" left="900" width="430"}
+
+## {background-image="assets/background/content.png" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide-title}
+Unit 6
+:::
+
+:::{.content-slide}
+Dashboards
+:::
+
+## [Dashboards]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="55%"}
+:::{.custom2}
+- [Data driven dropdowns]{style="font-size:80px;"}
+:::
+:::
+:::
+
+![](assets/diagrams/dashboard-dropdown.png){.absolute top="120" left="875" width="750"}
+
+## [Dashboards]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="55%"}
+:::{.custom2}
+- [Data driven dropdowns]{style="font-size:80px;"}
+- [Interactive plots (hover over)]{style="font-size:80px;"}
+:::
+:::
+:::
+
+![](assets/diagrams/dashboard-selection.png){.absolute top="120" left="875" width="750"}
+
+## [Dashboards]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="55%"}
+:::{.custom2}
+- [Data driven dropdowns]{style="font-size:80px;"}
+- [Interactive plots (hover over)]{style="font-size:80px;"}
+- [Drill down when interacting with the plot]{style="font-size:80px;"}
+:::
+:::
+:::
+
+![](assets/diagrams/dashboard-drill-down.png){.absolute top="120" left="875" width="750"}
+
+
+## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
