@@ -1,8 +1,8 @@
 ---
 title: "Dashboards"
 execute: 
-  eval: false
-  freeze: false
+  eval: true
+  freeze: true
 ---
 
 ```{r, setup}
@@ -458,7 +458,11 @@ shinyApp(
 )
 ```
 
-4. Finalize the plot
+4. Add a new `renderPLot()` function, and name it `output$montly_sales`. Inside,
+add the full code from the **Plot data by month** section in the previous unit.
+Make sure to replace `country` and `year`, with `input$country`, and 
+`input$sales_plot_selected` respectively. Make sure to prefix `!!` when adding
+them to the `filter()` call
 
 ```{r}
 #| eval: false
@@ -496,7 +500,10 @@ shinyApp(
 
     output$monthly_sales <- renderPlot({
       sales_by_month <- prep_orders %>%
-        filter(n_name == !!input$country, order_year == !!input$sales_plot_selected) %>%
+        filter(
+          n_name == !!input$country, 
+          order_year == !!input$sales_plot_selected
+          ) %>%
         group_by(order_month) %>%
         summarise(
           total_price = sum(o_totalprice, na.rm = TRUE)
@@ -513,7 +520,87 @@ shinyApp(
         scale_y_continuous(breaks = breaks, labels = breaks_labels) +
         xlab("Year") +
         ylab("Total Sales") +
-        labs(title = "Sales by month", subtitle = paste0(input$country, " - ", input$sales_plot_selected)) +
+        labs(
+          title = "Sales by month", 
+          subtitle = paste0(input$country, " - ", input$sales_plot_selected)
+          ) +
+        theme_light()
+    })
+
+    observeEvent(input$sales_plot_selected, {
+      showModal(
+        modalDialog(
+          title = paste0(input$country, " - ", input$sales_plot_selected)
+        )
+      )
+    })
+  },
+  options = list(height = 200)
+)
+```
+
+5. Finally, add `plotOutput("monthly_sales")` to the `modelDialog()` call
+
+```{r}
+#| eval: false
+
+shinyApp(
+  ui = fluidPage(
+    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
+    girafeOutput("sales_plot")
+  ),
+  server = function(input, output) {
+    output$sales_plot <- renderGirafe({
+      sales_by_year <- prep_orders %>%
+        filter(n_name == !!input$country) %>%
+        group_by(order_year) %>%
+        summarise(
+          total_price = sum(o_totalprice, na.rm = TRUE)
+        ) %>%
+        collect()
+
+      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
+      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
+
+      g <- sales_by_year %>%
+        ggplot() +
+        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+
+      girafe(ggobj = g, options = list(opts_selection(type = "single")))
+    })
+
+    output$monthly_sales <- renderPlot({
+      sales_by_month <- prep_orders %>%
+        filter(
+          n_name == !!input$country, 
+          order_year == !!input$sales_plot_selected
+          ) %>%
+        group_by(order_month) %>%
+        summarise(
+          total_price = sum(o_totalprice, na.rm = TRUE)
+        ) %>%
+        collect()
+
+      breaks <- as.double(quantile(c(0, max(sales_by_month$total_price))))
+      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
+
+      sales_by_month %>%
+        ggplot() +
+        geom_col(aes(order_month, total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_month$order_month)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(
+          title = "Sales by month", 
+          subtitle = paste0(input$country, " - ", input$sales_plot_selected)
+          ) +
         theme_light()
     })
 
