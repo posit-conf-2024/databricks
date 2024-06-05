@@ -11,6 +11,7 @@ book:
       - 03-more-dplyr-dbplyr.qmd
       - 04-preparing-exploring.qmd
       - 05-visualizations.qmd
+      - 06-dashboards.qmd
 format:
   html:
     toc: true
