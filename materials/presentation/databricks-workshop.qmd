@@ -1065,9 +1065,6 @@ sales_by_year %>%
 Exercises 5.2 - 5.4
 :::
 
-
-![](assets/background/racoon.jpg){.absolute top="220" left="900" width="430"}
-
 ## {background-image="assets/background/content.png" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
@@ -1119,3 +1116,5 @@ Dashboards
 
 
 ## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
+
+![](assets/background/racoon.jpg){.absolute top="220" left="900" width="430"}

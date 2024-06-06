@@ -39,8 +39,7 @@ prep_orders <- orders %>%
   select(-ends_with("comment"),  -ends_with("key"))
 ```
 
-## Initial Shiny app
-*Reivew of best practices to create a Shiny app that is connected to Databricks*
+## Data driven dropdown
 
 1. Load the `shiny` and `ggplot2` libraries
 
@@ -81,6 +80,7 @@ countries <- nation %>%
 ```{r}
 countries
 ```
+
 5. Replace the values of `choices` in the Shiny app. Now use `countries` as its
 source. Preview the app, the drop-down should now have the 25 countries as
 options
@@ -102,7 +102,10 @@ shinyApp(
 )
 ```
 
-6. Insert the full code that makes the country sales plot, the one in previous
+## Adding the plot
+**Port the code that creates the plot from the database**
+
+1. Insert the full code that makes the country sales plot, the one in previous
 section. It should include the code that creates the local data, and the one
 that creates the plot itself. Place them in the area that says *# Your code here*.
 Make sure to replace, `country`, with `input$country`. Preview the app.
@@ -143,7 +146,7 @@ shinyApp(
 )
 ```
 
-7. Prefix `!!` to the `input$countries` entry where we create the `sales_by_year`
+2. Prefix `!!` to the `input$countries` entry where we create the `sales_by_year`
 variable. Preview the app.
 
 ```{r}
@@ -182,7 +185,7 @@ shinyApp(
 )
 ```
 
-## Plot interactivity
+## Interactive plots
 *Using `ggiraph` to add plot interactivity*
 
 1. Load the `ggiraph` library
@@ -315,7 +318,7 @@ shinyApp(
 )
 ```
 
-## Plot drill-down
+## Plot drill-down 
 *Shows how to go a level deeper in to what has been clicked*
 
 1. Add a `showModal()` that reacts when a column in the plot is clicked:
