@@ -1075,7 +1075,20 @@ Unit 6
 Dashboards
 :::
 
-## [Dashboards]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Why dashboards?]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+
+<br/>
+
+[🔑 Two fundamental points:]{style="font-size:90px;"}
+
+:::{.custom2}
+:::{.incremental1}
+- [App load time matters! **The faster the better!**]{style="font-size:80px"}
+- [Download **raw** data **only** if there is no other option]{style="font-size:80px"}
+:::
+:::
+
+## [Important features]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.columns}
 :::{.column width="55%"}
@@ -1087,7 +1100,7 @@ Dashboards
 
 ![](assets/06/dashboard-dropdown.png){.absolute top="120" left="875" width="750"}
 
-## [Dashboards]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Important features]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.columns}
 :::{.column width="55%"}
@@ -1100,7 +1113,7 @@ Dashboards
 
 ![](assets/06/dashboard-selection.png){.absolute top="120" left="875" width="750"}
 
-## [Dashboards]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Important features]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
 :::{.columns}
 :::{.column width="55%"}
