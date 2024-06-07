@@ -1085,7 +1085,7 @@ Dashboards
 :::
 :::
 
-![](assets/diagrams/dashboard-dropdown.png){.absolute top="120" left="875" width="750"}
+![](assets/06/dashboard-dropdown.png){.absolute top="120" left="875" width="750"}
 
 ## [Dashboards]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
@@ -1098,7 +1098,7 @@ Dashboards
 :::
 :::
 
-![](assets/diagrams/dashboard-selection.png){.absolute top="120" left="875" width="750"}
+![](assets/06/dashboard-selection.png){.absolute top="120" left="875" width="750"}
 
 ## [Dashboards]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
@@ -1112,7 +1112,7 @@ Dashboards
 :::
 :::
 
-![](assets/diagrams/dashboard-drill-down.png){.absolute top="120" left="875" width="750"}
+![](assets/06/dashboard-drill-down.png){.absolute top="120" left="875" width="750"}
 
 
 ## {background-image="assets/background/thank-you.png" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
