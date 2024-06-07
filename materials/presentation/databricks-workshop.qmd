@@ -413,8 +413,8 @@ Preferred
 :::
 :::
 
-![](assets/diagrams/push-collect.png){.absolute top="255" left="150" width="500"}
-![](assets/diagrams/extract-data.png){.absolute top="350" left="950" width="500"}
+![](assets/02/push-collect.png){.absolute top="255" left="150" width="500"}
+![](assets/02/extract-data.png){.absolute top="350" left="950" width="500"}
 
 ## [SQL not practical]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
@@ -439,8 +439,8 @@ group by 'cut' order by 'avg_price' desc
 
 ## [Use dplyr & dbplyr]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-![](assets/diagrams/dplyr.png){.absolute top="0" left="1300" width="150"}
-![](assets/diagrams/dbplyr.png){.absolute top="0" left="1450" width="150"}
+![](assets/02/dplyr.png){.absolute top="0" left="1300" width="150"}
+![](assets/02/dbplyr.png){.absolute top="0" left="1450" width="150"}
 
 <br/>
 
@@ -469,8 +469,8 @@ group by 'cut' order by 'avg_price' desc
 
 ## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-![](assets/diagrams/dplyr.png){.absolute top="0" left="1300" width="150"}
-![](assets/diagrams/dbplyr.png){.absolute top="0" left="1450" width="150"}
+![](assets/02/dplyr.png){.absolute top="0" left="1300" width="150"}
+![](assets/02/dbplyr.png){.absolute top="0" left="1450" width="150"}
 
 <br/>
 
@@ -508,8 +508,8 @@ tbl_diamonds %>% <br/>
 
 ## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-![](assets/diagrams/dplyr.png){.absolute top="0" left="1300" width="150"}
-![](assets/diagrams/dbplyr.png){.absolute top="0" left="1450" width="150"}
+![](assets/02/dplyr.png){.absolute top="0" left="1300" width="150"}
+![](assets/02/dbplyr.png){.absolute top="0" left="1450" width="150"}
 
 <br/>
 
