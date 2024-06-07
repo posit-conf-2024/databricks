@@ -879,11 +879,11 @@ Unit 5
 
 ## [Plotting local data]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-![](assets/diagrams/plotting-local.png){.absolute top="110" left="50" width="1500"}
+![](assets/05/plotting-local.png){.absolute top="110" left="50" width="1500"}
 
 ## [Plotting remote data]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-![](assets/diagrams/plotting-remote.png){.absolute top="110" left="50" width="1500"}
+![](assets/05/plotting-remote.png){.absolute top="110" left="50" width="1500"}
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
@@ -932,7 +932,7 @@ prep_orders %>%
 :::
 :::{.column width="45%"}
 
-![](assets/diagrams/plotting-example.png){.absolute top="200" left="900" width="700"}
+![](assets/05/plotting-example.png){.absolute top="200" left="900" width="700"}
 
 :::
 :::
@@ -1001,7 +1001,7 @@ A plot gets refined iteratively, data must be local.
 :::
 :::
 
-![](assets/diagrams/ggplot-dev.png){.absolute top="215" left="700" width="850"}
+![](assets/05/ggplot-dev.png){.absolute top="215" left="700" width="850"}
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
