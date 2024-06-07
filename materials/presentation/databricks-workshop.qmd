@@ -79,8 +79,8 @@ Break (30mins)
 
 ## [The team]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
 
-![](assets/edgar.png){.absolute top="250" left="120" width="550"}
-![](assets/james.png){.absolute top="250" left="920" width="550"}
+![](assets/team/edgar.png){.absolute top="250" left="120" width="550"}
+![](assets/team/james.png){.absolute top="250" left="920" width="550"}
 
 :::{.columns}
 :::{.column}
