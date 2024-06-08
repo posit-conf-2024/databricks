@@ -32,7 +32,7 @@ August 12
 :::
 
 
-## [Housekeeping items]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Housekeeping items]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 <br/>
 
@@ -49,7 +49,7 @@ August 12
 :::
 :::
 
-##  {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+##  {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
 ::: {.column width="50%"}
@@ -77,7 +77,7 @@ Break (30mins)
 :::
 :::
 
-## [The team]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [The team]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/team/edgar.png){.absolute top="250" left="120" width="550"}
 ![](assets/team/james.png){.absolute top="250" left="920" width="550"}
@@ -102,7 +102,7 @@ TA
 :::
 
 
-## [Materials]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Materials]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
 ::: {.column width="20%"}
@@ -118,7 +118,7 @@ TA
 :::
 :::
 
-## [Posit + Databricks]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Posit + Databricks]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Special work we have done as part of the new partnership
@@ -136,7 +136,7 @@ Unit 1
 Accessing <br/> Databricks 
 :::
 
-## [Using RStudio]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Using RStudio]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 In the *"Connections"* pane, select *"New Connection"*
@@ -144,7 +144,7 @@ In the *"Connections"* pane, select *"New Connection"*
 
 ![](assets/01/connection-1.png){.absolute top="230" left="130" width="1200"}
 
-## [Using RStudio]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Using RStudio]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Select *'warehouse'*
@@ -152,7 +152,7 @@ Select *'warehouse'*
 
 ![](assets/01/connection-2.png){.absolute top="230" left="450" width="700"}
 
-## [Using RStudio]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Using RStudio]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Click *'OK'*
@@ -160,7 +160,7 @@ Click *'OK'*
 
 ![](assets/01/connection-3.png){.absolute top="230" left="450" width="700"}
 
-## [RStudio DB Navigator]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [RStudio DB Navigator]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Explore the catalogs, schema and tables
@@ -176,11 +176,11 @@ Explore the catalogs, schema and tables
 Exercises 1.1 - 1.2
 :::
 
-## [How everything connects]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [How everything connects]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/01/odbc.png){.absolute top="120" left="120"}
 
-## [Connecting - Good]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Connecting - Good]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.sample-code}
 
@@ -211,7 +211,7 @@ con <- dbConnect(
 https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcodbc-function
 :::
 
-## [Connecting - Better]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Connecting - Better]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
@@ -254,7 +254,7 @@ Exercises 1.3 - 1.4
 :::
 
 
-## [Using DBI]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Using DBI]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 <br/>
 
 :::{.columns}
@@ -278,11 +278,11 @@ Exercises 1.3 - 1.4
 Exercise 1.5
 :::
 
-## [How everything connects (Revisited)]{style="color:#666;"}   {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [How everything connects (Revisited)]{style="color:#666;"}   {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/01/odbc.png){.absolute top="120" left="120"}
 
-## [Other RStudio interfaces]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Other RStudio interfaces]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 <br/>
 
@@ -318,7 +318,7 @@ Exercise 1.6 - 1.7
 [Martin Grund, *Databricks*]{style="font-size:70px;"}
 :::
 
-## {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.content-slide-title}
 🔑 Key concept 
@@ -330,24 +330,24 @@ Exercise 1.6 - 1.7
 Data & processing need to be as **physically close** as possible
 :::
 
-## [Working with Databricks]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Working with Databricks]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/remote/topology.png){.absolute top="100" left="170" width="1200"}
 
-## ["Default" approach]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## ["Default" approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/remote/topology.png){.absolute top="100" left="170" width="1200"}
 ![](assets/remote/data.png){.absolute top="220" left="900" width="200"}
 ![](assets/remote/data.png){.absolute top="640" left="900" width="200"}
 
-## ["Default" approach]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## ["Default" approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/remote/topology.png){.absolute top="100" left="170" width="1200"}
 ![](assets/remote/data.png){.absolute top="220" left="900" width="200"}
 ![](assets/remote/data.png){.absolute top="640" left="900" width="200"}
 ![](assets/remote/download-data.png){.absolute top="330" left="360" width="630"}
 
-## ["Default" approach]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## ["Default" approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/remote/topology.png){.absolute top="100" left="170" width="1200"}
 ![](assets/remote/data.png){.absolute top="220" left="900" width="200"}
@@ -355,13 +355,13 @@ Data & processing need to be as **physically close** as possible
 ![](assets/remote/processing.png){.absolute top="380" left="-50" width="220"}
 ![](assets/remote/download-data.png){.absolute top="330" left="360" width="630"}
 
-## [Better approach!]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Better approach!]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/remote/topology.png){.absolute top="100" left="170" width="1200"}
 ![](assets/remote/data.png){.absolute top="220" left="900" width="200"}
 ![](assets/remote/data.png){.absolute top="640" left="900" width="200"}
 
-## [Better approach!]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Better approach!]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/remote/topology.png){.absolute top="100" left="170" width="1200"}
 ![](assets/remote/data.png){.absolute top="220" left="900" width="200"}
@@ -369,7 +369,7 @@ Data & processing need to be as **physically close** as possible
 ![](assets/remote/processing.png){.absolute top="290" left="865" width="220"}
 ![](assets/remote/processing.png){.absolute top="475" left="865" width="220"}
 
-## [Better approach!]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Better approach!]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/remote/topology.png){.absolute top="100" left="170" width="1200"}
 ![](assets/remote/data.png){.absolute top="220" left="900" width="200"}
@@ -378,7 +378,7 @@ Data & processing need to be as **physically close** as possible
 ![](assets/remote/processing.png){.absolute top="290" left="865" width="220"}
 ![](assets/remote/processing.png){.absolute top="475" left="865" width="220"}
 
-## [Takeaways]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Takeaways]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 - [Download data if doing something only R can do]{style="font-size:75px;"}
@@ -398,7 +398,7 @@ Remote <br/> processing
 :::
 
 
-## [Approaches]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Approaches]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
 :::{.column}
@@ -416,7 +416,7 @@ Preferred
 ![](assets/02/push-collect.png){.absolute top="255" left="150" width="500"}
 ![](assets/02/extract-data.png){.absolute top="350" left="950" width="500"}
 
-## [SQL not practical]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [SQL not practical]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
 :::{.column}
@@ -437,7 +437,7 @@ group by 'cut' order by 'avg_price' desc
 :::
 :::
 
-## [Use dplyr & dbplyr]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Use dplyr & dbplyr]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/02/dplyr.png){.absolute top="0" left="1300" width="150"}
 ![](assets/02/dbplyr.png){.absolute top="0" left="1450" width="150"}
@@ -467,7 +467,7 @@ group by 'cut' order by 'avg_price' desc
 :::
 :::
 
-## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/02/dplyr.png){.absolute top="0" left="1300" width="150"}
 ![](assets/02/dbplyr.png){.absolute top="0" left="1450" width="150"}
@@ -506,7 +506,7 @@ tbl_diamonds %>% <br/>
 :::
 :::
 
-## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/02/dplyr.png){.absolute top="0" left="1300" width="150"}
 ![](assets/02/dbplyr.png){.absolute top="0" left="1450" width="150"}
@@ -546,7 +546,7 @@ FROM 'diamonds'<br/>
 Exercises 2.1 - 2.2
 :::
 
-## [PSA]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [PSA]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Please, please, please...don't pass a full query to `tbl()`
@@ -562,7 +562,7 @@ Please, please, please...don't pass a full query to `tbl()`
 :::
 :::
 
-## [PSA]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [PSA]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Please, please, please...don't pass a full query to `tbl()`
@@ -604,7 +604,7 @@ More about <br/>
 :::
 
 
-## [Data collection]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Data collection]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 :::{.custom2}
 There are 3 commands that download data:
 :::
@@ -637,7 +637,7 @@ tbl_cars [#Print is implied]{style="color:#aaa"} <br/>
 Exercise 3.1
 :::
 
-## [Databricks Unity Catalog (UC)]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Databricks Unity Catalog (UC)]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Centralizes access control, auditing, lineage, and data discovery across workspaces.
@@ -649,7 +649,7 @@ Centralizes access control, auditing, lineage, and data discovery across workspa
 https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 :::
 
-## [Accessing the UC]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Accessing the UC]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 *"diamonds"* can be accessed without specifying catalog and schema
@@ -665,7 +665,7 @@ https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 
 ![](assets/03/uc-default1.png){.absolute top="280" left="800" width="850"}
 
-## [Accessing the UC]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Accessing the UC]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 *"hive_metastore"* & *"default"* are the default catalog & schema respectively 
@@ -681,7 +681,7 @@ https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 
 ![](assets/03/uc-default2.png){.absolute top="280" left="800" width="850"}
 
-## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 How do I access tables not in the default catalog?
@@ -697,7 +697,7 @@ x (31740) Table or view not found: ..customer
 
 ![](assets/03/uc-customer.png){.absolute top="210" left="820" width="820"}
 
-## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 How do I access tables not in the default catalog?
@@ -724,7 +724,7 @@ x (31740) Table or view not found: ..samples.tpch.<br/>customer
 ![](assets/03/uc-customer.png){.absolute top="210" left="820" width="820"}
 
 
-## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Use `I()` to create the correct table reference
@@ -750,7 +750,7 @@ https://www.tidyverse.org/blog/2024/04/dbplyr-2-5-0/#referring-to-tables-in-a-sc
 Exercise 3.2
 :::
 
-## [Variable selection]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Variable selection]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 :::{.custom2}
 Using `select()` with these functions make variable selection easy: 
 :::
@@ -774,7 +774,7 @@ Using `select()` with these functions make variable selection easy:
 Exercise 3.3
 :::
 
-## [Joining tables]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Joining tables]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/03/join-x.png){.absolute top="100" left="600"}
 ![](assets/03/join-y.png){.absolute top="100" left="800"}
@@ -817,7 +817,7 @@ and exploring <br/>
 data]{style="font-size:130px;"}
 :::
 
-## [Preparing data]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Preparing data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Load prepared data to a variable, without downloading it
@@ -837,7 +837,7 @@ prep_orders <- orders %>%
 ```
 :::
 
-## [Exploring data]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Exploring data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Use the base query for data exploration
@@ -877,15 +877,15 @@ Unit 5
 [Visualizations]{style="font-size:130px;"}
 :::
 
-## [Plotting local data]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Plotting local data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/05/plotting-local.png){.absolute top="110" left="50" width="1500"}
 
-## [Plotting remote data]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Plotting remote data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/05/plotting-remote.png){.absolute top="110" left="50" width="1500"}
 
-## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Pipe the prepared data into a `ggplot2` 
@@ -905,7 +905,7 @@ prep_orders %>%
   geom_col(aes(order_year, total_price)) 
 ```
 
-## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Pipe the prepared data into a `ggplot2` 
@@ -937,7 +937,7 @@ prep_orders %>%
 :::
 :::
 
-## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Pipe the prepared data into a `ggplot2` 
@@ -958,7 +958,7 @@ prep_orders %>%
   geom_col(aes(order_year, total_price)) 
 ```
 
-## [ggplot2 "auto-collects"]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [ggplot2 "auto-collects"]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 *Be careful! It downloads all of the data!*
@@ -979,7 +979,7 @@ nation %>%
 Exercise 5.1
 :::
 
-## [The truth about ggplot2]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [The truth about ggplot2]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 A plot gets refined iteratively, data must be local.
@@ -1003,7 +1003,7 @@ A plot gets refined iteratively, data must be local.
 
 ![](assets/05/ggplot-dev.png){.absolute top="215" left="700" width="850"}
 
-## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Collect (download) the data into an R variable
@@ -1020,7 +1020,7 @@ sales_by_year <- prep_orders %>%
   collect()
 ```
 
-## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Iterate on the plot using the local data
@@ -1034,7 +1034,7 @@ sales_by_year %>%
   geom_col(aes(order_year, total_price)) 
 ```
 
-## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
 Iterate on the plot using the local data
@@ -1075,7 +1075,7 @@ Unit 6
 Dashboards
 :::
 
-## [Why dashboards?]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Why dashboards?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 <br/>
 
@@ -1088,7 +1088,7 @@ Dashboards
 :::
 :::
 
-## [Important features]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Important features]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
 :::{.column width="55%"}
@@ -1100,7 +1100,7 @@ Dashboards
 
 ![](assets/06/dashboard-dropdown.png){.absolute top="120" left="875" width="750"}
 
-## [Important features]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Important features]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
 :::{.column width="55%"}
@@ -1113,7 +1113,7 @@ Dashboards
 
 ![](assets/06/dashboard-selection.png){.absolute top="120" left="875" width="750"}
 
-## [Important features]{style="color:#666;"} {background-image="assets/background/slide.png" background-size="1700px" background-color="white"}
+## [Important features]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
 :::{.column width="55%"}
