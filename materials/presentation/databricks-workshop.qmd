@@ -1153,8 +1153,10 @@ Dashboards
 ## [When do we need them?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
-To ensure displayed options match the current data
+When options in the data **regularly** change
 :::
+
+![](assets/06/data-driven-1.png){.absolute top="270" left="455"}
 
 ## {background-image="assets/background/thank-you.svg" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
