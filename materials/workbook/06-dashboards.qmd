@@ -12,6 +12,12 @@ library(dplyr)
 library(dbplyr)
 ```
 
+## Preview app
+
+*Try out the finalized Shiny app*
+
+1. Open the *unit-06-app.R* file
+
 ## Catch up {.unnumbered}
 
 ```{r}
