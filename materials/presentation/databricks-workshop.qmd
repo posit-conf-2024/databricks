@@ -216,10 +216,11 @@ https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcod
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
 :::{.sample-code}
-
+:::{.incremental1}
 - `odbc::databricks()` super simplifies the setup
 - Automatically detects credentials, driver, and sets default arguments
 - `HTTPPath` is the only argument that you will need
+:::
 :::
 
 <br/>
@@ -381,10 +382,12 @@ Data & processing need to be as **physically close** as possible
 ## [Takeaways]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
+:::{.incremental1}
 - [Download data if doing something only R can do]{style="font-size:75px;"}
 - [🔑 Data & processing need to be as **physically close** as possible]{style="font-size:75px;"}
 - [Move most of the processing to Databricks]{style="font-size:75px;"}
 - [But how?...]{style="font-size:75px;"}
+:::
 :::
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
@@ -421,9 +424,11 @@ Preferred
 :::{.columns}
 :::{.column}
 :::{.custom2}
+:::{.incremental1}
 - SQL language was not meant for exploratory data analysis
 - "Cognitive cost" of switching between SQL and R 
 - It is not as easy to plot, model, or present results in SQL as it is with R
+:::
 :::
 :::
 :::{.column}
@@ -447,10 +452,12 @@ group by 'cut' order by 'avg_price' desc
 :::{.columns}
 :::{.column width="45%"}
 :::{.custom2}
+:::{.incremental1}
 - Translates R code to SQL!
 - 'Modularity' of piped code
 - Guardrails against pulling all of the data 
 - All your code is in R
+:::
 :::
 :::
 :::{.column width="55%"}
@@ -478,11 +485,12 @@ group by 'cut' order by 'avg_price' desc
 :::{.column width="40%"}
 
 :::{.custom2}
+:::{.incremental1}
 - Creates a "virtual" table 
 - Behaves like a regular data frame
 - It contains no data
 - It's a pointer to the database table
-
+:::
 :::
 
 :::
@@ -517,9 +525,11 @@ tbl_diamonds %>% <br/>
 :::{.column width="55%"}
 
 :::{.custom2}
+:::{.incremental1}
 - Create a variable in R without importing data
 - SQL is sent **only** when data is requested
 - Behind the scenes, translates code to SQL
+:::
 :::
 
 :::
