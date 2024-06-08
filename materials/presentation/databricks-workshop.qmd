@@ -1137,6 +1137,24 @@ Dashboards
 
 ![](assets/06/dashboard-drill-down.png){.absolute top="120" left="875" width="750"}
 
+## {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="55%"}
+:::{.custom}
+<br><br><br><br>
+[Data driven dropdowns]{style="font-size:140px;"}
+:::
+:::
+:::
+
+![](assets/06/dashboard-dropdown.png){.absolute top="50" left="875" width="750"}
+
+## [When do we need them?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+To ensure displayed options match the current data
+:::
 
 ## {background-image="assets/background/thank-you.svg" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
