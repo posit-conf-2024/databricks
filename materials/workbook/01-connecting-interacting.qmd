@@ -116,7 +116,7 @@ dbDisconnect(con)
 
 *Try out the new SQL Script support in RStudio*
 
-1. Open the *query-example.sql* file
+1. Open the *unit-01-query-example.sql* file
 
 1. Click the *Preview* button. It is located in the top-right area of the script
 
