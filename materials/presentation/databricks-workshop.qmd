@@ -1137,6 +1137,12 @@ Dashboards
 
 ![](assets/06/dashboard-drill-down.png){.absolute top="120" left="875" width="750"}
 
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise 6.1
+:::
+
 ## {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
@@ -1157,6 +1163,12 @@ When options in the data change regularly
 :::
 
 ![](assets/06/data-driven-1.png){.absolute top="270" left="455"}
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise 6.2
+:::
 
 ## {background-image="assets/background/thank-you.svg" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
