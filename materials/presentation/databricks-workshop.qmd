@@ -15,7 +15,7 @@ format:
 engine: knitr
 ---
 
-# {background-image="assets/background/title-slide-white.png" background-size="1700px" background-color="white"}
+# {background-image="assets/background/title-slide-light.svg" background-size="1700px" background-color="white"}
 
 ::: {.content-slide-thin}
 Welcome to
