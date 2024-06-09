@@ -47,11 +47,10 @@ prep_orders <- orders %>%
 
 ## Data driven dropdown
 
-1. Load the `shiny` and `ggplot2` libraries
+1. Load the `shiny` library
 
 ```{r}
 library(shiny)
-library(ggplot2)
 ```
 
 2. Run the following code to see the "stub" Shiny app
@@ -109,9 +108,15 @@ shinyApp(
 ```
 
 ## Adding the plot
-**Port the code that creates the plot from the database**
+*Port the code that creates the plot from the database*
 
-1. Insert the full code that makes the country sales plot, the one in previous
+1. Load the `ggplot2` library
+
+```{r}
+library(ggplot2)
+```
+
+2. Insert the full code that makes the country sales plot, the one in previous
 section. It should include the code that creates the local data, and the one
 that creates the plot itself. Place them in the area that says *# Your code here*.
 Make sure to replace, `country`, with `input$country`. Preview the app.
@@ -152,7 +157,7 @@ shinyApp(
 )
 ```
 
-2. Prefix `!!` to the `input$countries` entry where we create the `sales_by_year`
+3. Prefix `!!` to the `input$country` entry where we create the `sales_by_year`
 variable. Preview the app.
 
 ```{r}
