@@ -1303,6 +1303,19 @@ sales_by_year %>%
 Exercise 6.3
 :::
 
+## {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="55%"}
+:::{.custom}
+<br><br><br><br>
+[Interactive Plots]{style="font-size:140px;"}
+:::
+:::
+:::
+
+![](assets/06/dashboard-selection.png){.absolute top="50" left="875" width="750"}
+
 
 ## {background-image="assets/background/thank-you.svg" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
