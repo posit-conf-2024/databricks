@@ -1316,6 +1316,71 @@ Exercise 6.3
 
 ![](assets/06/dashboard-selection.png){.absolute top="50" left="875" width="750"}
 
+## [Interactive Plots]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+:::{.columns}
+:::{.column width="30%"}
+:::
+:::{.column width="70%"}
+[Replace with `ggiraph` functions]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+:::{.sample-code1}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|3,6,16"
+  ui = fluidPage(
+    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
+    plotOutput()("sales_plot")
+  ),
+  server = function(input, output) {
+    output$sales_plot <- renderPlot()({
+      sales_by_year <- prep_orders %>%
+        filter(n_name == !!input$country) %>%
+        group_by(order_year) %>%
+        summarise(
+          total_price = sum(o_totalprice, na.rm = TRUE)
+        ) %>%
+        collect()
+      sales_by_year %>%
+        ggplot() +
+        geom_col(aes(order_year, total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+```
+:::
+
+## [Interactive Plots]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+:::{.columns}
+:::{.column width="30%"}
+:::
+:::{.column width="70%"}
+[Replace with `ggiraph` functions]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+:::{.sample-code1}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "3,6,16"
+  ui = fluidPage(
+    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
+    girafeOutput("sales_plot")
+  ),
+  server = function(input, output) {
+    output$sales_plot <- renderGirafe({
+      sales_by_year <- prep_orders %>%
+        filter(n_name == !!input$country) %>%
+        group_by(order_year) %>%
+        summarise(
+          total_price = sum(o_totalprice, na.rm = TRUE)
+        ) %>%
+        collect()
+      sales_by_year %>%
+        ggplot() +
+        geom_col_interactive(aes(order_year, total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+```
+:::
 
 ## {background-image="assets/background/thank-you.svg" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
