@@ -1382,6 +1382,66 @@ Exercise 6.3
 ```
 :::
 
+
+## [Interactive Plots]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+:::{.columns}
+:::{.column width="30%"}
+:::
+:::{.column width="70%"}
+[Add `girafe()` output step]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+:::{.sample-code1}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|1"
+      sales_by_year %>%
+        ggplot() +
+        geom_col_interactive(aes(order_year, total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+```
+:::
+
+## [Interactive Plots]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+:::{.columns}
+:::{.column width="30%"}
+:::
+:::{.column width="70%"}
+[Add `girafe()` output step]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+:::{.sample-code1}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "1,11"
+      g <- sales_by_year %>%
+        ggplot() +
+        geom_col_interactive(aes(order_year, total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+
+      girafe(ggobj = g)
+```
+:::
+
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise 6.4
+:::
+
 ## {background-image="assets/background/thank-you.svg" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
 ![](assets/background/racoon.jpg){.absolute top="220" left="900" width="430"}
