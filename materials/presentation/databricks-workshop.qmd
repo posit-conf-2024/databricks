@@ -1391,7 +1391,7 @@ Exercise 6.3
 [Add `girafe()` output step]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
-:::{.sample-code1}
+:::{.sample-code}
 ```{r}
 #| eval: false
 #| echo: true
@@ -1416,7 +1416,7 @@ Exercise 6.3
 [Add `girafe()` output step]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
-:::{.sample-code1}
+:::{.sample-code}
 ```{r}
 #| eval: false
 #| echo: true
@@ -1442,6 +1442,21 @@ Exercise 6.3
 Exercise 6.4
 :::
 
+
+
 ## {background-image="assets/background/thank-you.svg" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
 ![](assets/background/racoon.jpg){.absolute top="220" left="900" width="430"}
+
+## {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="55%"}
+:::{.custom}
+<br><br><br><br>
+[Plot drill-down]{style="font-size:140px;"}
+:::
+:::
+:::
+
+![](assets/06/dashboard-drill-down.png){.absolute top="50" left="875" width="750"}
