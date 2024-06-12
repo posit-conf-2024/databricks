@@ -1633,3 +1633,91 @@ observeEvent(input$sales_plot_selected, {
 ```
 :::
 
+## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+:::{.columns}
+:::{.column width="1%"}
+:::
+:::{.column width="99%"}
+[ Add a new `renderPLot()` function, with code from **Plot data by month**.]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+
+:::{.sample-code1}
+```{r}
+#| eval: false
+#| echo: true
+  output$monthly_sales <- renderPlot({
+    sales_by_month <- prep_orders %>%
+      filter(
+        n_name == !!input$country, 
+        order_year == !!input$sales_plot_selected
+        ) %>%
+      group_by(order_month) %>%
+      summarise(
+        total_price = sum(o_totalprice, na.rm = TRUE)
+      ) %>%
+      collect()
+
+    breaks <- as.double(quantile(c(0, max(sales_by_month$total_price))))
+    breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
+
+    sales_by_month %>%
+      ggplot() +
+      geom_col(aes(order_month, total_price)) +
+      scale_x_continuous(breaks = unique(sales_by_month$order_month)) +
+      scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+      xlab("Year") +
+      ylab("Total Sales") +
+      labs(
+        title = "Sales by month", 
+        subtitle = paste0(input$country, " - ", input$sales_plot_selected)
+        ) +
+      theme_light()
+    })
+```
+:::
+
+## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+:::{.columns}
+:::{.column width="5%"}
+:::
+:::{.column width="95%"}
+[Add `plotOutput("monthly_sales")` to the `modelDialog()` call]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+:::{.sample-code}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|"
+observeEvent(input$sales_plot_selected, {
+ showModal(
+  modalDialog(
+   title = paste0(input$country, " - ", input$sales_plot_selected)
+  )
+ )
+```
+:::
+
+## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+:::{.columns}
+:::{.column width="5%"}
+:::
+:::{.column width="95%"}
+[Add `plotOutput("monthly_sales")` to the `modelDialog()` call]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+:::{.sample-code}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|5"
+observeEvent(input$sales_plot_selected, {
+ showModal(
+  modalDialog(
+   title = paste0(input$country, " - ", input$sales_plot_selected),
+   plotOutput("monthly_sales")
+  )
+ )
+```
+:::
