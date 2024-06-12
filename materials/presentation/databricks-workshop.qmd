@@ -1460,3 +1460,69 @@ Exercise 6.4
 :::
 
 ![](assets/06/dashboard-drill-down.png){.absolute top="50" left="875" width="750"}
+
+
+## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+:::{.columns}
+:::{.column width="3%"}
+:::
+:::{.column width="97%"}
+[Add a `showModal()` that reacts when a column in the plot is clicked]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+:::{.sample-code1}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|"
+      g <- sales_by_year %>%
+        ggplot() +
+        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+
+      girafe(ggobj = g)
+    })
+  },
+  options = list(height = 200)
+```
+:::
+
+## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+:::{.columns}
+:::{.column width="3%"}
+:::
+:::{.column width="97%"}
+[Add a `showModal()` that reacts when a column in the plot is clicked]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+:::{.sample-code1}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|14-16"
+      g <- sales_by_year %>%
+        ggplot() +
+        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+
+      girafe(ggobj = g)
+    })
+    
+    observeEvent(input$sales_plot_selected, {
+      showModal(modalDialog())
+      })
+  },
+  options = list(height = 200)
+```
+:::
+
