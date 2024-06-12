@@ -1442,8 +1442,6 @@ Exercise 6.3
 Exercise 6.4
 :::
 
-
-
 ## {background-image="assets/background/thank-you.svg" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
 
 ![](assets/background/racoon.jpg){.absolute top="220" left="900" width="430"}
@@ -1516,6 +1514,74 @@ Exercise 6.4
         theme_light()
 
       girafe(ggobj = g)
+    })
+    
+    observeEvent(input$sales_plot_selected, {
+      showModal(modalDialog())
+      })
+  },
+  options = list(height = 200)
+```
+:::
+
+## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+:::{.columns}
+:::{.column width="7%"}
+:::
+:::{.column width="93%"}
+[Make the plot allow only 1 column to be selected at the time]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+:::{.sample-code1}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|11"
+      g <- sales_by_year %>%
+        ggplot() +
+        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+
+      girafe(ggobj = g)
+    })
+        
+    observeEvent(input$sales_plot_selected, {
+      showModal(modalDialog())
+      })        
+  },
+  options = list(height = 200)
+```
+:::
+
+## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+:::{.columns}
+:::{.column width="7%"}
+:::
+:::{.column width="93%"}
+[Make the plot allow only 1 column to be selected at the time]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+:::{.sample-code1}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "11"
+      g <- sales_by_year %>%
+        ggplot() +
+        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
+        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+        xlab("Year") +
+        ylab("Total Sales") +
+        labs(title = "Sales by year", subtitle = input$country) +
+        theme_light()
+
+      girafe(ggobj = g, options = list(opts_selection(type = "single")))
     })
     
     observeEvent(input$sales_plot_selected, {
