@@ -1592,3 +1592,44 @@ Exercise 6.4
 ```
 :::
 
+## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+:::{.columns}
+:::{.column width="10%"}
+:::
+:::{.column width="90%"}
+[Add a dynamic title using the country and year selected]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+:::{.sample-code}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|2"
+  observeEvent(input$sales_plot_selected, {
+        showModal(modalDialog())
+        })
+```
+:::
+
+## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+:::{.columns}
+:::{.column width="10%"}
+:::
+:::{.column width="90%"}
+[Add a dynamic title using the country and year selected]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+:::{.sample-code}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "3-5"
+observeEvent(input$sales_plot_selected, {
+ showModal(
+  modalDialog(
+   title = paste0(input$country, " - ", input$sales_plot_selected)
+  )
+ )
+```
+:::
+
