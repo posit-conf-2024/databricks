@@ -1320,6 +1320,23 @@ Exercise 6.3
 
 ![](assets/06/ggiraph.png){.absolute top="0" left="1400"}
 
+<br/>
+
+:::{.columns}
+:::{.column width="5%"}
+:::
+:::{.column width="95%"}
+:::{.custom2}
+:::{incremental1}
+- Allows you to create dynamic `ggplot` graphs. 
+- Adds tooltips, hover effects, and JavaScript actions 
+- Enables selecting elements of a plot inside a `shiny` app
+- Adds interactivity to `ggplot` geometries, legends and theme elements
+:::
+:::
+:::
+:::
+
 :::{.footer}
 [https://davidgohel.github.io/ggiraph/]{style="font-size:40px;"}
 :::
