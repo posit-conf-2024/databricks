@@ -1316,6 +1316,14 @@ Exercise 6.3
 
 ![](assets/06/dashboard-selection.png){.absolute top="50" left="875" width="750"}
 
+## [ggiraph]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/06/ggiraph.png){.absolute top="0" left="1400"}
+
+:::{.footer}
+[https://davidgohel.github.io/ggiraph/]{style="font-size:40px;"}
+:::
+
 ## [Interactive Plots]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 :::{.columns}
 :::{.column width="30%"}
@@ -1458,7 +1466,6 @@ Exercise 6.4
 :::
 
 ![](assets/06/dashboard-drill-down.png){.absolute top="50" left="875" width="750"}
-
 
 ## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 :::{.columns}
