@@ -889,11 +889,11 @@ Unit 5
 
 ## [Plotting local data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/05/plotting-local.png){.absolute top="110" left="50" width="1500"}
+![](assets/05/plotting-local.png){.absolute top="120" left="50" width="1500"}
 
 ## [Plotting remote data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/05/plotting-remote.png){.absolute top="110" left="50" width="1500"}
+![](assets/05/plotting-remote.png){.absolute top="120" left="50" width="1500"}
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -914,6 +914,8 @@ prep_orders %>%
   ggplot() +
   geom_col(aes(order_year, total_price)) 
 ```
+
+![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -947,6 +949,10 @@ prep_orders %>%
 :::
 :::
 
+![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
+
+![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
+
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
@@ -968,6 +974,8 @@ prep_orders %>%
   geom_col(aes(order_year, total_price)) 
 ```
 
+![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
+
 ## [ggplot2 "auto-collects"]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom2}
@@ -983,6 +991,9 @@ nation %>%
   ggplot() +
   geom_col(aes(n_name, n_regionkey))
 ```
+
+![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
+
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
