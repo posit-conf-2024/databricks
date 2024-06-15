@@ -57,13 +57,13 @@ tbl_diamonds
 
 6. Add `count()` to easily get the number of rows
 ```{r}
-tbl_diamonds %>% 
+tbl_diamonds |> 
   count()
 ```
 
 7. Add `cut` as an argument to `count()` to see the count by that field
 ```{r}
-tbl_diamonds %>% 
+tbl_diamonds |> 
   count(cut)
 ```
 
@@ -71,8 +71,8 @@ tbl_diamonds %>%
 SQL 
 
 ```{r}
-tbl_diamonds %>% 
-  count(cut) %>% 
+tbl_diamonds |> 
+  count(cut) |> 
   show_query()
 ```
 ## Easily aggretate data
@@ -82,27 +82,27 @@ tbl_diamonds %>%
 average for `diamonds`, from the `ggplot2` package
 
 ```{r}
-ggplot2::diamonds %>% 
-  group_by(cut) %>% 
-  summarise(avg_price = mean(price, na.rm = TRUE)) %>% 
+ggplot2::diamonds |> 
+  group_by(cut) |> 
+  summarise(avg_price = mean(price, na.rm = TRUE)) |> 
   arrange(desc(avg_price))
 ```
 
 2. Use `tbl_diamonds` to perform the exact same operation 
 
 ```{r}
-tbl_diamonds %>% 
-  group_by(cut) %>% 
-  summarise(avg_price = mean(price, na.rm = TRUE)) %>% 
+tbl_diamonds |> 
+  group_by(cut) |> 
+  summarise(avg_price = mean(price, na.rm = TRUE)) |> 
   arrange(desc(avg_price))
 ```
 
 3. Load code into a variable named `price_by_cut`
 
 ```{r}
-price_by_cut <- tbl_diamonds %>% 
-  group_by(cut) %>% 
-  summarise(avg_price = mean(price, na.rm = TRUE)) %>% 
+price_by_cut <- tbl_diamonds |> 
+  group_by(cut) |> 
+  summarise(avg_price = mean(price, na.rm = TRUE)) |> 
   arrange(desc(avg_price))
 ```
 
