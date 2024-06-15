@@ -59,7 +59,7 @@ local_diamonds <- collect(tbl_diamonds)
 
 ```{r}
 #| eval: false
-tbl_diamonds %>% 
+tbl_diamonds |> 
   pull(price)
 ```
 
@@ -67,7 +67,7 @@ tbl_diamonds %>%
 the variable is a vector, not a data frame.
 
 ```{r}
-price <- tbl_diamonds %>% 
+price <- tbl_diamonds |> 
   pull(price)
 ```
 
@@ -98,21 +98,21 @@ customer <- tbl(con, I("samples.tpch.customer"))
 2. Select all columns that end with "key"
 
 ```{r}
-customer %>% 
+customer |> 
   select(ends_with("key"))
 ```
 
 3. Move all columns that end with "key" to the front
 
 ```{r}
-customer %>% 
+customer |> 
   select(ends_with("key"), everything())
 ```
 
 4. Select all columns that **do not** end with "key"
 
 ```{r}
-customer %>% 
+customer |> 
   select(-ends_with("key"))
 ```
 
@@ -129,15 +129,15 @@ nation <- tbl(con, I("samples.tpch.nation"))
 2. Use `left_join` to relate `customer` with `nation` using the nation key 
 
 ```{r}
-customer %>% 
+customer |> 
   left_join(nation, by = c("c_nationkey" = "n_nationkey"))
 ```
 
 3. What are the 5 countries with the most customers?
 
 ```{r}
-customer %>% 
-  left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
-  count(n_name, sort = TRUE) %>% 
+customer |> 
+  left_join(nation, by = c("c_nationkey" = "n_nationkey")) |> 
+  count(n_name, sort = TRUE) |> 
   head(5)
 ```
