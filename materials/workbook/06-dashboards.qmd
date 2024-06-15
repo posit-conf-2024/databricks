@@ -34,14 +34,14 @@ orders <- tbl(con, I("samples.tpch.orders"))
 customers <- tbl(con, I("samples.tpch.customer"))
 nation <- tbl(con, I("samples.tpch.nation"))
 
-prep_orders <- orders %>% 
-  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
-  left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
+prep_orders <- orders |> 
+  left_join(customers, by = c("o_custkey" = "c_custkey")) |> 
+  left_join(nation, by = c("c_nationkey" = "n_nationkey")) |> 
   mutate(
     order_year = year(o_orderdate), 
     order_month = month(o_orderdate)
-  ) %>% 
-  rename(customer = o_custkey) %>% 
+  ) |> 
+  rename(customer = o_custkey) |> 
   select(-ends_with("comment"),  -ends_with("key"))
 ```
 
@@ -76,7 +76,7 @@ shinyApp(
 values to a variable called `countries`
 
 ```{r}
-countries <- nation %>% 
+countries <- nation |> 
   pull(n_name)
 ```
 
@@ -131,18 +131,18 @@ shinyApp(
   ),
   server = function(input, output) {
     output$sales_plot <- renderPlot({
-      sales_by_year <- prep_orders %>%
-        filter(n_name == input$country) %>%
-        group_by(order_year) %>%
+      sales_by_year <- prep_orders |>
+        filter(n_name == input$country) |>
+        group_by(order_year) |>
         summarise(
           total_price = sum(o_totalprice, na.rm = TRUE)
-        ) %>%
+        ) |>
         collect()
 
       breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
       breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-      sales_by_year %>%
+      sales_by_year |>
         ggplot() +
         geom_col(aes(order_year, total_price)) +
         scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
@@ -170,18 +170,18 @@ shinyApp(
   ),
   server = function(input, output) {
     output$sales_plot <- renderPlot({
-      sales_by_year <- prep_orders %>%
-        filter(n_name == !!input$country) %>%
-        group_by(order_year) %>%
+      sales_by_year <- prep_orders |>
+        filter(n_name == !!input$country) |>
+        group_by(order_year) |>
         summarise(
           total_price = sum(o_totalprice, na.rm = TRUE)
-        ) %>%
+        ) |>
         collect()
 
       breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
       breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-      sales_by_year %>%
+      sales_by_year |>
         ggplot() +
         geom_col(aes(order_year, total_price)) +
         scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
@@ -220,18 +220,18 @@ shinyApp(
   ),
   server = function(input, output) {
     output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders %>%
-        filter(n_name == !!input$country) %>%
-        group_by(order_year) %>%
+      sales_by_year <- prep_orders |>
+        filter(n_name == !!input$country) |>
+        group_by(order_year) |>
         summarise(
           total_price = sum(o_totalprice, na.rm = TRUE)
-        ) %>%
+        ) |>
         collect()
 
       breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
       breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-      sales_by_year %>%
+      sales_by_year |>
         ggplot() +
         geom_col_interactive(aes(order_year, total_price)) +
         scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
@@ -259,18 +259,18 @@ shinyApp(
   ),
   server = function(input, output) {
     output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders %>%
-        filter(n_name == !!input$country) %>%
-        group_by(order_year) %>%
+      sales_by_year <- prep_orders |>
+        filter(n_name == !!input$country) |>
+        group_by(order_year) |>
         summarise(
           total_price = sum(o_totalprice, na.rm = TRUE)
-        ) %>%
+        ) |>
         collect()
 
       breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
       breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-      g <- sales_by_year %>%
+      g <- sales_by_year |>
         ggplot() +
         geom_col_interactive(aes(order_year, total_price)) +
         scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
@@ -301,18 +301,18 @@ shinyApp(
   ),
   server = function(input, output) {
     output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders %>%
-        filter(n_name == !!input$country) %>%
-        group_by(order_year) %>%
+      sales_by_year <- prep_orders |>
+        filter(n_name == !!input$country) |>
+        group_by(order_year) |>
         summarise(
           total_price = sum(o_totalprice, na.rm = TRUE)
-        ) %>%
+        ) |>
         collect()
 
       breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
       breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-      g <- sales_by_year %>%
+      g <- sales_by_year |>
         ggplot() +
         geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
         scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
@@ -345,18 +345,18 @@ shinyApp(
   ),
   server = function(input, output) {
     output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders %>%
-        filter(n_name == !!input$country) %>%
-        group_by(order_year) %>%
+      sales_by_year <- prep_orders |>
+        filter(n_name == !!input$country) |>
+        group_by(order_year) |>
         summarise(
           total_price = sum(o_totalprice, na.rm = TRUE)
-        ) %>%
+        ) |>
         collect()
 
       breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
       breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-      g <- sales_by_year %>%
+      g <- sales_by_year |>
         ggplot() +
         geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
         scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
@@ -391,18 +391,18 @@ shinyApp(
   ),
   server = function(input, output) {
     output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders %>%
-        filter(n_name == !!input$country) %>%
-        group_by(order_year) %>%
+      sales_by_year <- prep_orders |>
+        filter(n_name == !!input$country) |>
+        group_by(order_year) |>
         summarise(
           total_price = sum(o_totalprice, na.rm = TRUE)
-        ) %>%
+        ) |>
         collect()
 
       breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
       breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-      g <- sales_by_year %>%
+      g <- sales_by_year |>
         ggplot() +
         geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
         scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
@@ -436,18 +436,18 @@ shinyApp(
   ),
   server = function(input, output) {
     output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders %>%
-        filter(n_name == !!input$country) %>%
-        group_by(order_year) %>%
+      sales_by_year <- prep_orders |>
+        filter(n_name == !!input$country) |>
+        group_by(order_year) |>
         summarise(
           total_price = sum(o_totalprice, na.rm = TRUE)
-        ) %>%
+        ) |>
         collect()
 
       breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
       breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-      g <- sales_by_year %>%
+      g <- sales_by_year |>
         ggplot() +
         geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
         scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
@@ -488,18 +488,18 @@ shinyApp(
   ),
   server = function(input, output) {
     output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders %>%
-        filter(n_name == !!input$country) %>%
-        group_by(order_year) %>%
+      sales_by_year <- prep_orders |>
+        filter(n_name == !!input$country) |>
+        group_by(order_year) |>
         summarise(
           total_price = sum(o_totalprice, na.rm = TRUE)
-        ) %>%
+        ) |>
         collect()
 
       breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
       breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-      g <- sales_by_year %>%
+      g <- sales_by_year |>
         ggplot() +
         geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
         scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
@@ -513,21 +513,21 @@ shinyApp(
     })
 
     output$monthly_sales <- renderPlot({
-      sales_by_month <- prep_orders %>%
+      sales_by_month <- prep_orders |>
         filter(
           n_name == !!input$country, 
           order_year == !!input$sales_plot_selected
-          ) %>%
-        group_by(order_month) %>%
+          ) |>
+        group_by(order_month) |>
         summarise(
           total_price = sum(o_totalprice, na.rm = TRUE)
-        ) %>%
+        ) |>
         collect()
 
       breaks <- as.double(quantile(c(0, max(sales_by_month$total_price))))
       breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-      sales_by_month %>%
+      sales_by_month |>
         ggplot() +
         geom_col(aes(order_month, total_price)) +
         scale_x_continuous(breaks = unique(sales_by_month$order_month)) +
@@ -565,18 +565,18 @@ shinyApp(
   ),
   server = function(input, output) {
     output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders %>%
-        filter(n_name == !!input$country) %>%
-        group_by(order_year) %>%
+      sales_by_year <- prep_orders |>
+        filter(n_name == !!input$country) |>
+        group_by(order_year) |>
         summarise(
           total_price = sum(o_totalprice, na.rm = TRUE)
-        ) %>%
+        ) |>
         collect()
 
       breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
       breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-      g <- sales_by_year %>%
+      g <- sales_by_year |>
         ggplot() +
         geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
         scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
@@ -590,21 +590,21 @@ shinyApp(
     })
 
     output$monthly_sales <- renderPlot({
-      sales_by_month <- prep_orders %>%
+      sales_by_month <- prep_orders |>
         filter(
           n_name == !!input$country, 
           order_year == !!input$sales_plot_selected
-          ) %>%
-        group_by(order_month) %>%
+          ) |>
+        group_by(order_month) |>
         summarise(
           total_price = sum(o_totalprice, na.rm = TRUE)
-        ) %>%
+        ) |>
         collect()
 
       breaks <- as.double(quantile(c(0, max(sales_by_month$total_price))))
       breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-      sales_by_month %>%
+      sales_by_month |>
         ggplot() +
         geom_col(aes(order_month, total_price)) +
         scale_x_continuous(breaks = unique(sales_by_month$order_month)) +
