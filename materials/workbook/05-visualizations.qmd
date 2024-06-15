@@ -28,14 +28,14 @@ orders <- tbl(con, I("samples.tpch.orders"))
 customers <- tbl(con, I("samples.tpch.customer"))
 nation <- tbl(con, I("samples.tpch.nation"))
 
-prep_orders <- orders %>% 
-  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
-  left_join(nation, by = c("c_nationkey" = "n_nationkey")) %>% 
+prep_orders <- orders |> 
+  left_join(customers, by = c("o_custkey" = "c_custkey")) |> 
+  left_join(nation, by = c("c_nationkey" = "n_nationkey")) |> 
   mutate(
     order_year = year(o_orderdate), 
     order_month = month(o_orderdate)
-  ) %>% 
-  rename(customer = o_custkey) %>% 
+  ) |> 
+  rename(customer = o_custkey) |> 
   select(-ends_with("comment"),  -ends_with("key"))
 ```
 
@@ -52,7 +52,7 @@ library(ggplot2)
 column geom.
 
 ```{r}
-nation %>% 
+nation |> 
   ggplot() +
   geom_col(aes(n_name, n_regionkey))
 ```
@@ -62,23 +62,23 @@ nation %>%
 1. Using `prep_order`, pull the total sales by year (`o_totalprice`)
 
 ```{r}
-prep_orders %>% 
-  group_by(order_year) %>% 
+prep_orders |> 
+  group_by(order_year) |> 
   summarise(
     total_price = sum(o_totalprice, na.rm = TRUE)
-  ) %>% 
+  ) |> 
   arrange(order_year)
 ```
 
 2. Add to the code, a step to plot the data. Use a column geom
 
 ```{r}
-prep_orders %>% 
-  group_by(order_year) %>% 
+prep_orders |> 
+  group_by(order_year) |> 
   summarise(
     total_price = sum(o_totalprice, na.rm = TRUE)
-  ) %>% 
-  arrange(order_year) %>% 
+  ) |> 
+  arrange(order_year) |> 
   ggplot() +
   geom_col(aes(order_year, total_price)) 
 ```
@@ -86,11 +86,11 @@ prep_orders %>%
 3. Download the results to R to a variable called `sales_by_year`
 
 ```{r}
-sales_by_year <- prep_orders %>% 
-  group_by(order_year) %>% 
+sales_by_year <- prep_orders |> 
+  group_by(order_year) |> 
   summarise(
     total_price = sum(o_totalprice, na.rm = TRUE)
-  ) %>% 
+  ) |> 
   collect()
 ```
 
@@ -103,7 +103,7 @@ sales_by_year
 5. Use `sales_by_year` to create the same plot
 
 ```{r}
-sales_by_year %>% 
+sales_by_year |> 
   ggplot() +
   geom_col(aes(order_year, total_price)) 
 ```
@@ -115,7 +115,7 @@ breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
 
 breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-sales_by_year %>% 
+sales_by_year |> 
   ggplot() +
   geom_col(aes(order_year, total_price)) +
   scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
@@ -139,12 +139,12 @@ country <- "FRANCE"
 the value of `country`
 
 ```{r}
-sales_by_year <- prep_orders %>% 
-  filter(n_name == country) %>% 
-  group_by(order_year) %>% 
+sales_by_year <- prep_orders |> 
+  filter(n_name == country) |> 
+  group_by(order_year) |> 
   summarise(
     total_price = sum(o_totalprice, na.rm = TRUE)
-  ) %>% 
+  ) |> 
   collect()
 ```
 
@@ -156,7 +156,7 @@ breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
 
 breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-sales_by_year %>% 
+sales_by_year |> 
   ggplot() +
   geom_col(aes(order_year, total_price)) +
   scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
@@ -180,12 +180,12 @@ addition to country, the filter should include the `order_year`. Group by
 `order_month`
 
 ```{r}
-sales_by_month <- prep_orders %>%
-  filter(n_name == country, order_year == year) %>%
-  group_by(order_month) %>%
+sales_by_month <- prep_orders |>
+  filter(n_name == country, order_year == year) |>
+  group_by(order_month) |>
   summarise(
     total_price = sum(o_totalprice, na.rm = TRUE)
-  ) %>%
+  ) |>
   collect()
 ```
 
@@ -197,7 +197,7 @@ the `year` as well.
 breaks <- as.double(quantile(c(0, max(sales_by_month$total_price))))
 breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-sales_by_month %>%
+sales_by_month |>
   ggplot() +
   geom_col(aes(order_month, total_price)) +
   scale_x_continuous(breaks = unique(sales_by_month$order_month)) +
