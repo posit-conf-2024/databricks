@@ -1756,3 +1756,13 @@ observeEvent(input$sales_plot_selected, {
  )
 ```
 :::
+
+## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide-title}
+Unit 7
+:::
+
+:::{.content-slide}
+Apache <br/> Spark
+:::
