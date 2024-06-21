@@ -74,5 +74,5 @@ predict_vetiver(lendingclub_prep)
 
 lendingclub_dat |> 
   select(int_rate, term, bc_util, bc_open_to_buy, all_util) |> 
-  head() |> 
-  spark_apply(predict_vetiver) 
+  spark_apply(predict_vetiver) |> 
+  count()
