@@ -12,6 +12,7 @@ book:
       - 04-preparing-exploring.qmd
       - 05-visualizations.qmd
       - 06-dashboards.qmd
+      - r-udfs-modeling.qmd
 format:
   html:
     toc: true
