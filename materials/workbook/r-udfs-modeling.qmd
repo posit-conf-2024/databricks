@@ -1,18 +1,53 @@
+---
+title: "Modeling"
+execute: 
+  eval: true
+  freeze: true
+---
+
+```{r, setup}
+#| include: false
+
+library(dplyr)
+library(dbplyr)
+library(sparklyr)
+library(tidymodels)
+library(tidyverse)
+```
+
+## Catch up {.unnumbered}
+
+```{r}
 library(sparklyr)
 library(dplyr)
 sc <- spark_connect(method = "databricks_connect")
-lendingclub_dat <- tbl(sc, dbplyr::in_catalog("hive_metastore", "default", "lendingclub"))
+```
 
+## Get sample of data
+
+```{r}
+lendingclub_dat <- tbl(sc, in_catalog("hive_metastore", "default", "lendingclub"))
+```
+
+
+```{r}
 lendingclub_sample <- lendingclub_dat |>  
   slice_sample(n = 2000) |> 
   collect()
+```
 
+
+```{r}
 lendingclub_prep <- lendingclub_sample |> 
   select(int_rate, term, bc_util, bc_open_to_buy, all_util) |> 
   mutate(
     int_rate = as.numeric(stringr::str_remove(int_rate, "%"))
     )
+```
 
+## Create model using `tidymodels`
+
+```{r}
 library(tidymodels)
 
 lendingclub_rec <- recipe(int_rate ~ ., data = lendingclub_prep) |> 
@@ -20,33 +55,59 @@ lendingclub_rec <- recipe(int_rate ~ ., data = lendingclub_prep) |>
   step_mutate(across(everything(), as.numeric)) |> 
   step_normalize(all_numeric_predictors()) |>
   step_impute_mean(all_of(c("bc_open_to_buy", "bc_util"))) |>   
-  step_filter(!if_any(everything(), is.na)) 
+  step_filter(!if_any(everything(), is.na))
+```
 
+
+```{r}
 lendingclub_lr <- linear_reg()
+```
 
+
+```{r}
 lendingclub_wf <- workflow() |> 
   add_model(lendingclub_lr) |> 
-  add_recipe(lendingclub_rec) 
+  add_recipe(lendingclub_rec)
+```
 
+
+```{r}
 lendingclub_fit <- lendingclub_wf |> 
   fit(data = lendingclub_prep)
 
 lendingclub_fit
+```
 
+
+```{r}
 lendingclub_fit |> 
   augment(lendingclub_prep) |> 
   metrics(int_rate, .pred)
+```
 
+
+```{r}
 library(ggplot2)
 
 predict(lendingclub_fit, lendingclub_sample) |> 
   ggplot() +
   geom_histogram(aes(.pred))
+```
 
+## Upload to Posit Connect
+
+```{r}
+#| eval: false
 library(vetiver)
-library(pins)
+
 
 v <- vetiver_model(lendingclub_fit, "lendingclub_model")
+```
+
+
+```{r}
+#| eval: false
+library(pins)
 
 board <- board_connect(
   auth = "manual",
@@ -56,7 +117,11 @@ board <- board_connect(
 
 board |> 
   vetiver_pin_write(v)
+```
 
+
+```{r}
+#| eval: false
 predict_vetiver <- function(x) {
   library(workflows)
   board <- pins::board_connect(
@@ -69,10 +134,24 @@ predict_vetiver <- function(x) {
   x$pred <- preds[,1][[1]]
   x[x$pred >= 20, ]
 }
+```
 
+
+```{r}
+#| eval: false
 predict_vetiver(lendingclub_prep)
+```
 
+## Predict in Spark
+
+```{r}
+#| eval: false
 lendingclub_dat |> 
   select(int_rate, term, bc_util, bc_open_to_buy, all_util) |> 
   spark_apply(predict_vetiver) |> 
   count()
+```
+
+
+
+
