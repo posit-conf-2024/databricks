@@ -4,10 +4,11 @@ sc <- spark_connect(method = "databricks_connect")
 lendingclub_dat <- tbl(sc, dbplyr::in_catalog("hive_metastore", "default", "lendingclub"))
 
 lendingclub_sample <- lendingclub_dat |>  
-  slice_sample(n = 1000) |> 
+  slice_sample(n = 2000) |> 
   collect()
 
 lendingclub_prep <- lendingclub_sample |> 
+  select(int_rate, term, bc_util, bc_open_to_buy, all_util) |> 
   mutate(
     int_rate = as.numeric(stringr::str_remove(int_rate, "%"))
     )
@@ -16,7 +17,7 @@ library(tidymodels)
 
 lendingclub_rec <- recipe(
   int_rate ~ ., 
-  data = lendingclub_sample
+  data = lendingclub_prep
   ) |> 
   step_mutate(
     term = trimws(substr(term, 1,4))
@@ -33,13 +34,20 @@ lendingclub_wf <- workflow() |>
   add_recipe(lendingclub_rec) 
 
 lendingclub_fit <- lendingclub_wf |> 
-  fit(data = lendingclub_sample)
+  fit(data = lendingclub_prep)
 
 lendingclub_fit
 
-lendingclub_predict <- function(x) predict(lendingclub_fit, x)
+lendingclub_fit |> 
+  augment(lendingclub_prep) |> 
+  metrics(int_rate, .pred)
 
-predict(lendingclub_fit, lendingclub_sample)
+library(ggplot2)
+predict(lendingclub_fit, lendingclub_sample) |> 
+  ggplot() +
+  geom_histogram(aes(.pred))
+
+
 
 lendingclub_dat |> 
   head() |> 
