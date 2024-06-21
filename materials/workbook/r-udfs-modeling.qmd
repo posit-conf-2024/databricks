@@ -1,8 +1,8 @@
 ---
 title: "Modeling"
 execute: 
-  eval: true
-  freeze: true
+  eval: false
+  freeze: false
 ---
 
 ```{r, setup}
@@ -25,20 +25,24 @@ sc <- spark_connect(method = "databricks_connect")
 
 ## Get sample of data
 
+1. Create a pointer to the `lendingclub` data. It is in the `default` schema, 
+inside the `hive_metastore` catalog. And name it `lendingclub_dat`
 ```{r}
 lendingclub_dat <- tbl(sc, in_catalog("hive_metastore", "default", "lendingclub"))
 ```
 
-
+2. Using `slice_sample()`, download 20K records, and name it `lendingclub_sample`
 ```{r}
 lendingclub_sample <- lendingclub_dat |>  
   slice_sample(n = 2000) |> 
   collect()
 
-glimpse(lendingclub_sample)
+colnames(lendingclub_sample)
 ```
 
-
+3. Keep only `int_rate`, `term`, `bc_util`, `bc_open_to_buy` and `all_util` 
+fields. Remove the percent sign out of `int_rate`, and coerce it to numeric. 
+Save resulting table to a new variable called `lendingclub_prep`
 ```{r}
 lendingclub_prep <- lendingclub_sample |> 
   select(int_rate, term, bc_util, bc_open_to_buy, all_util) |> 
