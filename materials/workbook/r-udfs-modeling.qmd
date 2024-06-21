@@ -34,6 +34,8 @@ lendingclub_dat <- tbl(sc, in_catalog("hive_metastore", "default", "lendingclub"
 lendingclub_sample <- lendingclub_dat |>  
   slice_sample(n = 2000) |> 
   collect()
+
+glimpse(lendingclub_sample)
 ```
 
 
@@ -43,6 +45,8 @@ lendingclub_prep <- lendingclub_sample |>
   mutate(
     int_rate = as.numeric(stringr::str_remove(int_rate, "%"))
     )
+
+glimpse(lendingclub_prep)
 ```
 
 ## Create model using `tidymodels`
@@ -56,6 +60,8 @@ lendingclub_rec <- recipe(int_rate ~ ., data = lendingclub_prep) |>
   step_normalize(all_numeric_predictors()) |>
   step_impute_mean(all_of(c("bc_open_to_buy", "bc_util"))) |>   
   step_filter(!if_any(everything(), is.na))
+
+lendingclub_rec
 ```
 
 
@@ -68,6 +74,8 @@ lendingclub_lr <- linear_reg()
 lendingclub_wf <- workflow() |> 
   add_model(lendingclub_lr) |> 
   add_recipe(lendingclub_rec)
+
+lendingclub_wf
 ```
 
 
