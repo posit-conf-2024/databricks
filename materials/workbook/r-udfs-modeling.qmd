@@ -65,16 +65,9 @@ lendingclub_rec <- recipe(int_rate ~ ., data = lendingclub_prep) |>
   step_impute_mean(all_of(c("bc_open_to_buy", "bc_util"))) |>   
   step_filter(!if_any(everything(), is.na))
 
-lendingclub_rec
-```
 
-
-```{r}
 lendingclub_lr <- linear_reg()
-```
 
-
-```{r}
 lendingclub_wf <- workflow() |> 
   add_model(lendingclub_lr) |> 
   add_recipe(lendingclub_rec)
