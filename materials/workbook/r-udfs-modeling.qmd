@@ -115,35 +115,23 @@ predict(lendingclub_fit, lendingclub_sample) |>
 library(vetiver)
 
 
-v <- vetiver_model(lendingclub_fit, "lendingclub_model")
+lendingclub_vetiver <- vetiver_model(lendingclub_fit, "lendingclub_model")
 ```
-
 
 ```{r}
-#| eval: false
-library(pins)
-
-board <- board_connect(
-  auth = "manual",
-  server = Sys.getenv("CONNECT_SERVER"),
-  key = Sys.getenv("CONNECT_API_KEY")
-)
-
-board |> 
-  vetiver_pin_write(v)
+saveRDS(lendingclub_vetiver, "lendingclub.rds")
 ```
-
 
 ```{r}
 #| eval: false
 predict_vetiver <- function(x) {
   library(workflows)
-  board <- pins::board_connect(
-    auth = "manual", 
-    server = "https://connect.posit.it/",
-    key = "[YOUR CONNECT KEY]"
-  )
-  model <- vetiver::vetiver_pin_read(board, "edgar/lendingclub_model")
+  library(vetiver)
+  if(file.exists("lendingclub.rds")) {
+    model <- readRDS("lendingclub.rds")  
+  } else {
+    model <- readRDS("/Volumes/workshops/models/vetiver/lendingclub.rds")
+  }
   preds <- predict(model, x)
   x$pred <- preds[,1][[1]]
   x[x$pred >= 20, ]
@@ -162,8 +150,9 @@ predict_vetiver(lendingclub_prep)
 #| eval: false
 lendingclub_dat |> 
   select(int_rate, term, bc_util, bc_open_to_buy, all_util) |> 
-  spark_apply(predict_vetiver) |> 
-  count()
+  spark_apply(predict_vetiver, columns = "int_rate string, term string, bc_util string, bc_open_to_buy string, all_util string, pred double") |> 
+  head() |> 
+  collect()
 ```
 
 
