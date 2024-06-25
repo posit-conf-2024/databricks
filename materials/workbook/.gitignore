@@ -1,3 +1,4 @@
 /.quarto/
 _book
 *.knit.md
+lendingclub.rds

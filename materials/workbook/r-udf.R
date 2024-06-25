@@ -76,3 +76,37 @@ lendingclub_dat |>
   select(int_rate, term, bc_util, bc_open_to_buy, all_util) |> 
   spark_apply(predict_vetiver) |> 
   count()
+
+
+library(sparklyr)
+library(dplyr)
+sc <- spark_connect(method = "databricks_connect")
+
+lendingclub_dat <- tbl(sc, I("hive_metastore.default.lendingclub"))
+
+predict_vetiver <- function(x) {
+  library(workflows)
+  library(vetiver)
+  if(file.exists("lendingclub.rds")) {
+    model <- readRDS("lendingclub.rds")  
+  } else {
+    model <- readRDS("/Volumes/workshops/models/vetiver/lendingclub.rds")
+  }
+  preds <- predict(model, x)
+  x$pred <- preds[,1][[1]]
+  x[x$pred >= 20, ]
+}
+
+lendingclub_dat |> 
+  select(int_rate, term, bc_util, bc_open_to_buy, all_util) |> 
+  spark_apply(predict_vetiver, columns = "int_rate string, term string, bc_util string, bc_open_to_buy string, all_util string, pred double") |> 
+  head() |> 
+  collect()
+
+spark_disconnect(sc)
+
+
+
+
+
+
