@@ -1766,3 +1766,56 @@ Unit 7
 :::{.content-slide}
 Apache <br/> Spark
 :::
+
+
+## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide-title}
+Unit 7
+:::
+
+:::{.content-slide}
+Apache <br/> Spark
+:::
+
+## [How it works]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="25%"}
+:::
+:::{.column width="75%"}
+[Spark partitions de file logically]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+
+![](assets/07/spark-1.png){.absolute top="200" left="400" width="400"}
+![](assets/07/spark-2.png){.absolute top="190" left="900" width="400"}
+![](assets/07/spark-3.png){.absolute top="390" left="900" width="400"}
+![](assets/07/spark-4.png){.absolute top="590" left="900" width="400"}
+
+## [How it works]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/07/spark-6.png){.absolute top="250" left="320" width="200"}
+![](assets/07/spark-2.png){.absolute top="300" left="100" width="200"}
+![](assets/07/spark-3.png){.absolute top="450" left="100" width="200"}
+
+![](assets/07/spark-6.png){.absolute top="500" left="820" width="200"}
+![](assets/07/spark-3.png){.absolute top="550" left="600" width="200"}
+![](assets/07/spark-4.png){.absolute top="700" left="600" width="200"}
+
+![](assets/07/spark-6.png){.absolute top="250" left="1320" width="200"}
+![](assets/07/spark-2.png){.absolute top="300" left="1100" width="200"}
+![](assets/07/spark-4.png){.absolute top="450" left="1100" width="200"}
+
+
+## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide-title}
+Unit 9
+:::
+
+:::{.content-slide}
+R UDFs and <br/>
+Modeling
+:::
+
