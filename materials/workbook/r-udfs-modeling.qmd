@@ -1,8 +1,8 @@
 ---
 title: "Modeling"
 execute: 
-  eval: true
-  freeze: true
+  eval: false
+  freeze: false
 ---
 
 ```{r, setup}
@@ -24,6 +24,7 @@ sc <- spark_connect(method = "databricks_connect")
 ```
 
 ## Get sample of data
+*Download a sampled data set locally to R*
 
 1. Create a pointer to the `lendingclub` data. It is in the `default` schema, 
 inside the `hive_metastore` catalog. And name it `lendingclub_dat`
@@ -108,20 +109,58 @@ predict(lendingclub_fit, lendingclub_sample) |>
   geom_histogram(aes(.pred))
 ```
 
-## Upload to Posit Connect
+## Using Vetiver
+*Convert the workflow into a `vetiver` model*
+
+1. Load the `vetiver` package
 
 ```{r}
 library(vetiver)
-
-lendingclub_vetiver <- vetiver_model(lendingclub_fit, "lendingclub_model")
 ```
+
+2. Convert to Vetiver using `vetiver_model()`. Name the variable `lendingclub_vetiver`
+
+```{r}
+lendingclub_vetiver <- vetiver_model(lendingclub_fit)
+```
+
+3. Save `lendingclub_vetiver` as "lendingclub.rds"
 
 ```{r}
 saveRDS(lendingclub_vetiver, "lendingclub.rds")
 ```
 
+## Create prediction function
+*Creating a self-contained prediction function that will read the model, and 
+then run the predictions*
+
+1. Create a function that does the following:
+- It has one argument named `x`, which will take the data frame
+- Load the `workflow` and `vetiver` libraries
+- Reads the "lendingclub.rds" file
+- Runs the predictions
+- Adds the prediction to `x` 
+
 ```{r}
-#| eval: false
+predict_vetiver <- function(x) {
+  library(workflows)
+  library(vetiver)
+  model <- readRDS("lendingclub.rds")  
+  preds <- predict(model, x)
+  x$pred <- preds[,1][[1]]
+  x
+}
+```
+
+2. Test the function, use `lendingclub_prep` to confirm it runs as anticipated
+
+```{r}
+predict_vetiver(lendingclub_prep)
+```
+
+## Predict in Spark
+
+```{r}
 predict_vetiver <- function(x) {
   library(workflows)
   library(vetiver)
@@ -135,14 +174,6 @@ predict_vetiver <- function(x) {
   x
 }
 ```
-
-
-```{r}
-#| eval: false
-predict_vetiver(lendingclub_prep)
-```
-
-## Predict in Spark
 
 ```{r}
 lendingclub_predictions <- lendingclub_dat |> 
