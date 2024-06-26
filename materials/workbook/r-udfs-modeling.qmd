@@ -1,8 +1,9 @@
 ---
 title: "Modeling"
 execute: 
-  eval: false
-  freeze: false
+  eval: true
+  freeze: true
+  warning: false
 ---
 
 ```{r, setup}
@@ -60,6 +61,13 @@ lendingclub_prep <- lendingclub_sample |>
 ```{r}
 glimpse(lendingclub_prep)
 ```
+
+6. Disconnect from Spark
+
+```{r}
+spark_disconnect(sc)
+```
+
 
 ## Create model using `tidymodels`
 
@@ -121,7 +129,7 @@ library(vetiver)
 2. Convert to Vetiver using `vetiver_model()`. Name the variable `lendingclub_vetiver`
 
 ```{r}
-lendingclub_vetiver <- vetiver_model(lendingclub_fit)
+lendingclub_vetiver <- vetiver_model(lendingclub_fit, "lendingclub_model")
 ```
 
 3. Save `lendingclub_vetiver` as "lendingclub.rds"
@@ -159,6 +167,11 @@ predict_vetiver(lendingclub_prep)
 ```
 
 ## Predict in Spark
+*Run the predictions in Spark against the entire data set*
+
+
+1. Add conditional statement that reads the RDS file if it's available locally,
+and if not, read it from: "/Volumes/workshops/models/vetiver/lendingclub.rds"
 
 ```{r}
 predict_vetiver <- function(x) {
@@ -175,15 +188,55 @@ predict_vetiver <- function(x) {
 }
 ```
 
+2. Re-connect to your Spark cluster
+
+```{r}
+sc <- spark_connect(method = "databricks_connect")
+```
+
+3. Re-create a pointer to the `lendingclub` data. It is in the `default` schema, 
+inside the `hive_metastore` catalog. And name it `lendingclub_dat`
+```{r}
+lendingclub_dat <- tbl(sc, I("hive_metastore.default.lendingclub"))
+```
+
+4. Select the `int_rate`, `term`, `bc_util`, `bc_open_to_buy`, and `all_util` 
+fields from `lendingclub_dat`. And then pass just the top rows (using `head()`)
+to `spark_apply()`. Use the updated `predict_vetiver` to run the model.
+
+```{r}
+lendingclub_dat |> 
+  select(int_rate, term, bc_util, bc_open_to_buy, all_util) |> 
+  head() |> 
+  spark_apply(predict_vetiver)
+```
+
+5. Add the `columns` specification to the `spark_apply()` call
+
+```{r}
+lendingclub_dat |> 
+  select(int_rate, term, bc_util, bc_open_to_buy, all_util) |> 
+  head() |> 
+  spark_apply(
+    predict_vetiver, 
+    columns = "int_rate string, term string, bc_util string, bc_open_to_buy string, all_util string, pred double"
+    )
+```
+6. Append `compute()` to the end of the code, remove `head()`, and save the
+results into a variable called `lendingclub_predictions`
+
 ```{r}
 lendingclub_predictions <- lendingclub_dat |> 
   select(int_rate, term, bc_util, bc_open_to_buy, all_util) |> 
   spark_apply(
-    f = predict_vetiver,
+    predict_vetiver,
     columns = "int_rate string, term string, bc_util string, bc_open_to_buy string, all_util string, pred double"
     ) |> 
   compute()
 ```
+
+7. Preview the `lendingclub_predictions` table
+
 ```{r}
 lendingclub_predictions
 ```
