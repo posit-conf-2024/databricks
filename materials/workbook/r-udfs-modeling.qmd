@@ -111,9 +111,7 @@ predict(lendingclub_fit, lendingclub_sample) |>
 ## Upload to Posit Connect
 
 ```{r}
-#| eval: false
 library(vetiver)
-
 
 lendingclub_vetiver <- vetiver_model(lendingclub_fit, "lendingclub_model")
 ```
@@ -134,7 +132,7 @@ predict_vetiver <- function(x) {
   }
   preds <- predict(model, x)
   x$pred <- preds[,1][[1]]
-  x[x$pred >= 20, ]
+  x
 }
 ```
 
@@ -147,14 +145,16 @@ predict_vetiver(lendingclub_prep)
 ## Predict in Spark
 
 ```{r}
-#| eval: false
-lendingclub_dat |> 
+lendingclub_predictions <- lendingclub_dat |> 
   select(int_rate, term, bc_util, bc_open_to_buy, all_util) |> 
-  spark_apply(predict_vetiver, columns = "int_rate string, term string, bc_util string, bc_open_to_buy string, all_util string, pred double") |> 
-  head() |> 
-  collect()
+  spark_apply(
+    f = predict_vetiver,
+    columns = "int_rate string, term string, bc_util string, bc_open_to_buy string, all_util string, pred double"
+    ) |> 
+  compute()
 ```
-
-
+```{r}
+lendingclub_predictions
+```
 
 
