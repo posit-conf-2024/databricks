@@ -8,10 +8,9 @@ book:
       chapters:
       - 01-connecting-interacting.qmd
       - 02-remote-processing.qmd
-      - 03-more-dplyr-dbplyr.qmd
-      - 04-preparing-exploring.qmd
-      - 05-visualizations.qmd
-      - 06-dashboards.qmd
+      - 03-preparing-exploring.qmd
+      - 04-visualizations.qmd
+      - 08-dashboards.qmd
       - r-udfs-modeling.qmd
 format:
   html:

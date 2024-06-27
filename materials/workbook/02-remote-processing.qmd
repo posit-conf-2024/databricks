@@ -111,3 +111,64 @@ price_by_cut <- tbl_diamonds |>
 ```{r}
 price_by_cut
 ```
+
+## Data collection
+*Understand the difference between printing and collecting*
+
+
+1. Call the `tbl_diamonds` variable directly
+
+```{r}
+tbl_diamonds
+```
+
+2. Call `tbl_diamonds` via `print()`.
+
+```{r}
+print(tbl_diamonds)
+```
+
+3. Call `tbl_diamonds` via `collect()`. Notice it prints the **entire** table 
+
+```{r}
+collect(tbl_diamonds)
+```
+
+4. Load the previous operation to a variable named `local_diamonds`
+
+```{r}
+local_diamonds <- collect(tbl_diamonds)
+```
+
+5. Use `pull()` to extract the values from `price` only
+
+```{r}
+#| eval: false
+tbl_diamonds |> 
+  pull(price)
+```
+
+6. Load the previous operation to a variable named `price`. Notice that this time,
+the variable is a vector, not a data frame.
+
+```{r}
+price <- tbl_diamonds |> 
+  pull(price)
+```
+
+## Referring to non-default catalog tables
+*Using I() to create non-default table references*
+
+1. Create a reference to the `customer` table, which is under the `tpch` schema, 
+inside the `samples` catalog
+
+```{r}
+tbl(con, I("samples.tpch.customer"))
+```
+
+2. Create a reference to the `sales_order_in_la` table, under the `ferit` schema
+
+```{r}
+tbl(con, I("ferit.sales_order_in_la"))
+```
+

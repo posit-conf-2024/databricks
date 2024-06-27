@@ -24,8 +24,62 @@ con <- dbConnect(
   HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e"
 )
 
-customers <- tbl(con, I("samples.tpch.customer"))
+tbl_diamonds <- tbl(con, "diamonds")
+```
+
+## Selecting variables
+*Simple strategies to order, and reduce, data to work with*
+
+1. Load the `customer` table to a variable called `customer` 
+
+```{r}
+customer <- tbl(con, I("samples.tpch.customer"))
+```
+2. Select all columns that end with "key"
+
+```{r}
+customer |> 
+  select(ends_with("key"))
+```
+
+3. Move all columns that end with "key" to the front
+
+```{r}
+customer |> 
+  select(ends_with("key"), everything())
+```
+
+4. Select all columns that **do not** end with "key"
+
+```{r}
+customer |> 
+  select(-ends_with("key"))
+```
+
+
+## Join to tables
+**Using left_join() to relate two tables**
+
+1. Load the `nation` table into a variable called the same
+
+```{r}
 nation <- tbl(con, I("samples.tpch.nation"))
+```
+
+2. Use `left_join` to relate `customer` with `nation` using the nation key 
+
+```{r}
+customer |> 
+  left_join(nation, by = c("c_nationkey" = "n_nationkey"))
+```
+
+3. What are the 5 countries with the most customers?
+
+```{r}
+customer |> 
+  left_join(nation, by = c("c_nationkey" = "n_nationkey")) |> 
+  count(n_name, sort = TRUE) |> 
+  head(5)
 ```
 
 ## Prepare base 
@@ -37,20 +91,20 @@ nation <- tbl(con, I("samples.tpch.nation"))
 orders <- tbl(con, I("samples.tpch.orders"))
 ```
 
-2. Join `orders` to the `customers` variable (table). Relate them on the
+2. Join `orders` to the `customer` variable (table). Relate them on the
 `o_custkey` and `c_custkey` fields.
 
 ```{r}
 orders %>% 
-  left_join(customers, by = c("o_custkey" = "c_custkey"))
+  left_join(customer, by = c("o_custkey" = "c_custkey"))
 ```
 
-3. Join the `nation` variable/table to the `orders` and `customers` variables. 
+3. Join the `nation` variable/table to the `orders` and `customer` variables. 
 Use the `c_nationkey` and the `n_nationkey` to relate them.
 
 ```{r}
 orders %>% 
-  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
+  left_join(customer, by = c("o_custkey" = "c_custkey")) %>% 
   left_join(nation, by = c("c_nationkey" = "n_nationkey"))
 ```
 
@@ -59,7 +113,7 @@ so to get autocomplete working**
 
 ```{r}
 rel_orders <- orders %>% 
-  left_join(customers, by = c("o_custkey" = "c_custkey")) %>% 
+  left_join(customer, by = c("o_custkey" = "c_custkey")) %>% 
   left_join(nation, by = c("c_nationkey" = "n_nationkey"))
 ```
 
@@ -168,4 +222,3 @@ prep_orders %>%
   arrange(desc(total_price)) %>% 
   head(5)
 ```
-
