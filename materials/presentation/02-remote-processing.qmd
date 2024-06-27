@@ -18,7 +18,7 @@ engine: knitr
 
 ```{r, setup}
 #| include: false
-unit_no <- 2
+#| file: setup.R
 ```
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
