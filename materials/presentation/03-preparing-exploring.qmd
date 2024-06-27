@@ -55,7 +55,7 @@ Using `select()` with these functions make variable selection easy:
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.3
+Exercise `r unit_no`.1
 :::
 
 ## [Joining tables]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -86,7 +86,7 @@ Exercise `r unit_no`.3
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.4
+Exercise `r unit_no`.2
 :::
 
 
@@ -108,6 +108,12 @@ prep_orders <- orders |>
   rename(customer = o_custkey) |> 
   select(-ends_with("comment"),  -ends_with("key"))
 ```
+:::
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r unit_no`.3
 :::
 
 ## [Exploring data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -136,6 +142,6 @@ prep_orders |>
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercises `r unit_no`.5 - `r unit_no`.6
+Exercise `r unit_no`.4
 :::
 
