@@ -1,0 +1,231 @@
+---
+format: 
+  revealjs:
+    width: 1600
+    height: 920
+    max-scale: 1
+    min-scale: 1
+    smaller: true
+    transition: fade
+    background-transition: fade
+    theme: theme.scss
+    code-line-numbers: false
+    menu: true
+    code-block-height: 640px
+    slide-number: true
+engine: knitr
+---
+
+```{r, setup}
+#| include: false
+#| file: setup.R
+```
+
+## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide-title}
+Unit `r unit_no`
+:::
+
+:::{.content-slide}
+[Visualizations]{style="font-size:130px;"}
+:::
+
+## [Plotting local data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/05/plotting-local.png){.absolute top="120" left="50" width="1500"}
+
+## [Plotting remote data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/05/plotting-remote.png){.absolute top="120" left="50" width="1500"}
+
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Pipe the prepared data into a `ggplot2` 
+:::
+<br/>
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|1-6|7-8"
+prep_orders |> 
+  group_by(order_year) |> 
+  summarise(
+    total_price = sum(o_totalprice, na.rm = TRUE)
+  ) |> 
+  arrange(order_year) |> 
+  ggplot() +
+  geom_col(aes(order_year, total_price)) 
+```
+
+![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
+
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Pipe the prepared data into a `ggplot2` 
+:::
+
+:::{.columns}
+:::{.column width="55%"}
+
+:::{.sample-code}
+```r
+prep_orders |> 
+  group_by(order_year) |> 
+  summarise(
+    total_price = sum(o_totalprice, na.rm = TRUE)
+  ) |> 
+  arrange(order_year) |> 
+  ggplot() +
+  geom_col(
+    aes(order_year, total_price)
+    ) 
+```
+:::
+
+:::
+:::{.column width="45%"}
+
+![](assets/05/plotting-example.png){.absolute top="200" left="900" width="700"}
+
+:::
+:::
+
+![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
+
+![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
+
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Pipe the prepared data into a `ggplot2` 
+:::
+<br/>
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "6"
+prep_orders |> 
+  group_by(order_year) |> 
+  summarise(
+    total_price = sum(o_totalprice, na.rm = TRUE)
+  ) |> 
+  collect() |> # Why are you missing?
+  arrange(order_year) |> 
+  ggplot() +
+  geom_col(aes(order_year, total_price)) 
+```
+
+![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
+
+## [ggplot2 "auto-collects"]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+*Be careful! It downloads all of the data!*
+:::
+
+<br/>
+
+```r
+nation <- tbl(con, I("samples.tpch.nation"))
+
+nation |> 
+  ggplot() +
+  geom_col(aes(n_name, n_regionkey))
+```
+
+![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r unit_no`.1
+:::
+
+## [The truth about ggplot2]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+A plot gets refined iteratively, data must be local.
+:::
+
+:::{.columns}
+:::{.column width="6%"}
+:::
+:::{.column width="90%"}
+<br/>
+
+:::{.incremental1}
+- *'Improve scales'*
+- *'Add labels to the data'*
+- *'Add title and subtitle'*
+- *'Improve colors'*
+- *'Change the theme'*
+:::
+:::
+:::
+
+![](assets/05/ggplot-dev.png){.absolute top="215" left="700" width="850"}
+
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Collect (download) the data into an R variable
+:::
+
+<br/>
+
+```r
+sales_by_year <- prep_orders |> 
+  group_by(order_year) |> 
+  summarise(
+    total_price = sum(o_totalprice, na.rm = TRUE)
+  ) |> 
+  collect()
+```
+
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Iterate on the plot using the local data
+:::
+
+<br/>
+
+```r
+sales_by_year |> 
+  ggplot() +
+  geom_col(aes(order_year, total_price)) 
+```
+
+## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Iterate on the plot using the local data
+:::
+
+:::{.sample-code}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|1|3|6|7|8-10|11|"
+breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
+breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
+sales_by_year |> 
+  ggplot() +
+  geom_col(aes(order_year, total_price)) +
+  scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
+  scale_y_continuous(breaks = breaks, labels = breaks_labels) +
+  xlab("Year") +
+  ylab("Total Sales") +
+  labs(title = "Sales by year") +
+  theme_light()
+```
+:::
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercises `r unit_no`.2 - `r unit_no`.4
+:::

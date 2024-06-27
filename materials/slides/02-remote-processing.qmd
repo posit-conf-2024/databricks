@@ -1,0 +1,380 @@
+---
+format: 
+  revealjs:
+    width: 1600
+    height: 920
+    max-scale: 1
+    min-scale: 1
+    smaller: true
+    transition: fade
+    background-transition: fade
+    theme: theme.scss
+    code-line-numbers: false
+    menu: true
+    code-block-height: 640px
+    slide-number: true
+engine: knitr
+---
+
+```{r, setup}
+#| include: false
+#| file: setup.R
+```
+
+## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide-title}
+Unit `r unit_no`
+:::
+
+:::{.content-slide}
+Remote <br/> processing 
+:::
+
+
+## [Approaches]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column}
+:::{.custom2}
+Preferred
+:::
+:::
+:::{.column}
+:::{.custom2}
+"Use in case of emergencies"
+:::
+:::
+:::
+
+![](assets/02/push-collect.png){.absolute top="255" left="150" width="500"}
+![](assets/02/extract-data.png){.absolute top="350" left="950" width="500"}
+
+## [SQL not practical]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column}
+:::{.custom2}
+:::{.incremental1}
+- SQL language was not meant for exploratory data analysis
+- "Cognitive cost" of switching between SQL and R 
+- It is not as easy to plot, model, or present results in SQL as it is with R
+:::
+:::
+:::
+:::{.column}
+<br/>
+<br/>
+<br/>
+[
+select 'cut', avg('price') as 'avg_price' from 'diamonds'
+group by 'cut' order by 'avg_price' desc
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:60px;"}
+:::
+:::
+
+## [Use dplyr & dbplyr]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/02/dplyr.png){.absolute top="0" left="1300" width="150"}
+![](assets/02/dbplyr.png){.absolute top="0" left="1450" width="150"}
+
+<br/>
+
+:::{.columns}
+:::{.column width="45%"}
+:::{.custom2}
+:::{.incremental1}
+- Translates R code to SQL!
+- 'Modularity' of piped code
+- Guardrails against pulling all of the data 
+- All your code is in R
+:::
+:::
+:::
+:::{.column width="55%"}
+<br/>
+[
+**tbl**(con, "diamonds") |> 
+<br/>[X]{style="color: #fff;"}**group_by**(cut) |> 
+<br/>[X]{style="color: #fff;"}**summarise**(
+<br/>[XX]{style="color: #fff;"}avg_price = **mean**(price, na.rm = TRUE)
+<br/>[XX]{style="color: #fff;"}) |> 
+<br/>[X]{style="color: #fff;"}**arrange**(**desc**(avg_price))
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:45px;"}
+
+:::
+:::
+
+## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/02/dplyr.png){.absolute top="0" left="1300" width="150"}
+![](assets/02/dbplyr.png){.absolute top="0" left="1450" width="150"}
+
+<br/>
+
+:::{.columns}
+:::{.column width="40%"}
+
+:::{.custom2}
+:::{.incremental1}
+- Creates a "virtual" table 
+- Behaves like a regular data frame
+- It contains no data
+- It's a pointer to the database table
+:::
+:::
+
+:::
+:::{.column width="60%"}
+
+[
+tbl_diamonds <- **tbl**(con, "diamonds")<br/>
+<br/>
+tbl_diamonds |> <br/>
+[XX]{style="color: #fff;"}**count**()<br/>
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:45px;"} 
+[
+<br/>
+[Source:   SQL [1 x 1]]{style="color:#aaa;"}<br/>
+[Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]]{style="color:#aaa;"}<br/>
+[XXX]{style="color: #fff;"}n<br/>
+[\<int64\>]{style="color:#aaa;"} <br/>
+1      53940<br/>
+]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:35px;"} 
+
+:::
+:::
+
+## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/02/dplyr.png){.absolute top="0" left="1300" width="150"}
+![](assets/02/dbplyr.png){.absolute top="0" left="1450" width="150"}
+
+<br/>
+
+:::{.columns}
+:::{.column width="55%"}
+
+:::{.custom2}
+:::{.incremental1}
+- Create a variable in R without importing data
+- SQL is sent **only** when data is requested
+- Behind the scenes, translates code to SQL
+:::
+:::
+
+:::
+:::{.column width="45%"}
+<br/>
+[
+tbl_diamonds |> <br/>
+[XX]{style="color: #fff;"}**count**() |><br/>
+[XX]{style="color: #fff;"}**show_query**()<br/>
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:55px;"} 
+[
+<br/>
+\<SQL\><br/>
+SELECT COUNT(*) AS 'n'<br/>
+FROM 'diamonds'<br/>
+]{style="color:#999; font-family:Helvetica Neue; font-weight:300;font-size:45px;"} 
+
+:::
+:::
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercises `r unit_no`.1 - `r unit_no`.2
+:::
+
+## [PSA]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Please, please, please...don't pass a full query to `tbl()`
+:::
+
+:::{.columns}
+:::{.column width="2%"}
+:::
+:::{.column width="98%"}
+[
+**tbl**(con, "Select * from 'table' where x = 1")
+]{style="font-size: 90px;font-family:Helvetica Neue; font-weight:150;"}
+:::
+:::
+
+## [PSA]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Please, please, please...don't pass a full query to `tbl()`
+:::
+
+:::{.columns}
+:::{.column width="2%"}
+:::
+:::{.column width="98%"}
+[
+**tbl**(con, "Select * from 'table' where x = 1")
+]{style="text-decoration: line-through; font-size: 90px;font-family:Helvetica Neue; font-weight:150;"}
+:::
+:::
+
+:::{.columns}
+:::{.column width="25%"}
+:::
+:::{.column width="75%"}
+<br/>
+[
+tbl_table <- **tbl**(con, "table") <br/><br/>
+x_1 <- tbl_table |> <br/>
+[XX]{style="color: #fff;"}**filter**(x == 1) 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:80px; line-height: 0.8"} 
+:::
+:::
+
+
+## [Data collection]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+:::{.custom2}
+There are 3 commands that download data:
+:::
+
+:::{.columns}
+
+:::{.column width="55%"}
+
+:::{.custom2}
+- `print()` - Downloads the first 1K rows by default (Guardrails)
+- `collect()` - Downloads **all** of the data
+- `pull()` - Download **all** the data of a single field
+:::
+:::
+
+:::{.column width="45%"}
+[
+tbl_cars <- **tbl**(con, "cars")<br/>
+**print**(tbl_cars)<br/>
+tbl_cars [#Print is implied]{style="color:#aaa"} <br/>
+**collect**(tbl_cars) <br/>
+**pull**(tbl_cars, mpg) 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:150;font-size:65px;line-height:1.8;"} 
+:::
+:::
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r unit_no`.3
+:::
+
+## [Databricks Unity Catalog (UC)]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Centralizes access control, auditing, lineage, and data discovery across workspaces.
+:::
+
+![](assets/03/object-model.png){.absolute top="280" left="300"}
+
+::: footer
+https://docs.databricks.com/en/data-governance/unity-catalog/index.html
+:::
+
+## [Accessing the UC]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+*"diamonds"* can be accessed without specifying catalog and schema
+:::
+
+<br/><br/><br/>
+[
+# Why do you work?! <br/>
+]{style="color:#999; font-family:Helvetica Neue; font-weight:200;font-size:60px; line-height: 0.8"} 
+[
+**tbl**(con, "diamonds") 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:80px; line-height: 1.1"} 
+
+![](assets/03/uc-default1.png){.absolute top="280" left="800" width="850"}
+
+## [Accessing the UC]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+*"hive_metastore"* & *"default"* are the default catalog & schema respectively 
+:::
+
+<br/><br/><br/>
+[
+# Oooh, that's why! <br/>
+]{style="color:#999; font-family:Helvetica Neue; font-weight:200;font-size:60px; line-height: 0.8"} 
+[
+**tbl**(con, "diamonds") 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:80px; line-height: 1.1"} 
+
+![](assets/03/uc-default2.png){.absolute top="280" left="800" width="850"}
+
+## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+How do I access tables not in the default catalog?
+:::
+
+[
+**tbl**(con, "customer") 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px;"} 
+<br/>
+[
+x (31740) Table or view not found: ..customer
+]{style="color:#bc544b; font-family:Helvetica Neue; font-weight:400;font-size:35px; line-height: 1.1"} 
+
+![](assets/03/uc-customer.png){.absolute top="210" left="820" width="820"}
+
+## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+How do I access tables not in the default catalog?
+:::
+
+[
+**tbl**(con, "customer") 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px;"} 
+<br/>
+[
+x (31740) Table or view not found: ..customer
+]{style="color:#bc544b; font-family:Helvetica Neue; font-weight:400;font-size:35px; line-height: 1.1"} 
+<br/><br/>
+[
+**tbl**(<br/>
+[X]{style="color: #fff;"}con, <br/>
+[X]{style="color: #fff;"}"samples.tpch.customer"<br/>
+[X]{style="color: #fff;"})<br/>
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px; line-height: 1.1"} 
+[
+x (31740) Table or view not found: ..samples.tpch.<br/>customer
+]{style="color:#bc544b; font-family:Helvetica Neue; font-weight:400;font-size:35px; line-height: 1.1"} 
+
+![](assets/03/uc-customer.png){.absolute top="210" left="820" width="820"}
+
+
+## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Use `I()` to create the correct table reference
+:::
+<br/>
+<br/>
+[
+**tbl**(<br/>
+[X]{style="color: #fff;"}con, <br/>
+[X]{style="color: #fff;"}**I**("samples.tpch.customer")<br/>
+[X]{style="color: #fff;"})<br/>
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px; line-height: 1.1"} 
+
+![](assets/03/uc-customer.png){.absolute top="210" left="820" width="820"}
+
+:::{.footer}
+https://www.tidyverse.org/blog/2024/04/dbplyr-2-5-0/#referring-to-tables-in-a-schema
+:::
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r unit_no`.4
+:::
