@@ -12,6 +12,7 @@ format:
     code-line-numbers: false
     menu: true
     code-block-height: 640px
+    slide-number: true
 engine: knitr
 ---
 
