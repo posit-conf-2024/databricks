@@ -25,7 +25,7 @@ unit_no <- 1
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
-Unit 1
+Unit `r unit_no`
 :::
 
 :::{.content-slide}

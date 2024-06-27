@@ -104,7 +104,7 @@ Data & processing need to be as **physically close** as possible
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
-Unit 2
+Unit `r unit_no`
 :::
 
 :::{.content-slide}
