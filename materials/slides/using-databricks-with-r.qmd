@@ -16,10 +16,10 @@ format:
 engine: knitr
 ---
 
-{{< include intro.qmd >}}
-{{< include connecting.qmd >}}
-{{< include remote-processing.qmd >}}
-{{< include preparing-exploring.qmd >}}
-{{< include visualizations.qmd >}}
-{{< include apache-spark.qmd >}}
-{{< include dashboards.qmd >}}
+{{< include units/intro.qmd >}}
+{{< include units/connecting.qmd >}}
+{{< include units/remote-processing.qmd >}}
+{{< include units/preparing-exploring.qmd >}}
+{{< include units/visualizations.qmd >}}
+{{< include units/apache-spark.qmd >}}
+{{< include units/dashboards.qmd >}}
