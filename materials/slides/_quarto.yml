@@ -1,6 +1,0 @@
-project: 
-  output-dir: docs
-  type: website
-  
-website: 
-  title: Using Databricks with R

@@ -14,17 +14,14 @@ format:
     code-block-height: 640px
     slide-number: true
 engine: knitr
+params:
+  unit_no: 5
 ---
-
-```{r, setup}
-#| include: false
-#| file: setup.R
-```
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
-Unit `r unit_no`
+Unit `r params$unit_no`
 :::
 
 :::{.content-slide}
