@@ -60,8 +60,8 @@ Exercise `r unit_no`.1
 
 ## [Joining tables]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/03/join-x.png){.absolute top="100" left="600"}
-![](assets/03/join-y.png){.absolute top="100" left="800"}
+![](assets/prepare-exploring/join-x.png){.absolute top="100" left="600"}
+![](assets/prepare-exploring/join-y.png){.absolute top="100" left="800"}
 
 <br/><br/><br/><br/><br/><br/>
 
@@ -79,9 +79,9 @@ Exercise `r unit_no`.1
 :::
 :::
 
-![](assets/03/join-left.png){.absolute top="500" left="170"}
-![](assets/03/join-right.png){.absolute top="500" left="660"}
-![](assets/03/join-full.png){.absolute top="500" left="1150"}
+![](assets/prepare-exploring/join-left.png){.absolute top="500" left="170"}
+![](assets/prepare-exploring/join-right.png){.absolute top="500" left="660"}
+![](assets/prepare-exploring/join-full.png){.absolute top="500" left="1150"}
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
