@@ -14,15 +14,18 @@ format:
     code-block-height: 640px
     slide-number: true
 engine: knitr
-params: 
-  unit_no: 1
 ---
+
+```{r}
+#| include: false
+unit_no <- 1
+```
 
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
-Unit `r params$unit_no`
+Unit `r unit_no`
 :::
 
 :::{.content-slide}
@@ -66,7 +69,7 @@ Explore the catalogs, schema and tables
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercises `r params$unit_no`.1 - `r params$unit_no`.2
+Exercises `r unit_no`.1 - `r unit_no`.2
 :::
 
 ## [How everything connects]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -144,7 +147,7 @@ https://solutions.posit.co/connections/db/databases/databricks/#using-the-new-od
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercises `r params$unit_no`.3 - `r params$unit_no`.4
+Exercises `r unit_no`.3 - `r unit_no`.4
 :::
 
 
@@ -169,7 +172,7 @@ Exercises `r params$unit_no`.3 - `r params$unit_no`.4
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r params$unit_no`.5
+Exercise `r unit_no`.5
 :::
 
 ## [How everything connects (Revisited)]{style="color:#666;"}   {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -200,5 +203,5 @@ RStudio SQL script
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r params$unit_no`.6 - `r params$unit_no`.7
+Exercise `r unit_no`.6 - `r unit_no`.7
 :::

@@ -14,14 +14,17 @@ format:
     code-block-height: 640px
     slide-number: true
 engine: knitr
-params:
-  unit_no: 5
 ---
+
+```{r}
+#| include: false
+unit_no <- 5
+```
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
-Unit `r params$unit_no`
+Unit `r unit_no`
 :::
 
 :::{.content-slide}
