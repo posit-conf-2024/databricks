@@ -33,8 +33,8 @@ Preferred
 :::
 :::
 
-![](assets/02/push-collect.png){.absolute top="255" left="150" width="500"}
-![](assets/02/extract-data.png){.absolute top="350" left="950" width="500"}
+![](assets/remote-processing/push-collect.png){.absolute top="255" left="150" width="500"}
+![](assets/remote-processing/extract-data.png){.absolute top="350" left="950" width="500"}
 
 ## [SQL not practical]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -61,8 +61,8 @@ group by 'cut' order by 'avg_price' desc
 
 ## [Use dplyr & dbplyr]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/02/dplyr.png){.absolute top="0" left="1300" width="150"}
-![](assets/02/dbplyr.png){.absolute top="0" left="1450" width="150"}
+![](assets/remote-processing/dplyr.png){.absolute top="0" left="1300" width="150"}
+![](assets/remote-processing/dbplyr.png){.absolute top="0" left="1450" width="150"}
 
 <br/>
 
@@ -93,8 +93,8 @@ group by 'cut' order by 'avg_price' desc
 
 ## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/02/dplyr.png){.absolute top="0" left="1300" width="150"}
-![](assets/02/dbplyr.png){.absolute top="0" left="1450" width="150"}
+![](assets/remote-processing/dplyr.png){.absolute top="0" left="1300" width="150"}
+![](assets/remote-processing/dbplyr.png){.absolute top="0" left="1450" width="150"}
 
 <br/>
 
@@ -133,8 +133,8 @@ tbl_diamonds |> <br/>
 
 ## [🔑 How does it work?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/02/dplyr.png){.absolute top="0" left="1300" width="150"}
-![](assets/02/dbplyr.png){.absolute top="0" left="1450" width="150"}
+![](assets/remote-processing/dplyr.png){.absolute top="0" left="1300" width="150"}
+![](assets/remote-processing/dbplyr.png){.absolute top="0" left="1450" width="150"}
 
 <br/>
 
@@ -258,7 +258,7 @@ Exercise `r unit_no`.3
 Centralizes access control, auditing, lineage, and data discovery across workspaces.
 :::
 
-![](assets/02/object-model.png){.absolute top="280" left="300"}
+![](assets/remote-processing/object-model.png){.absolute top="280" left="300"}
 
 ::: footer
 https://docs.databricks.com/en/data-governance/unity-catalog/index.html
@@ -278,7 +278,7 @@ https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 **tbl**(con, "diamonds") 
 ]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:80px; line-height: 1.1"} 
 
-![](assets/02/uc-default1.png){.absolute top="280" left="800" width="850"}
+![](assets/remote-processing/uc-default1.png){.absolute top="280" left="800" width="850"}
 
 ## [Accessing the UC]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -294,7 +294,7 @@ https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 **tbl**(con, "diamonds") 
 ]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:80px; line-height: 1.1"} 
 
-![](assets/02/uc-default2.png){.absolute top="280" left="800" width="850"}
+![](assets/remote-processing/uc-default2.png){.absolute top="280" left="800" width="850"}
 
 ## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -310,7 +310,7 @@ How do I access tables not in the default catalog?
 x (31740) Table or view not found: ..customer
 ]{style="color:#bc544b; font-family:Helvetica Neue; font-weight:400;font-size:35px; line-height: 1.1"} 
 
-![](assets/02/uc-customer.png){.absolute top="210" left="820" width="820"}
+![](assets/remote-processing/uc-customer.png){.absolute top="210" left="820" width="820"}
 
 ## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -336,7 +336,7 @@ x (31740) Table or view not found: ..customer
 x (31740) Table or view not found: ..samples.tpch.<br/>customer
 ]{style="color:#bc544b; font-family:Helvetica Neue; font-weight:400;font-size:35px; line-height: 1.1"} 
 
-![](assets/02/uc-customer.png){.absolute top="210" left="820" width="820"}
+![](assets/remote-processing/uc-customer.png){.absolute top="210" left="820" width="820"}
 
 
 ## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -353,7 +353,7 @@ Use `I()` to create the correct table reference
 [X]{style="color: #fff;"})<br/>
 ]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px; line-height: 1.1"} 
 
-![](assets/02/uc-customer.png){.absolute top="210" left="820" width="820"}
+![](assets/remote-processing/uc-customer.png){.absolute top="210" left="820" width="820"}
 
 :::{.footer}
 https://www.tidyverse.org/blog/2024/04/dbplyr-2-5-0/#referring-to-tables-in-a-schema
