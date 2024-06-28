@@ -19,11 +19,11 @@ Unit `r unit_no`
 
 ## [Plotting local data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/05/plotting-local.png){.absolute top="120" left="50" width="1500"}
+![](assets/visualizations/plotting-local.png){.absolute top="120" left="50" width="1500"}
 
 ## [Plotting remote data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/05/plotting-remote.png){.absolute top="120" left="50" width="1500"}
+![](assets/visualizations/plotting-remote.png){.absolute top="120" left="50" width="1500"}
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -45,7 +45,7 @@ prep_orders |>
   geom_col(aes(order_year, total_price)) 
 ```
 
-![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
+![](assets/visualizations/ggplot2.png){.absolute top="0" left="1450" width="120"}
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -74,14 +74,14 @@ prep_orders |>
 :::
 :::{.column width="45%"}
 
-![](assets/05/plotting-example.png){.absolute top="200" left="900" width="700"}
+![](assets/visualizations/plotting-example.png){.absolute top="200" left="900" width="700"}
 
 :::
 :::
 
-![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
+![](assets/visualizations/ggplot2.png){.absolute top="0" left="1450" width="120"}
 
-![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
+![](assets/visualizations/ggplot2.png){.absolute top="0" left="1450" width="120"}
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -104,7 +104,7 @@ prep_orders |>
   geom_col(aes(order_year, total_price)) 
 ```
 
-![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
+![](assets/visualizations/ggplot2.png){.absolute top="0" left="1450" width="120"}
 
 ## [ggplot2 "auto-collects"]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -122,7 +122,7 @@ nation |>
   geom_col(aes(n_name, n_regionkey))
 ```
 
-![](assets/05/ggplot2.png){.absolute top="0" left="1450" width="120"}
+![](assets/visualizations/ggplot2.png){.absolute top="0" left="1450" width="120"}
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
@@ -152,7 +152,7 @@ A plot gets refined iteratively, data must be local.
 :::
 :::
 
-![](assets/05/ggplot-dev.png){.absolute top="215" left="700" width="850"}
+![](assets/visualizations/ggplot-dev.png){.absolute top="215" left="700" width="850"}
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
