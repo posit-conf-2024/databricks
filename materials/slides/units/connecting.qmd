@@ -8,7 +8,7 @@ unit_no <- 1
 ```
 
 
-## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
+# {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
 Unit `r unit_no`

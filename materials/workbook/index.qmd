@@ -25,3 +25,5 @@ This course is for you if you:
 - Plan, or are currently, using Databricks services
 
 - Need to learn how to access and analyze data in Databricks
+
+Link to the presentation: [Using Databricks with R](using-databricks-with-r.html)

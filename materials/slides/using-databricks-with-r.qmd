@@ -23,3 +23,17 @@ engine: knitr
 {{< include units/visualizations.qmd >}}
 {{< include units/apache-spark.qmd >}}
 {{< include units/dashboards.qmd >}}
+
+```{r}
+#| echo: false
+
+library(fs)
+file_copy("using-databricks-with-r.html", "../workbook/_book", overwrite = TRUE)
+dir_copy(
+  "using-databricks-with-r_files", 
+  "../workbook/_book/using-databricks-with-r_files", 
+  overwrite = TRUE
+  )
+dir_copy("assets", "../workbook/_book/assets", overwrite = TRUE)
+```
+
