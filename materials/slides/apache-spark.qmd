@@ -1,21 +1,6 @@
 ---
-format: 
-  revealjs:
-    width: 1600
-    height: 920
-    max-scale: 1
-    min-scale: 1
-    smaller: true
-    transition: fade
-    background-transition: fade
-    theme: theme.scss
-    code-line-numbers: false
-    menu: true
-    code-block-height: 640px
-    slide-number: true
 engine: knitr
 ---
-
 ```{r}
 #| include: false
 unit_no <- 5

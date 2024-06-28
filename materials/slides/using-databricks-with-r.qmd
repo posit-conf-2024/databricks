@@ -14,8 +14,12 @@ format:
     code-block-height: 640px
     slide-number: true
 engine: knitr
-params: 
-  unit_no: 0
 ---
 
+{{< include intro.qmd >}}
+{{< include connecting.qmd >}}
+{{< include remote-processing.qmd >}}
+{{< include preparing-exploring.qmd >}}
 {{< include visualizations.qmd >}}
+{{< include apache-spark.qmd >}}
+{{< include dashboards.qmd >}}
