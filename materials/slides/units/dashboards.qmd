@@ -40,7 +40,7 @@ Dashboards
 :::
 :::
 
-![](assets/06/dashboard-dropdown.png){.absolute top="120" left="875" width="750"}
+![](assets/dashboards/dashboard-dropdown.png){.absolute top="120" left="875" width="750"}
 
 ## [Important features]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -53,7 +53,7 @@ Dashboards
 :::
 :::
 
-![](assets/06/dashboard-selection.png){.absolute top="120" left="875" width="750"}
+![](assets/dashboards/dashboard-selection.png){.absolute top="120" left="875" width="750"}
 
 ## [Important features]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -67,7 +67,7 @@ Dashboards
 :::
 :::
 
-![](assets/06/dashboard-drill-down.png){.absolute top="120" left="875" width="750"}
+![](assets/dashboards/dashboard-drill-down.png){.absolute top="120" left="875" width="750"}
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
@@ -86,7 +86,7 @@ Exercise `r unit_no`.1
 :::
 :::
 
-![](assets/06/dashboard-dropdown.png){.absolute top="50" left="875" width="750"}
+![](assets/dashboards/dashboard-dropdown.png){.absolute top="50" left="875" width="750"}
 
 ## [When do we need them?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -94,7 +94,7 @@ Exercise `r unit_no`.1
 When options in the data change regularly
 :::
 
-![](assets/06/data-driven-1.png){.absolute top="270" left="455"}
+![](assets/dashboards/data-driven-1.png){.absolute top="270" left="455"}
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
@@ -246,11 +246,11 @@ Exercise `r unit_no`.3
 :::
 :::
 
-![](assets/06/dashboard-selection.png){.absolute top="50" left="875" width="750"}
+![](assets/dashboards/dashboard-selection.png){.absolute top="50" left="875" width="750"}
 
 ## [ggiraph]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/06/ggiraph.png){.absolute top="0" left="1400"}
+![](assets/dashboards/ggiraph.png){.absolute top="0" left="1400"}
 
 <br/>
 
@@ -414,7 +414,7 @@ Exercise `r unit_no`.4
 :::
 :::
 
-![](assets/06/dashboard-drill-down.png){.absolute top="50" left="875" width="750"}
+![](assets/dashboards/dashboard-drill-down.png){.absolute top="50" left="875" width="750"}
 
 ## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 :::{.columns}
