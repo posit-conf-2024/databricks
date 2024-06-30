@@ -5,6 +5,8 @@ engine: knitr
 # {background-image="assets/background/title-slide-light.svg" background-size="1700px" background-color="white"}
 
 ::: {.content-slide-thin}
+<br/>
+<br/>
 Welcome to
 :::
 
