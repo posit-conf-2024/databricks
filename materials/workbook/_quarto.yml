@@ -4,14 +4,12 @@ project:
 book:
   chapters:
     - index.qmd
-    - part: odbc.qmd
-      chapters:
-      - 01-connecting-interacting.qmd
-      - 02-remote-processing.qmd
-      - 03-preparing-exploring.qmd
-      - 04-visualizations.qmd
-      - 08-dashboards.qmd
-      - r-udfs-modeling.qmd
+    - connecting.qmd
+    - remote-processing.qmd
+    - preparing-exploring.qmd
+    - visualizations.qmd
+    - dashboards.qmd
+    - r-udfs-modeling.qmd
 format:
   html:
     toc: true
