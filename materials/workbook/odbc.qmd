@@ -1,1 +1,0 @@
-# Databricks SQL Warehouse  {.unumbered}
