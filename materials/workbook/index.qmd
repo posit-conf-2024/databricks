@@ -26,4 +26,21 @@ This course is for you if you:
 
 - Need to learn how to access and analyze data in Databricks
 
-Link to the presentation: [Using Databricks with R](using-databricks-with-r.html)
+Link to the presentation: [Using Databricks with R](using-databricks-with-r.html){target="_blank"}
+
+```{r}
+#| eval: true
+#| include: false
+
+quarto::quarto_render("../slides/using-databricks-with-r.qmd")
+
+library(fs)
+file_copy("../slides/using-databricks-with-r.html", "../../docs", overwrite = TRUE)
+dir_copy(
+  "../slides/using-databricks-with-r_files", 
+  "../../docs/using-databricks-with-r_files", 
+  overwrite = TRUE
+  )
+dir_copy("../slides/assets", "../../docs/assets", overwrite = TRUE)
+```
+
