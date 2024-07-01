@@ -1,0 +1,61 @@
+---
+format: 
+  revealjs:
+    width: 1600
+    height: 920
+    max-scale: 1
+    min-scale: 1
+    smaller: true
+    transition: fade
+    background-transition: fade
+    theme: theme.scss
+    code-line-numbers: false
+    menu: true
+    code-block-height: 640px
+    slide-number: true
+engine: knitr
+---
+
+```{r}
+#| include: false
+unit_no <- 7
+```
+
+# {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide-title}
+Unit `r unit_no`
+:::
+
+:::{.content-slide}
+Modeling <br/> with R UDFs
+:::
+
+## [🔑 Start with a sample]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/remote-processing/dplyr.png){.absolute top="0" left="1300" width="150"}
+![](assets/remote-processing/dbplyr.png){.absolute top="0" left="1450" width="150"}
+
+<br/>
+
+:::{.columns}
+:::{.column width="50%"}
+
+:::{.custom2}
+:::{.incremental1}
+- Download enough data to be representative
+- Use `slice_sample()` 
+:::
+:::
+
+:::
+:::{.column width="50%"}
+<br/><br/>
+[
+local <- remote |>  <br/>
+[X]{style="color: #fff;"}  **slice_sample**(n = 100) |> <br/>
+[X]{style="color: #fff;"}  collect()
+]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:65px;"} 
+
+:::
+:::
