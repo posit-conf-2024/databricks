@@ -59,3 +59,30 @@ local <- remote |>  <br/>
 
 :::
 :::
+
+## [Model locally]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/modeling/tidymodels.png){.absolute top="0" left="1450" width="150"}
+
+<br/>
+
+:::{.columns}
+:::{.column width="50%"}
+
+:::{.custom2}
+:::{.incremental1}
+- Item 1
+:::
+:::
+
+:::
+:::{.column width="50%"}
+<br/><br/>
+[
+lendingclub_wf <- workflow() |>  <br/>
+[X]{style="color: #fff;"}   add_model(lendingclub_lr) |>  <br/>
+[X]{style="color: #fff;"} add_recipe(lendingclub_rec)
+]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:60px;"} 
+
+:::
+:::
