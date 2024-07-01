@@ -31,7 +31,7 @@ Unit `r unit_no`
 Modeling <br/> with R UDFs
 :::
 
-## [🔑 Start with a sample]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## [Start with a sample]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/remote-processing/dplyr.png){.absolute top="0" left="1300" width="150"}
 ![](assets/remote-processing/dbplyr.png){.absolute top="0" left="1450" width="150"}
@@ -62,8 +62,6 @@ local <- remote |>  <br/>
 
 ## [Model locally]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-
-
 ![](assets/modeling/tidymodels.png){.absolute top="0" left="1450" width="150"}
 
 :::{.columns}
@@ -90,4 +88,35 @@ lendingclub_rec <- recipe(
   step_filter(!if_any(everything(), is.na))
 
 ```
+:::
+
+## [Package model]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/modeling/vetiver.png){.absolute top="0" left="1450" width="150"}
+
+:::{.columns}
+:::{.column width="45%"}
+
+:::{.custom2}
+:::{.incremental1}
+- `vetiver` packages `tidymodels` workflows and models
+- Model is automatically reduced in size
+- Output is easy to load into anothe R session
+:::
+:::
+
+:::
+:::{.column width="55%"}
+[
+library(vetiver) <br/>
+<br>
+m <- **vetiver_model**( <br/>
+[X]{style="color: #fff;"}**model** = model, <br/>
+[X]{style="color: #fff;"}**model_name** = "model" <br/>
+[X]{style="color: #fff;"}) <br/>
+<br>
+saveRDS(m, "model.rds") <br/>
+]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:65px;"} 
+
+:::
 :::
