@@ -95,7 +95,7 @@ lendingclub_rec <- recipe(
 ```
 :::
 
-## [Package model]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## [3. Publish - Package with *vetiver*]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/modeling/vetiver.png){.absolute top="0" left="1450" width="150"}
 
@@ -122,6 +122,27 @@ m <- **vetiver_model**( <br/>
 <br>
 saveRDS(m, "model.rds") <br/>
 ]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:65px;"} 
+
+:::
+:::
+
+## [3. Publish - Transfer model file]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/modeling/uc-volume.png){.absolute top="90" left="800" width="680"}
+
+:::{.columns}
+:::{.column width="45%"}
+
+:::{.custom2}
+:::{.incremental1}
+- Copy the R model where Spark can access
+- Location **has** to be secure
+- Options Databricks UC, s3 buckets, Posit Connect, others
+:::
+:::
+
+:::
+:::{.column width="55%"}
 
 :::
 :::
