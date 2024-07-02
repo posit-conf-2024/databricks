@@ -35,7 +35,7 @@ Modeling <br/> with R UDFs
 
 ![](assets/modeling/topology.png){.absolute top="120" left="210" width="1200"}
 
-## [Start with a sample]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## [1. Sample - Use *dplyr*]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/remote-processing/dplyr.png){.absolute top="0" left="1300" width="150"}
 ![](assets/remote-processing/dbplyr.png){.absolute top="0" left="1450" width="150"}
@@ -47,8 +47,9 @@ Modeling <br/> with R UDFs
 
 :::{.custom2}
 :::{.incremental1}
+- Use `dplyr`'s `slice_sample()` function
 - Download enough data to be representative
-- Use `slice_sample()` 
+
 :::
 :::
 
@@ -64,7 +65,7 @@ local <- remote |>  <br/>
 :::
 :::
 
-## [Model locally]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## [2. Train - Ideally, *tidymodels*]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/modeling/tidymodels.png){.absolute top="0" left="1450" width="150"}
 
