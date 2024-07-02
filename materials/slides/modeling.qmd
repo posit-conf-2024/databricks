@@ -146,3 +146,23 @@ saveRDS(m, "model.rds") <br/>
 
 :::
 :::
+
+## [4. Predict - Create the function]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+[Create a function that reads the model file, runs predictions, and process results]{style="font-size:46px;line-height:2;font-weight:600;color:#579297;"}
+
+:::{.sample-code}
+```r
+my_function <- function(x) {
+  library(workflows)
+  library(vetiver)
+  model <- readRDS("/Volumes/[catalog]/[volume]/model.rds")
+  preds <- predict(model, x)
+  x$pred <- preds[,1][[1]]
+  x
+}
+
+remote_table |> 
+  spark_apply(my_function)
+```
+:::
