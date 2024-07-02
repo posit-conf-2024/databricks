@@ -31,6 +31,10 @@ Unit `r unit_no`
 Modeling <br/> with R UDFs
 :::
 
+## [Run R models in Spark]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/modeling/topology.png){.absolute top="120" left="210" width="1200"}
+
 ## [Start with a sample]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/remote-processing/dplyr.png){.absolute top="0" left="1300" width="150"}
