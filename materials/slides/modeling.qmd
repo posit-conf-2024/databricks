@@ -242,3 +242,25 @@ pred_df <- remote_df |>
   spark_apply(my_function) |> 
   compute()
 ```
+
+## [4. Predict]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="25%"}
+:::
+:::{.column width="75%"}
+:::{.custom2}
+:::{.incremental1}
+1. [Create the function]{style="font-size:75px;"}
+1. [Test the function locally]{style="font-size:75px;"}
+1. [Switch to published model]{style="font-size:75px;"}
+1. [Test function remotely]{style="font-size:75px;"}
+1. [Run predictions]{style="font-size:75px;"}
+:::
+:::
+:::
+:::
+
+## [Run R models in Spark]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/modeling/topology.png){.absolute top="120" left="210" width="1200"}
