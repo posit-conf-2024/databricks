@@ -1,0 +1,55 @@
+---
+format: 
+  revealjs:
+    width: 1600
+    height: 920
+    max-scale: 1
+    min-scale: 1
+    smaller: true
+    transition: fade
+    background-transition: fade
+    theme: theme.scss
+    code-line-numbers: false
+    menu: true
+    code-block-height: 640px
+    slide-number: true
+engine: knitr
+---
+
+```{r}
+#| include: false
+unit_no <- 5
+```
+
+# {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide-title}
+Unit `r unit_no`
+:::
+
+:::{.content-slide}
+Databricks <br/> Connect
+:::
+
+## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+-   Introduced a decoupled client-server architecture
+
+-   It enables remote connectivity to Spark clusters.
+
+-   **Allows R users to interact with a cluster** from their preferred environment, laptop or otherwise.
+
+-   [Databricks Connect](https://docs.databricks.com/dev-tools/databricks-connect.html), is based on **Spark Connect** architecture. Available in DBR version 13+
+
+```{mermaid}
+%%| fig-height: 6.5
+%%| fig-responsive: false
+flowchart LR
+  lp[User's machine]
+  sp[Spark]
+  
+  lp <-. Network .-> sp
+  
+  style lp  fill:#fff,stroke:#666
+  style sp  fill:#f4c430,stroke:#666
+```
