@@ -65,6 +65,12 @@ local_df <- remote_df |>  <br/>
 :::
 :::
 
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r unit_no`.1
+:::
+
 ## [2. Train - Ideally, *tidymodels*]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/modeling/tidymodels.png){.absolute top="0" left="1450" width="150"}
@@ -92,6 +98,12 @@ my_wkf <- workflow() |>
 
 model <- fit(my_wkf, local_df)
 ```
+:::
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r unit_no`.2
 :::
 
 ## [3. Publish - Package with *vetiver*]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -123,6 +135,12 @@ saveRDS(m, "model.rds") <br/>
 ]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:65px;"} 
 
 :::
+:::
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r unit_no`.3
 :::
 
 ## [3. Publish - Transfer model file]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -177,6 +195,12 @@ my_function <- function(x) {
 ```r
 my_function(local_df)
 ```
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r unit_no`.4
+:::
 
 ## [4. Predict - Switch to published model]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -242,6 +266,12 @@ pred_df <- remote_df |>
   spark_apply(my_function) |> 
   compute()
 ```
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r unit_no`.5
+:::
 
 ## [4. Predict]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
