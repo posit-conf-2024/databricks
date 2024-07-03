@@ -208,4 +208,37 @@ my_function <- function(x) {
 ```
 :::
 
+## [4. Predict - Test the function remotely]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
+:::{.columns}
+:::{.column width="8%"}
+:::
+:::{.column width="92%"}
+[Use a sample or top rows to test the function in Spark]{style="font-size:55px;line-height:1.2;font-weight:600;color:#579297;"}
+:::
+:::
+
+```r
+remote_df |> 
+  head() |> 
+  spark_apply(my_function)
+```
+
+## [4. Predict - Run predictions]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="20%"}
+:::
+:::{.column width="80%"}
+[Run full set, make sure results are saved]{style="font-size:55px;line-height:1.2;font-weight:600;color:#579297;"}
+:::
+:::
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|1|3"
+pred_df <- remote_df |> 
+  spark_apply(my_function) |> 
+  compute()
+```
