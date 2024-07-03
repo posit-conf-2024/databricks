@@ -164,6 +164,10 @@ Exercise `r unit_no`.3
 :::
 :::
 
+## [3. Publish - Databricks UC Volume]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/modeling/upload.png){.absolute top="120" left="70" width="1500"}
+
 ## [4. Predict - Create the function]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 [It needs to read the model file, runs prediction, and process results]{style="font-size:55px;line-height:1.5;font-weight:600;color:#579297;"}
