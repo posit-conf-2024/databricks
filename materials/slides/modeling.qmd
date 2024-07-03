@@ -57,7 +57,7 @@ Modeling <br/> with R UDFs
 :::{.column width="50%"}
 <br/><br/>
 [
-local <- remote |>  <br/>
+local_df <- remote_df |>  <br/>
 [X]{style="color: #fff;"}  **slice_sample**(n = 100) |> <br/>
 [X]{style="color: #fff;"}  collect()
 ]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:65px;"} 
@@ -81,17 +81,16 @@ local <- remote |>  <br/>
 :::{.sample-code}
 ```r
 library(tidymodels)
+my_rec <- recipe(x ~ ., data = local_df) |> 
+  step_normalize(all_numeric_predictors()) 
+  
+my_reg <- linear_reg()
 
-lendingclub_rec <- recipe(
-  int_rate ~ ., 
-  data = lendingclub_prep
-  ) |> 
-  step_mutate(term = trimws(substr(term, 1,4))) |> 
-  step_mutate(across(everything(), as.numeric)) |> 
-  step_normalize(all_numeric_predictors()) |>
-  step_impute_mean(all_of(c("bc_open_to_buy", "bc_util"))) |>   
-  step_filter(!if_any(everything(), is.na))
+my_wkf <- workflow() |> 
+  add_model(my_reg) |> 
+  add_recipe(my_rec)
 
+model <- fit(my_wkf, local_df)
 ```
 :::
 
@@ -106,7 +105,7 @@ lendingclub_rec <- recipe(
 :::{.incremental1}
 - `vetiver` packages `tidymodels` workflows and models
 - Model is automatically reduced in size
-- Output is easy to load into anothe R session
+- Output is easy to load into another R session
 :::
 :::
 
@@ -137,7 +136,7 @@ saveRDS(m, "model.rds") <br/>
 :::{.incremental1}
 - Copy the R model where Spark can access
 - Location **has** to be secure
-- Options Databricks UC, s3 buckets, Posit Connect, others
+- Options: Databricks UC, s3 buckets, Posit Connect, others
 :::
 :::
 
@@ -164,7 +163,7 @@ my_function <- function(x) {
 ```
 :::
 
-## [4. Predict - Test the function]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## [4. Predict - Test the function locally]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
 :::{.column width="13%"}
@@ -176,7 +175,37 @@ my_function <- function(x) {
 
 
 ```r
-my_function(local)
+my_function(local_df)
 ```
+
+## [4. Predict - Switch to published model]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="0%"}
+:::
+:::{.column width="100%"}
+[Prepare your function to use the copy of the model in Databricks]{style="font-size:55px;line-height:1.2;font-weight:600;color:#579297;"}
+:::
+:::
+
+:::{.sample-code}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|5|4-8"
+my_function <- function(x) {
+  library(workflows)
+  library(vetiver)
+  if(file.exists("model.rds")) {
+    model <- readRDS("model.rds")
+  } else {
+    model <- readRDS("/Volumes/[catalog]/[schema]/[volume]/model.rds")
+  }
+  preds <- predict(model, x)
+  x$pred <- preds[,1][[1]]
+  x
+}
+```
+:::
 
 
