@@ -33,22 +33,32 @@ Databricks <br/> Connect
 
 ## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
--   Introduced a decoupled client-server architecture
+:::{.columns}
+:::{.column width="55%"}
 
--   It enables remote connectivity to Spark clusters.
+:::{.custom2}
+:::{.incremental1}
+- Spark Connect, introduced a **decoupled** client-server architecture
+- Uses gRPC to integrate with Spark
+- **Databricks Connect v2** is based on Spark Connect (DBR 13+)
+:::
+:::
 
--   **Allows R users to interact with a cluster** from their preferred environment, laptop or otherwise.
+:::
+:::{.column width="45%"}
+:::
+:::
 
--   [Databricks Connect](https://docs.databricks.com/dev-tools/databricks-connect.html), is based on **Spark Connect** architecture. Available in DBR version 13+
+![](assets/databricks-connect/grpc){.absolute top="385" left="910" width="660"}
 
 
 ## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
-:::{.column width="20%"}
+:::{.column width="5%"}
 :::
-:::{.column width="80%"}
-[`databricks-connect` integrates with gRPC]{style="font-size:55px;line-height:0.5;font-weight:600;color:#579297;"}
+:::{.column width="95%"}
+[In Python, *databricks-connect* integrates with gRPC]{style="font-size:65px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
 
@@ -56,14 +66,7 @@ Databricks <br/> Connect
 
 ## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="10%"}
-:::
-:::{.column width="90%"}
-[`sparklyr` uses integrates with `databricks-connect`]{style="font-size:55px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
-
+[*sparklyr* integrates with *databricks-connect* via *reticulate*]{style="font-size:65px;line-height:1;font-weight:600;color:#579297;"}
 
 ![](assets/databricks-connect/db-connect.png){.absolute top="200" left="70" width="1500"}
 
