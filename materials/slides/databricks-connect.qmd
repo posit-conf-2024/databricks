@@ -52,5 +52,20 @@ Databricks <br/> Connect
 :::
 :::
 
+![](assets/databricks-connect/python.png){.absolute top="260" left="577" width="990"}
 
-![](assets/databricks-connect/db-connect.png){.absolute top="180" left="70" width="1500"}
+## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="8%"}
+:::
+:::{.column width="90%"}
+[`sparklyr` uses integrates with `databricks-connect`]{style="font-size:55px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+
+
+![](assets/databricks-connect/db-connect.png){.absolute top="200" left="70" width="1500"}
+
+
+
