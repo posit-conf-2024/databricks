@@ -66,6 +66,8 @@ Databricks <br/> Connect
 
 ## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
+![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
+
 [*sparklyr* integrates with *databricks-connect* via *reticulate*]{style="font-size:65px;line-height:1;font-weight:600;color:#579297;"}
 
 ![](assets/databricks-connect/db-connect.png){.absolute top="200" left="70" width="1500"}
