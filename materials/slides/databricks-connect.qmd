@@ -101,26 +101,28 @@ Databricks <br/> Connect
 :::{.incremental1}
   - `dplyr` back-end
   - `DBI` back-end
-  - **RStudio**, and **Positron**, Connections Pane integration
+  - R UDFs 
+  - **RStudio**, and **Positron**, Connections Pane
 :::
 :::
 
 :::
 :::{.column width="55%"}
+:::: {style="background-color:#eee; padding:15px;"}
 [
 library(sparklyr) <br/>
 sc <- **spark_connect**(<br/>
-[X]{style="color: #fff;"} method = **"databricks_connect"** <br/>
-[X]{style="color: #fff;"}) <br/>
+[X]{style="color: #eee;"} method = *"databricks_connect"* <br/>
+[X]{style="color: #eee;"}) <br/>
 trips <- **tbl**(sc, I("samples.nyctaxi.trips")) <br/>
 trips |>  <br/>
-[X]{style="color: #fff;"}**group_by**(pickup_zip) |> <br/>
-[X]{style="color: #fff;"}  **summarise**( <br/>
-[XX]{style="color: #fff;"}    count = n(), <br/>
-[XX]{style="color: #fff;"}    avg_distance = mean(trip_distance) <br/>
-[X]{style="color: #fff;"}  )
- ]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:44px;"} 
-
+[X]{style="color: #eee;"}**group_by**(pickup_zip) |> <br/>
+[X]{style="color: #eee;"}  **summarise**( <br/>
+[XX]{style="color: #eee;"}    count = n(), <br/>
+[XX]{style="color: #eee;"}    avg_distance = mean(trip_distance) <br/>
+[X]{style="color: #eee;"}  )
+ ]{style="color:#333;font-family:Helvetica Neue; font-weight:300;font-size:44px;"} 
+:::
 :::
 :::
 
