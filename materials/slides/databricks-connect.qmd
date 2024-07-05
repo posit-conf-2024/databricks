@@ -34,13 +34,13 @@ Databricks <br/> Connect
 ## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
-:::{.column width="55%"}
+:::{.column width="50%"}
 
 :::{.custom2}
 :::{.incremental1}
-- Spark Connect, introduced a **decoupled** client-server architecture
-- Uses gRPC to integrate with Spark
-- **Databricks Connect v2** is based on Spark Connect (DBR 13+)
+- Spark Connect, offers **true** remote connectivity
+- Uses **gRPC** to as the communication interface
+- **Databricks Connect 'v2'** is based on Spark Connect (DBR 13+)
 :::
 :::
 
@@ -55,10 +55,17 @@ Databricks <br/> Connect
 ## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
-:::{.column width="5%"}
+:::{.column width="37%"}
+
+:::{.custom2}
+:::{.incremental1}
+- *databricks-connect* integrates with gRPC, by wrapping `pyspark`
+- `pyspark` is the most developed Spark Connect interface
 :::
-:::{.column width="95%"}
-[In Python, *databricks-connect* integrates with gRPC]{style="font-size:65px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+
+:::
+:::{.column width="60%"}
 :::
 :::
 
@@ -68,7 +75,7 @@ Databricks <br/> Connect
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
-[*sparklyr* integrates with *databricks-connect* via *reticulate*]{style="font-size:65px;line-height:1;font-weight:600;color:#579297;"}
+[*'sparklyr'* integrates with *'databricks-connect'* via *'reticulate'*]{style="font-size:64px;line-height:1;font-weight:400;color:#666;"}
 
 ![](assets/databricks-connect/db-connect.png){.absolute top="200" left="70" width="1500"}
 
