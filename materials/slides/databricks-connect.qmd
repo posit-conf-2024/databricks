@@ -91,7 +91,7 @@ Databricks <br/> Connect
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
-[Extends functionality and user experience:]{style="font-size:63px;line-height:1;font-weight:400;color:#666;"}
+[**sparklyr** extends functionality and user experience:]{style="font-size:65px;line-height:1;font-weight:400;color:#666;"}
 
 
 :::{.columns}
@@ -102,7 +102,7 @@ Databricks <br/> Connect
   - `dplyr` back-end
   - `DBI` back-end
   - R UDFs 
-  - **RStudio**, and **Positron**, Connections Pane
+  - **RStudio**, and **Positron**, Connections Pane integration
 :::
 :::
 
@@ -126,3 +126,70 @@ trips |>  <br/>
 :::
 :::
 
+## [Getting started]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+
+:::{.columns}
+:::{.column width="42%"}
+
+:::{.custom2}
+:::{.incremental1}
+- Python 3.10+ 
+- A Python environment with `databricks-connect` and its dependencies
+- `pysparklyr` extension
+:::
+:::
+
+:::
+:::{.column width="58%"}
+:::: {style="background-color:#eee; padding:15px;"}
+[
+install.packages("pysparklyr")<br/>
+library(sparklyr) <br/>
+sc <- **spark_connect**(<br/>
+[X]{style="color: #eee;"}cluster_id = "1026-175310-7cpsh3g8",<br/>
+[X]{style="color: #eee;"}method = "databricks_connect"<br/>
+[X]{style="color: #eee;"})<br/>
+]{style="color:#333;font-family:Helvetica Neue; font-weight:300;font-size:34px;"} 
+:::
+:::
+:::
+
+## [Getting started]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+
+:::{.columns}
+:::{.column width="42%"}
+
+:::{.incremental1}
+:::: {style="text-align: left; float:left;"}
+[
+`pysparklyr` automatically, checks for, and installs the needed Python packages. <br/>
+<br/>
+Once you confirm, it will create a new virtual environment, and installs the 
+packages.
+]{style="color:#666; font-weight:500;font-size:52px;"} 
+:::
+:::
+
+:::
+:::{.column width="58%"}
+:::: {style="background-color:#eee; padding:15px;"}
+[
+install.packages("pysparklyr")<br/>
+library(sparklyr) <br/>
+sc <- **spark_connect**(<br/>
+[X]{style="color: #eee;"}cluster_id = "1026-175310-7cpsh3g8",<br/>
+[X]{style="color: #eee;"}method = "databricks_connect"<br/>
+[X]{style="color: #eee;"})<br/>
+#> ! Retrieving version from cluster '1026-175310-7cpsh3g8' <br/>
+#> Cluster version: '14.1' <br/>
+#> ! No viable Python Environment was identified for Databricks Connect version 14.1 <br/>
+#> Do you wish to install Databricks Connect version 14.1? <br/>
+#> 1: Yes <br/>
+#> 2: No <br/>
+#> 3: Cancel <br/>
+]{style="color:#333;font-family:Helvetica Neue; font-weight:300;font-size:34px;"} 
+:::
+:::
+:::
