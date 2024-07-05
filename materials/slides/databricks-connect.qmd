@@ -59,8 +59,8 @@ Databricks <br/> Connect
 
 :::{.custom2}
 :::{.incremental1}
-- *databricks-connect* integrates with gRPC, by wrapping `pyspark`
-- `pyspark` is the most developed Spark Connect interface
+- `databricks-connect` integrates with gRPC, by wrapping `pyspark`
+- `pyspark` is the most developed **Spark Connect** interface
 :::
 :::
 
@@ -75,9 +75,52 @@ Databricks <br/> Connect
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
-[*'sparklyr'* integrates with *'databricks-connect'* via *'reticulate'*]{style="font-size:64px;line-height:1;font-weight:400;color:#666;"}
+:::{.columns}
+:::{.column width="4%"}
+:::
+:::{.column width="96%"}
+[`sparklyr` integrates with `databricks-connect` via `reticulate`]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+:::
+:::
+
+
 
 ![](assets/databricks-connect/db-connect.png){.absolute top="200" left="70" width="1500"}
 
+## [Why not just use 'reticulate'?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
+![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
+
+[Extends functionality and user experience:]{style="font-size:63px;line-height:1;font-weight:400;color:#666;"}
+
+
+:::{.columns}
+:::{.column width="45%"}
+
+:::{.custom2}
+:::{.incremental1}
+  - `dplyr` back-end
+  - `DBI` back-end
+  - **RStudio**, and **Positron**, Connections Pane integration
+:::
+:::
+
+:::
+:::{.column width="55%"}
+[
+library(sparklyr) <br/>
+sc <- **spark_connect**(<br/>
+[X]{style="color: #fff;"} method = **"databricks_connect"** <br/>
+[X]{style="color: #fff;"}) <br/>
+trips <- **tbl**(sc, I("samples.nyctaxi.trips")) <br/>
+trips |>  <br/>
+[X]{style="color: #fff;"}**group_by**(pickup_zip) |> <br/>
+[X]{style="color: #fff;"}  **summarise**( <br/>
+[XX]{style="color: #fff;"}    count = n(), <br/>
+[XX]{style="color: #fff;"}    avg_distance = mean(trip_distance) <br/>
+[X]{style="color: #fff;"}  )
+ ]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:44px;"} 
+
+:::
+:::
 
