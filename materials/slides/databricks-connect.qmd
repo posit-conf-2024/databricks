@@ -108,20 +108,20 @@ Databricks <br/> Connect
 
 :::
 :::{.column width="55%"}
-:::: {style="background-color:#eee; padding:15px;"}
-[
-library(sparklyr) <br/>
-sc <- **spark_connect**(<br/>
-[X]{style="color: #eee;"} method = *"databricks_connect"* <br/>
-[X]{style="color: #eee;"}) <br/>
-trips <- **tbl**(sc, I("samples.nyctaxi.trips")) <br/>
-trips |>  <br/>
-[X]{style="color: #eee;"}**group_by**(pickup_zip) |> <br/>
-[X]{style="color: #eee;"}  **summarise**( <br/>
-[XX]{style="color: #eee;"}    count = n(), <br/>
-[XX]{style="color: #eee;"}    avg_distance = mean(trip_distance) <br/>
-[X]{style="color: #eee;"}  )
- ]{style="color:#333;font-family:Helvetica Neue; font-weight:300;font-size:44px;"} 
+:::{.code-slim-35}
+```r
+library(sparklyr) 
+sc <- spark_connect(method = "databricks_connect") 
+
+trips <- tbl(sc, I("samples.nyctaxi.trips")) 
+
+trips |>  
+  group_by(pickup_zip) |> 
+  summarise( 
+    count = n(), 
+    avg_distance = mean(trip_distance) 
+    )
+```
 :::
 :::
 :::
@@ -143,15 +143,15 @@ trips |>  <br/>
 
 :::
 :::{.column width="58%"}
-:::: {style="background-color:#eee; padding:15px;"}
-[
-install.packages("pysparklyr")<br/>
-library(sparklyr) <br/>
-sc <- **spark_connect**(<br/>
-[X]{style="color: #eee;"}cluster_id = "1026-175310-7cpsh3g8",<br/>
-[X]{style="color: #eee;"}method = "databricks_connect"<br/>
-[X]{style="color: #eee;"})<br/>
-]{style="color:#333;font-family:Helvetica Neue; font-weight:300;font-size:34px;"} 
+:::{.code-slim-35}
+```r
+install.packages("pysparklyr")
+library(sparklyr) 
+sc <- spark_connect(
+  cluster_id = "1026-175310-7cpsh3g8",
+  method = "databricks_connect"
+  )
+```
 :::
 :::
 :::
@@ -176,24 +176,24 @@ packages.
 
 :::
 :::{.column width="58%"}
-:::: {style="background-color:#eee; padding:15px;"}
-[
-install.packages("pysparklyr")<br/>
-library(sparklyr) <br/>
-sc <- **spark_connect**(<br/>
-[X]{style="color: #eee;"}cluster_id = "1026-175310-7cpsh3g8",<br/>
-[X]{style="color: #eee;"}method = "databricks_connect"<br/>
-[X]{style="color: #eee;"})<br/>
-[
-#> ! Retrieving version from cluster '1026-175310-7cpsh3g8' <br/>
-#> Cluster version: '14.1' <br/>
-#> ! No viable Python Environment was identified for <br/>
-#> Databricks Connect version 14.1 <br/>
-#> Do you wish to install Databricks Connect version 14.1? <br/>
-#> 1: Yes <br/>
-#> 2: No <br/>
-#> 3: Cancel <br/>]{style="color:#999;"}
-]{style="color:#333;font-family:Helvetica Neue; font-weight:300;font-size:34px;"} 
+:::{.code-slim-35}
+```r
+install.packages("pysparklyr")
+library(sparklyr) 
+sc <- spark_connect(
+  cluster_id = "1026-175310-7cpsh3g8",
+  method = "databricks_connect"
+  )
+#> ! Retrieving version from cluster '1026-175310-7cpsh3g8'
+#> Cluster version: '14.1' 
+#> ! No viable Python Environment was identified for 
+#> Databricks Connect version 14.1 
+#> Do you wish to install Databricks Connect version 14.1? 
+#> 1: Yes
+#> 2: No
+#> 3: Cancel
+```
+:::
 :::
 :::
 :::
