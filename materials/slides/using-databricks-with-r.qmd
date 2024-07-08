@@ -22,5 +22,6 @@ engine: knitr
 {{< include units/preparing-exploring.qmd >}}
 {{< include units/visualizations.qmd >}}
 {{< include units/databricks-connect.qmd >}}
+{{< include units/r-udfs.qmd >}}
 {{< include units/modeling.qmd >}}
 {{< include units/dashboards.qmd >}}
