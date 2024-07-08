@@ -23,7 +23,7 @@ R UDFs
 :::{.column width="25%"}
 :::
 :::{.column width="75%"}
-[Spark partitions de file logically]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
+[Spark partitions the file logically]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
 
@@ -38,7 +38,7 @@ R UDFs
 :::{.column width="20%"}
 :::
 :::{.column width="70%"}
-[Each node gets one or several partitions]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
+[Each node gets one, or several partitions]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
 
@@ -60,10 +60,10 @@ R UDFs
 ## [How it works]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
-:::{.column width="1%"}
+:::{.column width="5%"}
 :::
-:::{.column width="99%"}
-[Each server runs the data transformation on distinct partitions]{style="font-size:55px;line-height:0.5;font-weight:600;color:#579297;"}
+:::{.column width="95%"}
+[The cluster runs jobs that process each partition in parallel]{style="font-size:55px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
 
