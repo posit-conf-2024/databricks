@@ -21,6 +21,6 @@ engine: knitr
 {{< include units/remote-processing.qmd >}}
 {{< include units/preparing-exploring.qmd >}}
 {{< include units/visualizations.qmd >}}
-{{< include units/apache-spark.qmd >}}
+{{< include units/databricks-connect.qmd >}}
 {{< include units/modeling.qmd >}}
 {{< include units/dashboards.qmd >}}
