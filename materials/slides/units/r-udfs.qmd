@@ -109,3 +109,15 @@ R UDFs
 [`sparklyr` inserts your R code inside a Python script]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
 :::
 :::
+
+## [Input/Output of a job]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/r-udfs/expectations.png){.absolute top="250" left="50" width="1800"}
+
+:::{.columns}
+:::{.column width="12%"}
+:::
+:::{.column width="80%"}
+[Your function should expect, and return, a table]{style="font-size:58px;line-height:1;font-weight:400;color:#666;"}
+:::
+:::
