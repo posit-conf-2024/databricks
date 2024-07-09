@@ -1,0 +1,114 @@
+---
+format: 
+  revealjs:
+    width: 1600
+    height: 920
+    max-scale: 1
+    min-scale: 1
+    smaller: true
+    transition: fade
+    background-transition: fade
+    theme: theme.scss
+    code-line-numbers: false
+    menu: true
+    code-block-height: 640px
+    slide-number: true
+engine: knitr
+---
+
+```{r}
+#| include: false
+unit_no <- 6
+```
+
+# {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide-title}
+Unit `r unit_no`
+:::
+
+:::{.content-slide}
+Intro to <br/> 
+R UDFs
+:::
+
+## [How it works]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="25%"}
+:::
+:::{.column width="75%"}
+[Spark partitions the file logically]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+
+![](assets/r-udfs/spark-1.png){.absolute top="200" left="400" width="400"}
+![](assets/r-udfs/spark-2.png){.absolute top="190" left="900" width="400"}
+![](assets/r-udfs/spark-3.png){.absolute top="390" left="900" width="400"}
+![](assets/r-udfs/spark-4.png){.absolute top="590" left="900" width="400"}
+
+## [How it works]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="20%"}
+:::
+:::{.column width="70%"}
+[Each node gets one, or several partitions]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+
+![](assets/r-udfs/spark-6.png){.absolute top="250" left="320" width="200"}
+![](assets/r-udfs/spark-2.png){.absolute top="300" left="100" width="200"}
+![](assets/r-udfs/spark-3.png){.absolute top="420" left="100" width="200"}
+![](assets/r-udfs/spark.svg){.absolute top="550" left="180" width="200"}
+
+![](assets/r-udfs/spark-6.png){.absolute top="250" left="1320" width="200"}
+![](assets/r-udfs/spark-2.png){.absolute top="300" left="1100" width="200"}
+![](assets/r-udfs/spark-4.png){.absolute top="420" left="1100" width="200"}
+![](assets/r-udfs/spark.svg){.absolute top="550" left="1180" width="200"}
+
+![](assets/r-udfs/spark-6.png){.absolute top="500" left="770" width="200"}
+![](assets/r-udfs/spark-3.png){.absolute top="550" left="550" width="200"}
+![](assets/r-udfs/spark-4.png){.absolute top="670" left="550" width="200"}
+![](assets/r-udfs/spark.svg){.absolute top="800" left="660" width="200"}
+
+## [How it works]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="5%"}
+:::
+:::{.column width="95%"}
+[The cluster runs jobs that process each partition in parallel]{style="font-size:55px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+
+![](assets/r-udfs/spark-6.png){.absolute top="250" left="320" width="200"}
+![](assets/r-udfs/spark-5.png){.absolute top="293" left="90" width="220"}
+![](assets/r-udfs/spark-2.png){.absolute top="300" left="100" width="200"}
+![](assets/r-udfs/spark-3.png){.absolute top="420" left="100" width="200"}
+![](assets/r-udfs/spark.svg){.absolute top="550" left="180" width="200"}
+
+![](assets/r-udfs/spark-6.png){.absolute top="250" left="1320" width="200"}
+![](assets/r-udfs/spark-5.png){.absolute top="413" left="1090" width="220"}
+![](assets/r-udfs/spark-2.png){.absolute top="300" left="1100" width="200"}
+![](assets/r-udfs/spark-4.png){.absolute top="420" left="1100" width="200"}
+![](assets/r-udfs/spark.svg){.absolute top="550" left="1180" width="200"}
+
+![](assets/r-udfs/spark-6.png){.absolute top="500" left="770" width="200"}
+![](assets/r-udfs/spark-5.png){.absolute top="542" left="540" width="220"}
+![](assets/r-udfs/spark-3.png){.absolute top="550" left="550" width="200"}
+![](assets/r-udfs/spark-4.png){.absolute top="670" left="550" width="200"}
+![](assets/r-udfs/spark.svg){.absolute top="800" left="660" width="200"}
+
+## [Python UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/r-udfs/spark-udfs.png){.absolute top="260" left="50" width="1800"}
+
+:::{.columns}
+:::{.column width="7%"}
+:::
+:::{.column width="91%"}
+[Python code is packaged and sent to Databricks which runs it]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+:::
+:::
+
