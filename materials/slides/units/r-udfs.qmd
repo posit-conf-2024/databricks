@@ -1,6 +1,7 @@
 ---
 engine: knitr
 ---
+
 ```{r}
 #| include: false
 unit_no <- 6
@@ -84,3 +85,27 @@ R UDFs
 ![](assets/r-udfs/spark-3.png){.absolute top="550" left="550" width="200"}
 ![](assets/r-udfs/spark-4.png){.absolute top="670" left="550" width="200"}
 ![](assets/r-udfs/spark.svg){.absolute top="800" left="660" width="200"}
+
+## [Python UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/r-udfs/python-udfs.png){.absolute top="240" left="50" width="1800"}
+
+:::{.columns}
+:::{.column width="7%"}
+:::
+:::{.column width="91%"}
+[Python code is packaged and sent to Databricks which runs it]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+:::
+:::
+
+## [R UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/r-udfs/r-udfs.png){.absolute top="250" left="50" width="1800"}
+
+:::{.columns}
+:::{.column width="13%"}
+:::
+:::{.column width="80%"}
+[`sparklyr` inserts your R code inside a Python script]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+:::
+:::
