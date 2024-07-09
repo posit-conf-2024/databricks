@@ -102,7 +102,7 @@ R UDFs
 
 ## [Python UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/r-udfs/spark-udfs.png){.absolute top="260" left="50" width="1800"}
+![](assets/r-udfs/python-udfs.png){.absolute top="240" left="50" width="1800"}
 
 :::{.columns}
 :::{.column width="7%"}
@@ -114,12 +114,12 @@ R UDFs
 
 ## [R UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/r-udfs/r-udfs.png){.absolute top="260" left="50" width="1800"}
+![](assets/r-udfs/r-udfs.png){.absolute top="250" left="50" width="1800"}
 
 :::{.columns}
-:::{.column width="14%"}
+:::{.column width="13%"}
 :::
 :::{.column width="80%"}
-[`sparklyr` packages R code inside a Python script]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+[`sparklyr` inserts your R code inside a Python script]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
 :::
 :::
