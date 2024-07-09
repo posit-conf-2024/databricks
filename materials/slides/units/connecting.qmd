@@ -60,7 +60,7 @@ Exercises `r unit_no`.1 - `r unit_no`.2
 
 ## [How everything connects]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/connecting/odbc.png){.absolute top="120" left="120"}
+![](assets/connecting/odbc.png){.absolute top="120" left="110"}
 
 ## [Connecting - Good]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -163,7 +163,7 @@ Exercise `r unit_no`.5
 
 ## [How everything connects (Revisited)]{style="color:#666;"}   {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/connecting/odbc.png){.absolute top="120" left="120"}
+![](assets/connecting/odbc.png){.absolute top="120" left="110"}
 
 ## [Other RStudio interfaces]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
