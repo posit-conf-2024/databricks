@@ -35,7 +35,7 @@ Databricks <br/> Connect
 :::
 :::
 
-![](assets/databricks-connect/grpc){.absolute top="385" left="910" width="660"}
+![](assets/databricks-connect/grpc){.absolute top="264" left="900" width="670"}
 
 
 ## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -55,7 +55,7 @@ Databricks <br/> Connect
 :::
 :::
 
-![](assets/databricks-connect/python.png){.absolute top="260" left="577" width="990"}
+![](assets/databricks-connect/python.png){.absolute top="264" left="572" width="998"}
 
 ## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
