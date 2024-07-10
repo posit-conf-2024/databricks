@@ -108,9 +108,9 @@ R UDFs
 :::{.incremental1}
 :::: {style="text-align: left; float:left;"}
 [
-`spark_apply()` enables acces to the R installation in the cluster  <br/><br/>
-The Databricks Spark cluster has R, and Python, packages pre-installed for
-your convenience. The list and versions vary by [DBR version](https://docs.databricks.com/en/release-notes/runtime/15.3.html#installed-r-libraries). 
+`spark_apply()` enables acces to the R runtime installed in the cluster  <br/><br/>
+The R function will run over each individual partition. In this case, 4 partitions
+of 8 rows each.
 ]{style="color:#666; font-weight:500;font-size:52px;"} 
 
 
@@ -138,7 +138,10 @@ tbl_mtcars |>
 :::
 :::
 
+## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
+The Databricks Spark cluster has R, and Python, packages pre-installed for
+your convenience. The list and versions vary by [DBR version](https://docs.databricks.com/en/release-notes/runtime/15.3.html#installed-r-libraries). 
 
 ## [Python UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
