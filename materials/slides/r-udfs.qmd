@@ -163,6 +163,61 @@ Exercise `r unit_no`.1
 :::
 
 
+## [Custom functions]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
+
+:::{.columns}
+:::{.column width="42%"}
+
+:::{.incremental1}
+:::: {style="text-align: left; float:left;"}
+[
+You can create a custom R function to send to Spark.<br/><br/>
+For your function, assume that the first argument will be a data frame.<br/><br/>
+Return an R object that can be coerced to a data frame. 
+]{style="color:#666; font-weight:500;font-size:52px;"} 
+
+
+
+:::
+:::
+
+:::
+:::{.column width="58%"}
+:::{.code-slim-35}
+```r
+tbl_mtcars |> 
+  spark_apply(function(x) {
+    x$new <- x$carb + x$gear
+    x[, c(1,2,12)]
+  })
+#> # Source:   table<`sparklyr_tmp_table_96595391`> [?? x 3]
+#> # Database: spark_connection
+#>      mpg   cyl   new
+#>    <dbl> <dbl> <dbl>
+#>  1  21       6     8
+#>  2  21       6     8
+#>  3  22.8     4     5
+#>  4  21.4     6     4
+#>  5  18.7     8     5
+#>  6  18.1     6     4
+#>  7  14.3     8     7
+#>  8  24.4     4     6
+#>  9  22.8     4     6
+#> 10  19.2     6     8
+#> # ℹ more rows
+```
+:::
+:::
+:::
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r unit_no`.2
+:::
+
 ## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 The Databricks Spark cluster has R, and Python, packages pre-installed for
