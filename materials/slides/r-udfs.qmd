@@ -29,7 +29,7 @@ Unit `r unit_no`
 
 :::{.content-slide}
 Intro to <br/> 
-R UDFs
+R UDF
 :::
 
 ## [How it works]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -100,7 +100,21 @@ R UDFs
 ![](assets/r-udfs/spark-4.png){.absolute top="670" left="550" width="200"}
 ![](assets/r-udfs/spark.svg){.absolute top="800" left="660" width="200"}
 
+## [Input/Output of a job]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/r-udfs/expectations.png){.absolute top="250" left="50" width="1800"}
+
+:::{.columns}
+:::{.column width="12%"}
+:::
+:::{.column width="80%"}
+[Your function should expect, and return, a table]{style="font-size:58px;line-height:1;font-weight:400;color:#666;"}
+:::
+:::
+
 ## [Accessing in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
 :::{.columns}
 :::{.column width="42%"}
@@ -108,9 +122,13 @@ R UDFs
 :::{.incremental1}
 :::: {style="text-align: left; float:left;"}
 [
-`spark_apply()` enables acces to the R runtime installed in the cluster  <br/><br/>
-The R function will run over each individual partition. In this case, 4 partitions
-of 8 rows each.
+`spark_apply()` enables acces to the R runtime installed in the cluster. 
+The R function will run over each individual partition.
+]{style="color:#666; font-weight:500;font-size:52px;"} 
+<br><br>
+[
+In this case, 4 partitions of 8 rows each. The results from each partition are 
+merged in a single table.
 ]{style="color:#666; font-weight:500;font-size:52px;"} 
 
 
@@ -167,14 +185,3 @@ your convenience. The list and versions vary by [DBR version](https://docs.datab
 :::
 :::
 
-## [Input/Output of a job]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-
-![](assets/r-udfs/expectations.png){.absolute top="250" left="50" width="1800"}
-
-:::{.columns}
-:::{.column width="12%"}
-:::
-:::{.column width="80%"}
-[Your function should expect, and return, a table]{style="font-size:58px;line-height:1;font-weight:400;color:#666;"}
-:::
-:::
