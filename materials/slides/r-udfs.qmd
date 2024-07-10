@@ -100,6 +100,46 @@ R UDFs
 ![](assets/r-udfs/spark-4.png){.absolute top="670" left="550" width="200"}
 ![](assets/r-udfs/spark.svg){.absolute top="800" left="660" width="200"}
 
+## [Accessing in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="42%"}
+
+:::{.incremental1}
+:::: {style="text-align: left; float:left;"}
+[
+`spark_apply()` enables acces to the R installation in the cluster  <br/><br/>
+The Databricks Spark cluster has R, and Python, packages pre-installed for
+your convenience. The list and versions vary by [DBR version](https://docs.databricks.com/en/release-notes/runtime/15.3.html#installed-r-libraries). 
+]{style="color:#666; font-weight:500;font-size:52px;"} 
+
+
+:::
+:::
+
+:::
+:::{.column width="58%"}
+:::{.code-slim-35}
+```r
+tbl_mtcars <- copy_to(sc, mtcars)
+
+tbl_mtcars |> 
+  spark_apply(nrow)
+#> # Source:   table<`sparklyr_tmp_table_d83f7f26`> [4 x 1]
+#> # Database: spark_connection
+#>       x
+#>   <dbl>
+#> 1     8
+#> 2     8
+#> 3     8
+#> 4     8
+```
+:::
+:::
+:::
+
+
+
 ## [Python UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/r-udfs/python-udfs.png){.absolute top="240" left="50" width="1800"}
