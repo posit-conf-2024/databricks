@@ -49,4 +49,19 @@ tbl_mtcars |>
   spark_apply(dim)
 ```
 
+## Custom functions
+*Create simple custom functions to send to Spark*
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(function(x) x[x$hp > 250, 1:4])
+```
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(function(x) {
+    x$new <- x$carb + x$gear
+    x[, c(1,2,12)]
+  })
+```
 
