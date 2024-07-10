@@ -1,0 +1,33 @@
+---
+title: "Intro to R UDFs"
+execute: 
+  eval: true
+  freeze: true
+  warning: false
+---
+
+```{r, setup}
+#| include: false
+
+library(dplyr)
+library(dbplyr)
+library(sparklyr)
+library(tidymodels)
+library(tidyverse)
+```
+
+## Catch up {.unnumbered}
+
+```{r}
+library(sparklyr)
+library(dplyr)
+sc <- spark_connect(method = "databricks_connect")
+
+tbl_mtcars <- copy_to(sc, mtcars)
+```
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(nrow)
+```
+
