@@ -256,6 +256,8 @@ your convenience. The list and versions vary by [DBR version](https://docs.datab
 
 ## [R UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
+![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
+
 ![](assets/r-udfs/r-udfs.png){.absolute top="250" left="50" width="1800"}
 
 :::{.columns}
