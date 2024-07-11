@@ -32,6 +32,16 @@ Intro to <br/>
 R UDF
 :::
 
+## [What is a UDF?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom}
+:::{.incremental1}
+- Stands for **"User Defined Function"**
+- Enables operations not built-in Spark
+- Typically written in a "foreign" language (R, Python)
+:::
+:::
+
 ## [How it works]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
