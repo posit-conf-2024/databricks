@@ -38,9 +38,18 @@ R UDF
 :::{.incremental1}
 - Stands for **"User Defined Function"**
 - Enables operations not built-in Spark
-- Typically written in a "foreign" language (R, Python)
+- Can be written in Scala, Python, or R
 :::
 :::
+
+## [Ok, but what does that mean?!]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+## [Ok, but what does that mean?!]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+[
+<br/><br/><br/>
+We can run R code *inside* Spark! 🎉 🎉
+]{style="font-size:100px;line-height:0.5;font-weight:600;color:#579297;"}
 
 ## [How it works]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
