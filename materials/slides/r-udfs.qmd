@@ -155,17 +155,16 @@ We can run R code *inside* Spark! 🎉 🎉
 ## [Parallel processing]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
-:::{.column width="25%"}
+:::{.column width="1%"}
 :::
-:::{.column width="75%"}
-[Spark partitions the data logically]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
+:::{.column width="99%"}
+[Results are appended, and returned to user as a single table]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
 
-![](assets/r-udfs/spark-1.png){.absolute top="200" left="400" width="400"}
-![](assets/r-udfs/spark-2.png){.absolute top="190" left="900" width="400"}
-![](assets/r-udfs/spark-3.png){.absolute top="390" left="900" width="400"}
-![](assets/r-udfs/spark-4.png){.absolute top="590" left="900" width="400"}
+![](assets/r-udfs/spark-2.png){.absolute top="210" left="600" width="400"}
+![](assets/r-udfs/spark-3.png){.absolute top="400" left="600" width="400"}
+![](assets/r-udfs/spark-4.png){.absolute top="590" left="600" width="400"}
 
 ## [Input/Output of a job]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
