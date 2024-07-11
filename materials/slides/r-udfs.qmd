@@ -32,7 +32,9 @@ Intro to <br/>
 R UDF
 :::
 
-## [What is a UDF?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## [What is an UDF?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+<br/>
 
 :::{.custom}
 :::{.incremental1}
@@ -51,13 +53,13 @@ R UDF
 We can run R code *inside* Spark! 🎉 🎉
 ]{style="font-size:100px;line-height:0.5;font-weight:600;color:#579297;"}
 
-## [How it works]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## [But first... parallel processing]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
 :::{.column width="25%"}
 :::
 :::{.column width="75%"}
-[Spark partitions the file logically]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
+[Spark partitions the data logically]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
 
@@ -66,7 +68,7 @@ We can run R code *inside* Spark! 🎉 🎉
 ![](assets/r-udfs/spark-3.png){.absolute top="390" left="900" width="400"}
 ![](assets/r-udfs/spark-4.png){.absolute top="590" left="900" width="400"}
 
-## [How it works]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## [Parallel processing]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
 :::{.column width="20%"}
@@ -91,7 +93,7 @@ We can run R code *inside* Spark! 🎉 🎉
 ![](assets/r-udfs/spark-4.png){.absolute top="670" left="550" width="200"}
 ![](assets/r-udfs/spark.svg){.absolute top="800" left="660" width="200"}
 
-## [How it works]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## [Parallel processing]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
 :::{.column width="5%"}
@@ -118,6 +120,52 @@ We can run R code *inside* Spark! 🎉 🎉
 ![](assets/r-udfs/spark-3.png){.absolute top="550" left="550" width="200"}
 ![](assets/r-udfs/spark-4.png){.absolute top="670" left="550" width="200"}
 ![](assets/r-udfs/spark.svg){.absolute top="800" left="660" width="200"}
+
+## [Parallel processing]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="10%"}
+:::
+:::{.column width="90%"}
+[Your R function runs on each partition independently]{style="font-size:55px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+
+![](assets/r-udfs/spark-6.png){.absolute top="250" left="320" width="200"}
+![](assets/r-udfs/spark-5.png){.absolute top="293" left="90" width="220"}
+![](assets/r-udfs/spark-2.png){.absolute top="300" left="100" width="200"}
+![](assets/r-udfs/spark-3.png){.absolute top="420" left="100" width="200"}
+![](assets/r-udfs/r-logo.png){.absolute top="310" left="150" width="100"}
+![](assets/r-udfs/spark.svg){.absolute top="550" left="180" width="200"}
+
+![](assets/r-udfs/spark-6.png){.absolute top="250" left="1320" width="200"}
+![](assets/r-udfs/spark-5.png){.absolute top="413" left="1090" width="220"}
+![](assets/r-udfs/spark-2.png){.absolute top="300" left="1100" width="200"}
+![](assets/r-udfs/spark-4.png){.absolute top="420" left="1100" width="200"}
+![](assets/r-udfs/r-logo.png){.absolute top="430" left="1150" width="100"}
+![](assets/r-udfs/spark.svg){.absolute top="550" left="1180" width="200"}
+
+![](assets/r-udfs/spark-6.png){.absolute top="500" left="770" width="200"}
+![](assets/r-udfs/spark-5.png){.absolute top="542" left="540" width="220"}
+![](assets/r-udfs/spark-3.png){.absolute top="550" left="550" width="200"}
+![](assets/r-udfs/spark-4.png){.absolute top="670" left="550" width="200"}
+![](assets/r-udfs/r-logo.png){.absolute top="560" left="590" width="100"}
+![](assets/r-udfs/spark.svg){.absolute top="800" left="660" width="200"}
+
+## [Parallel processing]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="25%"}
+:::
+:::{.column width="75%"}
+[Spark partitions the data logically]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
+:::
+:::
+
+![](assets/r-udfs/spark-1.png){.absolute top="200" left="400" width="400"}
+![](assets/r-udfs/spark-2.png){.absolute top="190" left="900" width="400"}
+![](assets/r-udfs/spark-3.png){.absolute top="390" left="900" width="400"}
+![](assets/r-udfs/spark-4.png){.absolute top="590" left="900" width="400"}
 
 ## [Input/Output of a job]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -266,4 +314,8 @@ your convenience. The list and versions vary by [DBR version](https://docs.datab
 :::{.column width="80%"}
 [`sparklyr` inserts your R code inside a Python script]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
 :::
+:::
+
+:::{.footer}
+https://spark.posit.co/deployment/databricks-connect-udfs.html
 :::
