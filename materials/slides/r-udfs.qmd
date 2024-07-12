@@ -365,6 +365,39 @@ https://docs.databricks.com/en/release-notes/runtime/15.3.html#installed-r-libra
 
 ![](assets/r-udfs/install.png){.absolute top="140" left="700" width="900"}
 
+## [Keep in mind...]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="55%"}
+:::{.incremental}
+- You are dealing with **two** different environments, your machine and DBR
+- Your Python version **must** match that of your Spark cluster
+- R version can be different, but could be source of errors (*"works locally, but not in the cluster"*)
+- Same for Python, and R packages. OK if mismatch, but could be errors
+:::
+:::
+:::{.column width="45%"}
+:::{.code-slim-35}
+```r
+tbl_mtcars <- copy_to(sc, mtcars)
+my_func <- function(x) R.Version()$minor
+# Local output
+my_func(mtcars)
+#> [1] "4.0"
+# Remote output
+tbl_mtcars |> 
+  spark_apply(my_func) |> 
+  head(1)
+#> # Source:   SQL [1 x 1]
+#> # Database: spark_connection
+#>   x    
+#>   <chr>
+#> 1 3.1
+```
+:::
+:::
+:::
+
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
