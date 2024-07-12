@@ -216,6 +216,49 @@ tbl_mtcars |>
 Exercise `r unit_no`.1
 :::
 
+## [Mapping by groups]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
+
+:::{.columns}
+:::{.column width="42%"}
+
+:::{.incremental1}
+:::: {style="text-align: left; float:left;"}
+[
+Use `group_by` to override the partitions, and use a column as the way to 
+divide the data.
+<br><br>
+]{style="color:#666; font-weight:500;font-size:52px;"} 
+
+:::
+:::
+
+:::
+:::{.column width="58%"}
+:::{.code-slim-35}
+```r
+tbl_mtcars <- copy_to(sc, mtcars)
+
+tbl_mtcars |> 
+  spark_apply(nrow, group_by = "am")
+#> # Source:   table<`sparklyr_tmp_table_c30d3aba_515f`> [2 x 2]
+#> # Database: spark_connection
+#>      am     x
+#>   <dbl> <dbl>
+#> 1     0    19
+#> 2     1    13
+```
+:::
+:::
+:::
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r unit_no`.2
+:::
+
 
 ## [Custom functions]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -235,7 +278,7 @@ Exercise `r unit_no`.1
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.2
+Exercise `r unit_no`.3
 :::
 
 ## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -245,7 +288,7 @@ your convenience. The list and versions vary by [DBR version](https://docs.datab
 
 ## [Python UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/r-udfs/python-udfs.png){.absolute top="240" left="50" width="1800"}
+![](assets/r-udfs/python-udfs.png){.absolute top="270" left="50" width="1800"}
 
 :::{.columns}
 :::{.column width="7%"}
@@ -259,7 +302,7 @@ your convenience. The list and versions vary by [DBR version](https://docs.datab
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
-![](assets/r-udfs/r-udfs.png){.absolute top="250" left="50" width="1800"}
+![](assets/r-udfs/r-udfs.png){.absolute top="230" left="50" width="1800"}
 
 :::{.columns}
 :::{.column width="13%"}
