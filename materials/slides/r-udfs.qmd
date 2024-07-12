@@ -29,7 +29,7 @@ Unit `r unit_no`
 
 :::{.content-slide}
 Intro to <br/> 
-R UDF
+R UDFs
 :::
 
 ## [What is an UDF?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -365,6 +365,12 @@ https://docs.databricks.com/en/release-notes/runtime/15.3.html#installed-r-libra
 
 ![](assets/r-udfs/install.png){.absolute top="140" left="700" width="900"}
 
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r unit_no`.5
+:::
+
 ## [Python UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/r-udfs/python-udfs.png){.absolute top="270" left="50" width="1800"}
@@ -384,10 +390,10 @@ https://docs.databricks.com/en/release-notes/runtime/15.3.html#installed-r-libra
 ![](assets/r-udfs/r-udfs.png){.absolute top="230" left="50" width="1800"}
 
 :::{.columns}
-:::{.column width="13%"}
+:::{.column width="0%"}
 :::
-:::{.column width="80%"}
-[`sparklyr` inserts your R code inside a Python script]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+:::{.column width="100%"}
+[`sparklyr` inserts your R code in a Python script. Uses `rpy2` to access R]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
 :::
 :::
 
