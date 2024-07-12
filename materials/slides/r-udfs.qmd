@@ -276,6 +276,56 @@ Exercise `r unit_no`.2
 Exercise `r unit_no`.3
 :::
 
+## [R packages]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
+
+:::{.columns}
+:::{.column width="42%"}
+
+:::{.incremental1}
+:::: {style="text-align: left; float:left;"}
+[
+R packages are available for use, but they have to be referenced from within
+your function's code. 
+<br/><br/>
+You can reference them using `library()` or by directly calling them using `::`,
+for example: `broom::tidy()`
+]{style="color:#666; font-weight:500;font-size:52px;"} 
+
+
+:::
+:::
+
+:::
+:::{.column width="58%"}
+:::{.code-slim-35}
+```r
+tbl_mtcars |> 
+  spark_apply(function(x) {
+      library(broom)
+      model <- lm(mpg ~ ., x)
+      tidy(model)[1,]
+      },
+    group_by = "am"
+    )
+#> # Source:   table<`sparklyr_tmp_table_f2ddbd6d`> [2 x 6]
+#> # Database: spark_connection
+#>      am term        estimate std_error statistic p_value
+#>   <dbl> <chr>          <dbl>     <dbl>     <dbl>   <dbl>
+#> 1     0 (Intercept)     8.64      21.5     0.402   0.697
+#> 2     1 (Intercept)  -138.        69.1    -1.99    0.140
+```
+:::
+:::
+:::
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r unit_no`.4
+:::
+
 ## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 The Databricks Spark cluster has R, and Python, packages pre-installed for
