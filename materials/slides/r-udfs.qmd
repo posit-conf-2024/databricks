@@ -166,18 +166,6 @@ We can run R code *inside* Spark! 🎉 🎉
 ![](assets/r-udfs/spark-3.png){.absolute top="400" left="600" width="400"}
 ![](assets/r-udfs/spark-4.png){.absolute top="590" left="600" width="400"}
 
-## [Input/Output of a job]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-
-![](assets/r-udfs/expectations.png){.absolute top="250" left="50" width="1800"}
-
-:::{.columns}
-:::{.column width="12%"}
-:::
-:::{.column width="80%"}
-[Your function should expect, and return, a table]{style="font-size:58px;line-height:1;font-weight:400;color:#666;"}
-:::
-:::
-
 ## [Accessing in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
@@ -231,52 +219,18 @@ Exercise `r unit_no`.1
 
 ## [Custom functions]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
+![](assets/r-udfs/expectations.png){.absolute top="250" left="50" width="1800"}
 
 :::{.columns}
-:::{.column width="42%"}
-
-:::{.incremental1}
-:::: {style="text-align: left; float:left;"}
-[
-You can create a custom R function to send to Spark.<br/><br/>
-For your function, assume that the first argument will be a data frame.<br/><br/>
-Return an R object that can be coerced to a data frame. 
-]{style="color:#666; font-weight:500;font-size:52px;"} 
-
-
-
+:::{.column width="4%"}
+:::
+:::{.column width="95%"}
+[Create custom R functions that expects and outputs tables]{style="font-size:58px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
 
-:::
-:::{.column width="58%"}
-:::{.code-slim-35}
-```r
-tbl_mtcars |> 
-  spark_apply(function(x) {
-    x$new <- x$carb + x$gear
-    x[, c(1,2,12)]
-  })
-#> # Source:   table<`sparklyr_tmp_table_96595391`> [?? x 3]
-#> # Database: spark_connection
-#>      mpg   cyl   new
-#>    <dbl> <dbl> <dbl>
-#>  1  21       6     8
-#>  2  21       6     8
-#>  3  22.8     4     5
-#>  4  21.4     6     4
-#>  5  18.7     8     5
-#>  6  18.1     6     4
-#>  7  14.3     8     7
-#>  8  24.4     4     6
-#>  9  22.8     4     6
-#> 10  19.2     6     8
-#> # ℹ more rows
-```
-:::
-:::
-:::
+![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
+
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
