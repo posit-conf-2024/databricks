@@ -433,3 +433,36 @@ Exercise `r unit_no`.5
 :::{.footer}
 https://spark.posit.co/deployment/databricks-connect-udfs.html
 :::
+
+## [Wrapped Python functions]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
+
+:::{.custom2-thin}
+
+R: 
+
+```r
+spark_apply(tbl, my_fun) 
+```
+
+Python:
+
+```python
+tbl.mapInPandas(r_objects.r(my_fun))
+```
+
+<hr>
+
+R:
+
+```r
+spark_apply(tbl, my_fun, group_by = "col1") 
+```
+
+Python:
+
+```python
+tbl.applyInPandas.group_by(col1).(r_objects.r(my_fun))
+```
+
+<hr>
