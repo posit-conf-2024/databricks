@@ -350,6 +350,21 @@ version of DBR contain [specific versions](https://docs.databricks.com/en/releas
 https://docs.databricks.com/en/release-notes/runtime/15.3.html#installed-r-libraries
 :::
 
+## [Missing packages]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="40%"}
+- Additional packages can be installed 
+- In the Databricks portal, use the `Libraries` tab of the cluster
+- Python packages will install from PyPi
+- R packages will install from CRAN
+:::
+:::{.column width="0%"}
+:::
+:::
+
+![](assets/r-udfs/install.png){.absolute top="140" left="700" width="900"}
+
 ## [Python UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/r-udfs/python-udfs.png){.absolute top="270" left="50" width="1800"}
