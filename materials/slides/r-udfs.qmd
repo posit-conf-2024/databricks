@@ -191,7 +191,7 @@ merged in a single table.
 
 :::
 :::{.column width="58%"}
-:::{.code-slim-35}
+:::{.code-slim-45}
 ```r
 tbl_mtcars <- copy_to(sc, mtcars)
 
@@ -216,30 +216,26 @@ tbl_mtcars |>
 Exercise `r unit_no`.1
 :::
 
-## [Mapping by groups]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## [Group by variable]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
-:::{.columns}
-:::{.column width="42%"}
 
-:::{.incremental1}
-:::: {style="text-align: left; float:left;"}
+:::{.columns}
+:::{.column width="2%"}
+:::
+:::{.column width="95%"}
 [
-Use `group_by` to override the partitions, and use a column as the way to 
-divide the data.
-<br><br>
+Use `group_by` to override the partitions, and divide data by a column
+<br> 
 ]{style="color:#666; font-weight:500;font-size:52px;"} 
 
 :::
 :::
 
-:::
-:::{.column width="58%"}
-:::{.code-slim-35}
-```r
-tbl_mtcars <- copy_to(sc, mtcars)
+:::{.code-slim-45}
 
+```r
 tbl_mtcars |> 
   spark_apply(nrow, group_by = "am")
 #> # Source:   table<`sparklyr_tmp_table_c30d3aba_515f`> [2 x 2]
@@ -250,8 +246,7 @@ tbl_mtcars |>
 #> 2     1    13
 ```
 :::
-:::
-:::
+
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
