@@ -326,10 +326,29 @@ tbl_mtcars |>
 Exercise `r unit_no`.4
 :::
 
-## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## [Dependencies in Databricks]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-The Databricks Spark cluster has R, and Python, packages pre-installed for
-your convenience. The list and versions vary by [DBR version](https://docs.databricks.com/en/release-notes/runtime/15.3.html#installed-r-libraries). 
+[In Databricks, Spark clusters are tied to a Databricks Runtime version. And each
+version of DBR contain [specific versions](https://docs.databricks.com/en/release-notes/runtime/15.3.html#system-environment) of:]{style="color:#666; font-weight:500;font-size:52px;"} 
+
+:::{.columns}
+:::{.column width="40%"}
+:::
+:::{.column width="40%"}
+- Spark
+- Java
+- Scala
+- Python
+- R
+:::
+:::
+
+[A set of Python and R packages are also pre-installed in the cluster.]{style="color:#666; font-weight:500;font-size:52px;"} 
+
+
+:::{.footer}
+https://docs.databricks.com/en/release-notes/runtime/15.3.html#installed-r-libraries
+:::
 
 ## [Python UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
