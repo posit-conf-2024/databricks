@@ -162,9 +162,13 @@ We can run R code *inside* Spark! 🎉 🎉
 :::
 :::
 
+![](assets/r-udfs/spark-5.png){.absolute top="190" left="575" width="450" height="620"}
+
 ![](assets/r-udfs/spark-2.png){.absolute top="210" left="600" width="400"}
 ![](assets/r-udfs/spark-3.png){.absolute top="400" left="600" width="400"}
 ![](assets/r-udfs/spark-4.png){.absolute top="590" left="600" width="400"}
+
+
 
 ## [Accessing in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
