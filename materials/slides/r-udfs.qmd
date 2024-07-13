@@ -408,6 +408,41 @@ tbl_mtcars |>
 Exercise `r unit_no`.5
 :::
 
+## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide}
+Solving <br/> R UDFs
+:::
+
+## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide}
+Solving <br/> R UDFs
+:::
+:::{.content-slide-thin}
+It wasn't easy...
+:::
+
+
+## [Problem]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+[
+<br/><br/><br/>
+Spark Connect does not support R UDFs natively
+]{style="font-size:77px;line-height:0.5;font-weight:600;color:#579297;"}
+
+## [Problem]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+[
+<br/><br/><br/>
+Spark Connect does not support R UDFs natively
+]{style="font-size:77px;line-height:0.5;font-weight:600;color:#579297;"}
+
+[
+<br/>
+(Databricks Connect v2, is based on Spark Connect)
+]{style="font-size:73px;line-height:0.5;font-weight:200;color:#999;"}
+
 ## [Python UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/r-udfs/python-udfs.png){.absolute top="270" left="50" width="1800"}
@@ -416,7 +451,7 @@ Exercise `r unit_no`.5
 :::{.column width="7%"}
 :::
 :::{.column width="91%"}
-[Python code is packaged and sent to Databricks which runs it]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+[]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
 :::
 :::
 
