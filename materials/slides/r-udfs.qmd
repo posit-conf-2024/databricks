@@ -443,15 +443,16 @@ Spark Connect does not support R UDFs natively
 (Databricks Connect v2, is based on Spark Connect)
 ]{style="font-size:73px;line-height:0.5;font-weight:200;color:#999;"}
 
-## [Python UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## [In Python]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/r-udfs/python-udfs.png){.absolute top="270" left="50" width="1800"}
 
 :::{.columns}
-:::{.column width="7%"}
+:::{.column width="0%"}
 :::
-:::{.column width="91%"}
-[]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+:::{.column width="100%"}
+[Code sent through gRPC, code runs in remote Python environment through Spark
+]{style="font-size:46px;line-height:1;font-weight:400;color:#666;"}
 :::
 :::
 
