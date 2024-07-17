@@ -16,7 +16,7 @@ library(dbplyr)
 
 *Try out the finalized Shiny app*
 
-1. Open the *unit-06-app.R* file
+1. Open the *example-app.R* file
 
 ## Catch up {.unnumbered}
 
