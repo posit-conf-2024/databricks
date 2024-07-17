@@ -1,30 +1,16 @@
 ---
-format: 
-  revealjs:
-    width: 1600
-    height: 920
-    max-scale: 1
-    min-scale: 1
-    smaller: true
-    transition: fade
-    background-transition: fade
-    theme: theme.scss
-    code-line-numbers: false
-    menu: true
-    code-block-height: 640px
-    slide-number: true
 engine: knitr
 ---
 
 ```{r}
 #| include: false
-unit_no <- 3
+if(!("no_exploring" %in% ls())) no_exploring <- 1
 ```
 
 # {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
-Unit `r unit_no`
+Unit `r no_exploring`
 :::
 
 :::{.content-slide}
@@ -55,7 +41,7 @@ Using `select()` with these functions make variable selection easy:
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.1
+Exercise `r no_exploring`.1
 :::
 
 ## [Joining tables]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -86,7 +72,7 @@ Exercise `r unit_no`.1
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.2
+Exercise `r no_exploring`.2
 :::
 
 
@@ -113,7 +99,7 @@ prep_orders <- orders |>
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.3
+Exercise `r no_exploring`.3
 :::
 
 ## [Exploring data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -142,6 +128,6 @@ prep_orders |>
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.4
+Exercise `r no_exploring`.4
 :::
 

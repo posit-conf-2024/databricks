@@ -16,6 +16,13 @@ format:
 engine: knitr
 ---
 
+```{r}
+#| include: false
+no_connecting <- 1
+no_remote <- 2
+no_exploring <- 3
+```
+
 {{< include units/intro.qmd >}}
 {{< include units/connecting.qmd >}}
 {{< include units/remote-processing.qmd >}}

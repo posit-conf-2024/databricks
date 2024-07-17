@@ -4,14 +4,15 @@ engine: knitr
 
 ```{r}
 #| include: false
-unit_no <- 1
+if(!("no_connecting" %in% ls())) no_connecting <- 1
 ```
+
 
 
 # {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
-Unit `r unit_no`
+Unit `r no_connecting`
 :::
 
 :::{.content-slide}
@@ -55,7 +56,7 @@ Explore the catalogs, schema and tables
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercises `r unit_no`.1 - `r unit_no`.2
+Exercises `r no_connecting`.1 - `r no_connecting`.2
 :::
 
 ## [How everything connects]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -133,7 +134,7 @@ https://solutions.posit.co/connections/db/databases/databricks/#using-the-new-od
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercises `r unit_no`.3 - `r unit_no`.4
+Exercises `r no_connecting`.3 - `r no_connecting`.4
 :::
 
 
@@ -158,7 +159,7 @@ Exercises `r unit_no`.3 - `r unit_no`.4
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.5
+Exercise `r no_connecting`.5
 :::
 
 ## [How everything connects (Revisited)]{style="color:#666;"}   {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -189,5 +190,5 @@ RStudio SQL script
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.6 - `r unit_no`.7
+Exercise `r no_connecting`.6 - `r no_connecting`.7
 :::

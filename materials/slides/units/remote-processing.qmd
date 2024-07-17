@@ -4,13 +4,13 @@ engine: knitr
 
 ```{r}
 #| include: false
-unit_no <- 2
+if(!("no_remote" %in% ls())) no_remote <- 1
 ```
 
 # {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
-Unit `r unit_no`
+Unit `r no_remote`
 :::
 
 :::{.content-slide}
@@ -170,7 +170,7 @@ FROM 'diamonds'<br/>
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercises `r unit_no`.1 - `r unit_no`.2
+Exercises `r no_remote`.1 - `r no_remote`.2
 :::
 
 ## [PSA]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -249,7 +249,7 @@ tbl_cars [#Print is implied]{style="color:#aaa"} <br/>
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.3
+Exercise `r no_remote`.3
 :::
 
 ## [Databricks Unity Catalog (UC)]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -362,5 +362,5 @@ https://www.tidyverse.org/blog/2024/04/dbplyr-2-5-0/#referring-to-tables-in-a-sc
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.4
+Exercise `r no_remote`.4
 :::
