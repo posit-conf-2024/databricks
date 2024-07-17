@@ -4,13 +4,13 @@ engine: knitr
 
 ```{r}
 #| include: false
-unit_no <- 7
+if(!("no_modeling" %in% ls())) no_modeling <- 1
 ```
 
 # {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
-Unit `r unit_no`
+Unit `r no_modeling`
 :::
 
 :::{.content-slide}
@@ -54,7 +54,7 @@ local_df <- remote_df |>  <br/>
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.1
+Exercise `r no_modeling`.1
 :::
 
 ## [2. Train - Ideally, *tidymodels*]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -89,7 +89,7 @@ model <- fit(my_wkf, local_df)
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.2
+Exercise `r no_modeling`.2
 :::
 
 ## [3. Publish - Package with *vetiver*]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -126,7 +126,7 @@ saveRDS(m, "model.rds") <br/>
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.3
+Exercise `r no_modeling`.3
 :::
 
 ## [3. Publish - Transfer model file]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -189,7 +189,7 @@ my_function(local_df)
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.4
+Exercise `r no_modeling`.4
 :::
 
 ## [4. Predict - Switch to published model]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -260,7 +260,7 @@ pred_df <- remote_df |>
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.5
+Exercise `r no_modeling`.5
 :::
 
 ## [4. Predict]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}

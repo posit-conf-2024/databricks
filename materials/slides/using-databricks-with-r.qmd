@@ -21,6 +21,10 @@ engine: knitr
 no_connecting <- 1
 no_remote <- 2
 no_exploring <- 3
+no_visualizations <- 4
+no_databricks <- 5
+no_udfs <- 6
+no_modeling <- 7
 ```
 
 {{< include units/intro.qmd >}}

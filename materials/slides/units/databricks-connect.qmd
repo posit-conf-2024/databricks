@@ -4,13 +4,13 @@ engine: knitr
 
 ```{r}
 #| include: false
-unit_no <- 5
+if(!("no_databricks" %in% ls())) no_databricks <- 1
 ```
 
 # {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
-Unit `r unit_no`
+Unit `r no_databricks`
 :::
 
 :::{.content-slide}
@@ -188,5 +188,5 @@ sc <- spark_connect(
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.1
+Exercise `r no_databricks`.1
 :::

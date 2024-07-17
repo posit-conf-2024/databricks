@@ -4,13 +4,13 @@ engine: knitr
 
 ```{r}
 #| include: false
-unit_no <- 4
+if(!("no_visualizations" %in% ls())) no_visualizations <- 1
 ```
 
 # {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
-Unit `r unit_no`
+Unit `r no_visualizations`
 :::
 
 :::{.content-slide}
@@ -127,7 +127,7 @@ nation |>
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.1
+Exercise `r no_visualizations`.1
 :::
 
 ## [The truth about ggplot2]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -213,5 +213,5 @@ sales_by_year |>
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercises `r unit_no`.2 - `r unit_no`.4
+Exercises `r no_visualizations`.2 - `r no_visualizations`.4
 :::
