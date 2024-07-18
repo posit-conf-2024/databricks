@@ -25,6 +25,7 @@ no_visualizations <- 4
 no_databricks <- 5
 no_udfs <- 6
 no_modeling <- 7
+no_dashboards <- 8
 ```
 
 {{< include units/intro.qmd >}}

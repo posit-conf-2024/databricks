@@ -4,13 +4,13 @@ engine: knitr
 
 ```{r}
 #| include: false
-unit_no <- 8
+if(!("no_dashboards" %in% ls())) no_dashboards <- 1
 ```
 
 # {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
 :::{.content-slide-title}
-Unit `r unit_no`
+Unit `r no_dashboards`
 :::
 
 :::{.content-slide}
@@ -72,7 +72,7 @@ Dashboards
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.1
+Exercise `r no_dashboards`.1
 :::
 
 ## {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -99,7 +99,7 @@ When options in the data change regularly
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.2
+Exercise `r no_dashboards`.2
 :::
 
 ## [Adding the plot]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -232,7 +232,7 @@ sales_by_year |>
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.3
+Exercise `r no_dashboards`.3
 :::
 
 ## {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -396,7 +396,7 @@ Exercise `r unit_no`.3
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r unit_no`.4
+Exercise `r no_dashboards`.4
 :::
 
 ## {background-image="assets/background/thank-you.svg" background-size="1700px" background-color="#2a7070"} {visibility="hidden"}
