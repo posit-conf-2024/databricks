@@ -9,8 +9,10 @@ book:
     - remote-processing.qmd
     - preparing-exploring.qmd
     - visualizations.qmd
-    - dashboards.qmd
+    - databricks.qmd
+    - r-udfs.qmd
     - r-udfs-modeling.qmd
+    - dashboards.qmd
 format:
   html:
     toc: true

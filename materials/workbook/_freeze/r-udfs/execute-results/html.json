@@ -1,0 +1,15 @@
+{
+  "hash": "7e8a5446b438dbb7956350656afac0d3",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Intro to R UDFs\"\nexecute: \n  eval: true\n  freeze: true\n  warning: false\n---\n\n\n\n\n\n\n## Catch up {.unnumbered}\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(sparklyr)\nlibrary(dplyr)\nsc <- spark_connect(method = \"databricks_connect\")\n```\n:::\n\n\n\n\n## Simple operations\n*Trying out very simple operation to become familiar with the process*\n\n1. Use `copy_to()` to send `mtcars` to the cluster. Load it to a variable called\n`tbl_mtcars`\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\ntbl_mtcars <- copy_to(sc, mtcars)\n```\n:::\n\n\n\n\n2. Pipe `tbl_mtcars` to `spark_apply()`. Use `nrow` as the function to run\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\ntbl_mtcars |> \n  spark_apply(nrow)\n#> # Source:   table<`sparklyr_tmp_table_2dbf58f9_b1d0_4b25_bbf4_235612ce1024`> [4 x 1]\n#> # Database: spark_connection\n#>       x\n#>   <dbl>\n#> 1     8\n#> 2     8\n#> 3     8\n#> 4     8\n```\n:::\n\n\n\n\n3. Switch the function to use in `spark_apply()` to `dim`. Notice how it\nreturns more rows, because coercing the size 2 vector creates a 2 row data frame\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\ntbl_mtcars |> \n  spark_apply(dim)\n#> # Source:   table<`sparklyr_tmp_table_85a05d26_03f3_47cd_b8fa_76dd75209f20`> [8 x 1]\n#> # Database: spark_connection\n#>       x\n#>   <dbl>\n#> 1     8\n#> 2    11\n#> 3     8\n#> 4    11\n#> 5     8\n#> 6    11\n#> 7     8\n#> 8    11\n```\n:::\n\n\n\n\n## Custom functions\n*Create simple custom functions to send to Spark*\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\ntbl_mtcars |> \n  spark_apply(function(x) x[x$hp > 250, 1:4])\n#> # Source:   table<`sparklyr_tmp_table_f57098b1_0212_4a61_af76_1a18667e2214`> [2 x 4]\n#> # Database: spark_connection\n#>     mpg   cyl  disp    hp\n#>   <dbl> <dbl> <dbl> <dbl>\n#> 1  15.8     8   351   264\n#> 2  15       8   301   335\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\ntbl_mtcars |> \n  spark_apply(function(x) {\n    x$new <- x$carb + x$gear\n    x[, c(1,2,12)]\n  })\n#> # Source:   table<`sparklyr_tmp_table_40fb08d0_39c9_48e4_94ac_ea9ba88b2e2a`> [?? x 3]\n#> # Database: spark_connection\n#>      mpg   cyl   new\n#>    <dbl> <dbl> <dbl>\n#>  1  21       6     8\n#>  2  21       6     8\n#>  3  22.8     4     5\n#>  4  21.4     6     4\n#>  5  18.7     8     5\n#>  6  18.1     6     4\n#>  7  14.3     8     7\n#>  8  24.4     4     6\n#>  9  22.8     4     6\n#> 10  19.2     6     8\n#> # ℹ more rows\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "hash": "d1e6fbf6964fcbc6f4ef68a0a3cbdf78",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Databricks Connect\"\nexecute: \n  eval: true\n  freeze: true\n  warning: false\n---\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

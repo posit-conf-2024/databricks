@@ -1,0 +1,18 @@
+---
+title: "Databricks Connect"
+execute: 
+  eval: true
+  freeze: true
+  warning: false
+---
+
+```{r, setup}
+#| include: false
+
+library(dplyr)
+library(dbplyr)
+library(sparklyr)
+library(tidymodels)
+library(tidyverse)
+```
+
