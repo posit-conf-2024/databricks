@@ -1,8 +1,8 @@
 ---
 title: "Intro to R UDFs"
 execute: 
-  eval: true
-  freeze: true
+  eval: false
+  freeze: false
   warning: false
 ---
 
@@ -48,6 +48,51 @@ returns more rows, because coercing the size 2 vector creates a 2 row data frame
 tbl_mtcars |> 
   spark_apply(dim)
 ```
+
+## Group by variable
+*Write and run simple grouping commands*
+
+
+1. Go back to using `nrow` again for `spark_apply()`. Remember to 
+pass `columns = "x long"`
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(nrow, columns = "x long")
+```
+
+2. Add the `group_by` argument, with the value of `"am"`. There should be an 
+error. This is because there are 2 variables in the result, instead of one, and
+we defined `x` only in `columns`
+
+```{r}
+#| eval: false
+tbl_mtcars |> 
+  spark_apply(nrow, group_by = "am", columns = "x long")
+```
+
+3. Insert `am long,` at the beginning of `columns`
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(nrow, group_by = "am", columns = "am long, x long")
+```
+4. To see how the name we pass does not have to match the variable name, change
+`am` to `notam` in `columns`
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(nrow, group_by = "am", columns = "notam long, x long")
+```
+
+5. Change the grouping variable to "cyl", make sure to update that in the `columns`
+argument as well
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(nrow, group_by = "cyl", columns = "cyl long, x long")
+```
+
 
 ## Custom functions
 *Create simple custom functions to send to Spark*
