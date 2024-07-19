@@ -120,7 +120,20 @@ tbl_mtcars |>
     )
 ```
 
-4. Add a filter to only display any records with an "mpg" over 25
+4.  Add a filter that returns the highest "mpg". Notice that instead of 1
+record, it returns several. That is because the filter is being
+processed per partition. 
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(
+    function(x) x[x$mpg == max(x$mpg), c("mpg", "cyl", "disp")], 
+    columns = "mpg double, cyl double, disp double"
+    )
+```
+
+
+5. Change the filter to display any records with an "mpg" over 25
 
 ```{r}
 tbl_mtcars |> 
@@ -129,3 +142,5 @@ tbl_mtcars |>
     columns = "mpg double, cyl double, disp double"
     )
 ```
+
+
