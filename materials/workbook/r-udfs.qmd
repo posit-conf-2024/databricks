@@ -97,16 +97,35 @@ tbl_mtcars |>
 ## Custom functions
 *Create simple custom functions to send to Spark*
 
-```{r}
-tbl_mtcars |> 
-  spark_apply(function(x) x[x$hp > 250, 1:4])
-```
+1. In `spark_apply()`, pass `function(x) x` as the function. This will 
+return the entire `mtcars` data set 
 
 ```{r}
 tbl_mtcars |> 
-  spark_apply(function(x) {
-    x$new <- x$carb + x$gear
-    x[, c(1,2,12)]
-  })
+  spark_apply(function(x) x)
+```
+2. Modify the function to return only the "mpg", "cyl", and "disp" variables
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(function(x) x[, c("mpg", "cyl", "disp")])
+```
+3. Add the recommended `columns` spec from 
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(
+    function(x) x[, c("mpg", "cyl", "disp")], 
+    columns = "mpg double, cyl double, disp double"
+    )
 ```
 
+4. Add a filter to only display any records with an "mpg" over 25
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(
+    function(x) x[x$mpg > 25, c("mpg", "cyl", "disp")], 
+    columns = "mpg double, cyl double, disp double"
+    )
+```
