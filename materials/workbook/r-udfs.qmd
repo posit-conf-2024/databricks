@@ -1,9 +1,9 @@
 ---
 title: "Intro to R UDFs"
 execute: 
-  eval: false
-  freeze: false
-  warning: false
+  eval: true
+  freeze: true
+  warning: true
 ---
 
 ```{r, setup}
