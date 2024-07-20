@@ -192,3 +192,46 @@ tbl_mtcars |>
     columns = "mpg double, cyl double, disp double"
     )
 ```
+
+## R packages
+*Simple example that uses an R package*
+
+```{r}
+library(broom)
+```
+
+```{r}
+model_function <- function(x) {
+  model <- lm(mpg ~ ., x)
+  tidy(model)
+}
+```
+
+```{r}
+model_function(mtcars)
+```
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(model_function)
+```
+
+```{r}
+model_function <- function(x) {
+  model <- lm(mpg ~ ., x)
+  broom::tidy(model)
+}
+```
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(model_function)
+```
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(model_function, group_by = "am")
+```
+
+
+
