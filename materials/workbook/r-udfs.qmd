@@ -196,9 +196,17 @@ tbl_mtcars |>
 ## R packages
 *Simple example that uses an R package*
 
+1. Load the `broom` package into your R session
+
 ```{r}
 library(broom)
 ```
+
+2. Create a function that, creates an `lm` model against the one, and only, 
+argument passed to the function. Then use `tidy()` to return the results of the
+model as a data frame. The `lm()` call should assume that the data will always have
+the same columns as `mtcars`, and it will create a linear model of the "mpg" against
+all the other variables. Name it `model_function`
 
 ```{r}
 model_function <- function(x) {
@@ -207,14 +215,22 @@ model_function <- function(x) {
 }
 ```
 
+3. Test `model_function` by passing `mtcars` to it
+
 ```{r}
 model_function(mtcars)
 ```
+
+4. Pass `model_function` to `spark_apply()`, against `tbl_mtcars`. The call should
+fail, because `broom` is not explicitly referred to in `model_function`
 
 ```{r}
 tbl_mtcars |> 
   spark_apply(model_function)
 ```
+
+5. Modify `model_function` by either adding a `library()` call, or using `::`
+to explicitly refer to `broom` inside it
 
 ```{r}
 model_function <- function(x) {
@@ -223,10 +239,14 @@ model_function <- function(x) {
 }
 ```
 
+6. Test `model_function` again against `tbl_mtcars`
+
 ```{r}
 tbl_mtcars |> 
   spark_apply(model_function)
 ```
+
+7. Add a `group_by` argument, use "am" as the grouping variable
 
 ```{r}
 tbl_mtcars |> 
