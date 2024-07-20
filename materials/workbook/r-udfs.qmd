@@ -110,6 +110,7 @@ tbl_mtcars |>
 tbl_mtcars |> 
   spark_apply(function(x) x[, c("mpg", "cyl", "disp")])
 ```
+
 3. Add the recommended `columns` spec from 
 
 ```{r}
@@ -120,25 +121,59 @@ tbl_mtcars |>
     )
 ```
 
-4.  Add a filter that returns the highest "mpg". Notice that instead of 1
+4. Make your custom function into a 'multi-line' function
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(
+    function(x){ 
+      x[, c("mpg", "cyl", "disp")]
+      }, 
+    columns = "mpg double, cyl double, disp double"
+    )
+```
+
+5. Assign the data selection step to a variable called `out`, and then use it as 
+the output of the function
+
+```{r}
+tbl_mtcars |> 
+  spark_apply(
+    function(x){ 
+      out <- x[, c("mpg", "cyl", "disp")]
+      out
+      }, 
+    columns = "mpg double, cyl double, disp double"
+    )
+```
+
+6. Add a filter step that returns the highest "mpg". Notice that instead of 1
 record, it returns several. That is because the filter is being
 processed per partition. 
 
 ```{r}
 tbl_mtcars |> 
   spark_apply(
-    function(x) x[x$mpg == max(x$mpg), c("mpg", "cyl", "disp")], 
+    function(x){ 
+      out <- x[, c("mpg", "cyl", "disp")]
+      out <- out[out$mpg == max(out$mpg), ]
+      out
+      }, 
     columns = "mpg double, cyl double, disp double"
     )
 ```
 
 
-5. Change the filter to display any records with an "mpg" over 25
+7. Change the filter to display any records with an "mpg" over 25
 
 ```{r}
 tbl_mtcars |> 
   spark_apply(
-    function(x) x[x$mpg > 25, c("mpg", "cyl", "disp")], 
+    function(x){ 
+      out <- x[, c("mpg", "cyl", "disp")]
+      out <- out[out$mpg > 25, ]
+      out
+      }, 
     columns = "mpg double, cyl double, disp double"
     )
 ```
