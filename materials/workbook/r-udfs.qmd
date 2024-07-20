@@ -178,4 +178,17 @@ tbl_mtcars |>
     )
 ```
 
+8. Insert a step that modifies `cyl`. It should make it add 1 to the value. 
 
+```{r}
+tbl_mtcars |> 
+  spark_apply(
+    function(x){ 
+      out <- x[, c("mpg", "cyl", "disp")]
+      out$cyl <- out$cyl + 1
+      out <- out[out$mpg > 25, ]
+      out
+      }, 
+    columns = "mpg double, cyl double, disp double"
+    )
+```
