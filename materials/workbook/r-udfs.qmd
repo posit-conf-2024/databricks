@@ -225,6 +225,7 @@ model_function(mtcars)
 fail, because `broom` is not explicitly referred to in `model_function`
 
 ```{r}
+#| eval: false
 tbl_mtcars |> 
   spark_apply(model_function)
 ```
