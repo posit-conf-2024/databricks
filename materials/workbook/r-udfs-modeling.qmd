@@ -139,15 +139,45 @@ saveRDS(lendingclub_vetiver, "lendingclub.rds")
 ```
 
 ## Create prediction function
-*Creating a self-contained prediction function that will read the model, and 
-then run the predictions*
+*Creating a self-contained prediction function that will read the model, and then run the predictions*
 
-1. Create a function that does the following:
-- It has one argument named `x`, which will take the data frame
-- Load the `workflow` and `vetiver` libraries
-- Reads the "lendingclub.rds" file
-- Runs the predictions
-- Adds the prediction to `x` 
+1. Create a very simple function that takes `x`, and it assumes it will be a 
+data frame. Inside the function, it will read the "lendingclub.rds" file, and
+then use it to predict against `x`. Name the function `predict_vetiver`
+
+```{r}
+predict_vetiver <- function(x) {
+  model <- readRDS("lendingclub.rds")  
+  predict(model, x)
+}
+```
+
+2. Test the `predict_vetiver` function against `lendingclub_prep`
+
+```{r}
+predict_vetiver(lendingclub_prep)
+```
+
+3. Modify the function, so that it will add the predictions back to `x`. The
+new variable should be named `ret_pred`. The function should output the 
+modified `x`
+
+```{r}
+predict_vetiver <- function(x) {
+  model <- readRDS("lendingclub.rds")  
+  preds <- predict(model, x)
+  x$rate_pred <- preds$`.pred`
+  x
+}
+```
+
+4. Test the `predict_vetiver` function against `lendingclub_prep`
+
+```{r}
+predict_vetiver(lendingclub_prep)
+```
+
+5. At the beginning of the function, load the `workflows` and `vetiver` libraries
 
 ```{r}
 predict_vetiver <- function(x) {
@@ -155,12 +185,12 @@ predict_vetiver <- function(x) {
   library(vetiver)
   model <- readRDS("lendingclub.rds")  
   preds <- predict(model, x)
-  x$pred <- preds[,1][[1]]
+  x$rate_pred <- preds$`.pred`
   x
 }
 ```
 
-2. Test the function, use `lendingclub_prep` to confirm it runs as anticipated
+6. Test the `predict_vetiver` function against `lendingclub_prep`
 
 ```{r}
 predict_vetiver(lendingclub_prep)
@@ -183,7 +213,7 @@ predict_vetiver <- function(x) {
     model <- readRDS("/Volumes/workshops/models/vetiver/lendingclub.rds")
   }
   preds <- predict(model, x)
-  x$pred <- preds[,1][[1]]
+  x$rate_pred <- preds$`.pred`
   x
 }
 ```
