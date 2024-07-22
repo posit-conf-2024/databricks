@@ -24,7 +24,6 @@ con <- dbConnect(
   HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e"
 )
 
-tbl_diamonds <- tbl(con, "diamonds")
 ```
 
 ## Selecting variables
