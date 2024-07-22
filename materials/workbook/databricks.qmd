@@ -16,3 +16,34 @@ library(tidymodels)
 library(tidyverse)
 ```
 
+```{r}
+library(sparklyr)
+library(dplyr)
+sc <- spark_connect(method = "databricks_connect")
+```
+
+```{r}
+flights_mapped <- spark_read_csv(sc, "mapped", "/Volumes/workshops/nycflights/2013", memory = FALSE)
+```
+
+```{r}
+flights_mapped |> 
+  glimpse()
+```
+
+
+```{r}
+tbl_flights <- spark_read_csv(sc, "cached", "/Volumes/workshops/nycflights/2013", repartition = 4)
+```
+
+```{r}
+sub_flights <- flights_mapeed |> 
+  select(year, month, day) |> 
+  compute()
+```
+
+```{r}
+
+```
+
+
