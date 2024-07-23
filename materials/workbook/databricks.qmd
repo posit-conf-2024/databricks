@@ -23,27 +23,49 @@ sc <- spark_connect(method = "databricks_connect")
 ```
 
 ```{r}
-flights_mapped <- spark_read_csv(sc, "mapped", "/Volumes/workshops/nycflights/2013", memory = FALSE)
+flights_mapped <- spark_read_csv(
+  sc = sc,
+  name = "mapped",
+  path = "/Volumes/workshops/nycflights/2013",
+  memory = FALSE
+  )
 ```
 
 ```{r}
 flights_mapped |> 
   glimpse()
 ```
-
-
 ```{r}
-tbl_flights <- spark_read_csv(sc, "cached", "/Volumes/workshops/nycflights/2013", repartition = 4)
+flights_mapped |> 
+  count(carrier)
 ```
 
 ```{r}
-sub_flights <- flights_mapeed |> 
+sdf_sql(sc, "select * from mapped limit 10")
+```
+
+```{r}
+tbl_flights <- spark_read_csv(
+  sc = sc, 
+  name = "cached", 
+  path = "/Volumes/workshops/nycflights/2013"
+  )
+```
+
+```{r}
+sdf_sql(sc, "select * from cached limit 10")
+```
+
+```{r}
+sub_flights <- tbl_flights |> 
   select(year, month, day) |> 
   compute()
 ```
 
 ```{r}
-
+sub_flights
 ```
+
+
 
 
