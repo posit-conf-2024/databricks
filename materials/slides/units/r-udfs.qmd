@@ -394,19 +394,37 @@ tbl_mtcars |>
 Exercise `r no_udfs`.5
 :::
 
-## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
+## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#2a7070"}
 
+:::{.columns}
+:::{.column width="15%"}
+:::
+:::{.column width="70%"}
 :::{.content-slide}
-Solving <br/> R UDFs
+<br/><br/>
+Solving for R UDFs
+:::
+:::
 :::
 
-## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
-:::{.content-slide}
-Solving <br/> R UDFs
+
+## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#2a7070"}
+
+:::{.columns}
+:::{.column width="15%"}
 :::
+:::{.column width="70%"}
+:::{.content-slide}
+<br/><br/>
+Solving for R UDFs
+
 :::{.content-slide-thin}
 It wasn't easy...
+:::
+
+:::
+:::
 :::
 
 
