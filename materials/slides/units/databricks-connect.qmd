@@ -189,3 +189,16 @@ sc <- spark_connect(
 :::{.green-slide}
 Exercise `r no_databricks`.1
 :::
+
+## [Data processing]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="20%"}
+:::
+:::{.column width="70%"}
+[Data is read and processed. Results go to R.]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+:::
+:::
+
+![](assets/databricks-connect/warehouse-r.png){.absolute top="200" left="220" width="1100"}
+
