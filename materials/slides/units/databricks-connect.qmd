@@ -203,6 +203,26 @@ Exercise `r no_databricks`.1
 :::
 :::
 
+## [Spark's data capabilities]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="50%"}
+:::{.custom2}
+:::{.incremental2}
+- Spark has the ability to cache large amounts of data
+- Amount of data is limited by the size of the cluster
+- Data in cache is the fastest way to access data in Spark
+:::
+:::
+:::
+:::{.column width="50%"}
+![](assets/databricks-connect/spark-data-2.png)
+:::
+:::
+
+
+
+
 ## [Default approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
