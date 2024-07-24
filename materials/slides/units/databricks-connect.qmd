@@ -202,3 +202,27 @@ Exercise `r no_databricks`.1
 
 ![](assets/databricks-connect/warehouse-r.png){.absolute top="200" left="220" width="1100"}
 
+## [Caching data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="12%"}
+:::
+:::{.column width="80%"}
+[2 step process. first, cache all or some data in memory]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+:::
+:::
+
+![](assets/databricks-connect/warehouse-ram.png){.absolute top="200" left="220" width="1100"}
+
+
+## [Caching data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="15%"}
+:::
+:::{.column width="80%"}
+[Second, read and process from memory. *Much faster*]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+:::
+:::
+
+![](assets/databricks-connect/ram-r.png){.absolute top="200" left="220" width="1100"}
