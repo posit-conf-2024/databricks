@@ -220,9 +220,6 @@ Exercise `r no_databricks`.1
 :::
 :::
 
-
-
-
 ## [Default approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
@@ -234,6 +231,16 @@ Exercise `r no_databricks`.1
 :::
 
 ![](assets/databricks-connect/warehouse-r.png){.absolute top="200" left="220" width="1100"}
+
+## [About this approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+:::{.incremental1}
+- [Well suited when exploring the entirety of the data. Usually to find relevant variables]{style="font-size:75px;"}
+- [Not efficient when accessing the same fields and rows over and over]{style="font-size:75px;"}
+
+:::
+:::
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
@@ -264,6 +271,17 @@ Exercise `r no_databricks`.2
 :::
 
 ![](assets/databricks-connect/ram-r.png){.absolute top="200" left="220" width="1100"}
+
+## [About this approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+:::{.incremental1}
+- [Well suited when accessing the same fields and rows over and over]{style="font-size:75px;"}
+- [Best when running models and UDFs *(More about this later)*]{style="font-size:75px;"}
+
+:::
+:::
+
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
