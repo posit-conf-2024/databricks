@@ -250,3 +250,27 @@ Exercise `r no_databricks`.1
 
 ![](assets/databricks-connect/ram-r.png){.absolute top="200" left="220" width="1100"}
 
+## ["Mapping" files]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="15%"}
+:::
+:::{.column width="85%"}
+[The files can be mapped but not imported to memory]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+:::
+:::
+
+![](assets/databricks-connect/files-map.png){.absolute top="200" left="220" width="1100"}
+
+## ["Mapping" files]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="20%"}
+:::
+:::{.column width="80%"}
+[Data is read and processed. Results sent to R.]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+:::
+:::
+
+![](assets/databricks-connect/files-r.png){.absolute top="200" left="220" width="1100"}
+
