@@ -116,14 +116,24 @@ Special work we have done as part of the new partnership
 
 ![](assets/posit-databricks.png){.absolute top="300" left="380"}
 
-## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
+## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#2a7070"}
 
+<br/><br/><br/><br/><br/>
+
+:::{.columns}
+:::{.column width="4%"}
+:::
+:::{.column width="95%"}
 :::{.content-slide}
-"Embrace <br/> the <br/> remoteness" 
+["Embrace the remoteness"]{style="font-size:130px; line-height: 0.5;"}
 :::
 :::{.content-slide-thin}
-[Martin Grund, *Databricks*]{style="font-size:70px;"}
+[Martin Grund, *Databricks*]{style="font-size:70px; line-height: 0.5;"}
 :::
+:::
+:::
+
+
 
 ## {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
