@@ -183,14 +183,27 @@ sc <- spark_connect(
 :::
 :::
 
-
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
 Exercise `r no_databricks`.1
 :::
 
-## [Data processing]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#2a7070"}
+
+<br/><br/><br/><br/><br/>
+
+:::{.columns}
+:::{.column width="10%"}
+:::
+:::{.column width="90%"}
+:::{.content-slide}
+[Understanding Spark's data caching]{style="font-size:130px; line-height: 0.5;"}
+:::
+:::
+:::
+
+## [Default approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
 :::{.column width="20%"}
@@ -201,6 +214,12 @@ Exercise `r no_databricks`.1
 :::
 
 ![](assets/databricks-connect/warehouse-r.png){.absolute top="200" left="220" width="1100"}
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r no_databricks`.2
+:::
 
 ## [Caching data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -226,6 +245,12 @@ Exercise `r no_databricks`.1
 
 ![](assets/databricks-connect/ram-r.png){.absolute top="200" left="220" width="1100"}
 
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r no_databricks`.3
+:::
+
 ## [Reading files]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
@@ -250,6 +275,12 @@ Exercise `r no_databricks`.1
 
 ![](assets/databricks-connect/ram-r.png){.absolute top="200" left="220" width="1100"}
 
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r no_databricks`.4
+:::
+
 ## ["Mapping" files]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
@@ -273,6 +304,12 @@ Exercise `r no_databricks`.1
 :::
 
 ![](assets/databricks-connect/files-r.png){.absolute top="200" left="220" width="1100"}
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r no_databricks`.1
+:::
 
 ## [Partial cache]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
