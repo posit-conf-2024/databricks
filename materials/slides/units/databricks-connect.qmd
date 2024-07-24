@@ -182,7 +182,6 @@ sc <- spark_connect(
 :::
 :::
 :::
-:::
 
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
