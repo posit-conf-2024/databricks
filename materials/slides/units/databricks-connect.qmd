@@ -392,7 +392,6 @@ Exercise `r no_databricks`.6
 :::
 :::
 
-
 ## [Uploading data from R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
@@ -404,3 +403,16 @@ Exercise `r no_databricks`.6
 :::
 
 ![](assets/databricks-connect/r-ram.png){.absolute top="200" left="220" width="1100"}
+
+## [End game]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="2%"}
+:::
+:::{.column width="98%"}
+[Combine the data from any approach. Cache the resulting table]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+:::
+:::
+
+![](assets/databricks-connect/my-data-set.png){.absolute top="250" left="100" width="1300"}
+
