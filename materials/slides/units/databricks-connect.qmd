@@ -417,3 +417,8 @@ Exercise `r no_databricks`.6
 
 ![](assets/databricks-connect/my-data-set.png){.absolute top="250" left="100" width="1300"}
 
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r no_databricks`.7
+:::
