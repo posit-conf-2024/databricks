@@ -311,6 +311,7 @@ Exercise `r no_databricks`.3
 :::
 :::
 
+
 ![](assets/databricks-connect/ram-r.png){.absolute top="200" left="220" width="1100"}
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
@@ -346,7 +347,7 @@ Exercise `r no_databricks`.4
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r no_databricks`.1
+Exercise `r no_databricks`.5
 :::
 
 ## [Partial cache]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -372,3 +373,21 @@ Exercise `r no_databricks`.1
 :::
 
 ![](assets/databricks-connect/ram-r.png){.absolute top="200" left="220" width="1100"}
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r no_databricks`.6
+:::
+
+## [Very large files, read or map]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+:::{.incremental1}
+- [Reading, you "pay" in time at the beginning]{style="font-size:65px;"}
+- [Mapping, you "pay" in time as you access the data]{style="font-size:65px;"}
+- [Extended EDA, reading would be better]{style="font-size:65px;"}
+- [EDA of targeted data (specific days or variables), partial caching would be better]{style="font-size:65px;"}
+- [Jobs that pull a predetermined set of data, mapping would be better]{style="font-size:65px;"}
+:::
+:::
