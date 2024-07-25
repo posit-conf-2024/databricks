@@ -1,8 +1,8 @@
 ---
 title: "Databricks Connect"
 execute: 
-  eval: true
-  freeze: true
+  eval: false
+  freeze: false
   warning: false
 ---
 
@@ -16,6 +16,8 @@ library(tidymodels)
 library(tidyverse)
 ```
 
+## Connect to Databricks Connect cluster
+
 
 ```{r}
 library(sparklyr)
@@ -23,11 +25,74 @@ library(dplyr)
 sc <- spark_connect(method = "databricks_connect")
 ```
 
+## Uploading data from R
+
+```{r}
+library(nycflights13)
+```
+
+```{r}
+tbl_planes <- copy_to(sc, planes)
+```
+
+```{r}
+tbl_planes |> 
+  glimpse()
+```
+
+```{r}
+tbl_planes |> 
+  show_query()
+```
+
+## Caching data
+
+```{r}
+tbl_diamonds <- tbl(sc, "diamonds")
+```
+
+```{r}
+tbl_temp <- tbl_diamonds |> 
+  select(cut, color, clarity, price) |> 
+  compute()
+```
+
+```{r}
+tbl_temp
+```
+
+```{r}
+tbl_temp |> 
+  show_query()
+```
+
+## Reading files
+
+```{r}
+tbl_airports <- spark_read_csv(
+  sc = sc,
+  name = "airports_csv",
+  path = "/Volumes/workshops/nycflights/2013/airports.csv"
+  )
+```
+
+```{r}
+tbl_airports
+```
+
+```{r}
+tbl_airports |> 
+  show_query()
+```
+
+## "Mapping" files
+
+
 ```{r}
 flights_mapped <- spark_read_csv(
   sc = sc,
   name = "mapped",
-  path = "/Volumes/workshops/nycflights/2013",
+  path = "/Volumes/workshops/nycflights/2013/nycflights.csv",
   memory = FALSE
   )
 ```
@@ -36,6 +101,7 @@ flights_mapped <- spark_read_csv(
 flights_mapped |> 
   glimpse()
 ```
+
 ```{r}
 flights_mapped |> 
   count(carrier)
@@ -45,28 +111,27 @@ flights_mapped |>
 sdf_sql(sc, "select * from mapped limit 10")
 ```
 
-```{r}
-tbl_flights <- spark_read_csv(
-  sc = sc, 
-  name = "cached", 
-  path = "/Volumes/workshops/nycflights/2013"
-  )
-```
+## Partial cache
 
 ```{r}
-sdf_sql(sc, "select * from cached limit 10")
-```
-
-```{r}
-sub_flights <- tbl_flights |> 
-  select(year, month, day) |> 
+flights_ord <- flights_mapped |> 
+  filter(dest == "ORD") |> 
   compute()
 ```
 
 ```{r}
-sub_flights
+flights_ord
 ```
 
 
+```{r}
+flights_ord |> 
+  show_query()
+```
 
+## End game
+
+```{r}
+flights_mapped
+```
 
