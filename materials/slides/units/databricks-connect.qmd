@@ -391,3 +391,16 @@ Exercise `r no_databricks`.6
 - [Jobs that pull a predetermined set of data, mapping would be better]{style="font-size:65px;"}
 :::
 :::
+
+
+## [Uploading data from R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="2%"}
+:::
+:::{.column width="98%"}
+[`copy_to()` to upload data to Spark. Use for "enrichment" purposes]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
+:::
+:::
+
+![](assets/databricks-connect/r-ram.png){.absolute top="200" left="220" width="1100"}
