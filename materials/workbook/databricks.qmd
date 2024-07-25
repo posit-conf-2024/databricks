@@ -1,8 +1,8 @@
 ---
 title: "Databricks Connect"
 execute: 
-  eval: false
-  freeze: false
+  eval: true
+  freeze: true
   warning: false
 ---
 
@@ -132,6 +132,9 @@ flights_ord |>
 ## End game
 
 ```{r}
-flights_mapped
+flights_mapped |> 
+  select(tailnum, dest, origin, distance) |> 
+  head() |> 
+  left_join(tbl_planes, by = "tailnum")
 ```
 
