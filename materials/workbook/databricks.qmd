@@ -115,7 +115,7 @@ sdf_sql(sc, "select * from mapped limit 10")
 
 ```{r}
 flights_ord <- flights_mapped |> 
-  filter(dest == "ORD") |> 
+  filter(dest == "ORD") |>  
   compute()
 ```
 
@@ -132,9 +132,72 @@ flights_ord |>
 ## End game
 
 ```{r}
-flights_mapped |> 
-  select(tailnum, dest, origin, distance) |> 
-  head() |> 
-  left_join(tbl_planes, by = "tailnum")
+flights_select <- flights_mapped |> 
+  select(tailnum, dest, origin, distance) 
 ```
 
+```{r}
+flights_select
+```
+
+```{r}
+dest_airports <- tbl_airports |> 
+  select(dest = faa, dest_name = name)
+```
+
+```{r}
+dest_airports
+```
+
+```{r}
+origin_airports <- tbl_airports |> 
+  select(origin = faa, origin_name = name)
+```
+
+```{r}
+origin_airports
+```
+
+```{r}
+flights_select |> 
+  head() |> 
+  left_join(dest_airports, by = "dest") 
+```
+
+```{r}
+flights_select |> 
+  head() |> 
+  left_join(dest_airports, by = "dest") |> 
+  mutate(dest_name = ifelse(is.na(dest_name), "Unknown", dest_name))
+```
+
+```{r}
+flights_select |> 
+  head() |> 
+  left_join(dest_airports, by = "dest") |> 
+  left_join(origin_airports, by = "origin") |> 
+  left_join(tbl_planes, by = "tailnum") |> 
+  mutate(
+    dest_name = ifelse(is.na(dest_name), "Unknown", dest_name),
+    origin_name = ifelse(is.na(origin_name), "Unknown", origin_name),
+    tailnum = ifelse(is.na(tailnum), "Unknown", tailnum)
+    )
+```
+
+```{r}
+tbl_prep <- flights_select |> 
+  left_join(dest_airports, by = "dest") |> 
+  left_join(origin_airports, by = "origin") |> 
+  left_join(tbl_planes, by = "tailnum") |> 
+  mutate(
+    dest_name = ifelse(is.na(dest_name), "Unknown", dest_name),
+    origin_name = ifelse(is.na(origin_name), "Unknown", origin_name),
+    tailnum = ifelse(is.na(tailnum), "Unknown", tailnum)
+    ) |> 
+  compute()
+```
+
+```{r}
+tbl_prep |> 
+  show_query()
+```
