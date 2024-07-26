@@ -12,8 +12,6 @@ execute:
 library(dplyr)
 library(dbplyr)
 library(sparklyr)
-library(tidymodels)
-library(tidyverse)
 ```
 
 ## Connect to Databricks Connect cluster
@@ -27,18 +25,27 @@ sc <- spark_connect(method = "databricks_connect")
 
 ## Uploading data from R
 
+1. Load the `nycflights13` library
+
 ```{r}
 library(nycflights13)
 ```
+
+2. Use `copy_to()` to upload `planes` to your Spark session. Assign to a variable
+called `tbl_planes`
 
 ```{r}
 tbl_planes <- copy_to(sc, planes)
 ```
 
+3. Use `glimpse()` to preview the data 
+
 ```{r}
 tbl_planes |> 
   glimpse()
 ```
+
+4. Use `show_query()` to see how Spark refers to the data you just uploaded
 
 ```{r}
 tbl_planes |> 
@@ -157,6 +164,12 @@ origin_airports <- tbl_airports |>
 ```{r}
 origin_airports
 ```
+
+```{r}
+flights_select |> 
+  head()
+```
+
 
 ```{r}
 flights_select |> 
