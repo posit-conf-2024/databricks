@@ -330,7 +330,7 @@ Exercise `r no_databricks`.3
 
 :::{.custom2}
 :::{.incremental1}
-- [Read files using the `spark_read...` family of functions]{style="font-size:75px;"}
+- Read files using the `spark_read...` family of functions
 - The file path needs to be relative to your Databricks environment
 - [Databricks Volumes](https://docs.databricks.com/en/sql/language-manual/sql-ref-volumes.html) are ideal for this approach
 :::
