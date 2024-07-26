@@ -1,8 +1,8 @@
 ---
 title: "Databricks Connect"
 execute: 
-  eval: false
-  freeze: false
+  eval: true
+  freeze: true
   warning: false
 ---
 
