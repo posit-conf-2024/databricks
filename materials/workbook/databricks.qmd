@@ -15,7 +15,7 @@ library(sparklyr)
 ```
 
 ## Connect to Databricks Connect cluster
-
+*Copy a simple table into the Spark session*
 
 ```{r}
 library(sparklyr)
@@ -53,24 +53,44 @@ tbl_planes |>
 ```
 
 ## Caching data
+*Create a table from elements of another table*
+
+1. Using `tbl()`, create a reference to the "diamonds" table. Assign it to a
+variable called `tbl_diamonds`
 
 ```{r}
 tbl_diamonds <- tbl(sc, "diamonds")
 ```
 
-```{r}
-tbl_temp <- tbl_diamonds |> 
-  select(cut, color, clarity, price) |> 
-  compute()
-```
+2. Select the "cut", "color", "clarity" and "price" fields from `tbl_diamonds` 
+and assign to a variable called `tbl_temp`
 
 ```{r}
-tbl_temp
+tbl_temp <- tbl_diamonds |> 
+  select(cut, color, clarity, price)
 ```
+
+3. Use `show_query()` to see the underlying query of `tbl_temp`
 
 ```{r}
 tbl_temp |> 
   show_query()
+```
+
+4. Pass `tbl_temp` to `compute()`, and reassign the operation to `tbl_temp`
+
+```{r}
+tbl_temp <- tbl_temp |> 
+  compute()
+```
+
+```{r}
+tbl_temp  |> 
+  show_query()
+```
+
+```{r}
+tbl_temp 
 ```
 
 ## Reading files
