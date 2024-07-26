@@ -192,39 +192,59 @@ flights_ord |>
 ```
 
 ## End game
+*Prepare a working data set using several of the techniques covered in this unit*
 
-```{r}
-flights_select <- flights_mapped |> 
-  select(tailnum, dest, origin, distance) 
-```
-
-```{r}
-flights_select
-```
+1. From `tbl_airports`, select "faa" and "name". Rename the variables to "dest"
+and "dest_name" respectively. Assign it to a variable called `dest_airports`
 
 ```{r}
 dest_airports <- tbl_airports |> 
   select(dest = faa, dest_name = name)
 ```
 
+2. Preview `dest_airports`
+
 ```{r}
 dest_airports
 ```
+
+3. From `tbl_airports`, select "faa" and "name". Rename the variables to "origin"
+and "origin_name" respectively. Assign it to a variable called `origin_airports`
 
 ```{r}
 origin_airports <- tbl_airports |> 
   select(origin = faa, origin_name = name)
 ```
 
+4. Preview `origin_airports`
+
 ```{r}
 origin_airports
 ```
+
+5. Select "tailnum", "dest", "origin", and "distance" from `flights_mapped`. Assign
+it to a variable called `flights_select`
+
+```{r}
+flights_select <- flights_mapped |> 
+  select(tailnum, dest, origin, distance) 
+```
+
+6. Preview `flights_select`
+
+```{r}
+flights_select
+```
+
+7. Pipe `flights_select` into `head()`
 
 ```{r}
 flights_select |> 
   head()
 ```
 
+8. Add a `left_join()` step, after `head()`. Join to the `dest_airports` 
+variable, using "dest" as the joining field
 
 ```{r}
 flights_select |> 
@@ -232,12 +252,18 @@ flights_select |>
   left_join(dest_airports, by = "dest") 
 ```
 
+9. Add another `left_join()` step. Join to the `origin_airports` 
+variable, using "origin" as the joining field
+
 ```{r}
 flights_select |> 
   head() |> 
   left_join(dest_airports, by = "dest") |> 
   left_join(origin_airports, by = "origin") 
 ```
+
+10. Add another `left_join()` step. Join to the `tbl_planes` 
+variable, using "tailnum" as the joining field
 
 ```{r}
 flights_select |> 
@@ -247,6 +273,9 @@ flights_select |>
   left_join(tbl_planes, by = "tailnum")
 ```
 
+11. Add a `mutate()` step. Use `ifelse()` to modify "dest_name". If "dest_name" 
+is NA, then change its value to "Unknown", if not NA, leave alone
+
 ```{r}
 flights_select |> 
   head() |> 
@@ -255,6 +284,10 @@ flights_select |>
   left_join(tbl_planes, by = "tailnum") |> 
   mutate(dest_name = ifelse(is.na(dest_name), "Unknown", dest_name))
 ```
+
+12. Inside the `mutate()` step, add another `ifelse()` to modify "origin_name". 
+If "origin_name" is NA, then change its value to "Unknown", if not NA, leave
+alone
 
 ```{r}
 flights_select |> 
@@ -268,6 +301,9 @@ flights_select |>
     )
 ```
 
+13. Inside the `mutate()` step, add another `ifelse()` to modify "tailnum". 
+If "tailnum" is NA, then change its value to "Unknown", if not NA, leave
+alone
 
 ```{r}
 flights_select |> 
@@ -281,6 +317,8 @@ flights_select |>
     tailnum = ifelse(is.na(tailnum), "Unknown", tailnum)
     )
 ```
+
+14. Add a `show_query()` step to see the resulting query
 
 ```{r}
 flights_select |> 
@@ -296,6 +334,25 @@ flights_select |>
   show_query()
 ```
 
+15. Remove the `head()` step, and run again to see the new query
+
+```{r}
+flights_select |> 
+  head() |> 
+  left_join(dest_airports, by = "dest") |> 
+  left_join(origin_airports, by = "origin") |> 
+  left_join(tbl_planes, by = "tailnum") |> 
+  mutate(
+    dest_name = ifelse(is.na(dest_name), "Unknown", dest_name),
+    origin_name = ifelse(is.na(origin_name), "Unknown", origin_name),
+    tailnum = ifelse(is.na(tailnum), "Unknown", tailnum)
+    ) |> 
+  show_query()
+```
+
+16. Assign to a variable called `tbl_prep`, swap the `show_query()` step with
+`compute()`
+
 ```{r}
 tbl_prep <- flights_select |> 
   left_join(dest_airports, by = "dest") |> 
@@ -308,6 +365,8 @@ tbl_prep <- flights_select |>
     ) |> 
   compute()
 ```
+
+17. Pipe `tbl_prep` to `show_query()` to see the new query
 
 ```{r}
 tbl_prep |> 
