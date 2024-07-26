@@ -1,8 +1,8 @@
 ---
 title: "Databricks Connect"
 execute: 
-  eval: true
-  freeze: true
+  eval: false
+  freeze: false
   warning: false
 ---
 
@@ -84,10 +84,14 @@ tbl_temp <- tbl_temp |>
   compute()
 ```
 
+5. Use `show_query()` again to see the new underlying query of `tbl_temp`
+
 ```{r}
 tbl_temp  |> 
   show_query()
 ```
+
+6. Preview `tbl_temp`
 
 ```{r}
 tbl_temp 
