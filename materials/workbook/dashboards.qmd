@@ -30,9 +30,9 @@ con <- dbConnect(
   HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e"
 )
 
-orders <- tbl(con, I("samples.tpch.orders"))
-customers <- tbl(con, I("samples.tpch.customer"))
-nation <- tbl(con, I("samples.tpch.nation"))
+orders <- tbl(con, I("workshops.tpch.orders"))
+customers <- tbl(con, I("workshops.tpch.customer"))
+nation <- tbl(con, I("workshops.tpch.nation"))
 
 prep_orders <- orders |> 
   left_join(customers, by = c("o_custkey" = "c_custkey")) |> 
