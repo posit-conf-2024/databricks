@@ -156,17 +156,35 @@ flights_mapped |>
 ```
 
 ## Partial cache
+*Cache a section of the flights data into Spark*
+
+1. Filter `flights_mapped` to only show flights destined to Orlando (code "ORD")
+
+```{r}
+flights_mapped |> 
+  filter(dest == "ORD")
+```
+
+2. Assign the previous operation to a variable called `flights_ord`
 
 ```{r}
 flights_ord <- flights_mapped |> 
-  filter(dest == "ORD") |>  
+  filter(dest == "ORD")
+```
+
+3. Pass `flights_ord` to `compute()`, and reassign to `flights_ord`
+
+```{r}
+flights_ord <- flights_ord |> 
   compute()
 ```
+
+4. Preview `flights_ord`
 
 ```{r}
 flights_ord
 ```
-
+5. Pass `flights_ord` to `show_query()` to see the new query
 
 ```{r}
 flights_ord |> 
