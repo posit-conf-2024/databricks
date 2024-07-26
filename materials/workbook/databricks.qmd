@@ -168,8 +168,38 @@ flights_select |>
 flights_select |> 
   head() |> 
   left_join(dest_airports, by = "dest") |> 
+  left_join(origin_airports, by = "origin") 
+```
+
+```{r}
+flights_select |> 
+  head() |> 
+  left_join(dest_airports, by = "dest") |> 
+  left_join(origin_airports, by = "origin") |> 
+  left_join(tbl_planes, by = "tailnum")
+```
+
+```{r}
+flights_select |> 
+  head() |> 
+  left_join(dest_airports, by = "dest") |> 
+  left_join(origin_airports, by = "origin") |> 
+  left_join(tbl_planes, by = "tailnum") |> 
   mutate(dest_name = ifelse(is.na(dest_name), "Unknown", dest_name))
 ```
+
+```{r}
+flights_select |> 
+  head() |> 
+  left_join(dest_airports, by = "dest") |> 
+  left_join(origin_airports, by = "origin") |> 
+  left_join(tbl_planes, by = "tailnum") |> 
+  mutate(
+    dest_name = ifelse(is.na(dest_name), "Unknown", dest_name),
+    origin_name = ifelse(is.na(origin_name), "Unknown", origin_name)
+    )
+```
+
 
 ```{r}
 flights_select |> 
@@ -182,6 +212,20 @@ flights_select |>
     origin_name = ifelse(is.na(origin_name), "Unknown", origin_name),
     tailnum = ifelse(is.na(tailnum), "Unknown", tailnum)
     )
+```
+
+```{r}
+flights_select |> 
+  head() |> 
+  left_join(dest_airports, by = "dest") |> 
+  left_join(origin_airports, by = "origin") |> 
+  left_join(tbl_planes, by = "tailnum") |> 
+  mutate(
+    dest_name = ifelse(is.na(dest_name), "Unknown", dest_name),
+    origin_name = ifelse(is.na(origin_name), "Unknown", origin_name),
+    tailnum = ifelse(is.na(tailnum), "Unknown", tailnum)
+    ) |> 
+  show_query()
 ```
 
 ```{r}
@@ -201,3 +245,5 @@ tbl_prep <- flights_select |>
 tbl_prep |> 
   show_query()
 ```
+
+
