@@ -41,3 +41,27 @@ process_tcph_file(
     "l_receiptdate", "l_shipinstruct", "l_shipmode", "l_comment"
   )
 )
+
+process_tcph_file(
+  x = "orders",
+  col_names = c(
+    "o_orderkey", "o_custkey", "o_orderstatus", "o_totalprice", 
+    "o_orderdate", "order_priority", "o_clerk", "o_shippriority",
+    "o_comment"
+  )
+)
+
+process_tcph_file(
+  x = "nation",
+  col_names = c(
+    "n_nationkey", "n_name", "n_regionkey", "n_comment"
+  )
+)
+
+process_tcph_file(
+  x = "region",
+  col_names = c(
+    "r_regionkey", "r_name", "r_comment"
+  )
+)
+
