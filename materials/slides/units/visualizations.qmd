@@ -115,7 +115,7 @@ prep_orders |>
 <br/>
 
 ```r
-nation <- tbl(con, I("samples.tpch.nation"))
+nation <- tbl(con, I("workshops.tpch.nation"))
 
 nation |> 
   ggplot() +

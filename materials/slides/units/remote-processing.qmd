@@ -329,11 +329,11 @@ x (31740) Table or view not found: ..customer
 [
 **tbl**(<br/>
 [X]{style="color: #fff;"}con, <br/>
-[X]{style="color: #fff;"}"samples.tpch.customer"<br/>
+[X]{style="color: #fff;"}"workshops.tpch.customer"<br/>
 [X]{style="color: #fff;"})<br/>
 ]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px; line-height: 1.1"} 
 [
-x (31740) Table or view not found: ..samples.tpch.<br/>customer
+x (31740) Table or view not found: ..workshops.tpch.<br/>customer
 ]{style="color:#bc544b; font-family:Helvetica Neue; font-weight:400;font-size:35px; line-height: 1.1"} 
 
 ![](assets/remote-processing/uc-customer.png){.absolute top="210" left="820" width="820"}
@@ -349,7 +349,7 @@ Use `I()` to create the correct table reference
 [
 **tbl**(<br/>
 [X]{style="color: #fff;"}con, <br/>
-[X]{style="color: #fff;"}**I**("samples.tpch.customer")<br/>
+[X]{style="color: #fff;"}**I**("workshops.tpch.customer")<br/>
 [X]{style="color: #fff;"})<br/>
 ]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px; line-height: 1.1"} 
 
