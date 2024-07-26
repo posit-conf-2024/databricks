@@ -163,7 +163,7 @@ price <- tbl_diamonds |>
 inside the `samples` catalog
 
 ```{r}
-tbl(con, I("samples.tpch.customer"))
+tbl(con, I("workshops.tpch.customer"))
 ```
 
 2. Create a reference to the `sales_order_in_la` table, under the `ferit` schema
