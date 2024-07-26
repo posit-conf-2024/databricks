@@ -126,7 +126,12 @@ tbl_airports |>
 ```
 
 ## "Mapping" files
+*Map the flights data without caching the data*
 
+1. Use `spark_read_csv()` to upload the airports CSV file to Spark. The `path` 
+should be */Volumes/workshops/nycflights/2013/nycflights.csv*, and `name` should
+be `mapped`. **Important**, make sure to set `memory` to false.
+Assign it to a variable called `flights_mapped`
 
 ```{r}
 flights_mapped <- spark_read_csv(
@@ -137,18 +142,17 @@ flights_mapped <- spark_read_csv(
   )
 ```
 
+2. Use `glimpse()` to preview the data from `flights_mapped`
+
 ```{r}
 flights_mapped |> 
   glimpse()
 ```
+3. Run a quick count by the `carrier` field against `flights_mapped`
 
 ```{r}
 flights_mapped |> 
   count(carrier)
-```
-
-```{r}
-sdf_sql(sc, "select * from mapped limit 10")
 ```
 
 ## Partial cache
