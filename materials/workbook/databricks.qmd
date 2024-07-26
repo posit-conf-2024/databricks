@@ -125,6 +125,13 @@ tbl_airports |>
   show_query()
 ```
 
+4. Use `sdf_sql()` to access the top 10 rows of "airports_csv" 
+
+```{r}
+sdf_sql(sc, "select * from airports_csv limit 10")
+```
+
+
 ## "Mapping" files
 *Map the flights data without caching the data*
 
