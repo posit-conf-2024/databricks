@@ -98,6 +98,11 @@ tbl_temp
 ```
 
 ## Reading files
+*Upload a CSV file that is located inside Databricks, into your Spark session*
+
+1. Use `spark_read_csv()` to upload the airports CSV file to Spark. The `path` 
+should be */Volumes/workshops/nycflights/2013/airports.csv*, and `name` should
+be `airports_csv`. Assign it to a variable called `tbl_airports`
 
 ```{r}
 tbl_airports <- spark_read_csv(
@@ -107,9 +112,13 @@ tbl_airports <- spark_read_csv(
   )
 ```
 
+2. Preview `tbl_airports`
+
 ```{r}
 tbl_airports
 ```
+
+3. Pass `tbl_airports` to `show_query()` to see the underlying query
 
 ```{r}
 tbl_airports |> 
