@@ -32,7 +32,7 @@ con <- dbConnect(
 1. Load the `customer` table to a variable called `customer` 
 
 ```{r}
-customer <- tbl(con, I("samples.tpch.customer"))
+customer <- tbl(con, I("workshops.tpch.customer"))
 ```
 2. Select all columns that end with "key"
 
@@ -62,7 +62,7 @@ customer |>
 1. Load the `nation` table into a variable called the same
 
 ```{r}
-nation <- tbl(con, I("samples.tpch.nation"))
+nation <- tbl(con, I("workshops.tpch.nation"))
 ```
 
 2. Use `left_join` to relate `customer` with `nation` using the nation key 
@@ -87,14 +87,14 @@ customer |>
 1. Load the `orders` table in a variable called `orders`
 
 ```{r}
-orders <- tbl(con, I("samples.tpch.orders"))
+orders <- tbl(con, I("workshops.tpch.orders"))
 ```
 
 2. Join `orders` to the `customer` variable (table). Relate them on the
 `o_custkey` and `c_custkey` fields.
 
 ```{r}
-orders %>% 
+orders |> 
   left_join(customer, by = c("o_custkey" = "c_custkey"))
 ```
 
@@ -102,8 +102,8 @@ orders %>%
 Use the `c_nationkey` and the `n_nationkey` to relate them.
 
 ```{r}
-orders %>% 
-  left_join(customer, by = c("o_custkey" = "c_custkey")) %>% 
+orders |> 
+  left_join(customer, by = c("o_custkey" = "c_custkey")) |> 
   left_join(nation, by = c("c_nationkey" = "n_nationkey"))
 ```
 
@@ -111,8 +111,8 @@ orders %>%
 so to get autocomplete working**
 
 ```{r}
-rel_orders <- orders %>% 
-  left_join(customer, by = c("o_custkey" = "c_custkey")) %>% 
+rel_orders <- orders |> 
+  left_join(customer, by = c("o_custkey" = "c_custkey")) |> 
   left_join(nation, by = c("c_nationkey" = "n_nationkey"))
 ```
 
@@ -120,40 +120,40 @@ rel_orders <- orders %>%
 month of the order date. Name them `order_year` and `order_month` respectively.
 
 ```{r}
-rel_orders %>% 
+rel_orders |> 
   mutate(order_year = year(o_orderdate), order_month = month(o_orderdate))
 ```
 
 6. Remove any columns that end in "comment", and end in "key"
 
 ```{r}
-rel_orders %>% 
-  mutate(order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
+rel_orders |> 
+  mutate(order_year = year(o_orderdate), order_month = month(o_orderdate)) |> 
   select(-ends_with("comment"), -ends_with("key")) 
 ```
 
 7. Rename `o_custkey` to `customer`, insert code before the selection
 
 ```{r}
-rel_orders %>% 
-  mutate(order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
-  rename(customer = o_custkey) %>% 
+rel_orders |> 
+  mutate(order_year = year(o_orderdate), order_month = month(o_orderdate)) |> 
+  rename(customer = o_custkey) |> 
   select(-ends_with("comment"), -ends_with("key")) 
 ```
 
 8. Load resulting code to a variable called `prep_orders`
 
 ```{r}
-prep_orders <- rel_orders %>% 
-  mutate(order_year = year(o_orderdate), order_month = month(o_orderdate)) %>% 
-  rename(customer = o_custkey) %>% 
+prep_orders <- rel_orders |> 
+  mutate(order_year = year(o_orderdate), order_month = month(o_orderdate)) |> 
+  rename(customer = o_custkey) |> 
   select(-ends_with("comment"), -ends_with("key")) 
 ```
 
 9. Preview `prep_orders` using `glimpse()`
 
 ```{r}
-prep_orders %>% 
+prep_orders |> 
   glimpse()
 ```
 
@@ -164,60 +164,60 @@ prep_orders %>%
 1. What are the top 5 countries for total amount ordered?
 
 ```{r}
-prep_orders %>% 
-  group_by(n_name) %>% 
+prep_orders |> 
+  group_by(n_name) |> 
   summarise(
     total_price = sum(o_totalprice, na.rm = TRUE)
-  ) %>% 
-  arrange(desc(total_price)) %>% 
+  ) |> 
+  arrange(desc(total_price)) |> 
   head(5)
 ```
 2. What are the top 5 countries for total amount ordered for 1998?
 
 ```{r}
-prep_orders %>% 
-  filter(order_year == 1998) %>% 
-  group_by(n_name) %>% 
+prep_orders |> 
+  filter(order_year == 1998) |> 
+  group_by(n_name) |> 
   summarise(
     total_price = sum(o_totalprice, na.rm = TRUE)
-  ) %>% 
-  arrange(desc(total_price)) %>% 
+  ) |> 
+  arrange(desc(total_price)) |> 
   head(5)
 ```
 
 3. What has been the top (1) country, in orders, by year?
 
 ```{r}
-prep_orders %>% 
-  group_by(n_name, order_year) %>% 
+prep_orders |> 
+  group_by(n_name, order_year) |> 
   summarise(
     total_price = sum(o_totalprice, na.rm = TRUE)
-  ) %>% 
-  group_by(order_year) %>% 
+  ) |> 
+  group_by(order_year) |> 
   filter(total_price == max(total_price))
 ```
 4. Who are the top 5 customers by amount ordered?
 
 ```{r}
-prep_orders %>% 
-  group_by(customer) %>% 
+prep_orders |> 
+  group_by(customer) |> 
   summarise(
     total_price = sum(o_totalprice, na.rm = TRUE)
-    ) %>% 
-  arrange(desc(total_price)) %>% 
+    ) |> 
+  arrange(desc(total_price)) |> 
   head(5)
 ```
 
 5. What is the country, and market segment, of the top 5 customers by amount ordered?
 
 ```{r}
-prep_orders %>% 
-  group_by(customer) %>% 
+prep_orders |> 
+  group_by(customer) |> 
   summarise(
     country = first(n_name), 
     segment = first(c_mktsegment),
     total_price = sum(o_totalprice, na.rm = TRUE)
-    ) %>% 
-  arrange(desc(total_price)) %>% 
+    ) |> 
+  arrange(desc(total_price)) |> 
   head(5)
 ```
