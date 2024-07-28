@@ -83,7 +83,7 @@ Databricks
 :::
 
 :::{.footer}
-https://www.databricks.com/blog/2023/04/18/introducing-ai-functions-integrating-large-language-models-databricks-sql.html
+https://docs.databricks.com/en/large-language-models/ai-functions-example.html
 :::
 
 ## [Call *ai* functions in dplyr]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -125,8 +125,10 @@ orders |>
 
 ## [Available LLM functions]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-[List of LLM functions accessible via SQL:]{style="color:#666; font-weight:500;font-size:52px;"} 
-
+:::{.columns}
+:::{.column width="7%"}
+:::
+:::{.column width="90%"}
 :::{.incremental1}
 :::{.sample-code}
 - `ai_analyze_sentiment` - [Text is positve, negative, neutral, etc.]{style="font-size: 45px;"}
@@ -140,5 +142,5 @@ orders |>
 - `ai_forecast` - [Time series prediction, not text]{style="font-size: 45px;"}
 :::
 :::
-
-
+:::
+:::
