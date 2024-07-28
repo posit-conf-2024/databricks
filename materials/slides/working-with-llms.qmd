@@ -123,4 +123,22 @@ orders |>
 :::
 :::
 
+## [Available LLM functions]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+[List of LLM functions accessible via SQL:]{style="color:#666; font-weight:500;font-size:52px;"} 
+
+:::{.incremental1}
+:::{.sample-code}
+- `ai_analyze_sentiment` - [Text is positve, negative, neutral, etc.]{style="font-size: 45px;"}
+- `ai_classify` - [Give choices, LLM chooses which of the choice match]{style="font-size: 45px;"}
+- `ai_extract` - [Have LLM extract specific elements from the text]{style="font-size: 45px;"}
+- `ai_fix_grammar` - [Makes grammar more better]{style="font-size: 45px;"}
+- `ai_mask` - [Replaces specified elements with '[Masked]']{style="font-size: 45px;"}
+- `ai_similarity` - [Compares 2 texts, returns integer indicating similarity]{style="font-size: 45px;"}
+- `ai_summarize` - [Summarizes text, you can also specify length of output]{style="font-size: 45px;"}
+- `ai_translate` - [Tell LLM to translate to specific language]{style="font-size: 45px;"}
+- `ai_forecast` - [Time series prediction, not text]{style="font-size: 45px;"}
+:::
+:::
+
 
