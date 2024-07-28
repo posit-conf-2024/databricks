@@ -51,7 +51,7 @@ Databricks
 ## [Databricks LLMs via SQL]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
-:::{.column width="48%"}
+:::{.column width="46%"}
 :::{.custom2}
 :::{.incremental1}
 - Databricks allows us to access LLM functionality right from SQL 
@@ -60,13 +60,25 @@ Databricks
 :::
 :::
 :::
-:::{.column width="52%"}
-[
-> SELECT **ai_analyze_sentiment**('I am happy');  <br/>
-[#> positive]{style="color:green;"} <br/> <br/>
-SELECT **ai_analyze_sentiment**('I am sad');  <br/>
-[#> negative]{style="color:green;"} 
-]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:53px;"}
+:::{.column width="54%"}
+
+<br/><br/>
+
+:::{.code-slim-45}
+```sql
+> SELECT ai_analyze_sentiment('I am happy');
+  positive
+```
+:::
+
+<br/>
+
+:::{.code-slim-45}
+```sql
+> SELECT ai_analyze_sentiment('I am sad');
+  negative
+```
+:::
 :::
 :::
 
@@ -74,7 +86,7 @@ SELECT **ai_analyze_sentiment**('I am sad');  <br/>
 https://www.databricks.com/blog/2023/04/18/introducing-ai-functions-integrating-large-language-models-databricks-sql.html
 :::
 
-## [Call AI functions in dplyr]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## [Call *ai* functions in dplyr]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 ![](assets/remote-processing/dplyr.png){.absolute top="0" left="1410" width="90"}
 ![](assets/remote-processing/dbplyr.png){.absolute top="0" left="1500" width="90"}
@@ -95,6 +107,7 @@ orders |>
   head() |> 
   select(o_comment) |> 
   mutate(sentiment = ai_analyze_sentiment(o_comment)) 
+  
 #> # Source:   SQL [6 x 2]
 #> # Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]
 #>   o_comment                         sentiment
