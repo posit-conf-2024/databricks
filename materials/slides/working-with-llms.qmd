@@ -168,6 +168,6 @@ orders |>
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r no_working_with_llms`.7
+Exercise `r no_working_with_llms`.1
 :::
 

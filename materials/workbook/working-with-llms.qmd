@@ -1,8 +1,8 @@
 ---
 title: "Working with LLMs in Databricks"
 execute: 
-  eval: true
-  freeze: true
+  eval: false
+  freeze: false
   warning: false
 ---
 

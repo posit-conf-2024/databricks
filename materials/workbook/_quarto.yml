@@ -12,6 +12,7 @@ book:
     - databricks.qmd
     - r-udfs.qmd
     - r-udfs-modeling.qmd
+    - working-with-llms.qmd
     - dashboards.qmd
 format:
   html:
