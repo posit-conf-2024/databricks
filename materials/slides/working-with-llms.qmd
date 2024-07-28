@@ -165,9 +165,48 @@ orders |>
 :::
 
 
+## [Specify mulit-choice]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="35%"}
+:::{.custom2}
+:::{.incremental1}
+- Multi-choice arguments require an `ARRAY`
+- This can be called directly inside the `ai` function
+:::
+:::
+:::
+:::{.column width="65%"}
+
+[SQL]{style="font-size: 50px;"}
+
+:::{.code-slim-35}
+```sql
+> SELECT
+     description,
+     ai_classify(description, array('clothing', 'furniture')) AS category
+   FROM
+     products
+```
+:::
+
+[R]{style="font-size: 50px;"}
+
+:::{.code-slim-35}
+```r
+tbl_products |> 
+  mutate(
+    category = ai_classify(description, array("clothing", "furniture"))
+  ) |> 
+  select(description, category)
+```
+:::
+:::
+:::
+
+
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
 Exercise `r no_working_with_llms`.1
 :::
-
