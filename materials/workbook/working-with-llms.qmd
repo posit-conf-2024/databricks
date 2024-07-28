@@ -1,0 +1,55 @@
+---
+title: "Working with LLMs in Databricks"
+execute: 
+  eval: true
+  freeze: true
+  warning: false
+---
+
+```{r, setup}
+#| include: false
+
+library(dplyr)
+library(dbplyr)
+```
+
+## Catch up {.unnumbered}
+
+```{r}
+library(dplyr)
+library(dbplyr)
+library(DBI)
+
+con <- dbConnect(
+  odbc::databricks(),
+  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e"
+)
+
+```
+
+## Accessing AI functions
+
+```{r}
+reviews <- tribble(
+  ~name,    ~review, 
+  "adam",   "This is the best toaster I have ever bought",
+  "berry",   "Toaster arrived broken, waiting for replancement"
+) |> 
+  mutate(order_no = row_number()) |> 
+  select(order_no, everything())
+```
+
+```{r}
+tbl_reviews <- copy_to(con, reviews, overwrite = TRUE)
+```
+
+```{r}
+tbl_reviews |> 
+  mutate(sentiment = ai_analyze_sentiment(review))
+```
+
+```{r}
+tbl_reviews |> 
+  mutate(sentiment = ai_extract(review, array("product")))
+```
+
