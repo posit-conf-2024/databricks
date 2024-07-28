@@ -1,0 +1,76 @@
+---
+format: 
+  revealjs:
+    width: 1600
+    height: 920
+    max-scale: 1
+    min-scale: 1
+    smaller: true
+    transition: fade
+    background-transition: fade
+    theme: theme.scss
+    code-line-numbers: false
+    menu: true
+    code-block-height: 640px
+    slide-number: true
+engine: knitr
+---
+
+```{r}
+#| include: false
+if(!("working_with_llms" %in% ls())) working_with_llms <- 1
+```
+
+# {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
+
+:::{.content-slide-title}
+Unit `r working_with_llms`
+:::
+
+:::{.content-slide}
+Working with <br/> 
+LLMs in <br/> 
+Databricks
+:::
+
+## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#2a7070"}
+
+<br/><br/><br/><br/><br/>
+
+:::{.columns}
+:::{.column width="5%"}
+:::
+:::{.column width="95%"}
+:::{.content-slide}
+[Enhance SQL operations using LLM's]{style="font-size:130px; line-height: 0.5;"}
+:::
+:::
+:::
+
+
+## [Databricks LLMs via SQL]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="48%"}
+:::{.custom2}
+:::{.incremental1}
+- Databricks allows us to access LLM functionality right from SQL 
+- Accessible via calling the `ai_` family of functions
+- Adds new way of leveraging LLMs, batch scoring
+:::
+:::
+:::
+:::{.column width="52%"}
+[
+> SELECT **ai_analyze_sentiment**('I am happy');  <br/>
+[positive]{style="color:blue;"} <br/> <br/>
+> SELECT **ai_analyze_sentiment**('I am sad');  <br/>
+[negative]{style="color:blue;"} 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:53px;"}
+:::
+:::
+
+:::{.footer}
+https://www.databricks.com/blog/2023/04/18/introducing-ai-functions-integrating-large-language-models-databricks-sql.html
+:::
+
