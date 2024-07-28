@@ -31,9 +31,11 @@ con <- dbConnect(
 
 ```{r}
 reviews <- tribble(
-  ~name,    ~review, 
-  "adam",   "This is the best toaster I have ever bought",
-  "berry",   "Toaster arrived broken, waiting for replancement"
+  ~name,     ~review, 
+  "adam",    "This is the best toaster I have ever bought",
+  "berry",   "Toaster arrived broken, waiting for replancement",
+  "charles", "The washing machine is as advertised, can't wait to use it",
+  "dan",     "Not sure how to feel about this tevelision, nice brightness but bad definition"
 ) |> 
   mutate(order_no = row_number()) |> 
   select(order_no, everything())
@@ -50,6 +52,11 @@ tbl_reviews |>
 
 ```{r}
 tbl_reviews |> 
-  mutate(sentiment = ai_extract(review, array("product")))
+  mutate(product = ai_extract(review, array("product"))) 
+```
+
+```{r}
+tbl_reviews |> 
+  mutate(follow_up = ai_classify(review, array("order complete", "need follow up"))) 
 ```
 
