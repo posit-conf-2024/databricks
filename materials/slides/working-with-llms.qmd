@@ -144,3 +144,22 @@ orders |>
 :::
 :::
 :::
+
+## [Considerations in Databricks]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="5%"}
+:::
+:::{.column width="90%"}
+:::{.incremental1}
+:::{.custom2}
+- Need APIs pay-per-token supported region
+- Functions not available on Databricks SQL Classic
+- In preview, functions have performance restrictions
+- Functions are tuned for English, but model can handle several languages
+- **Mixtral-8x7B Instruct** is the underlying model that powers most of these AI functions
+
+:::
+:::
+:::
+:::
