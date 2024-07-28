@@ -92,7 +92,7 @@ https://docs.databricks.com/en/large-language-models/ai-functions-example.html
 ![](assets/remote-processing/dbplyr.png){.absolute top="0" left="1500" width="90"}
 
 :::{.columns}
-:::{.column width="48%"}
+:::{.column width="40%"}
 :::{.custom2}
 :::{.incremental1}
 - Easily access the `ai` functions by calling them via `dplyr` verbs
@@ -100,7 +100,7 @@ https://docs.databricks.com/en/large-language-models/ai-functions-example.html
 :::
 :::
 :::
-:::{.column width="52%"}
+:::{.column width="60%"}
 :::{.code-slim-35}
 ```r
 orders |>
