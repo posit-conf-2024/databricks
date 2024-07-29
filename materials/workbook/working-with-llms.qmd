@@ -50,13 +50,43 @@ tbl_reviews |>
   mutate(sentiment = ai_analyze_sentiment(review))
 ```
 
-```{r}
-tbl_reviews |> 
-  mutate(product = ai_extract(review, array("product"))) 
-```
+## Specify array
 
 ```{r}
 tbl_reviews |> 
   mutate(follow_up = ai_classify(review, array("order complete", "need follow up"))) 
+```
+
+## Process complex output
+
+```{r}
+tbl_review <- tbl_reviews |> 
+  mutate(product = ai_extract(review, array("product"))) |> 
+  compute()
+```
+
+```{r}
+tbl_review 
+```
+
+```{r}
+tbl_review |> 
+  show_query()
+```
+
+```{r}
+tbl_review |> 
+  mutate(product = as.character(product))
+```
+
+```{r}
+tbl_review |> 
+  mutate(product = tolower(as.character(product)))
+```
+
+```{r}
+tbl_review |> 
+  mutate(product = tolower(as.character(product))) |> 
+  count(product)
 ```
 
