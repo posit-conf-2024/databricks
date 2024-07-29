@@ -210,9 +210,46 @@ tbl_products |>
 :::
 :::
 
-
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
 Exercise `r no_working_with_llms`.2
 :::
+
+## [Process complex output]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.columns}
+:::{.column width="30%"}
+:::{.incremental1}
+- Some `ai` functions return a `STRUCT`
+- It is a more complex variable type
+- It can only be coerced to a string
+- `as.character()` does the trick
+:::
+:::
+:::{.column width="70%"}
+
+:::{.code-slim-45}
+```r
+tbl_reviews |> 
+  mutate(product = as.character(ai_extract(review, array("product")))) |> 
+  select(product, review)
+#> # Source:   SQL [4 x 2]
+#> # Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]
+#>   product           review                                                      
+#>   <chr>             <chr>                                                       
+#> 1 {toaster}         This is the best toaster I have ever bought                 
+#> 2 {Toaster}         Toaster arrived broken, waiting for replancement            
+#> 3 {washing machine} The washing machine is as advertised, cant wait to use it   
+#> 4 {television}      Not sure how to feel about this tevelision, nice brightness…
+```
+:::
+:::
+:::
+
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r no_working_with_llms`.3
+:::
+
