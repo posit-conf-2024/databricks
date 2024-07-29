@@ -232,10 +232,11 @@ Exercise `r no_working_with_llms`.2
 :::{.code-slim-45}
 ```r
 tbl_reviews |> 
-  mutate(product = as.character(ai_extract(review, array("product")))) |> 
+  mutate(
+    product = as.character(ai_extract(review, array("product")))
+    ) |> 
   select(product, review)
 #> # Source:   SQL [4 x 2]
-#> # Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]
 #>   product           review                                                      
 #>   <chr>             <chr>                                                       
 #> 1 {toaster}         This is the best toaster I have ever bought                 
