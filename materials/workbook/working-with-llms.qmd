@@ -44,7 +44,8 @@ reviews <- tribble(
   select(order_no, everything())
 ```
 
-2. Copy the `reviews` data frame to your SQL session
+2. Copy the `reviews` data frame to your SQL session. Assign it to a variable
+called `tbl_reviews`
 
 ```{r}
 tbl_reviews <- copy_to(con, reviews, overwrite = TRUE)
@@ -59,13 +60,33 @@ tbl_reviews |>
 ```
 
 ## Specify array
+*Using array() to run the classification function*
+
+1. Use `ai_classify()` to find out if we need to follow up with customer. The 
+two options should be: 'order complete', and 'need follow up'. Use `array()`
+as if you would be using the `c()` function. Name the new field "follow_up"
 
 ```{r}
 tbl_reviews |> 
-  mutate(follow_up = ai_classify(review, array("order complete", "need follow up"))) 
+  mutate(
+    follow_up = ai_classify(review, array("order complete", "need follow up"))
+    )
+```
+
+2. Add a step that keeps only those orders that need follow up
+
+```{r}
+tbl_reviews |> 
+  mutate(
+    follow_up = ai_classify(review, array("order complete", "need follow up"))
+    ) |> 
+  filter(review == "need follow up")
 ```
 
 ## Process complex output
+*Working STRUCT output from an 'ai' function*
+
+1. 
 
 ```{r}
 tbl_review <- tbl_reviews |> 
