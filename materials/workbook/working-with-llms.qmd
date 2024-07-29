@@ -28,6 +28,9 @@ con <- dbConnect(
 ```
 
 ## Accessing AI functions
+*Use the sentiment classification function*
+
+1. Create a quick review table using the following code:
 
 ```{r}
 reviews <- tribble(
@@ -41,9 +44,14 @@ reviews <- tribble(
   select(order_no, everything())
 ```
 
+2. Copy the `reviews` data frame to your SQL session
+
 ```{r}
 tbl_reviews <- copy_to(con, reviews, overwrite = TRUE)
 ```
+
+3. Create a new field called "sentiment", use `ai_analyze_sentiment()` to 
+analyze the "review" field
 
 ```{r}
 tbl_reviews |> 
