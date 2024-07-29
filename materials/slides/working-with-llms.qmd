@@ -165,14 +165,20 @@ orders |>
 :::
 
 
-## [Specify mulit-choice]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
+
+:::{.green-slide}
+Exercise `r no_working_with_llms`.1
+:::
+
+## [Specify array]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
 :::{.column width="35%"}
 :::{.custom2}
 :::{.incremental1}
-- Multi-choice arguments require an `ARRAY`
-- This can be called directly inside the `ai` function
+- Most `ai` functions require an argument of `ARRAY` type
+- SQL's `array()` function can be called directly inside the `ai` function
 :::
 :::
 :::
@@ -208,5 +214,5 @@ tbl_products |>
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.green-slide}
-Exercise `r no_working_with_llms`.1
+Exercise `r no_working_with_llms`.2
 :::
