@@ -25,7 +25,8 @@ no_visualizations <- 4
 no_databricks <- 5
 no_udfs <- 6
 no_modeling <- 7
-no_dashboards <- 8
+no_working_with_llms <- 8
+no_dashboards <- 9
 ```
 
 {{< include units/intro.qmd >}}
@@ -36,4 +37,5 @@ no_dashboards <- 8
 {{< include units/databricks-connect.qmd >}}
 {{< include units/r-udfs.qmd >}}
 {{< include units/modeling.qmd >}}
+{{< include units/working-with-llms.qmd >}}
 {{< include units/dashboards.qmd >}}
