@@ -298,3 +298,32 @@ chattr_app()
 :::
 :::
 :::
+
+## [chattr supports Databricks' LLM]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
+
+![](assets/llms/chattr-db.png){.absolute top="300" left="450" width="700"}
+
+
+## [chattr supports Databricks' LLM]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
+
+[`chattr` can connect Databricks LLM models. Automatically makes the options available if it detects your Databricks token.]{style="font-size:50px;line-height:1;font-weight:400;color:#666;"}
+
+:::{.code-slim-35}
+```r
+> chattr_app()
+── chattr - Available models 
+Select the number of the model you would like to use:
+
+1: Databricks - databricks-dbrx-instruct (databricks-dbrx) 
+
+2: Databricks - databricks-meta-llama-3-70b-instruct (databricks-meta-llama3-70b) 
+
+3: Databricks - databricks-mixtral-8x7b-instruct (databricks-mixtral8x7b) 
+
+Selection: 1
+```
+:::
