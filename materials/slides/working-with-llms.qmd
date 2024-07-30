@@ -274,9 +274,6 @@ Exercise `r no_working_with_llms`.3
 
 :::{.columns}
 :::{.column width="45%"}
-
-<br/>
-
 :::{.incremental1}
 - `chattr` is an interface to LLMs (Large Language Models)
 - It enables interaction with the model directly from  RStudio
@@ -285,7 +282,7 @@ Exercise `r no_working_with_llms`.3
 :::
 :::{.column width="55%"}
 
-<br/><br/><br/>
+<br/><br/>
 
 :::{.code-slim-45}
 ```r
@@ -305,6 +302,26 @@ chattr_app()
 
 ![](assets/llms/chattr-db.png){.absolute top="300" left="450" width="700"}
 
+## [chattr supports Databricks' LLM]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
+
+<br/>
+
+:::{.columns}
+:::{.column width="9%"}
+:::
+:::{.column width="90%"}
+[Big thank you to *Zack Davies* at Databricks!! 🎉🎉🎉]{style="font-size:60px;line-height:1.5;font-weight:600;color:#579297;"}
+:::
+:::
+
+
+![](assets/llms/chattr-db.png){.absolute top="300" left="450" width="700"}
+
+:::{.footer}
+https://github.com/mlverse/chattr/pull/99
+:::
 
 ## [chattr supports Databricks' LLM]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
