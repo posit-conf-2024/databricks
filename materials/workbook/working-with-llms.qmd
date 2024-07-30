@@ -1,8 +1,8 @@
 ---
 title: "Working with LLMs in Databricks"
 execute: 
-  eval: false
-  freeze: false
+  eval: true
+  freeze: true
   warning: false
 ---
 
@@ -40,8 +40,7 @@ reviews <- tribble(
   "charles", "The washing machine is as advertised, can't wait to use it",
   "dan",     "Not sure how to feel about this tevelision, nice brightness but bad definition"
 ) |> 
-  mutate(order_no = row_number()) |> 
-  select(order_no, everything())
+  select(review)
 ```
 
 2. Copy the `reviews` data frame to your SQL session. Assign it to a variable
@@ -80,7 +79,7 @@ tbl_reviews |>
   mutate(
     follow_up = ai_classify(review, array("order complete", "need follow up"))
     ) |> 
-  filter(review == "need follow up")
+  filter(follow_up == "need follow up")
 ```
 
 ## Process complex output
