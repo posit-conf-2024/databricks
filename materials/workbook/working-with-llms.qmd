@@ -86,7 +86,17 @@ tbl_reviews |>
 ## Process complex output
 *Working STRUCT output from an 'ai' function*
 
-1. 
+1. Use `ai_extract()` to pull the type of product being referred to in the
+review. Pass 'product' as the extract argument, and pass it inside an `array()`
+call. Name the new field "product"
+
+```{r}
+tbl_reviews |> 
+  mutate(product = ai_extract(review, array("product")))
+```
+
+
+2. Append a `compute()` step, and assign to a new variable called `tbl_review`
 
 ```{r}
 tbl_review <- tbl_reviews |> 
@@ -94,24 +104,35 @@ tbl_review <- tbl_reviews |>
   compute()
 ```
 
+3. Preview `tbl_review`
+
 ```{r}
 tbl_review 
 ```
+
+4. Pass `tbl_review` to `show_query()` to confirm that it is pulling from a 
+new temporary table
 
 ```{r}
 tbl_review |> 
   show_query()
 ```
 
+5. Coerce "product" to a character
+
 ```{r}
 tbl_review |> 
   mutate(product = as.character(product))
 ```
 
+6. Wrap the `as.character()` call, inside a `tolower()` call
+
 ```{r}
 tbl_review |> 
   mutate(product = tolower(as.character(product)))
 ```
+
+7. Add a count step, that breaks down the reviews by product
 
 ```{r}
 tbl_review |> 
