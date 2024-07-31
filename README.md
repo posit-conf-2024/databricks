@@ -3,6 +3,9 @@
 ### posit::conf(2024)
 
 by Edgar Ruiz
+<br/>
+[LinkedIn](https://www.linkedin.com/in/edgararuiz/) |
+[Bluesky](https://bsky.app/profile/theotheredgar.bsky.social)
 
 :spiral_calendar: August 12, 2024\
 :alarm_clock: 09:00 - 17:00\
