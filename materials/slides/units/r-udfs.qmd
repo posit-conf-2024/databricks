@@ -394,7 +394,7 @@ tbl_mtcars |>
 Exercise `r no_udfs`.5
 :::
 
-## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#2a7070"}
+## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
 
 :::{.columns}
 :::{.column width="15%"}
@@ -409,7 +409,7 @@ Solving for R UDFs
 
 
 
-## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#2a7070"}
+## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
 
 :::{.columns}
 :::{.column width="15%"}

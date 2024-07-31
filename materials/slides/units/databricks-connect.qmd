@@ -189,7 +189,7 @@ sc <- spark_connect(
 Exercise `r no_databricks`.1
 :::
 
-## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#2a7070"}
+## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
 
 <br/><br/><br/><br/><br/>
 

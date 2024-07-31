@@ -116,7 +116,7 @@ Special work we have done as part of the new partnership
 
 ![](assets/posit-databricks.png){.absolute top="300" left="380"}
 
-## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#2a7070"}
+## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
 
 <br/><br/><br/><br/><br/>
 

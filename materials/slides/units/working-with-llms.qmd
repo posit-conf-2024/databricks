@@ -19,7 +19,7 @@ LLMs in <br/>
 Databricks
 :::
 
-## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#2a7070"}
+## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
 
 <br/><br/><br/><br/><br/>
 
@@ -240,7 +240,7 @@ tbl_reviews |>
 Exercise `r no_working_with_llms`.3
 :::
 
-## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#2a7070"}
+## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
 
 <br/><br/><br/><br/><br/><br/>
 
