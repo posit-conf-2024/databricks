@@ -8,9 +8,13 @@ execute:
 
 ```{r, setup}
 #| include: false
+#| eval: true 
 
 library(dplyr)
 library(dbplyr)
+
+options(width = 78)
+options(pillar.min_chars = 20)
 ```
 
 ## Catch up {.unnumbered}
@@ -33,6 +37,8 @@ con <- dbConnect(
 1. Create a quick review table using the following code:
 
 ```{r}
+#| eval: true
+
 reviews <- tribble(
   ~name,     ~review, 
   "adam",    "This is the best toaster I have ever bought",
@@ -40,7 +46,7 @@ reviews <- tribble(
   "charles", "The washing machine is as advertised, can't wait to use it",
   "dan",     "Not sure how to feel about this tevelision, nice brightness but bad definition"
 ) |> 
-  select(review)
+  select(review) 
 ```
 
 2. Copy the `reviews` data frame to your SQL session. Assign it to a variable
