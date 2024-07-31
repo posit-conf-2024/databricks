@@ -139,3 +139,25 @@ tbl_review |>
   count(product)
 ```
 
+## Introducing `chattr`
+*Request a simple example from LLM*
+
+1. Load the `chattr` library
+
+```{r}
+#| eval: FALSE
+library(chattr)
+```
+
+
+2. Call `chattr_app()` and then select the first model (DBRX)
+
+```{r}
+#| eval: FALSE
+chattr_app()
+```
+3. In the app type, and run:
+"show me a simple example of a ggplot using the mtcars data set"
+
+4. Copy the code into a script and test
+
