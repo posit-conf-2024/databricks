@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # Using Databricks with R
 
 ### posit::conf(2024)
@@ -31,7 +25,6 @@ between R and Databricks. The two integrations that we will review are:
 During the workshop, we will discuss best practices for when to use
 which integration, as well as techniques to take your analysis into
 production.
-
 
 ## Audience
 
