@@ -18,9 +18,9 @@ through how to think about remote data, how to access it, and how to
 analyze it efficiently. We will review the latest in integrations
 between R and Databricks. The two integrations that we will review are:
 
-- Spark via Databricks Connect
+- [Spark via Databricks Connect](https://spark.posit.co/deployment/databricks-connect.html)
 
-- ODBC connection
+- [ODBC connection](https://solutions.posit.co/connections/db/databases/databricks/)
 
 During the workshop, we will discuss best practices for when to use
 which integration, as well as techniques to take your analysis into
@@ -28,7 +28,7 @@ production.
 
 ## Audience
 
-This course is for you if you:
+This course is for you, if you:
 
 - Are an R user
 - Plan, or are currently, using Databricks services
@@ -46,10 +46,10 @@ This course is for you if you:
 | 15:00 - 15:30 | *Coffee break* |
 | 15:30 - 17:00 | Session 4      |
 
-## Instructor(s)
+## Instructor
 
-Edgar co-authored a book called “Mastering Spark with R,” and is
-currently the maintainer of the `sparklyr` package. Edgar has also
+Edgar co-authored a book called [“Mastering Spark with R”](https://therinspark.com/intro.html), 
+and is currently the maintainer of the `sparklyr` package. Edgar has also
 authored multiple articles, blog posts sharing analytics insights, and
 server infrastructure for data science. He has a background in deploying
 enterprise reporting, and business intelligence solutions.
