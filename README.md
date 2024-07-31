@@ -1,65 +1,67 @@
-Using Databricks with R
-================
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# Using Databricks with R
 
 ### posit::conf(2024)
 
 by Edgar Ruiz
 
------
+:spiral_calendar: August 12, 2024\
+:alarm_clock: 09:00 - 17:00\
+:writing_hand: [pos.it/conf](http://pos.it/conf)
 
-INSTRUCTIONS FOR INSTRUCTORS: Please insert information about your
-workshop below. Then, add workshop content in the materials folder and
-link to each session’s materials from the schedule below. You are
-welcomed to add more rows to the schedule. We just ask that you take
-breaks at the specified times. Once you are done adding information, you
-can remove these instructions from the README.
-
-Alternatively, you can completely redo the organization of this repo 
-as a Quarto website or some other format you prefer to host your workshop
-materials. The only requirement is that your workshop materials are hosted 
-here.
-
------
-
-:spiral_calendar: August 12, 2024  
-:alarm_clock:     09:00 - 17:00  
-:hotel:           ROOM TBD  
-:writing_hand:    [pos.it/conf](http://pos.it/conf)
-
------
+------------------------------------------------------------------------
 
 ## Description
 
-ADD DESCRIPTION
+As most organization’s data migrate to the cloud, the ability to analyze
+data in-place becomes more important. This workshop will walk you
+through how to think about remote data, how to access it, and how to
+analyze it efficiently. We will review the latest in integrations
+between R and Databricks. The two integrations that we will review are:
+
+- Spark via Databricks Connect
+
+- ODBC connection
+
+During the workshop, we will discuss best practices for when to use
+which integration, as well as techniques to take your analysis into
+production.
+
 
 ## Audience
 
-ADD AUDIENCE INFO
+This course is for you if you:
 
-## Prework
-
-ADD INFORMATION YOU WANT LEARNERS TO HAVE / STEPS THEY WANT THEM TO
-COMPLETE PRIOR TO THE WORKSHOP. THIS COULD BE A LINK TO A THREAD ON
-RSTUDIO COMMUNITY, PACKAGE INSTALL INSTRUCTIONS, HOW TO GET AN
-RSTUDIO.CLOUD ACCOUNT, ETC.
+- Are an R user
+- Plan, or are currently, using Databricks services
+- Need to learn how to access and analyze data in Databricks
 
 ## Schedule
 
-| Time          | Activity         |
-| :------------ | :--------------- |
-| 09:00 - 10:30 | Session 1        |
-| 10:30 - 11:00 | *Coffee break*   |
-| 11:00 - 12:30 | Session 2        |
-| 12:30 - 13:30 | *Lunch break*    |
-| 13:30 - 15:00 | Session 3        |
-| 15:00 - 15:30 | *Coffee break*   |
-| 15:30 - 17:00 | Session 4        |
+| Time          | Activity       |
+|:--------------|:---------------|
+| 09:00 - 10:30 | Session 1      |
+| 10:30 - 11:00 | *Coffee break* |
+| 11:00 - 12:30 | Session 2      |
+| 12:30 - 13:30 | *Lunch break*  |
+| 13:30 - 15:00 | Session 3      |
+| 15:00 - 15:30 | *Coffee break* |
+| 15:30 - 17:00 | Session 4      |
 
 ## Instructor(s)
 
-ADD INSTRUCTOR(S) BIO
+Edgar co-authored a book called “Mastering Spark with R,” and is
+currently the maintainer of the `sparklyr` package. Edgar has also
+authored multiple articles, blog posts sharing analytics insights, and
+server infrastructure for data science. He has a background in deploying
+enterprise reporting, and business intelligence solutions.
 
------
+------------------------------------------------------------------------
 
 ![](https://i.creativecommons.org/l/by/4.0/88x31.png) This work is
 licensed under a [Creative Commons Attribution 4.0 International
