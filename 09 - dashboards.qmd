@@ -1,24 +1,14 @@
 ---
 title: "Dashboards"
-execute: 
-  eval: true
-  freeze: true
 ---
 
-```{r, setup}
-#| include: false
-
-library(dplyr)
-library(dbplyr)
-```
-
-## Preview app
+## 01 - Preview app
 
 *Try out the finalized Shiny app*
 
 1. Open the *example-app.R* file
 
-## Catch up {.unnumbered}
+## Catch up 
 
 ```{r}
 library(dplyr)
@@ -45,19 +35,17 @@ prep_orders <- orders |>
   select(-ends_with("comment"),  -ends_with("key"))
 ```
 
-## Data driven dropdown
+## 02 - Data driven dropdown
 
 1. Load the `shiny` library
 
 ```{r}
-library(shiny)
+
 ```
 
 2. Run the following code to see the "stub" Shiny app
 
 ```{r}
-#| eval: false
-
 shinyApp(
   ui = fluidPage(
     selectInput("country", "Country:", choices = "FRANCE", selected = "FRANCE"),
@@ -76,14 +64,13 @@ shinyApp(
 values to a variable called `countries`
 
 ```{r}
-countries <- nation |> 
-  pull(n_name)
+
 ```
 
 4. Preview `countries`
 
 ```{r}
-countries
+
 ```
 
 5. Replace the values of `choices` in the Shiny app. Now use `countries` as its
@@ -91,29 +78,16 @@ source. Preview the app, the drop-down should now have the 25 countries as
 options
 
 ```{r}
-#| eval: false
 
-shinyApp(
-  ui = fluidPage(
-    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
-    plotOutput("sales_plot")
-  ),
-  server = function(input, output) {
-    output$sales_plot <- renderPlot({
-      # Your code here
-    })
-  },
-  options = list(height = 200)
-)
 ```
 
-## Adding the plot
+## 03 - Adding the plot
 *Port the code that creates the plot from the database*
 
 1. Load the `ggplot2` library
 
 ```{r}
-library(ggplot2)
+
 ```
 
 2. Insert the full code that makes the country sales plot, the one in previous
@@ -122,87 +96,23 @@ that creates the plot itself. Place them in the area that says *# Your code here
 Make sure to replace, `country`, with `input$country`. Preview the app.
 
 ```{r}
-#| eval: false
 
-shinyApp(
-  ui = fluidPage(
-    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
-    plotOutput("sales_plot")
-  ),
-  server = function(input, output) {
-    output$sales_plot <- renderPlot({
-      sales_by_year <- prep_orders |>
-        filter(n_name == input$country) |>
-        group_by(order_year) |>
-        summarise(
-          total_price = sum(o_totalprice, na.rm = TRUE)
-        ) |>
-        collect()
-
-      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
-      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
-
-      sales_by_year |>
-        ggplot() +
-        geom_col(aes(order_year, total_price)) +
-        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
-        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-        xlab("Year") +
-        ylab("Total Sales") +
-        labs(title = "Sales by year", subtitle = input$country) +
-        theme_light()
-    })
-  },
-  options = list(height = 200)
-)
 ```
 
 3. Prefix `!!` to the `input$country` entry where we create the `sales_by_year`
 variable. Preview the app.
 
 ```{r}
-#| eval: false
 
-shinyApp(
-  ui = fluidPage(
-    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
-    plotOutput("sales_plot")
-  ),
-  server = function(input, output) {
-    output$sales_plot <- renderPlot({
-      sales_by_year <- prep_orders |>
-        filter(n_name == !!input$country) |>
-        group_by(order_year) |>
-        summarise(
-          total_price = sum(o_totalprice, na.rm = TRUE)
-        ) |>
-        collect()
-
-      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
-      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
-
-      sales_by_year |>
-        ggplot() +
-        geom_col(aes(order_year, total_price)) +
-        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
-        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-        xlab("Year") +
-        ylab("Total Sales") +
-        labs(title = "Sales by year", subtitle = input$country) +
-        theme_light()
-    })
-  },
-  options = list(height = 200)
-)
 ```
 
-## Interactive plots
+## 04 - Interactive plots
 *Using `ggiraph` to add plot interactivity*
 
 1. Load the `ggiraph` library
 
 ```{r}
-library(ggiraph)
+
 ```
 
 2. In the Shiny app's code, replace:
@@ -211,80 +121,14 @@ library(ggiraph)
 - `geom_col()` with `geom_col_interactive()` 
 
 ```{r}
-#| eval: false
 
-shinyApp(
-  ui = fluidPage(
-    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
-    girafeOutput("sales_plot")
-  ),
-  server = function(input, output) {
-    output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders |>
-        filter(n_name == !!input$country) |>
-        group_by(order_year) |>
-        summarise(
-          total_price = sum(o_totalprice, na.rm = TRUE)
-        ) |>
-        collect()
-
-      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
-      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
-
-      sales_by_year |>
-        ggplot() +
-        geom_col_interactive(aes(order_year, total_price)) +
-        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
-        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-        xlab("Year") +
-        ylab("Total Sales") +
-        labs(title = "Sales by year", subtitle = input$country) +
-        theme_light()
-    })
-  },
-  options = list(height = 200)
-)
 ```
 
 3. Load the `ggplot` code to a variable called `g`, and then insert 
 `girafe(ggobj = g)` as the last code in the output's code
 
 ```{r}
-#| eval: false
 
-shinyApp(
-  ui = fluidPage(
-    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
-    girafeOutput("sales_plot")
-  ),
-  server = function(input, output) {
-    output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders |>
-        filter(n_name == !!input$country) |>
-        group_by(order_year) |>
-        summarise(
-          total_price = sum(o_totalprice, na.rm = TRUE)
-        ) |>
-        collect()
-
-      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
-      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
-
-      g <- sales_by_year |>
-        ggplot() +
-        geom_col_interactive(aes(order_year, total_price)) +
-        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
-        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-        xlab("Year") +
-        ylab("Total Sales") +
-        labs(title = "Sales by year", subtitle = input$country) +
-        theme_light()
-
-      girafe(ggobj = g)
-    })
-  },
-  options = list(height = 200)
-)
 ```
 
 4. In `geom_col_interactive()` add the following arguments: 
@@ -292,89 +136,17 @@ shinyApp(
     - `tooltip` = `total_price`
 
 ```{r}
-#| eval: false
 
-shinyApp(
-  ui = fluidPage(
-    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
-    girafeOutput("sales_plot")
-  ),
-  server = function(input, output) {
-    output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders |>
-        filter(n_name == !!input$country) |>
-        group_by(order_year) |>
-        summarise(
-          total_price = sum(o_totalprice, na.rm = TRUE)
-        ) |>
-        collect()
-
-      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
-      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
-
-      g <- sales_by_year |>
-        ggplot() +
-        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
-        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
-        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-        xlab("Year") +
-        ylab("Total Sales") +
-        labs(title = "Sales by year", subtitle = input$country) +
-        theme_light()
-
-      girafe(ggobj = g)
-    })
-  },
-  options = list(height = 200)
-)
 ```
 
-## Plot drill-down 
+## 05 - Plot drill-down 
 *Shows how to go a level deeper in to what has been clicked*
 
 1. Add a `showModal()` that reacts when a column in the plot is clicked:
 `observeEvent(input$sales_plot_selected, {showModal(modalDialog())})`
   
 ```{r}
-#| eval: false
 
-shinyApp(
-  ui = fluidPage(
-    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
-    girafeOutput("sales_plot")
-  ),
-  server = function(input, output) {
-    output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders |>
-        filter(n_name == !!input$country) |>
-        group_by(order_year) |>
-        summarise(
-          total_price = sum(o_totalprice, na.rm = TRUE)
-        ) |>
-        collect()
-
-      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
-      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
-
-      g <- sales_by_year |>
-        ggplot() +
-        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
-        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
-        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-        xlab("Year") +
-        ylab("Total Sales") +
-        labs(title = "Sales by year", subtitle = input$country) +
-        theme_light()
-
-      girafe(ggobj = g)
-    })
-    
-    observeEvent(input$sales_plot_selected, {
-      showModal(modalDialog())
-      })
-  },
-  options = list(height = 200)
-)
 ```
 
 2. Add an `options` argument to the `girafe()` function call: 
@@ -382,94 +154,14 @@ shinyApp(
 is highlighted at a time.
 
 ```{r}
-#| eval: false
 
-shinyApp(
-  ui = fluidPage(
-    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
-    girafeOutput("sales_plot")
-  ),
-  server = function(input, output) {
-    output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders |>
-        filter(n_name == !!input$country) |>
-        group_by(order_year) |>
-        summarise(
-          total_price = sum(o_totalprice, na.rm = TRUE)
-        ) |>
-        collect()
-
-      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
-      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
-
-      g <- sales_by_year |>
-        ggplot() +
-        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
-        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
-        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-        xlab("Year") +
-        ylab("Total Sales") +
-        labs(title = "Sales by year", subtitle = input$country) +
-        theme_light()
-
-      girafe(ggobj = g, options = list(opts_selection(type = "single")))
-    })
-    
-    observeEvent(input$sales_plot_selected, {
-      showModal(modalDialog())
-      })
-  },
-  options = list(height = 200)
-)
 ```
 
 3. Add a `title` argument to the `modalDialog()` call. Use combination of the
 `country` and `sales_plot_selected` values from `input` 
 
 ```{r}
-#| eval: false
 
-shinyApp(
-  ui = fluidPage(
-    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
-    girafeOutput("sales_plot")
-  ),
-  server = function(input, output) {
-    output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders |>
-        filter(n_name == !!input$country) |>
-        group_by(order_year) |>
-        summarise(
-          total_price = sum(o_totalprice, na.rm = TRUE)
-        ) |>
-        collect()
-
-      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
-      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
-
-      g <- sales_by_year |>
-        ggplot() +
-        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
-        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
-        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-        xlab("Year") +
-        ylab("Total Sales") +
-        labs(title = "Sales by year", subtitle = input$country) +
-        theme_light()
-
-      girafe(ggobj = g, options = list(opts_selection(type = "single")))
-    })
-
-    observeEvent(input$sales_plot_selected, {
-      showModal(
-        modalDialog(
-          title = paste0(input$country, " - ", input$sales_plot_selected)
-        )
-      )
-    })
-  },
-  options = list(height = 200)
-)
 ```
 
 4. Add a new `renderPLot()` function, and name it `output$montly_sales`. Inside,
@@ -479,154 +171,11 @@ Make sure to replace `country` and `year`, with `input$country`, and
 them to the `filter()` call
 
 ```{r}
-#| eval: false
 
-shinyApp(
-  ui = fluidPage(
-    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
-    girafeOutput("sales_plot")
-  ),
-  server = function(input, output) {
-    output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders |>
-        filter(n_name == !!input$country) |>
-        group_by(order_year) |>
-        summarise(
-          total_price = sum(o_totalprice, na.rm = TRUE)
-        ) |>
-        collect()
-
-      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
-      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
-
-      g <- sales_by_year |>
-        ggplot() +
-        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
-        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
-        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-        xlab("Year") +
-        ylab("Total Sales") +
-        labs(title = "Sales by year", subtitle = input$country) +
-        theme_light()
-
-      girafe(ggobj = g, options = list(opts_selection(type = "single")))
-    })
-
-    output$monthly_sales <- renderPlot({
-      sales_by_month <- prep_orders |>
-        filter(
-          n_name == !!input$country, 
-          order_year == !!input$sales_plot_selected
-          ) |>
-        group_by(order_month) |>
-        summarise(
-          total_price = sum(o_totalprice, na.rm = TRUE)
-        ) |>
-        collect()
-
-      breaks <- as.double(quantile(c(0, max(sales_by_month$total_price))))
-      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
-
-      sales_by_month |>
-        ggplot() +
-        geom_col(aes(order_month, total_price)) +
-        scale_x_continuous(breaks = unique(sales_by_month$order_month)) +
-        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-        xlab("Year") +
-        ylab("Total Sales") +
-        labs(
-          title = "Sales by month", 
-          subtitle = paste0(input$country, " - ", input$sales_plot_selected)
-          ) +
-        theme_light()
-    })
-
-    observeEvent(input$sales_plot_selected, {
-      showModal(
-        modalDialog(
-          title = paste0(input$country, " - ", input$sales_plot_selected)
-        )
-      )
-    })
-  },
-  options = list(height = 200)
-)
 ```
 
 5. Finally, add `plotOutput("monthly_sales")` to the `modelDialog()` call
 
 ```{r}
-#| eval: false
 
-shinyApp(
-  ui = fluidPage(
-    selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
-    girafeOutput("sales_plot")
-  ),
-  server = function(input, output) {
-    output$sales_plot <- renderGirafe({
-      sales_by_year <- prep_orders |>
-        filter(n_name == !!input$country) |>
-        group_by(order_year) |>
-        summarise(
-          total_price = sum(o_totalprice, na.rm = TRUE)
-        ) |>
-        collect()
-
-      breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
-      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
-
-      g <- sales_by_year |>
-        ggplot() +
-        geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
-        scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
-        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-        xlab("Year") +
-        ylab("Total Sales") +
-        labs(title = "Sales by year", subtitle = input$country) +
-        theme_light()
-
-      girafe(ggobj = g, options = list(opts_selection(type = "single")))
-    })
-
-    output$monthly_sales <- renderPlot({
-      sales_by_month <- prep_orders |>
-        filter(
-          n_name == !!input$country, 
-          order_year == !!input$sales_plot_selected
-          ) |>
-        group_by(order_month) |>
-        summarise(
-          total_price = sum(o_totalprice, na.rm = TRUE)
-        ) |>
-        collect()
-
-      breaks <- as.double(quantile(c(0, max(sales_by_month$total_price))))
-      breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
-
-      sales_by_month |>
-        ggplot() +
-        geom_col(aes(order_month, total_price)) +
-        scale_x_continuous(breaks = unique(sales_by_month$order_month)) +
-        scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-        xlab("Year") +
-        ylab("Total Sales") +
-        labs(
-          title = "Sales by month", 
-          subtitle = paste0(input$country, " - ", input$sales_plot_selected)
-          ) +
-        theme_light()
-    })
-
-    observeEvent(input$sales_plot_selected, {
-      showModal(
-        modalDialog(
-          title = paste0(input$country, " - ", input$sales_plot_selected),
-          plotOutput("monthly_sales")
-        )
-      )
-    })
-  },
-  options = list(height = 200)
-)
 ```
