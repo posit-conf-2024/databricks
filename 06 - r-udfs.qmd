@@ -11,7 +11,7 @@ library(dplyr)
 sc <- spark_connect(method = "databricks_connect")
 ```
 
-## Simple operations
+## 01 - Simple operations
 *Trying out very simple operation to become familiar with the process*
 
 1. Use `copy_to()` to send `mtcars` to the cluster. Load it to a variable called
@@ -34,7 +34,7 @@ returns more rows, because coercing the size 2 vector creates a 2 row data frame
 
 ```
 
-## Group by variable
+## 02 - Group by variable
 *Write and run simple grouping commands*
 
 
@@ -73,7 +73,7 @@ argument as well
 ```
 
 
-## Custom functions
+## 03 - Custom functions
 *Create simple custom functions to send to Spark*
 
 1. In `spark_apply()`, pass `function(x) x` as the function. This will 
@@ -128,7 +128,7 @@ processed per partition.
 
 ```
 
-## R packages
+## 04 - R packages
 *Simple example that uses an R package*
 
 1. Load the `broom` package into your R session
