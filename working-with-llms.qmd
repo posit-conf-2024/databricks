@@ -1,0 +1,169 @@
+---
+title: "Working with LLMs in Databricks"
+execute: 
+  eval: true
+  freeze: true
+  warning: false
+---
+
+```{r, setup}
+#| include: false
+#| eval: true 
+
+library(dplyr)
+library(dbplyr)
+
+options(width = 78)
+options(pillar.min_chars = 20)
+```
+
+## Catch up {.unnumbered}
+
+```{r}
+library(dplyr)
+library(dbplyr)
+library(DBI)
+
+con <- dbConnect(
+  odbc::databricks(),
+  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e"
+)
+
+```
+
+## Accessing AI functions
+*Use the sentiment classification function*
+
+1. Create a quick review table using the following code:
+
+```{r}
+#| eval: true
+
+reviews <- tribble(
+  ~name,     ~review, 
+  "adam",    "This is the best toaster I have ever bought",
+  "berry",   "Toaster arrived broken, waiting for replancement",
+  "charles", "The washing machine is as advertised, can't wait to use it",
+  "dan",     "Not sure how to feel about this tevelision, nice brightness but bad definition"
+) |> 
+  select(review) 
+```
+
+2. Copy the `reviews` data frame to your SQL session. Assign it to a variable
+called `tbl_reviews`
+
+```{r}
+tbl_reviews <- copy_to(con, reviews, overwrite = TRUE)
+```
+
+3. Create a new field called "sentiment", use `ai_analyze_sentiment()` to 
+analyze the "review" field
+
+```{r}
+tbl_reviews |> 
+  mutate(sentiment = ai_analyze_sentiment(review))
+```
+
+## Specify array
+*Using array() to run the classification function*
+
+1. Use `ai_classify()` to find out if we need to follow up with customer. The 
+two options should be: 'order complete', and 'need follow up'. Use `array()`
+as if you would be using the `c()` function. Name the new field "follow_up"
+
+```{r}
+tbl_reviews |> 
+  mutate(
+    follow_up = ai_classify(review, array("order complete", "need follow up"))
+    )
+```
+
+2. Add a step that keeps only those orders that need follow up
+
+```{r}
+tbl_reviews |> 
+  mutate(
+    follow_up = ai_classify(review, array("order complete", "need follow up"))
+    ) |> 
+  filter(follow_up == "need follow up")
+```
+
+## Process complex output
+*Working STRUCT output from an 'ai' function*
+
+1. Use `ai_extract()` to pull the type of product being referred to in the
+review. Pass 'product' as the extract argument, and pass it inside an `array()`
+call. Name the new field "product"
+
+```{r}
+tbl_reviews |> 
+  mutate(product = ai_extract(review, array("product")))
+```
+
+
+2. Append a `compute()` step, and assign to a new variable called `tbl_review`
+
+```{r}
+tbl_review <- tbl_reviews |> 
+  mutate(product = ai_extract(review, array("product"))) |> 
+  compute()
+```
+
+3. Preview `tbl_review`
+
+```{r}
+tbl_review 
+```
+
+4. Pass `tbl_review` to `show_query()` to confirm that it is pulling from a 
+new temporary table
+
+```{r}
+tbl_review |> 
+  show_query()
+```
+
+5. Coerce "product" to a character
+
+```{r}
+tbl_review |> 
+  mutate(product = as.character(product))
+```
+
+6. Wrap the `as.character()` call, inside a `tolower()` call
+
+```{r}
+tbl_review |> 
+  mutate(product = tolower(as.character(product)))
+```
+
+7. Add a count step, that breaks down the reviews by product
+
+```{r}
+tbl_review |> 
+  mutate(product = tolower(as.character(product))) |> 
+  count(product)
+```
+
+## Introducing `chattr`
+*Request a simple example from LLM*
+
+1. Load the `chattr` library
+
+```{r}
+#| eval: FALSE
+library(chattr)
+```
+
+
+2. Call `chattr_app()` and then select the first model (DBRX)
+
+```{r}
+#| eval: FALSE
+chattr_app()
+```
+3. In the app type, and run:
+"show me a simple example of a ggplot using the mtcars data set"
+
+4. Copy the code into a script and test
+

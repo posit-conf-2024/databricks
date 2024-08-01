@@ -1,0 +1,125 @@
+---
+title: "Connecting and interacting"
+execute: 
+  eval: true
+  freeze: true
+---
+
+## Connect to a database
+
+1. Click on the `Connections` tab
+
+1. Click on the `New Connection` button
+
+1. Select `warehouse`
+
+1. Click OK
+
+## Explore the database using the RStudio IDE
+
+1. Expand the `hive_metastore` catalog
+
+1. Expand the `defaults` schema
+
+1. Expand the `cars` table
+
+1. Click on the table icon to the right of the `cars` table 
+
+1. *(Optional)* Expand and explore the other tables
+
+1. Click on the *disconnect* icon to close the connection
+
+## Connecting using `odbc::odbc()`
+*https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcodbc-function*
+
+1. Use the following code to start a new connection
+```{r}
+library(DBI)
+
+con <- dbConnect(
+  odbc::odbc(),
+  Driver = "/Library/simba/spark/lib/libsparkodbc_sb64-universal.dylib",
+  Host = Sys.getenv("DATABRICKS_HOST"),
+  Port = 443,
+  AuthMech = 3,
+  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e",
+  Protocol = "https",
+  ThriftTransport = 2,
+  SSL = 1,
+  UID = "token",
+  PWD = Sys.getenv("DATABRICKS_TOKEN")
+)
+```
+
+2. Disconnect from the database using `dbDisconnect()`
+```{r}
+dbDisconnect(con)
+```
+
+## Connecting using `odbc::databricks()`
+*https://solutions.posit.co/connections/db/databases/databricks/#using-the-new-odbcdatabricks-function*
+
+1. Use the newer `odbc::databricks()` as the driver, which automatically sets the
+defaults for you. Also, it will automatically look for the Databricks Host
+and Token, so you won't to specify it in the code.
+
+```{r}
+con <- dbConnect(
+  odbc::databricks(),
+  HTTPPath = "/sql/1.0/warehouses/300bd24ba12adf8e"
+)
+```
+
+## Interact with database
+
+1. Use `dbListTables()` to retrieve a list of tables
+
+```{r}
+dbListTables(con)[1:4]
+```
+
+2. Use `dbListFields()` to get the names of the fields of a given table
+
+```{r}
+dbListFields(con, "cars")
+```
+
+3. Use `dbGetQuery()` to run a quick query
+```{r}
+dbGetQuery(con, "SELECT * FROM cars LIMIT 5")
+```
+
+## Using `knitr` chunks 
+
+1. Use the SQL chunk
+```{sql}
+#| connection: con
+SELECT * FROM cars LIMIT 5
+```
+
+2. Use the `output.var` option to load results to a variable
+```{sql, connection = con, output.var = "sql_top5"}
+SELECT * FROM cars LIMIT 5
+```
+
+3. Test the variable
+```{r}
+sql_top5
+```
+
+4. Disconnect from the database using `dbDisconnect()`
+```{r}
+dbDisconnect(con)
+```
+
+## RStudio SQL Script
+
+*Try out the new SQL Script support in RStudio*
+
+1. Open the *example-connecting.sql* file
+
+1. Click the *Preview* button. It is located in the top-right area of the script
+
+1. In the script, change *customer* to *orders*
+
+1. Click on *Preview* again
