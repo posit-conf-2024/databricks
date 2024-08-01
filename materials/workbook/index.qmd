@@ -14,7 +14,7 @@ format:
 [[Presentation Slides](using-databricks-with-r.html){target="_blank"}]{style="color:#666; font-weight:100;font-size:22px;"}
 
 :::
-:::{.column width="40%"}
+:::{.column width="50%"}
 
 [![](assets/slides.png){fig-align="left"}](using-databricks-with-r.html){target="_blank"}
 
@@ -27,7 +27,7 @@ format:
 [[Workbook](connecting.html){target="_blank"}]{style="color:#666; font-weight:100;font-size:22px;"}
 
 :::
-:::{.column width="40%"}
+:::{.column width="50%"}
 
 [![](assets/workshop.png){fig-align="left"}](connecting.html){target="_blank"}
 
@@ -40,7 +40,7 @@ format:
 [[GitHub Repository](https://github.com/posit-conf-2024/databricks){target="_blank"}]{style="color:#666; font-weight:100;font-size:22px;"}
 
 :::
-:::{.column width="40%"}
+:::{.column width="50%"}
 
 [![](assets/github.png){fig-align="left"}](https://github.com/posit-conf-2024/databricks){target="_blank"}
 
