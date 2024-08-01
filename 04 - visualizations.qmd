@@ -2,13 +2,6 @@
 title: "Visualizations"
 ---
 
-```{r, setup}
-#| include: false
-
-library(dplyr)
-library(dbplyr)
-```
-
 ## Catch up 
 
 ```{r}

@@ -2,13 +2,6 @@
 title: "Preparing and exploring Data"
 ---
 
-```{r, setup}
-#| include: false
-
-library(dplyr)
-library(dbplyr)
-```
-
 ## Catch up
 
 ```{r}

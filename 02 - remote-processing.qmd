@@ -2,13 +2,6 @@
 title: "Remote processing"
 ---
 
-```{r, setup}
-#| include: false
-library(dplyr)
-library(dbplyr)
-library(DBI)
-```
-
 ## 01 - Create a table variable
 
 *Basics to how to point a variable in R to a table or view inside the database*
