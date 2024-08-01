@@ -1,11 +1,8 @@
 ---
 title: "Connecting and interacting"
-execute: 
-  eval: true
-  freeze: true
 ---
 
-## Connect to a database
+## 01 - Connect to a database
 
 1. Click on the `Connections` tab
 
@@ -15,7 +12,7 @@ execute:
 
 1. Click OK
 
-## Explore the database using the RStudio IDE
+## 02 - Explore the database using the RStudio IDE
 
 1. Expand the `hive_metastore` catalog
 
@@ -29,7 +26,7 @@ execute:
 
 1. Click on the *disconnect* icon to close the connection
 
-## Connecting using `odbc::odbc()`
+## 03 - Connecting using `odbc::odbc()`
 *https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcodbc-function*
 
 1. Use the following code to start a new connection
@@ -56,7 +53,7 @@ con <- dbConnect(
 dbDisconnect(con)
 ```
 
-## Connecting using `odbc::databricks()`
+## 04 - Connecting using `odbc::databricks()`
 *https://solutions.posit.co/connections/db/databases/databricks/#using-the-new-odbcdatabricks-function*
 
 1. Use the newer `odbc::databricks()` as the driver, which automatically sets the
@@ -70,26 +67,28 @@ con <- dbConnect(
 )
 ```
 
-## Interact with database
+## 05 - Interact with database
 
 1. Use `dbListTables()` to retrieve a list of tables
 
 ```{r}
-dbListTables(con)[1:4]
+
 ```
 
 2. Use `dbListFields()` to get the names of the fields of a given table
 
 ```{r}
-dbListFields(con, "cars")
+
 ```
 
-3. Use `dbGetQuery()` to run a quick query
+3. Use `dbGetQuery()` to run a quick query. Make sure to only pull the first
+few records (`LIMIT`)
+
 ```{r}
-dbGetQuery(con, "SELECT * FROM cars LIMIT 5")
+
 ```
 
-## Using `knitr` chunks 
+## 06 - Using `knitr` chunks 
 
 1. Use the SQL chunk
 ```{sql}
@@ -109,10 +108,10 @@ sql_top5
 
 4. Disconnect from the database using `dbDisconnect()`
 ```{r}
-dbDisconnect(con)
+
 ```
 
-## RStudio SQL Script
+## 07 - RStudio SQL Script
 
 *Try out the new SQL Script support in RStudio*
 
