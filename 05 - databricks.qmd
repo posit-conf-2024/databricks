@@ -1,20 +1,8 @@
 ---
 title: "Databricks Connect"
-execute: 
-  eval: true
-  freeze: true
-  warning: false
 ---
 
-```{r, setup}
-#| include: false
-
-library(dplyr)
-library(dbplyr)
-library(sparklyr)
-```
-
-## Connect to Databricks Connect cluster
+## 01 - Connect to Databricks Connect cluster
 *Copy a simple table into the Spark session*
 
 ```{r}
@@ -23,81 +11,75 @@ library(dplyr)
 sc <- spark_connect(method = "databricks_connect")
 ```
 
-## Uploading data from R
+## 02 - Uploading data from R
 
 1. Load the `nycflights13` library
 
 ```{r}
-library(nycflights13)
+
 ```
 
 2. Use `copy_to()` to upload `planes` to your Spark session. Assign to a variable
 called `tbl_planes`
 
 ```{r}
-tbl_planes <- copy_to(sc, planes)
+
 ```
 
 3. Use `glimpse()` to preview the data 
 
 ```{r}
-tbl_planes |> 
-  glimpse()
+
 ```
 
 4. Use `show_query()` to see how Spark refers to the data you just uploaded
 
 ```{r}
-tbl_planes |> 
-  show_query()
+
 ```
 
-## Caching data
+## 03 - Caching data
 *Create a table from elements of another table*
 
 1. Using `tbl()`, create a reference to the "diamonds" table. Assign it to a
 variable called `tbl_diamonds`
 
 ```{r}
-tbl_diamonds <- tbl(sc, "diamonds")
+
 ```
 
 2. Select the "cut", "color", "clarity" and "price" fields from `tbl_diamonds` 
 and assign to a variable called `tbl_temp`
 
 ```{r}
-tbl_temp <- tbl_diamonds |> 
-  select(cut, color, clarity, price)
+
 ```
 
 3. Use `show_query()` to see the underlying query of `tbl_temp`
 
 ```{r}
-tbl_temp |> 
-  show_query()
+
 ```
 
 4. Pass `tbl_temp` to `compute()`, and reassign the operation to `tbl_temp`
 
 ```{r}
-tbl_temp <- tbl_temp |> 
-  compute()
+
 ```
 
 5. Use `show_query()` again to see the new underlying query of `tbl_temp`
 
 ```{r}
-tbl_temp  |> 
-  show_query()
+
 ```
 
 6. Preview `tbl_temp`
 
 ```{r}
-tbl_temp 
+ 
 ```
 
-## Reading files
+## 04 - Reading files
 *Upload a CSV file that is located inside Databricks, into your Spark session*
 
 1. Use `spark_read_csv()` to upload the airports CSV file to Spark. The `path` 
@@ -115,24 +97,23 @@ tbl_airports <- spark_read_csv(
 2. Preview `tbl_airports`
 
 ```{r}
-tbl_airports
+
 ```
 
 3. Pass `tbl_airports` to `show_query()` to see the underlying query
 
 ```{r}
-tbl_airports |> 
-  show_query()
+
 ```
 
 4. Use `sdf_sql()` to access the top 10 rows of "airports_csv" 
 
 ```{r}
-sdf_sql(sc, "select * from airports_csv limit 10")
+
 ```
 
 
-## "Mapping" files
+## 05 - "Mapping" files
 *Map the flights data without caching the data*
 
 1. Use `spark_read_csv()` to upload the airports CSV file to Spark. The `path` 
@@ -141,64 +122,54 @@ be `mapped`. **Important**, make sure to set `memory` to false.
 Assign it to a variable called `flights_mapped`
 
 ```{r}
-flights_mapped <- spark_read_csv(
-  sc = sc,
-  name = "mapped",
-  path = "/Volumes/workshops/nycflights/2013/nycflights.csv",
-  memory = FALSE
-  )
+
 ```
 
 2. Use `glimpse()` to preview the data from `flights_mapped`
 
 ```{r}
-flights_mapped |> 
-  glimpse()
+
 ```
 3. Run a quick count by the `carrier` field against `flights_mapped`
 
 ```{r}
-flights_mapped |> 
-  count(carrier)
+
 ```
 
-## Partial cache
+## 06 - Partial cache
 *Cache a section of the flights data into Spark*
 
 1. Filter `flights_mapped` to only show flights destined to Orlando (code "ORD")
 
 ```{r}
-flights_mapped |> 
-  filter(dest == "ORD")
+
 ```
 
 2. Assign the previous operation to a variable called `flights_ord`
 
 ```{r}
-flights_ord <- flights_mapped |> 
-  filter(dest == "ORD")
+
 ```
 
 3. Pass `flights_ord` to `compute()`, and reassign to `flights_ord`
 
 ```{r}
-flights_ord <- flights_ord |> 
-  compute()
+
 ```
 
 4. Preview `flights_ord`
 
 ```{r}
-flights_ord
+
 ```
+
 5. Pass `flights_ord` to `show_query()` to see the new query
 
 ```{r}
-flights_ord |> 
-  show_query()
+
 ```
 
-## End game
+## 07 - End game
 *Prepare a working data set using several of the techniques covered in this unit*
 
 1. From `tbl_airports`, select "faa" and "name". Rename the variables to "dest"
@@ -233,63 +204,47 @@ origin_airports
 it to a variable called `flights_select`
 
 ```{r}
-flights_select <- flights_mapped |> 
-  select(tailnum, dest, origin, distance) 
+ 
 ```
 
 6. Preview `flights_select`
 
 ```{r}
-flights_select
+
 ```
 
 7. Pipe `flights_select` into `head()`
 
 ```{r}
-flights_select |> 
-  head()
+
 ```
 
 8. Add a `left_join()` step, after `head()`. Join to the `dest_airports` 
 variable, using "dest" as the joining field
 
 ```{r}
-flights_select |> 
-  head() |> 
-  left_join(dest_airports, by = "dest") 
+ 
 ```
 
 9. Add another `left_join()` step. Join to the `origin_airports` 
 variable, using "origin" as the joining field
 
 ```{r}
-flights_select |> 
-  head() |> 
-  left_join(dest_airports, by = "dest") |> 
-  left_join(origin_airports, by = "origin") 
+
 ```
 
 10. Add another `left_join()` step. Join to the `tbl_planes` 
 variable, using "tailnum" as the joining field
 
 ```{r}
-flights_select |> 
-  head() |> 
-  left_join(dest_airports, by = "dest") |> 
-  left_join(origin_airports, by = "origin") |> 
-  left_join(tbl_planes, by = "tailnum")
+
 ```
 
 11. Add a `mutate()` step. Use `ifelse()` to modify "dest_name". If "dest_name" 
 is NA, then change its value to "Unknown", if not NA, leave alone
 
 ```{r}
-flights_select |> 
-  head() |> 
-  left_join(dest_airports, by = "dest") |> 
-  left_join(origin_airports, by = "origin") |> 
-  left_join(tbl_planes, by = "tailnum") |> 
-  mutate(dest_name = ifelse(is.na(dest_name), "Unknown", dest_name))
+
 ```
 
 12. Inside the `mutate()` step, add another `ifelse()` to modify "origin_name". 
@@ -297,15 +252,7 @@ If "origin_name" is NA, then change its value to "Unknown", if not NA, leave
 alone
 
 ```{r}
-flights_select |> 
-  head() |> 
-  left_join(dest_airports, by = "dest") |> 
-  left_join(origin_airports, by = "origin") |> 
-  left_join(tbl_planes, by = "tailnum") |> 
-  mutate(
-    dest_name = ifelse(is.na(dest_name), "Unknown", dest_name),
-    origin_name = ifelse(is.na(origin_name), "Unknown", origin_name)
-    )
+
 ```
 
 13. Inside the `mutate()` step, add another `ifelse()` to modify "tailnum". 
@@ -313,71 +260,30 @@ If "tailnum" is NA, then change its value to "Unknown", if not NA, leave
 alone
 
 ```{r}
-flights_select |> 
-  head() |> 
-  left_join(dest_airports, by = "dest") |> 
-  left_join(origin_airports, by = "origin") |> 
-  left_join(tbl_planes, by = "tailnum") |> 
-  mutate(
-    dest_name = ifelse(is.na(dest_name), "Unknown", dest_name),
-    origin_name = ifelse(is.na(origin_name), "Unknown", origin_name),
-    tailnum = ifelse(is.na(tailnum), "Unknown", tailnum)
-    )
+
 ```
 
 14. Add a `show_query()` step to see the resulting query
 
 ```{r}
-flights_select |> 
-  head() |> 
-  left_join(dest_airports, by = "dest") |> 
-  left_join(origin_airports, by = "origin") |> 
-  left_join(tbl_planes, by = "tailnum") |> 
-  mutate(
-    dest_name = ifelse(is.na(dest_name), "Unknown", dest_name),
-    origin_name = ifelse(is.na(origin_name), "Unknown", origin_name),
-    tailnum = ifelse(is.na(tailnum), "Unknown", tailnum)
-    ) |> 
-  show_query()
+
 ```
 
 15. Remove the `head()` step, and run again to see the new query
 
 ```{r}
-flights_select |> 
-  head() |> 
-  left_join(dest_airports, by = "dest") |> 
-  left_join(origin_airports, by = "origin") |> 
-  left_join(tbl_planes, by = "tailnum") |> 
-  mutate(
-    dest_name = ifelse(is.na(dest_name), "Unknown", dest_name),
-    origin_name = ifelse(is.na(origin_name), "Unknown", origin_name),
-    tailnum = ifelse(is.na(tailnum), "Unknown", tailnum)
-    ) |> 
-  show_query()
+
 ```
 
 16. Assign to a variable called `tbl_prep`, swap the `show_query()` step with
 `compute()`
 
 ```{r}
-tbl_prep <- flights_select |> 
-  left_join(dest_airports, by = "dest") |> 
-  left_join(origin_airports, by = "origin") |> 
-  left_join(tbl_planes, by = "tailnum") |> 
-  mutate(
-    dest_name = ifelse(is.na(dest_name), "Unknown", dest_name),
-    origin_name = ifelse(is.na(origin_name), "Unknown", origin_name),
-    tailnum = ifelse(is.na(tailnum), "Unknown", tailnum)
-    ) |> 
-  compute()
+
 ```
 
 17. Pipe `tbl_prep` to `show_query()` to see the new query
 
 ```{r}
-tbl_prep |> 
-  show_query()
+
 ```
-
-
