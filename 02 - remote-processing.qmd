@@ -1,10 +1,6 @@
 ---
 title: "Remote processing"
-execute: 
-  eval: true
-  freeze: true
 ---
-
 
 ```{r, setup}
 #| include: false
@@ -13,7 +9,7 @@ library(dbplyr)
 library(DBI)
 ```
 
-## Create a table variable
+## 01 - Create a table variable
 
 *Basics to how to point a variable in R to a table or view inside the database*
 
@@ -44,30 +40,30 @@ dbGetQuery(con, "select * from diamonds")
 tbl(con, "diamonds")
 ```
 
-4. Load the reference, not the table data, into a variable
+5. Load the reference, not the table data, into a variable
 ```{r}
 tbl_diamonds <- tbl(con, "diamonds")
 ```
 
 
-5. Call the variable to see preview the data in the table
+6. Call the variable to see preview the data in the table
 ```{r}
 tbl_diamonds
 ```
 
-6. Add `count()` to easily get the number of rows
+7. Add `count()` to easily get the number of rows
 ```{r}
 tbl_diamonds |> 
   count()
 ```
 
-7. Add `cut` as an argument to `count()` to see the count by that field
+8. Add `cut` as an argument to `count()` to see the count by that field
 ```{r}
 tbl_diamonds |> 
   count(cut)
 ```
 
-8. Add `show_query()` to see the how `dplyr` translates your code to 
+9. Add `show_query()` to see the how `dplyr` translates your code to 
 SQL 
 
 ```{r}
@@ -75,7 +71,7 @@ tbl_diamonds |>
   count(cut) |> 
   show_query()
 ```
-## Easily aggretate data
+## 02 -  Easily aggretate data
 *An example of how we can use the same code against a local R data frame and a remote table*
 
 1. Using `dplyr`, get the average price for each `cut`, and sort it by the
@@ -112,7 +108,7 @@ price_by_cut <- tbl_diamonds |>
 price_by_cut
 ```
 
-## Data collection
+## 03 -  Data collection
 *Understand the difference between printing and collecting*
 
 
@@ -156,7 +152,7 @@ price <- tbl_diamonds |>
   pull(price)
 ```
 
-## Referring to non-default catalog tables
+## 04 - Referring to non-default catalog tables
 *Using I() to create non-default table references*
 
 1. Create a reference to the `customer` table, which is under the `tpch` schema, 

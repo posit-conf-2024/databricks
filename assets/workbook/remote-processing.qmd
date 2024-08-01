@@ -44,30 +44,30 @@ dbGetQuery(con, "select * from diamonds")
 tbl(con, "diamonds")
 ```
 
-4. Load the reference, not the table data, into a variable
+5. Load the reference, not the table data, into a variable
 ```{r}
 tbl_diamonds <- tbl(con, "diamonds")
 ```
 
 
-5. Call the variable to see preview the data in the table
+6. Call the variable to see preview the data in the table
 ```{r}
 tbl_diamonds
 ```
 
-6. Add `count()` to easily get the number of rows
+7. Add `count()` to easily get the number of rows
 ```{r}
 tbl_diamonds |> 
   count()
 ```
 
-7. Add `cut` as an argument to `count()` to see the count by that field
+8. Add `cut` as an argument to `count()` to see the count by that field
 ```{r}
 tbl_diamonds |> 
   count(cut)
 ```
 
-8. Add `show_query()` to see the how `dplyr` translates your code to 
+9. Add `show_query()` to see the how `dplyr` translates your code to 
 SQL 
 
 ```{r}
