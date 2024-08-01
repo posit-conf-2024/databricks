@@ -1,22 +1,9 @@
 ---
 title: "Intro to R UDFs"
-execute: 
-  eval: true
-  freeze: true
-  warning: true
 ---
 
-```{r, setup}
-#| include: false
 
-library(dplyr)
-library(dbplyr)
-library(sparklyr)
-library(tidymodels)
-library(tidyverse)
-```
-
-## Catch up {.unnumbered}
+## Catch up 
 
 ```{r}
 library(sparklyr)
@@ -31,22 +18,20 @@ sc <- spark_connect(method = "databricks_connect")
 `tbl_mtcars`
 
 ```{r}
-tbl_mtcars <- copy_to(sc, mtcars)
+
 ```
 
 2. Pipe `tbl_mtcars` to `spark_apply()`. Use `nrow` as the function to run
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(nrow)
+
 ```
 
 3. Switch the function to use in `spark_apply()` to `dim`. Notice how it
 returns more rows, because coercing the size 2 vector creates a 2 row data frame
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(dim)
+
 ```
 
 ## Group by variable
@@ -57,8 +42,7 @@ tbl_mtcars |>
 pass `columns = "x long"`
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(nrow, columns = "x long")
+
 ```
 
 2. Add the `group_by` argument, with the value of `"am"`. There should be an 
@@ -66,31 +50,26 @@ error. This is because there are 2 variables in the result, instead of one, and
 we defined `x` only in `columns`
 
 ```{r}
-#| eval: false
-tbl_mtcars |> 
-  spark_apply(nrow, group_by = "am", columns = "x long")
+
 ```
 
 3. Insert `am long,` at the beginning of `columns`
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(nrow, group_by = "am", columns = "am long, x long")
+
 ```
 4. To see how the name we pass does not have to match the variable name, change
 `am` to `notam` in `columns`
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(nrow, group_by = "am", columns = "notam long, x long")
+
 ```
 
 5. Change the grouping variable to "cyl", make sure to update that in the `columns`
 argument as well
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(nrow, group_by = "cyl", columns = "cyl long, x long")
+
 ```
 
 
@@ -101,50 +80,31 @@ tbl_mtcars |>
 return the entire `mtcars` data set 
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(function(x) x)
+
 ```
 2. Modify the function to return only the "mpg", "cyl", and "disp" variables
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(function(x) x[, c("mpg", "cyl", "disp")])
+
 ```
 
 3. Add the recommended `columns` spec from 
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(
-    function(x) x[, c("mpg", "cyl", "disp")], 
-    columns = "mpg double, cyl double, disp double"
-    )
+
 ```
 
 4. Make your custom function into a 'multi-line' function
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(
-    function(x){ 
-      x[, c("mpg", "cyl", "disp")]
-      }, 
-    columns = "mpg double, cyl double, disp double"
-    )
+
 ```
 
 5. Assign the data selection step to a variable called `out`, and then use it as 
 the output of the function
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(
-    function(x){ 
-      out <- x[, c("mpg", "cyl", "disp")]
-      out
-      }, 
-    columns = "mpg double, cyl double, disp double"
-    )
+
 ```
 
 6. Add a filter step that returns the highest "mpg". Notice that instead of 1
@@ -152,45 +112,20 @@ record, it returns several. That is because the filter is being
 processed per partition. 
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(
-    function(x){ 
-      out <- x[, c("mpg", "cyl", "disp")]
-      out <- out[out$mpg == max(out$mpg), ]
-      out
-      }, 
-    columns = "mpg double, cyl double, disp double"
-    )
+
 ```
 
 
 7. Change the filter to display any records with an "mpg" over 25
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(
-    function(x){ 
-      out <- x[, c("mpg", "cyl", "disp")]
-      out <- out[out$mpg > 25, ]
-      out
-      }, 
-    columns = "mpg double, cyl double, disp double"
-    )
+
 ```
 
 8. Insert a step that modifies `cyl`. It should make it add 1 to the value. 
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(
-    function(x){ 
-      out <- x[, c("mpg", "cyl", "disp")]
-      out$cyl <- out$cyl + 1
-      out <- out[out$mpg > 25, ]
-      out
-      }, 
-    columns = "mpg double, cyl double, disp double"
-    )
+
 ```
 
 ## R packages
@@ -199,7 +134,7 @@ tbl_mtcars |>
 1. Load the `broom` package into your R session
 
 ```{r}
-library(broom)
+
 ```
 
 2. Create a function that, creates an `lm` model against the one, and only, 
@@ -209,50 +144,37 @@ the same columns as `mtcars`, and it will create a linear model of the "mpg" aga
 all the other variables. Name it `model_function`
 
 ```{r}
-model_function <- function(x) {
-  model <- lm(mpg ~ ., x)
-  tidy(model)
-}
+
 ```
 
 3. Test `model_function` by passing `mtcars` to it
 
 ```{r}
-model_function(mtcars)
+
 ```
 
 4. Pass `model_function` to `spark_apply()`, against `tbl_mtcars`. The call should
 fail, because `broom` is not explicitly referred to in `model_function`
 
 ```{r}
-#| eval: false
-tbl_mtcars |> 
-  spark_apply(model_function)
+
 ```
 
 5. Modify `model_function` by either adding a `library()` call, or using `::`
 to explicitly refer to `broom` inside it
 
 ```{r}
-model_function <- function(x) {
-  model <- lm(mpg ~ ., x)
-  broom::tidy(model)
-}
+
 ```
 
 6. Test `model_function` again against `tbl_mtcars`
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(model_function)
+
 ```
 
 7. Add a `group_by` argument, use "am" as the grouping variable
 
 ```{r}
-tbl_mtcars |> 
-  spark_apply(model_function, group_by = "am")
+
 ```
-
-
-
