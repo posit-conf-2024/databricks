@@ -1,8 +1,5 @@
 ---
 title: "Visualizations"
-execute: 
-  eval: true
-  freeze: true
 ---
 
 ```{r, setup}
@@ -45,16 +42,14 @@ prep_orders <- orders |>
 1. Load `ggplot2`
 
 ```{r}
-library(ggplot2)
+
 ```
 
 2. Plot the `n_name` over `n_region_key` from the `nation` table. Use the
 column geom.
 
 ```{r}
-nation |> 
-  ggplot() +
-  geom_col(aes(n_name, n_regionkey))
+
 ```
 
 ## Plot data
@@ -62,68 +57,37 @@ nation |>
 1. Using `prep_order`, pull the total sales by year (`o_totalprice`)
 
 ```{r}
-prep_orders |> 
-  group_by(order_year) |> 
-  summarise(
-    total_price = sum(o_totalprice, na.rm = TRUE)
-  ) |> 
-  arrange(order_year)
+
 ```
 
 2. Add to the code, a step to plot the data. Use a column geom
 
 ```{r}
-prep_orders |> 
-  group_by(order_year) |> 
-  summarise(
-    total_price = sum(o_totalprice, na.rm = TRUE)
-  ) |> 
-  arrange(order_year) |> 
-  ggplot() +
-  geom_col(aes(order_year, total_price)) 
+
 ```
 
 3. Download the results to R to a variable called `sales_by_year`
 
 ```{r}
-sales_by_year <- prep_orders |> 
-  group_by(order_year) |> 
-  summarise(
-    total_price = sum(o_totalprice, na.rm = TRUE)
-  ) |> 
-  collect()
+
 ```
 
 4. Preview `sales_by_year`
 
 ```{r}
-sales_by_year
+
 ```
 
 5. Use `sales_by_year` to create the same plot
 
 ```{r}
-sales_by_year |> 
-  ggplot() +
-  geom_col(aes(order_year, total_price)) 
+
 ```
 
 6. An example of what multiple iterations of the plot would result in
 
 ```{r}
-breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
 
-breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
-
-sales_by_year |> 
-  ggplot() +
-  geom_col(aes(order_year, total_price)) +
-  scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
-  scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-  xlab("Year") +
-  ylab("Total Sales") +
-  labs(title = "Sales by year") +
-  theme_light()
 ```
 
 ## Plot data by country
@@ -131,7 +95,7 @@ sales_by_year |>
 1. Create a variable called `country`, with the value "FRANCE"
 
 ```{r}
-country <- "FRANCE"
+
 ```
 
 
@@ -139,32 +103,14 @@ country <- "FRANCE"
 the value of `country`
 
 ```{r}
-sales_by_year <- prep_orders |> 
-  filter(n_name == country) |> 
-  group_by(order_year) |> 
-  summarise(
-    total_price = sum(o_totalprice, na.rm = TRUE)
-  ) |> 
-  collect()
+
 ```
 
 3. Copy and use the same code from the finalized plot. Add a subtitle with the
 value of `country`
 
 ```{r}
-breaks <- as.double(quantile(c(0, max(sales_by_year$total_price))))
 
-breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
-
-sales_by_year |> 
-  ggplot() +
-  geom_col(aes(order_year, total_price)) +
-  scale_x_continuous(breaks = unique(sales_by_year$order_year)) +
-  scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-  xlab("Year") +
-  ylab("Total Sales") +
-  labs(title = "Sales by year", subtitle = country) +
-  theme_light()
 ```
 
 ## Plot data by month
@@ -172,7 +118,7 @@ sales_by_year |>
 1. Create a new variable called `year`, load it with the value of 1998
 
 ```{r}
-year <- 1998
+
 ```
 
 2. Using the same structure, create a new variable called `sales_by_month`. In
@@ -180,13 +126,7 @@ addition to country, the filter should include the `order_year`. Group by
 `order_month`
 
 ```{r}
-sales_by_month <- prep_orders |>
-  filter(n_name == country, order_year == year) |>
-  group_by(order_month) |>
-  summarise(
-    total_price = sum(o_totalprice, na.rm = TRUE)
-  ) |>
-  collect()
+
 ```
 
 3. Create the same finalized plot, but using `sales_by_month`. Make sure to
@@ -194,18 +134,7 @@ update the the axis, and aesthetics. Also, expand the subtitle to include
 the `year` as well.
 
 ```{r}
-breaks <- as.double(quantile(c(0, max(sales_by_month$total_price))))
-breaks_labels <- paste(round(breaks / 1000000000, 1), "B")
 
-sales_by_month |>
-  ggplot() +
-  geom_col(aes(order_month, total_price)) +
-  scale_x_continuous(breaks = unique(sales_by_month$order_month)) +
-  scale_y_continuous(breaks = breaks, labels = breaks_labels) +
-  xlab("Year") +
-  ylab("Total Sales") +
-  labs(title = "Sales by month", subtitle = paste0(country, " - ", year)) +
-  theme_light()
 ```
 
 
