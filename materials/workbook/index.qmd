@@ -4,29 +4,49 @@ format:
     toc: false
 ---
 # Using R with Databricks  {.unnumbered}
+## posit::conf2024
 
-As most organization’s data migrate to the cloud, the ability to analyze data 
-in-place becomes more important. This workshop will walk you through how to
-think about remote data, how to access it, and how to analyze it efficiently. 
-We will review the latest in integrations between R and Databricks. The two 
-integrations that we will review are:
+<br/>
 
-- Spark via Databricks Connect
+:::{.columns}
+:::{.column width="40%"}
 
-- ODBC connection
+[[Presentation Slides](using-databricks-with-r.html){target="_blank"}]{style="color:#666; font-weight:100;font-size:22px;"}
 
-During the workshop, we will discuss best practices for when to use which
-integration, as well as techniques to take your analysis into production.
+:::
+:::{.column width="40%"}
 
-This course is for you if you:
+[![](assets/slides.png){fig-align="left"}](using-databricks-with-r.html){target="_blank"}
 
-- Are an R user
+:::
+:::
 
-- Plan, or are currently, using Databricks services
+:::{.columns}
+:::{.column width="40%"}
 
-- Need to learn how to access and analyze data in Databricks
+[[Workbook](connecting.html){target="_blank"}]{style="color:#666; font-weight:100;font-size:22px;"}
 
-Link to the presentation: [Using Databricks with R](using-databricks-with-r.html){target="_blank"}
+:::
+:::{.column width="40%"}
+
+[![](assets/workshop.png){fig-align="left"}](connecting.html){target="_blank"}
+
+:::
+:::
+
+:::{.columns}
+:::{.column width="40%"}
+
+[[GitHub Repository](https://github.com/posit-conf-2024/databricks){target="_blank"}]{style="color:#666; font-weight:100;font-size:22px;"}
+
+:::
+:::{.column width="40%"}
+
+[![](assets/github.png){fig-align="left"}](https://github.com/posit-conf-2024/databricks){target="_blank"}
+
+:::
+:::
+
 
 ```{r}
 #| eval: true
