@@ -9,7 +9,7 @@ library(dplyr)
 library(dbplyr)
 ```
 
-## Catch up {.unnumbered}
+## Catch up
 
 ```{r}
 library(dplyr)
@@ -23,7 +23,7 @@ con <- dbConnect(
 
 ```
 
-## Selecting variables
+## 01 - Selecting variables
 *Simple strategies to order, and reduce, data to work with*
 
 1. Load the `customer` table to a variable called `customer` 
@@ -51,7 +51,7 @@ con <- dbConnect(
 ```
 
 
-## Join to tables
+## 02 - Join to tables
 **Using left_join() to relate two tables**
 
 1. Load the `nation` table into a variable called the same
@@ -72,7 +72,7 @@ con <- dbConnect(
 
 ```
 
-## Prepare base 
+## 03 - Prepare base 
 *Building the base variable/query*
 
 1. Load the `orders` table in a variable called `orders`
@@ -134,7 +134,7 @@ month of the order date. Name them `order_year` and `order_month` respectively.
 ```
 
 
-## Answering questions
+## 04 - Answering questions
 *Using the base query to answer more complex questions*
 
 1. What are the top 5 countries for total amount ordered?

@@ -9,7 +9,7 @@ library(dplyr)
 library(dbplyr)
 ```
 
-## Catch up {.unnumbered}
+## Catch up 
 
 ```{r}
 library(dplyr)
@@ -36,7 +36,7 @@ prep_orders <- orders |>
   select(-ends_with("comment"),  -ends_with("key"))
 ```
 
-## Auto-collect
+## 01 - Auto-collect
 **See how `ggplot2` auto-collects data before plotting**
 
 1. Load `ggplot2`
@@ -52,7 +52,7 @@ column geom.
 
 ```
 
-## Plot data
+## 02 - Plot data
 
 1. Using `prep_order`, pull the total sales by year (`o_totalprice`)
 
@@ -90,7 +90,7 @@ column geom.
 
 ```
 
-## Plot data by country
+## 03 - Plot data by country
 
 1. Create a variable called `country`, with the value "FRANCE"
 
@@ -113,7 +113,7 @@ value of `country`
 
 ```
 
-## Plot data by month
+## 04 - Plot data by month
 
 1. Create a new variable called `year`, load it with the value of 1998
 
