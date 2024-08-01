@@ -31,45 +31,40 @@ con <- dbConnect(
 3. Using `dbGetQuery()` create a query to pull the `diamonds` table
 
 ```{r}
-#| eval: false
-dbGetQuery(con, "select * from diamonds")
+
 ```
 
 4. Use the `tbl()` to perform the same
 ```{r}
-tbl(con, "diamonds")
+
 ```
 
 5. Load the reference, not the table data, into a variable
 ```{r}
-tbl_diamonds <- tbl(con, "diamonds")
+
 ```
 
 
 6. Call the variable to see preview the data in the table
 ```{r}
-tbl_diamonds
+
 ```
 
 7. Add `count()` to easily get the number of rows
 ```{r}
-tbl_diamonds |> 
-  count()
+
 ```
 
 8. Add `cut` as an argument to `count()` to see the count by that field
 ```{r}
-tbl_diamonds |> 
-  count(cut)
+
 ```
 
 9. Add `show_query()` to see the how `dplyr` translates your code to 
 SQL 
 
 ```{r}
-tbl_diamonds |> 
-  count(cut) |> 
-  show_query()
+
 ```
 ## 02 -  Easily aggretate data
 *An example of how we can use the same code against a local R data frame and a remote table*
@@ -87,25 +82,19 @@ ggplot2::diamonds |>
 2. Use `tbl_diamonds` to perform the exact same operation 
 
 ```{r}
-tbl_diamonds |> 
-  group_by(cut) |> 
-  summarise(avg_price = mean(price, na.rm = TRUE)) |> 
-  arrange(desc(avg_price))
+
 ```
 
 3. Load code into a variable named `price_by_cut`
 
 ```{r}
-price_by_cut <- tbl_diamonds |> 
-  group_by(cut) |> 
-  summarise(avg_price = mean(price, na.rm = TRUE)) |> 
-  arrange(desc(avg_price))
+
 ```
 
 4. Call `price_by_cut` 
 
 ```{r}
-price_by_cut
+
 ```
 
 ## 03 -  Data collection
@@ -115,41 +104,38 @@ price_by_cut
 1. Call the `tbl_diamonds` variable directly
 
 ```{r}
-tbl_diamonds
+
 ```
 
 2. Call `tbl_diamonds` via `print()`.
 
 ```{r}
-print(tbl_diamonds)
+
 ```
 
 3. Call `tbl_diamonds` via `collect()`. Notice it prints the **entire** table 
 
 ```{r}
-collect(tbl_diamonds)
+
 ```
 
 4. Load the previous operation to a variable named `local_diamonds`
 
 ```{r}
-local_diamonds <- collect(tbl_diamonds)
+
 ```
 
 5. Use `pull()` to extract the values from `price` only
 
 ```{r}
-#| eval: false
-tbl_diamonds |> 
-  pull(price)
+
 ```
 
 6. Load the previous operation to a variable named `price`. Notice that this time,
 the variable is a vector, not a data frame.
 
 ```{r}
-price <- tbl_diamonds |> 
-  pull(price)
+
 ```
 
 ## 04 - Referring to non-default catalog tables
@@ -165,6 +151,6 @@ tbl(con, I("workshops.tpch.customer"))
 2. Create a reference to the `sales_order_in_la` table, under the `ferit` schema
 
 ```{r}
-tbl(con, I("ferit.sales_order_in_la"))
+
 ```
 
