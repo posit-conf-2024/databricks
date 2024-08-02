@@ -1,4 +1,5 @@
 ---
+pagetitle: Using R with Databricks
 page-navigation: false
 number-depth: 0
 sidebar: false
@@ -53,7 +54,7 @@ format:
 
 
 ```{r}
-#| eval: true
+#| eval: false
 #| include: false
 
 quarto::quarto_render("../slides/using-databricks-with-r.qmd")
