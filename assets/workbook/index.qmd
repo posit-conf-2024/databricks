@@ -1,9 +1,13 @@
 ---
+page-navigation: false
+number-depth: 0
+sidebar: false
 format:
   html:
     toc: false
 ---
-# Using R with Databricks  {.unnumbered}
+
+# Using R with Databricks {.unnumbered}
 ## posit::conf2024
 
 <br/>
