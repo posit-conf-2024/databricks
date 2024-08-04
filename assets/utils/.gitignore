@@ -1,1 +1,3 @@
 tpch_files/
+lendingclub.csv
+lendingclub.parquet
