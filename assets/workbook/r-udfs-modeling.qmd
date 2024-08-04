@@ -30,10 +30,10 @@ sc <- spark_connect(method = "databricks_connect")
 1. Create a pointer to the `lendingclub` data. It is in the `default` schema, 
 inside the `hive_metastore` catalog. And name it `lendingclub_dat`
 ```{r}
-lendingclub_dat <- tbl(sc, I("hive_metastore.default.lendingclub"))
+lendingclub_dat <- tbl(sc, I("workshops.samples.lendingclub"))
 ```
 
-2. Using `slice_sample()`, download 20K records, and name it `lendingclub_sample`
+2. Using `slice_sample()`, download 2K records, and name it `lendingclub_sample`
 ```{r}
 lendingclub_sample <- lendingclub_dat |>  
   slice_sample(n = 2000) |> 
