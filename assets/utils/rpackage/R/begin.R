@@ -15,6 +15,12 @@ begin <- function() {
     )
   env_file <- entry_environ(env_file, "DATABRICKS_TOKEN", "token")
   writeLines(env_file, r_environ)
+
+  source_proj <- path("/databricks")
+  if(dir_exists(source_proj) && !dir_exists("~/databricks")) {
+    cli_alert_info("Copying project to your Home directory")
+    dir_copy(source_proj, "~")
+  }
 }
 
 entry_environ <- function(x, entry, value) {
