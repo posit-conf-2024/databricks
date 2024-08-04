@@ -256,7 +256,7 @@ lendingclub_dat |>
   head() |> 
   spark_apply(
     predict_vetiver, 
-    columns = "int_rate string, term string, bc_util string, bc_open_to_buy string, all_util string, pred double"
+    columns = "int_rate string, term string, bc_util double, bc_open_to_buy double, all_util double, pred double"
     )
 ```
 
@@ -268,7 +268,7 @@ lendingclub_predictions <- lendingclub_dat |>
   select(int_rate, term, bc_util, bc_open_to_buy, all_util) |> 
   spark_apply(
     predict_vetiver,
-    columns = "int_rate string, term string, bc_util string, bc_open_to_buy string, all_util string, pred double"
+    columns = "int_rate string, term string, bc_util double, bc_open_to_buy double, all_util double, pred double"
     ) |> 
   compute()
 ```
