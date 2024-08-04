@@ -27,13 +27,14 @@ sc <- spark_connect(method = "databricks_connect")
 ## Get sample of data
 *Download a sampled data set locally to R*
 
-1. Create a pointer to the `lendingclub` data. It is in the `default` schema, 
-inside the `hive_metastore` catalog. And name it `lendingclub_dat`
+1. Create a pointer to the `lendingclub` data. It is in the `samples` schema
+
 ```{r}
 lendingclub_dat <- tbl(sc, I("workshops.samples.lendingclub"))
 ```
 
 2. Using `slice_sample()`, download 2K records, and name it `lendingclub_sample`
+
 ```{r}
 lendingclub_sample <- lendingclub_dat |>  
   slice_sample(n = 2000) |> 
@@ -41,6 +42,7 @@ lendingclub_sample <- lendingclub_dat |>
 ```
 
 3. Preview the data using the `View()` command
+
 ```{r}
 #| eval: false
 View(lendingclub_sample)
@@ -49,6 +51,7 @@ View(lendingclub_sample)
 4. Keep only `int_rate`, `term`, `bc_util`, `bc_open_to_buy` and `all_util` 
 fields. Remove the percent sign out of `int_rate`, and coerce it to numeric. 
 Save resulting table to a new variable called `lendingclub_prep`
+
 ```{r}
 lendingclub_prep <- lendingclub_sample |> 
   select(int_rate, term, bc_util, bc_open_to_buy, all_util) |> 
@@ -58,6 +61,7 @@ lendingclub_prep <- lendingclub_sample |>
 ```
 
 5. Preview the data using `glimpse()`
+
 ```{r}
 glimpse(lendingclub_prep)
 ```
@@ -73,11 +77,12 @@ spark_disconnect(sc)
 
 1. Run the following code to create a `workflow` that contains the pre-processing
 steps, and a linear regression model
+
 ```{r}
 library(tidymodels)
 
 lendingclub_rec <- recipe(int_rate ~ ., data = lendingclub_prep) |> 
-  step_mutate(term = trimws(substr(term, 1,4))) |> 
+  step_mutate(term = trimws(substr(term, 1,2))) |> 
   step_mutate(across(everything(), as.numeric)) |> 
   step_normalize(all_numeric_predictors()) |>
   step_impute_mean(all_of(c("bc_open_to_buy", "bc_util"))) |>   
@@ -94,6 +99,7 @@ lendingclub_wf
 ```
 2. Fit the model in the workflow, now in a variable called `lendingclub_wf`, with
 the `lendingclub_prep` data
+
 ```{r}
 lendingclub_fit <- lendingclub_wf |> 
   fit(data = lendingclub_prep)
@@ -101,6 +107,7 @@ lendingclub_fit <- lendingclub_wf |>
 
 3. Measure the performance of the model using `metrics()`. Make sure to use
 `augment()` to add the predictions first
+
 ```{r}
 lendingclub_fit |> 
   augment(lendingclub_prep) |> 
@@ -224,10 +231,10 @@ predict_vetiver <- function(x) {
 sc <- spark_connect(method = "databricks_connect")
 ```
 
-3. Re-create a pointer to the `lendingclub` data. It is in the `default` schema, 
-inside the `hive_metastore` catalog. And name it `lendingclub_dat`
+3. Re-create a pointer to the `lendingclub` data. It is in the `samples` schema
+
 ```{r}
-lendingclub_dat <- tbl(sc, I("hive_metastore.default.lendingclub"))
+lendingclub_dat <- tbl(sc, I("workshops.samples.lendingclub"))
 ```
 
 4. Select the `int_rate`, `term`, `bc_util`, `bc_open_to_buy`, and `all_util` 
@@ -252,6 +259,7 @@ lendingclub_dat |>
     columns = "int_rate string, term string, bc_util string, bc_open_to_buy string, all_util string, pred double"
     )
 ```
+
 6. Append `compute()` to the end of the code, remove `head()`, and save the
 results into a variable called `lendingclub_predictions`
 
@@ -270,5 +278,3 @@ lendingclub_predictions <- lendingclub_dat |>
 ```{r}
 lendingclub_predictions
 ```
-
-
