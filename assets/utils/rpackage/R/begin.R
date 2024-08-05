@@ -1,6 +1,7 @@
 #' @export
 #' @import cli
 #' @import fs
+#' @import httr2
 begin <- function() {
   r_environ <- path("~/.Renviron")
   if (file_exists(r_environ)) {
