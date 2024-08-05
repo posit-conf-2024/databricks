@@ -16,23 +16,29 @@ begin <- function() {
   token_val <- "{{db-token}}"
   db_token <- "DATABRICKS_TOKEN"
   env_file <- entry_environ(env_file, db_token, token_val)
-  if(any(token_val == token_val)) {
+  if(any(env_file == token_val)) {
     pwd <- readline(prompt = "- Enter password: ")
     token <- get_token(pwd)
     token_line <- env_file == paste0(db_token, "=", token_val)
     if(!is.null(token)) {
       env_file[token_line] <- paste0(db_token, "=", token)
     } else {
-      env_file[token_line] <- NULL
+      env_file <- env_file[!token_line]
     }
   }
   cli_alert_info("Writing .Renviron file")
   writeLines(env_file, r_environ)
 
   source_proj <- path("/databricks")
-  if(dir_exists(source_proj) && !dir_exists("~/databricks")) {
-    cli_alert_info("Copying project to your Home directory")
-    dir_copy(source_proj, "~")
+  if(dir_exists(source_proj)) {
+    local_proj <- "~/databricks"
+    if(!dir_exists(local_proj)) {
+      cli_alert_info("Copying project to your Home directory")
+      dir_copy(source_proj, "~")
+
+    }
+  } else {
+    cli_alert_warning(c(source_proj, " folder not found"))
   }
 }
 
