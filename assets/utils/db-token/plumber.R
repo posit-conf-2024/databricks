@@ -2,10 +2,8 @@ library(plumber)
 
 #* @apiTitle Databricks PAT
 #* @apiDescription Returns PAT to use during workshop
-
-#* Echo back the input
 #* @param pwd The pwd to access the token
-#* @get /echo
+#* @get /token
 function(pwd = "") {
   ret <- ""
   expected_pwd <- Sys.getenv("API_PASSWORD", unset = NA)
