@@ -54,10 +54,19 @@ begin <- function() {
   }
 }
 
-get_token <- function(x) {
+get_token <- function(x = NULL) {
+  if(is.null(x)) {
+    return(NULL)
+  }
+  base_url <- "https://colorado.posit.co/rsc/content/c48db6a7-f876-4272-a201-510dd48c49da/token?pwd="
+  api_url <- paste0(base_url, x)
+  token_result <- request(api_url) |>
+    req_perform() |>
+    resp_body_json()
+
   ret <- NULL
-  if (x == "abc") {
-    ret <- "ACTUAL TOKEN"
+  if (token_result != "") {
+    ret <- token_result[[1]]
     cli_alert_info("Personal Access Token retrieved")
   } else {
     cli_alert_warning("Incorrect password")
