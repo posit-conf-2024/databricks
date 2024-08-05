@@ -15,8 +15,9 @@ begin <- function() {
     )
   token_val <- "{{db-token}}"
   db_token <- "DATABRICKS_TOKEN"
+  old_file <- env_file
   env_file <- entry_environ(env_file, db_token, token_val)
-  if(any(env_file == token_val)) {
+  if(length(env_file) > length(old_file)) {
     pwd <- readline(prompt = "- Enter password: ")
     token <- get_token(pwd)
     token_line <- env_file == paste0(db_token, "=", token_val)
