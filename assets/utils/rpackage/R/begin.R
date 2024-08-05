@@ -35,7 +35,13 @@ begin <- function() {
     if(!dir_exists(local_proj)) {
       cli_alert_info("Copying project to your Home directory")
       dir_copy(source_proj, "~")
-
+      check_rstudio <- try(RStudio.Version(), silent = TRUE)
+      is_rstudio <- !inherits(check_rstudio, "try-error")
+      if(is_rstudio) {
+        rstudioapi::openProject(local_proj)
+      } else {
+        setwd(local_proj)
+      }
     }
   } else {
     cli_alert_warning(c(source_proj, " folder not found"))
