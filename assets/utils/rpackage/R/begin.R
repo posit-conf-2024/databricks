@@ -33,7 +33,7 @@ begin <- function() {
 
   source_proj <- path("/dbworkshop")
   if (dir_exists(source_proj)) {
-    local_proj <- "~/databricks"
+    local_proj <- "~/dbworkshop"
     if (!dir_exists(local_proj)) {
       cli_alert_info("Copying project to your Home directory")
       dir_copy(source_proj, "~")
