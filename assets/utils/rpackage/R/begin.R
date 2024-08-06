@@ -31,7 +31,7 @@ begin <- function() {
   cli_alert_info("Writing .Renviron file")
   writeLines(env_file, r_environ)
 
-  source_proj <- path("/databricks")
+  source_proj <- path("/dbworkshop")
   if (dir_exists(source_proj)) {
     local_proj <- "~/databricks"
     if (!dir_exists(local_proj)) {
