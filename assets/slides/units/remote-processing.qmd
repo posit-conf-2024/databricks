@@ -15,6 +15,8 @@ Unit `r no_remote`
 
 :::{.custom-unit-title}
 Remote <br/> processing 
+<br/>
+<br/>
 :::
 
 
@@ -40,35 +42,41 @@ Preferred
 
 :::{.columns}
 :::{.column}
-:::{.custom-subtitle}
 :::{.incremental1}
+:::{.custom-smaller .custom-closer}
+
 - SQL language was not meant for exploratory data analysis
 - "Cognitive cost" of switching between SQL and R 
 - It is not as easy to plot, model, or present results in SQL as it is with R
+
 :::
 :::
 :::
+
 :::{.column}
-<br/>
-<br/>
-<br/>
-[
-select 'cut', avg('price') as 'avg_price' from 'diamonds'
-group by 'cut' order by 'avg_price' desc
-]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:60px;"}
+
+```sql
+select 'cut', 
+avg('price') as 
+'avg_price' 
+from 'diamonds'
+group by 'cut' 
+order by 'avg_price'
+desc
+```
+
 :::
 :::
 
 ## [Use dplyr & dbplyr]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
+
 ![](assets/remote-processing/dplyr.png){.absolute top="0" left="1300" width="150"}
 ![](assets/remote-processing/dbplyr.png){.absolute top="0" left="1450" width="150"}
 
-<br/>
-
 :::{.columns}
-:::{.column width="45%"}
-:::{.custom-subtitle}
+:::{.column width="40%"}
+:::{.custom-closer .custom-smaller}
 :::{.incremental1}
 - Translates R code to SQL!
 - 'Modularity' of piped code
@@ -77,16 +85,19 @@ group by 'cut' order by 'avg_price' desc
 :::
 :::
 :::
-:::{.column width="55%"}
+:::{.column width="60%"}
 <br/>
-[
-**tbl**(con, "diamonds") |> 
-<br/>[X]{style="color: #fff;"}**group_by**(cut) |> 
-<br/>[X]{style="color: #fff;"}**summarise**(
-<br/>[XX]{style="color: #fff;"}avg_price = **mean**(price, na.rm = TRUE)
-<br/>[XX]{style="color: #fff;"}) |> 
-<br/>[X]{style="color: #fff;"}**arrange**(**desc**(avg_price))
-]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:45px;"}
+
+:::{.custom-smaller}
+```r
+tbl(con, "diamonds") |> 
+  group_by(cut) |> 
+  summarise(
+    avg_price = mean(price, na.rm = TRUE)
+  ) |> 
+  arrange(desc(avg_price))
+```
+:::
 
 :::
 :::
@@ -96,12 +107,10 @@ group by 'cut' order by 'avg_price' desc
 ![](assets/remote-processing/dplyr.png){.absolute top="0" left="1300" width="150"}
 ![](assets/remote-processing/dbplyr.png){.absolute top="0" left="1450" width="150"}
 
-<br/>
-
 :::{.columns}
 :::{.column width="40%"}
 
-:::{.custom-subtitle}
+:::{.custom-smaller}
 :::{.incremental1}
 - Creates a "virtual" table 
 - Behaves like a regular data frame
@@ -112,22 +121,23 @@ group by 'cut' order by 'avg_price' desc
 
 :::
 :::{.column width="60%"}
+:::{.custom-smaller}
 
-[
-tbl_diamonds <- **tbl**(con, "diamonds")<br/>
 <br/>
-tbl_diamonds |> <br/>
-[XX]{style="color: #fff;"}**count**()<br/>
-]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:45px;"} 
-[
-<br/>
-[Source:   SQL [1 x 1]]{style="color:#aaa;"}<br/>
-[Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]]{style="color:#aaa;"}<br/>
-[XXX]{style="color: #fff;"}n<br/>
-[\<int64\>]{style="color:#aaa;"} <br/>
-1      53940<br/>
-]{style="color:#333; font-family:Helvetica Neue; font-weight:300;font-size:35px;"} 
 
+```r
+tbl_diamonds <- tbl(con, “diamonds”)
+
+tbl_diamonds |>
+  count()
+
+Source: SQL [1 x 1]
+Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]
+   n
+<int64>
+1 53940
+```
+:::
 :::
 :::
 
