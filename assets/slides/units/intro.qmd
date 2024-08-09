@@ -4,37 +4,21 @@ engine: knitr
 
 # {background-image="assets/background/title-slide-light.svg" background-size="1700px" background-color="white"}
 
-<br/>
-
-::: {.content-slide-thin}
-<br/>
 Welcome to
-:::
 
-::: {.content-slide}
-**Using** **Databricks** <br/> **with** **R** 
-:::
+**Using Databricks** <br/> **with R**
 
-::: {.content-slide-thin}
-Workshop 
-<br/>
-August 12
-:::
+Workshop <br/> August 12
 
 ## [Housekeeping items]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-
-<br/>
 
 :::{.columns}
 ::: {.column width="20%"}
 :::
-
 ::: {.column width="80%"}
-::: custom
 -   **posit::conf** mobile app
 -   Wi-fi password
 -   Accessing your server
-:::
 :::
 :::
 
@@ -42,13 +26,13 @@ August 12
 
 :::{.columns}
 ::: {.column width="50%"}
-::: {.schedule1}
-Schedule
+<br/>
+<br/>
+<br/>
+[Schedule]{style="padding-left: 140px; font-size: 130px; color: #579297;"}
 :::
-:::
-
 ::: {.column width="50%"}
-::: {.schedule}
+
 **9am - 10:30am**
 
 Break (30mins)
@@ -62,7 +46,7 @@ Lunch (1hr)
 Break (30mins)
 
 **3:30pm - 5pm**
-:::
+
 :::
 :::
 
