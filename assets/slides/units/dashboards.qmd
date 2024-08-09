@@ -9,11 +9,11 @@ if(!("no_dashboards" %in% ls())) no_dashboards <- 1
 
 # {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
-:::{.content-slide-title}
+:::{.custom-unit-number}
 Unit `r no_dashboards`
 :::
 
-:::{.content-slide}
+:::{.custom-unit-title}
 Dashboards
 :::
 

@@ -9,11 +9,11 @@ if(!("no_working_with_llms" %in% ls())) no_working_with_llms <- 1
 
 # {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
-:::{.content-slide-title}
+:::{.custom-unit-number}
 Unit `r no_working_with_llms`
 :::
 
-:::{.content-slide}
+:::{.custom-unit-title}
 Working with <br/> 
 LLMs in <br/> 
 Databricks
@@ -27,7 +27,7 @@ Databricks
 :::{.column width="5%"}
 :::
 :::{.column width="95%"}
-:::{.content-slide}
+:::{.custom-unit-title}
 [Enhance SQL operations using LLM's]{style="font-size:130px; line-height: 0.5;"}
 :::
 :::
@@ -248,7 +248,7 @@ Exercise `r no_working_with_llms`.3
 :::{.column width="5%"}
 :::
 :::{.column width="95%"}
-:::{.content-slide}
+:::{.custom-unit-title}
 [Chat with LLM's from R]{style="font-size:130px; line-height: 0.5;"}
 :::
 :::

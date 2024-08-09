@@ -109,7 +109,7 @@ Special work we have done as part of the new partnership
 :::{.content-slide-thin}
 [Let's get started...]{style="font-size:70px; line-height: 0.5;"}
 :::
-:::{.content-slide}
+:::{.custom-unit-title}
 [Log into Posit Workbench]{style="font-size:130px; line-height: 0.5;"}
 :::
 :::

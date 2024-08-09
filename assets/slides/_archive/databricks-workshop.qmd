@@ -22,7 +22,7 @@ engine: knitr
 Welcome to
 :::
 
-::: {.content-slide}
+::: {.custom-unit-title}
 **Using** **Databricks** <br/> **with** **R** 
 :::
 
@@ -129,11 +129,11 @@ Special work we have done as part of the new partnership
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
-:::{.content-slide-title}
+:::{.custom-unit-number}
 Unit 1
 :::
 
-:::{.content-slide}
+:::{.custom-unit-title}
 Accessing <br/> Databricks 
 :::
 
@@ -313,7 +313,7 @@ Exercise 1.6 - 1.7
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
-:::{.content-slide}
+:::{.custom-unit-title}
 "Embrace <br/> the <br/> remoteness" 
 :::
 :::{.content-slide-thin}
@@ -322,13 +322,13 @@ Exercise 1.6 - 1.7
 
 ## {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.content-slide-title}
+:::{.custom-unit-number}
 🔑 Key concept 
 :::
 
 <br/><br/>
 
-:::{.content-slide}
+:::{.custom-unit-title}
 Data & processing need to be as **physically close** as possible
 :::
 
@@ -393,11 +393,11 @@ Data & processing need to be as **physically close** as possible
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
-:::{.content-slide-title}
+:::{.custom-unit-number}
 Unit 2
 :::
 
-:::{.content-slide}
+:::{.custom-unit-title}
 Remote <br/> processing 
 :::
 
@@ -604,11 +604,11 @@ x_1 <- tbl_table |> <br/>
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
-:::{.content-slide-title}
+:::{.custom-unit-number}
 Unit 3
 :::
 
-:::{.content-slide}
+:::{.custom-unit-title}
 More about <br/>
 `dplyr` & <br/>
 `dbplyr`
@@ -818,11 +818,11 @@ Exercise 3.4
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
-:::{.content-slide-title}
+:::{.custom-unit-number}
 Unit 4
 :::
 
-:::{.content-slide}
+:::{.custom-unit-title}
 [Preparing <br/>
 and exploring <br/>
 data]{style="font-size:130px;"}
@@ -880,11 +880,11 @@ Exercises 4.1 - 4.2
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
-:::{.content-slide-title}
+:::{.custom-unit-number}
 Unit 5
 :::
 
-:::{.content-slide}
+:::{.custom-unit-title}
 [Visualizations]{style="font-size:130px;"}
 :::
 
@@ -1089,11 +1089,11 @@ Exercises 5.2 - 5.4
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
-:::{.content-slide-title}
+:::{.custom-unit-number}
 Unit 6
 :::
 
-:::{.content-slide}
+:::{.custom-unit-title}
 Dashboards
 :::
 
@@ -1760,22 +1760,22 @@ observeEvent(input$sales_plot_selected, {
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
-:::{.content-slide-title}
+:::{.custom-unit-number}
 Unit 7
 :::
 
-:::{.content-slide}
+:::{.custom-unit-title}
 Apache <br/> Spark
 :::
 
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
-:::{.content-slide-title}
+:::{.custom-unit-number}
 Unit 7
 :::
 
-:::{.content-slide}
+:::{.custom-unit-title}
 Apache <br/> Spark
 :::
 
@@ -1851,11 +1851,11 @@ Apache <br/> Spark
 
 ## {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
-:::{.content-slide-title}
+:::{.custom-unit-number}
 Unit 9
 :::
 
-:::{.content-slide}
+:::{.custom-unit-title}
 R UDFs and <br/>
 Modeling
 :::

@@ -9,11 +9,11 @@ if(!("no_databricks" %in% ls())) no_databricks <- 1
 
 # {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
-:::{.content-slide-title}
+:::{.custom-unit-number}
 Unit `r no_databricks`
 :::
 
-:::{.content-slide}
+:::{.custom-unit-title}
 Databricks <br/> Connect
 :::
 
@@ -197,7 +197,7 @@ Exercise `r no_databricks`.1
 :::{.column width="10%"}
 :::
 :::{.column width="90%"}
-:::{.content-slide}
+:::{.custom-unit-title}
 [Understanding Spark's data caching]{style="font-size:130px; line-height: 0.5;"}
 :::
 :::
