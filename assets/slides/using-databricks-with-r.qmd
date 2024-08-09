@@ -30,6 +30,7 @@ no_dashboards <- 9
 ```
 
 {{< include units/intro.qmd >}}
+{{< include units/embrace-remoteness.qmd >}}
 {{< include units/connecting.qmd >}}
 {{< include units/remote-processing.qmd >}}
 {{< include units/preparing-exploring.qmd >}}
