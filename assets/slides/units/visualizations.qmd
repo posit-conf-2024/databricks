@@ -27,7 +27,7 @@ Unit `r no_visualizations`
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Pipe the prepared data into a `ggplot2` 
 :::
 <br/>
@@ -49,7 +49,7 @@ prep_orders |>
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Pipe the prepared data into a `ggplot2` 
 :::
 
@@ -85,7 +85,7 @@ prep_orders |>
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Pipe the prepared data into a `ggplot2` 
 :::
 <br/>
@@ -108,7 +108,7 @@ prep_orders |>
 
 ## [ggplot2 "auto-collects"]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 *Be careful! It downloads all of the data!*
 :::
 
@@ -132,7 +132,7 @@ Exercise `r no_visualizations`.1
 
 ## [The truth about ggplot2]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 A plot gets refined iteratively, data must be local.
 :::
 
@@ -156,7 +156,7 @@ A plot gets refined iteratively, data must be local.
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Collect (download) the data into an R variable
 :::
 
@@ -173,7 +173,7 @@ sales_by_year <- prep_orders |>
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Iterate on the plot using the local data
 :::
 
@@ -187,7 +187,7 @@ sales_by_year |>
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Iterate on the plot using the local data
 :::
 

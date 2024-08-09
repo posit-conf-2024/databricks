@@ -21,7 +21,7 @@ data]{style="font-size:130px;"}
 
 
 ## [Variable selection]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::.custom-subtitle
+:::{.custom-subtitle}
 Using `select()` with these functions make variable selection easy: 
 :::
 
@@ -29,7 +29,7 @@ Using `select()` with these functions make variable selection easy:
 :::{.column width="10%"}
 :::
 :::{.column width="80%"}
-:::.custom-subtitle
+:::{.custom-subtitle}
 - `starts_with()` - Starts with an exact prefix
 - `ends_with()` - Ends with an exact suffix
 - `contains()` - Contains a literal string
@@ -78,7 +78,7 @@ Exercise `r no_exploring`.2
 
 ## [Preparing data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Load prepared data to a variable, without downloading it
 :::
 
@@ -104,7 +104,7 @@ Exercise `r no_exploring`.3
 
 ## [Exploring data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Use the base query for data exploration
 :::
 

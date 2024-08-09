@@ -121,7 +121,7 @@ TA
 
 ## [Posit + Databricks]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Special work we have done as part of the new partnership
 :::
 
@@ -139,7 +139,7 @@ Accessing <br/> Databricks
 
 ## [Using RStudio]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 In the *"Connections"* pane, select *"New Connection"*
 :::
 
@@ -147,7 +147,7 @@ In the *"Connections"* pane, select *"New Connection"*
 
 ## [Using RStudio]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Select *'warehouse'*
 :::
 
@@ -155,7 +155,7 @@ Select *'warehouse'*
 
 ## [Using RStudio]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Click *'OK'*
 :::
 
@@ -163,7 +163,7 @@ Click *'OK'*
 
 ## [RStudio DB Navigator]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Explore the catalogs, schema and tables
 :::
 
@@ -264,7 +264,7 @@ Exercises 1.3 - 1.4
 
 :::
 :::{.column width="90%"}
-:::.custom-subtitle
+:::{.custom-subtitle}
 - `dbConnect()` - Connects to the database
 - `dbDisconnect()` - Disconnects the database
 - `dbListTables()` - Lists the tables 
@@ -290,12 +290,12 @@ Exercise 1.5
 
 :::{.columns}
 :::{.column}
-:::.custom-subtitle
+:::{.custom-subtitle}
 `knitr` SQL engine 
 :::
 :::
 :::{.column}
-:::.custom-subtitle
+:::{.custom-subtitle}
 RStudio SQL script
 :::
 :::
@@ -382,7 +382,7 @@ Data & processing need to be as **physically close** as possible
 
 ## [Takeaways]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 :::{.incremental1}
 - [Download data if doing something only R can do]{style="font-size:75px;"}
 - [🔑 Data & processing need to be as **physically close** as possible]{style="font-size:75px;"}
@@ -406,12 +406,12 @@ Remote <br/> processing
 
 :::{.columns}
 :::{.column}
-:::.custom-subtitle
+:::{.custom-subtitle}
 Preferred
 :::
 :::
 :::{.column}
-:::.custom-subtitle
+:::{.custom-subtitle}
 "Use in case of emergencies"
 :::
 :::
@@ -424,7 +424,7 @@ Preferred
 
 :::{.columns}
 :::{.column}
-:::.custom-subtitle
+:::{.custom-subtitle}
 :::{.incremental1}
 - SQL language was not meant for exploratory data analysis
 - "Cognitive cost" of switching between SQL and R 
@@ -452,7 +452,7 @@ group by 'cut' order by 'avg_price' desc
 
 :::{.columns}
 :::{.column width="45%"}
-:::.custom-subtitle
+:::{.custom-subtitle}
 :::{.incremental1}
 - Translates R code to SQL!
 - 'Modularity' of piped code
@@ -485,7 +485,7 @@ group by 'cut' order by 'avg_price' desc
 :::{.columns}
 :::{.column width="40%"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 :::{.incremental1}
 - Creates a "virtual" table 
 - Behaves like a regular data frame
@@ -525,7 +525,7 @@ tbl_diamonds |> <br/>
 :::{.columns}
 :::{.column width="55%"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 :::{.incremental1}
 - Create a variable in R without importing data
 - SQL is sent **only** when data is requested
@@ -559,7 +559,7 @@ Exercises 2.1 - 2.2
 
 ## [PSA]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Please, please, please...don't pass a full query to `tbl()`
 :::
 
@@ -575,7 +575,7 @@ Please, please, please...don't pass a full query to `tbl()`
 
 ## [PSA]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Please, please, please...don't pass a full query to `tbl()`
 :::
 
@@ -616,7 +616,7 @@ More about <br/>
 
 
 ## [Data collection]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::.custom-subtitle
+:::{.custom-subtitle}
 There are 3 commands that download data:
 :::
 
@@ -624,7 +624,7 @@ There are 3 commands that download data:
 
 :::{.column width="55%"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 - `print()` - Downloads the first 1K rows by default (Guardrails)
 - `collect()` - Downloads **all** of the data
 - `pull()` - Download **all** the data of a single field
@@ -650,7 +650,7 @@ Exercise 3.1
 
 ## [Databricks Unity Catalog (UC)]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Centralizes access control, auditing, lineage, and data discovery across workspaces.
 :::
 
@@ -662,7 +662,7 @@ https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 
 ## [Accessing the UC]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 *"diamonds"* can be accessed without specifying catalog and schema
 :::
 
@@ -678,7 +678,7 @@ https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 
 ## [Accessing the UC]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 *"hive_metastore"* & *"default"* are the default catalog & schema respectively 
 :::
 
@@ -694,7 +694,7 @@ https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 
 ## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 How do I access tables not in the default catalog?
 :::
 
@@ -710,7 +710,7 @@ x (31740) Table or view not found: ..customer
 
 ## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 How do I access tables not in the default catalog?
 :::
 
@@ -737,7 +737,7 @@ x (31740) Table or view not found: ..samples.tpch.<br/>customer
 
 ## [Non-default catalog]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Use `I()` to create the correct table reference
 :::
 <br/>
@@ -762,7 +762,7 @@ Exercise 3.2
 :::
 
 ## [Variable selection]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::.custom-subtitle
+:::{.custom-subtitle}
 Using `select()` with these functions make variable selection easy: 
 :::
 
@@ -770,7 +770,7 @@ Using `select()` with these functions make variable selection easy:
 :::{.column width="10%"}
 :::
 :::{.column width="80%"}
-:::.custom-subtitle
+:::{.custom-subtitle}
 - `starts_with()` - Starts with an exact prefix
 - `ends_with()` - Ends with an exact suffix
 - `contains()` - Contains a literal string
@@ -830,7 +830,7 @@ data]{style="font-size:130px;"}
 
 ## [Preparing data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Load prepared data to a variable, without downloading it
 :::
 
@@ -850,7 +850,7 @@ prep_orders <- orders |>
 
 ## [Exploring data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Use the base query for data exploration
 :::
 
@@ -898,7 +898,7 @@ Unit 5
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Pipe the prepared data into a `ggplot2` 
 :::
 <br/>
@@ -920,7 +920,7 @@ prep_orders |>
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Pipe the prepared data into a `ggplot2` 
 :::
 
@@ -956,7 +956,7 @@ prep_orders |>
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Pipe the prepared data into a `ggplot2` 
 :::
 <br/>
@@ -979,7 +979,7 @@ prep_orders |>
 
 ## [ggplot2 "auto-collects"]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 *Be careful! It downloads all of the data!*
 :::
 
@@ -1003,7 +1003,7 @@ Exercise 5.1
 
 ## [The truth about ggplot2]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 A plot gets refined iteratively, data must be local.
 :::
 
@@ -1027,7 +1027,7 @@ A plot gets refined iteratively, data must be local.
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Collect (download) the data into an R variable
 :::
 
@@ -1044,7 +1044,7 @@ sales_by_year <- prep_orders |>
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Iterate on the plot using the local data
 :::
 
@@ -1058,7 +1058,7 @@ sales_by_year |>
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 Iterate on the plot using the local data
 :::
 
@@ -1103,7 +1103,7 @@ Dashboards
 
 [🔑 Two fundamental points:]{style="font-size:90px;"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 :::{.incremental1}
 - [App load time matters! **The faster the better!**]{style="font-size:80px"}
 - [Download **raw** data **only** if there is no other option]{style="font-size:80px"}
@@ -1114,7 +1114,7 @@ Dashboards
 
 :::{.columns}
 :::{.column width="55%"}
-:::.custom-subtitle
+:::{.custom-subtitle}
 - [Data driven dropdowns]{style="font-size:80px;"}
 :::
 :::
@@ -1126,7 +1126,7 @@ Dashboards
 
 :::{.columns}
 :::{.column width="55%"}
-:::.custom-subtitle
+:::{.custom-subtitle}
 - [Data driven dropdowns]{style="font-size:80px;"}
 - [Interactive plots (hover over)]{style="font-size:80px;"}
 :::
@@ -1139,7 +1139,7 @@ Dashboards
 
 :::{.columns}
 :::{.column width="55%"}
-:::.custom-subtitle
+:::{.custom-subtitle}
 - [Data driven dropdowns]{style="font-size:80px;"}
 - [Interactive plots (hover over)]{style="font-size:80px;"}
 - [Drill down when interacting with the plot]{style="font-size:80px;"}
@@ -1170,7 +1170,7 @@ Exercise 6.1
 
 ## [When do we need them?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::.custom-subtitle
+:::{.custom-subtitle}
 When options in the data change regularly
 :::
 
@@ -1338,7 +1338,7 @@ Exercise 6.3
 :::{.column width="5%"}
 :::
 :::{.column width="95%"}
-:::.custom-subtitle
+:::{.custom-subtitle}
 :::{incremental1}
 - Allows you to create dynamic `ggplot` graphs. 
 - Adds tooltips, hover effects, and JavaScript actions 
