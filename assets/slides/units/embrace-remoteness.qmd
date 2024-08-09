@@ -4,31 +4,26 @@ engine: knitr
 
 ## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
 
-<br/><br/><br/><br/><br/>
+<br/><br/><br/>
 
 :::{.columns}
-:::{.column width="4%"}
+:::{.column width="1%"}
 :::
 :::{.column width="95%"}
-:::{.content-slide}
+
 ["Embrace the remoteness"]{style="font-size:130px; line-height: 0.5;"}
-:::
-:::{.content-slide-thin}
+
 [Martin Grund, *Databricks*]{style="font-size:70px; line-height: 0.5;"}
-:::
+
 :::
 :::
 
-## {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+## [Key concept]{style="color:#666;"}{background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.content-slide-title}
-🔑 Key concept 
-:::
+<br/>
 
-<br/><br/>
-
-:::{.content-slide}
-Data & processing need to be as **physically close** as possible
+:::{.custom-center}
+[🔑 Data & processing need to be as **physically close** as possible]{style="font-size:100px;"}
 :::
 
 ## [Working with Databricks]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -81,7 +76,7 @@ Data & processing need to be as **physically close** as possible
 
 ## [Takeaways]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::{.custom-closer}
 :::{.incremental1}
 - [Download data if doing something only R can do]{style="font-size:75px;"}
 - [🔑 Data & processing need to be as **physically close** as possible]{style="font-size:75px;"}
