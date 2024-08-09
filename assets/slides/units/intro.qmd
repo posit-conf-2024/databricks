@@ -57,11 +57,11 @@ Break (30mins)
 
 :::{.columns}
 :::{.column}
-:::{.team}
-Edgar Ruiz 
+:::{.subtitle .closer}
+[Edgar Ruiz]{style="font-size:70px"}
 :::
-:::{.team-thin}
-Instructor
+:::{.center .closer}
+[Instructor]{style="font-size:60px"}
 :::
 :::
 :::{.column}

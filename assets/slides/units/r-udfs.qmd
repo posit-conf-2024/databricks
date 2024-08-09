@@ -202,7 +202,7 @@ tbl_mtcars |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_udfs`.1
 :::
 
@@ -240,7 +240,7 @@ tbl_mtcars |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_udfs`.2
 :::
 
@@ -262,7 +262,7 @@ Exercise `r no_udfs`.2
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_udfs`.3
 :::
 
@@ -312,7 +312,7 @@ tbl_mtcars |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_udfs`.4
 :::
 
@@ -390,7 +390,7 @@ tbl_mtcars |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_udfs`.5
 :::
 

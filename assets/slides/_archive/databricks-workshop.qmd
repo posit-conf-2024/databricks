@@ -173,7 +173,7 @@ Explore the catalogs, schema and tables
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercises 1.1 - 1.2
 :::
 
@@ -251,7 +251,7 @@ https://solutions.posit.co/connections/db/databases/databricks/#using-the-new-od
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercises 1.3 - 1.4
 :::
 
@@ -276,7 +276,7 @@ Exercises 1.3 - 1.4
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise 1.5
 :::
 
@@ -307,7 +307,7 @@ RStudio SQL script
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise 1.6 - 1.7
 :::
 
@@ -553,7 +553,7 @@ FROM 'diamonds'<br/>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercises 2.1 - 2.2
 :::
 
@@ -644,7 +644,7 @@ tbl_cars [#Print is implied]{style="color:#aaa"} <br/>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise 3.1
 :::
 
@@ -757,7 +757,7 @@ https://www.tidyverse.org/blog/2024/04/dbplyr-2-5-0/#referring-to-tables-in-a-sc
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise 3.2
 :::
 
@@ -781,7 +781,7 @@ Using `select()` with these functions make variable selection easy:
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise 3.3
 :::
 
@@ -812,7 +812,7 @@ Exercise 3.3
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise 3.4
 :::
 
@@ -873,7 +873,7 @@ prep_orders |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercises 4.1 - 4.2
 :::
 
@@ -997,7 +997,7 @@ nation |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise 5.1
 :::
 
@@ -1083,7 +1083,7 @@ sales_by_year |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercises 5.2 - 5.4
 :::
 
@@ -1151,7 +1151,7 @@ Dashboards
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise 6.1
 :::
 
@@ -1178,7 +1178,7 @@ When options in the data change regularly
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise 6.2
 :::
 
@@ -1311,7 +1311,7 @@ sales_by_year |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise 6.3
 :::
 
@@ -1475,7 +1475,7 @@ Exercise 6.3
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise 6.4
 :::
 

@@ -153,7 +153,7 @@ orders |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_working_with_llms`.1
 :::
 
@@ -198,7 +198,7 @@ tbl_products |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_working_with_llms`.2
 :::
 
@@ -236,7 +236,7 @@ tbl_reviews |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_working_with_llms`.3
 :::
 
@@ -333,6 +333,6 @@ Selection: 1
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_working_with_llms`.4
 :::

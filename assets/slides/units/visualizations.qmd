@@ -126,7 +126,7 @@ nation |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_visualizations`.1
 :::
 
@@ -212,6 +212,6 @@ sales_by_year |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercises `r no_visualizations`.2 - `r no_visualizations`.4
 :::

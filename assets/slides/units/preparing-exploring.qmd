@@ -40,7 +40,7 @@ Using `select()` with these functions make variable selection easy:
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_exploring`.1
 :::
 
@@ -71,7 +71,7 @@ Exercise `r no_exploring`.1
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_exploring`.2
 :::
 
@@ -98,7 +98,7 @@ prep_orders <- orders |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_exploring`.3
 :::
 
@@ -127,7 +127,7 @@ prep_orders |>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_exploring`.4
 :::
 

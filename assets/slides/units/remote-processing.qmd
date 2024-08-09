@@ -169,7 +169,7 @@ FROM 'diamonds'<br/>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercises `r no_remote`.1 - `r no_remote`.2
 :::
 
@@ -248,7 +248,7 @@ tbl_cars [#Print is implied]{style="color:#aaa"} <br/>
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_remote`.3
 :::
 
@@ -361,6 +361,6 @@ https://www.tidyverse.org/blog/2024/04/dbplyr-2-5-0/#referring-to-tables-in-a-sc
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_remote`.4
 :::

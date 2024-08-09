@@ -42,7 +42,19 @@ $font-family-sans-serif: "Source Sans Pro";
   text-decoration: underline;
 }
 
-.green-slide p {
+.closer p {
+  line-height: 0.6;
+}
+
+.center p {
+  text-align: center;
+}
+
+.subtitle p {
+  color: #579297;
+}
+
+.custom-exercise p {
   padding-top: 2.5em;
   text-align: center;
   font-size: 135px;

@@ -185,7 +185,7 @@ sc <- spark_connect(
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_databricks`.1
 :::
 
@@ -257,7 +257,7 @@ Exercise `r no_databricks`.1
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_databricks`.2
 :::
 
@@ -298,7 +298,7 @@ Exercise `r no_databricks`.2
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_databricks`.3
 :::
 
@@ -338,7 +338,7 @@ Exercise `r no_databricks`.3
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_databricks`.4
 :::
 
@@ -368,7 +368,7 @@ Exercise `r no_databricks`.4
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_databricks`.5
 :::
 
@@ -398,7 +398,7 @@ Exercise `r no_databricks`.5
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_databricks`.6
 :::
 
@@ -428,6 +428,6 @@ Exercise `r no_databricks`.6
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
-:::{.green-slide}
+:::{.custom-exercise}
 Exercise `r no_databricks`.7
 :::
