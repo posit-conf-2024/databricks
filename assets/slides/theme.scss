@@ -22,7 +22,6 @@ $font-family-sans-serif: "Source Sans Pro";
 }
 
 .slide h2 {
-  font-weight: 300;
   line-height: 1;
 }
 
@@ -42,16 +41,18 @@ $font-family-sans-serif: "Source Sans Pro";
   text-decoration: underline;
 }
 
-.closer p {
+.custom-closer p {
   line-height: 0.6;
 }
 
-.center p {
+.custom-center p {
   text-align: center;
 }
 
-.subtitle p {
+.custom-subtitle p {
+  text-align: center;
   color: #579297;
+  font-size: 70px;
 }
 
 .custom-exercise p {

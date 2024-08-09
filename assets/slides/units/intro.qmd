@@ -57,19 +57,19 @@ Break (30mins)
 
 :::{.columns}
 :::{.column}
-:::{.subtitle .closer}
-[Edgar Ruiz]{style="font-size:70px"}
+:::{.custom-subtitle .custom-closer}
+[**Edgar Ruiz**]{style="font-size:70px"}
 :::
-:::{.center .closer}
+:::{.custom-center .custom-closer}
 [Instructor]{style="font-size:60px"}
 :::
 :::
 :::{.column}
-:::{.team}
-James Blair
+:::{.custom-subtitle .custom-closer}
+[**James Blair**]{style="font-size:70px"}
 :::
-:::{.team-thin}
-TA
+:::{.custom-center .custom-closer}
+[TA]{style="font-size:60px"}
 :::
 :::
 :::
@@ -92,7 +92,7 @@ TA
 
 ## [Posit + Databricks]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::{.custom-subtitle}
 Special work we have done as part of the new partnership
 :::
 
@@ -117,7 +117,7 @@ Special work we have done as part of the new partnership
 
 ## [Step 1 - Landing Page]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::{.custom-subtitle}
 Navigate to {{site}}, and click on **Posit Workbench**
 :::
 
@@ -125,7 +125,7 @@ Navigate to {{site}}, and click on **Posit Workbench**
 
 ## [Step 2 - OpenID Page]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::{.custom-subtitle}
 Click on **Sign in with OpenID**
 :::
 
@@ -133,7 +133,7 @@ Click on **Sign in with OpenID**
 
 ## [Step 3 - KeyCloak Page]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::{.custom-subtitle}
 Click on the GitHub icon
 :::
 
@@ -141,13 +141,13 @@ Click on the GitHub icon
 
 ## [Step 4 - GitHub]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::{.custom-subtitle}
 Log into GitHub, and/or approve the **RStudio** org 
 :::
 
 ## [Step 5 - Posit Workbench homepage]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::{.custom-subtitle}
 Click on the **New Session** button
 :::
 
@@ -155,7 +155,7 @@ Click on the **New Session** button
 
 ## [Step 6 - Setup new session]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::{.custom-subtitle}
 [Confirm that the image matches what's on the screenshot (1), then click on **Start Session** (2).]{style="font-size:40px;"}
 :::
 
