@@ -6,7 +6,7 @@ engine: knitr
 
 Welcome to
 
-**Using Databricks** <br/> **with R**
+[**Using Databricks** <br/> **with R**]{style="font-size:140px;"}
 
 Workshop <br/> August 12
 
@@ -74,7 +74,6 @@ TA
 :::
 :::
 
-
 ## [Materials]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
@@ -101,12 +100,12 @@ Special work we have done as part of the new partnership
 
 ## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
 
-<br/><br/><br/><br/><br/>
+<br/><br/>
 
 :::{.columns}
-:::{.column width="4%"}
+:::{.column width="6%"}
 :::
-:::{.column width="95%"}
+:::{.column width="93%"}
 :::{.content-slide-thin}
 [Let's get started...]{style="font-size:70px; line-height: 0.5;"}
 :::
@@ -115,7 +114,6 @@ Special work we have done as part of the new partnership
 :::
 :::
 :::
-
 
 ## [Step 1 - Landing Page]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
