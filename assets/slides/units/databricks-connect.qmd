@@ -22,7 +22,7 @@ Databricks <br/> Connect
 :::{.columns}
 :::{.column width="50%"}
 
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 - Spark Connect, offers **true** remote connectivity
 - Uses **gRPC** to as the communication interface
@@ -43,7 +43,7 @@ Databricks <br/> Connect
 :::{.columns}
 :::{.column width="37%"}
 
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 - `databricks-connect` integrates with gRPC, by wrapping `pyspark`
 - `pyspark` is the most developed **Spark Connect** interface
@@ -83,7 +83,7 @@ Databricks <br/> Connect
 :::{.columns}
 :::{.column width="45%"}
 
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
   - `dplyr` back-end
   - `DBI` back-end
@@ -119,7 +119,7 @@ trips |>
 :::{.columns}
 :::{.column width="42%"}
 
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 - Python 3.10+ 
 - A Python environment with `databricks-connect` and its dependencies
@@ -207,7 +207,7 @@ Exercise `r no_databricks`.1
 
 :::{.columns}
 :::{.column width="50%"}
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental2}
 - Spark has the ability to cache large amounts of data
 - Amount of data is limited by the size of the cluster
@@ -234,7 +234,7 @@ Exercise `r no_databricks`.1
 
 ## [About this approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 - [Well suited when exploring the entirety of the data. Usually to find relevant variables]{style="font-size:75px;"}
 - [Not efficient when accessing the same fields and rows over and over]{style="font-size:75px;"}
@@ -287,7 +287,7 @@ Exercise `r no_databricks`.2
 
 ## [About this approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 - [Well suited when accessing the same fields and rows over and over]{style="font-size:75px;"}
 - [Best when running models and UDFs *(More about this later)*]{style="font-size:75px;"}
@@ -328,7 +328,7 @@ Exercise `r no_databricks`.3
 
 ## [About this approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 - Read files using the `spark_read...` family of functions
 - The file path needs to be relative to your Databricks environment
@@ -404,7 +404,7 @@ Exercise `r no_databricks`.6
 
 ## [Very large files, read or map]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 - [Reading, you "pay" in time at the beginning]{style="font-size:65px;"}
 - [Mapping, you "pay" in time as you access the data]{style="font-size:65px;"}

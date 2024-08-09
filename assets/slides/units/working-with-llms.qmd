@@ -38,7 +38,7 @@ Databricks
 
 :::{.columns}
 :::{.column width="46%"}
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 - Databricks allows us to access LLM functionality right from SQL 
 - Accessible via calling the `ai_` family of functions
@@ -79,7 +79,7 @@ https://docs.databricks.com/en/large-language-models/ai-functions-example.html
 
 :::{.columns}
 :::{.column width="40%"}
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 - Easily access the `ai` functions by calling them via `dplyr` verbs
 - `dbplyr` passes unrecognized functions 'as-is' in the query
@@ -138,7 +138,7 @@ orders |>
 :::
 :::{.column width="90%"}
 :::{.incremental1}
-:::{.custom2}
+:::.custom-subtitle
 - Need APIs pay-per-token supported region
 - Functions not available on Databricks SQL Classic
 - In preview, functions have performance restrictions
@@ -161,7 +161,7 @@ Exercise `r no_working_with_llms`.1
 
 :::{.columns}
 :::{.column width="35%"}
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 - Most `ai` functions require an argument of `ARRAY` type
 - SQL's `array()` function can be called directly inside the `ai` function

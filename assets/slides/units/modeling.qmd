@@ -31,7 +31,7 @@ Modeling <br/> with R UDFs
 :::{.columns}
 :::{.column width="50%"}
 
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 - Use `dplyr`'s `slice_sample()` function
 - Download enough data to be representative
@@ -99,7 +99,7 @@ Exercise `r no_modeling`.2
 :::{.columns}
 :::{.column width="45%"}
 
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 - `vetiver` packages `tidymodels` workflows and models
 - Model is automatically reduced in size
@@ -136,7 +136,7 @@ Exercise `r no_modeling`.3
 :::{.columns}
 :::{.column width="45%"}
 
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 - Copy the R model where Spark can access
 - Location **has** to be secure
@@ -269,7 +269,7 @@ Exercise `r no_modeling`.5
 :::{.column width="25%"}
 :::
 :::{.column width="75%"}
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 1. [Create the function]{style="font-size:75px;"}
 1. [Test the function locally]{style="font-size:75px;"}

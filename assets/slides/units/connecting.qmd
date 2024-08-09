@@ -21,7 +21,7 @@ Accessing <br/> Databricks
 
 ## [Using RStudio]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::.custom-subtitle
 In the *"Connections"* pane, select *"New Connection"*
 :::
 
@@ -29,7 +29,7 @@ In the *"Connections"* pane, select *"New Connection"*
 
 ## [Using RStudio]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::.custom-subtitle
 Select *'warehouse'*
 :::
 
@@ -37,7 +37,7 @@ Select *'warehouse'*
 
 ## [Using RStudio]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::.custom-subtitle
 Click *'OK'*
 :::
 
@@ -45,7 +45,7 @@ Click *'OK'*
 
 ## [RStudio DB Navigator]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::.custom-subtitle
 Explore the catalogs, schema and tables
 :::
 
@@ -146,7 +146,7 @@ Exercises `r no_connecting`.3 - `r no_connecting`.4
 
 :::
 :::{.column width="90%"}
-:::{.custom2}
+:::.custom-subtitle
 - `dbConnect()` - Connects to the database
 - `dbDisconnect()` - Disconnects the database
 - `dbListTables()` - Lists the tables 
@@ -172,12 +172,12 @@ Exercise `r no_connecting`.5
 
 :::{.columns}
 :::{.column}
-:::{.custom2}
+:::.custom-subtitle
 `knitr` SQL engine 
 :::
 :::
 :::{.column}
-:::{.custom2}
+:::.custom-subtitle
 RStudio SQL script
 :::
 :::

@@ -23,7 +23,7 @@ Dashboards
 
 [🔑 Two fundamental points:]{style="font-size:90px;"}
 
-:::{.custom2}
+:::.custom-subtitle
 :::{.incremental1}
 - [App load time matters! **The faster the better!**]{style="font-size:80px"}
 - [Download **raw** data **only** if there is no other option]{style="font-size:80px"}
@@ -34,7 +34,7 @@ Dashboards
 
 :::{.columns}
 :::{.column width="55%"}
-:::{.custom2}
+:::.custom-subtitle
 - [Data driven dropdowns]{style="font-size:80px;"}
 :::
 :::
@@ -46,7 +46,7 @@ Dashboards
 
 :::{.columns}
 :::{.column width="55%"}
-:::{.custom2}
+:::.custom-subtitle
 - [Data driven dropdowns]{style="font-size:80px;"}
 - [Interactive plots (hover over)]{style="font-size:80px;"}
 :::
@@ -59,7 +59,7 @@ Dashboards
 
 :::{.columns}
 :::{.column width="55%"}
-:::{.custom2}
+:::.custom-subtitle
 - [Data driven dropdowns]{style="font-size:80px;"}
 - [Interactive plots (hover over)]{style="font-size:80px;"}
 - [Drill down when interacting with the plot]{style="font-size:80px;"}
@@ -90,7 +90,7 @@ Exercise `r no_dashboards`.1
 
 ## [When do we need them?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom2}
+:::.custom-subtitle
 When options in the data change regularly
 :::
 
@@ -258,7 +258,7 @@ Exercise `r no_dashboards`.3
 :::{.column width="5%"}
 :::
 :::{.column width="95%"}
-:::{.custom2}
+:::.custom-subtitle
 :::{incremental1}
 - Allows you to create dynamic `ggplot` graphs. 
 - Adds tooltips, hover effects, and JavaScript actions 
