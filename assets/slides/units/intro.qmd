@@ -21,7 +21,6 @@ Workshop
 August 12
 :::
 
-
 ## [Housekeeping items]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 <br/>
@@ -133,8 +132,6 @@ Special work we have done as part of the new partnership
 :::
 :::
 
-
-
 ## {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.content-slide-title}
@@ -205,3 +202,43 @@ Data & processing need to be as **physically close** as possible
 - [But how?...]{style="font-size:75px;"}
 :::
 :::
+
+## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
+
+<br/><br/><br/><br/><br/>
+
+:::{.columns}
+:::{.column width="4%"}
+:::
+:::{.column width="95%"}
+:::{.content-slide}
+[Login into Posit Workbench]{style="font-size:130px; line-height: 0.5;"}
+:::
+:::
+:::
+
+
+## [Step 1 - Landing Page]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Navigate to {{site}}, and click on **Posit Workbench**
+:::
+
+![](assets/intro/login-landing.png){.absolute top="220" left="250" width="1100"}
+
+## [Step 2 - OpenID Page]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Click on **Sign in with OpenID**
+:::
+
+![](assets/intro/login-openid){.absolute top="220" left="250" width="1100"}
+
+## [Step 3 - KeyCloak Page]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom2}
+Click on the GitHub icon
+:::
+
+![](assets/intro/login-keycloak.png){.absolute top="220" left="250" width="1100"}
+
