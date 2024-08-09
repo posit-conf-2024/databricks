@@ -17,6 +17,9 @@ Unit `r no_connecting`
 
 :::{.custom-unit-title}
 Accessing <br/> Databricks 
+
+<br/>
+<br/>
 :::
 
 ## [Using RStudio]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -65,9 +68,10 @@ Exercises `r no_connecting`.1 - `r no_connecting`.2
 
 ## [Connecting - Good]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.sample-code}
+:::{.custom-subtitle}
+Easily connect with `dbConnect()` & `odbc()` 
+:::
 
-`dbConnect()` & `odbc::odbc()` lets you easily connect to the SQL Warehouse
 
 ```{r}
 #| eval: false
@@ -85,10 +89,8 @@ con <- dbConnect(
   Protocol = "https",
   ThriftTransport = 2,
   SSL = 1,
-  UID = "token"
-)
+  UID = "token")
 ```
-:::
 
 :::{.footer}
 https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcodbc-function
@@ -98,12 +100,10 @@ https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcod
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
-:::{.sample-code}
 :::{.incremental1}
-- `odbc::databricks()` super simplifies the setup
+- `odbc::databricks()` simplifies the setup
 - Automatically detects credentials, driver, and sets default arguments
 - `HTTPPath` is the only argument that you will need
-:::
 :::
 
 <br/>
@@ -139,21 +139,13 @@ Exercises `r no_connecting`.3 - `r no_connecting`.4
 
 
 ## [Using DBI]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-<br/>
 
-:::{.columns}
-:::{.column width="10%"}
-
-:::
-:::{.column width="90%"}
-:::{.custom-subtitle}
-- `dbConnect()` - Connects to the database
-- `dbDisconnect()` - Disconnects the database
+:::{.custom-closer}
+- `dbConnect()` - Connects 
+- `dbDisconnect()` - Disconnects 
 - `dbListTables()` - Lists the tables 
 - `dbListFields()` - Lists the fields of a table 
-- `dbGetQuery()` - Runs the query & collects results
-:::
-:::
+- `dbGetQuery()` - Runs query & collects results
 :::
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
@@ -168,8 +160,6 @@ Exercise `r no_connecting`.5
 
 ## [Other RStudio interfaces]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-<br/>
-
 :::{.columns}
 :::{.column}
 :::{.custom-subtitle}
@@ -183,8 +173,8 @@ RStudio SQL script
 :::
 :::
 
-![](assets/connecting/sql-knitr.png){.absolute top="300" left="20" width="800"}
-![](assets/connecting/sql-script.png){.absolute top="300" left="850" width="600"}
+![](assets/connecting/sql-knitr.png){.absolute top="250" left="20" width="800"}
+![](assets/connecting/sql-script.png){.absolute top="250" left="850" width="600"}
 ![](assets/connecting/sql-script-result.png){.absolute top="450" left="975" width="600"}
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
