@@ -22,7 +22,7 @@ Databricks <br/> Connect
 :::{.columns}
 :::{.column width="50%"}
 
-:::{.custom-subtitle}
+:::{.custom-smaller}
 :::{.incremental1}
 - Spark Connect, offers **true** remote connectivity
 - Uses **gRPC** to as the communication interface
@@ -37,22 +37,10 @@ Databricks <br/> Connect
 
 ![](assets/databricks-connect/grpc){.absolute top="264" left="900" width="670"}
 
-
 ## [Databricks Connect]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="37%"}
-
-:::{.custom-subtitle}
-:::{.incremental1}
-- `databricks-connect` integrates with gRPC, by wrapping `pyspark`
-- `pyspark` is the most developed **Spark Connect** interface
-:::
-:::
-
-:::
-:::{.column width="60%"}
-:::
+:::{.custom-subtitle .custom-smaller}
+`databricks-connect` integrates with gRPC via `pyspark`
 :::
 
 ![](assets/databricks-connect/python.png){.absolute top="264" left="572" width="998"}
@@ -61,29 +49,23 @@ Databricks <br/> Connect
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
-:::{.columns}
-:::{.column width="4%"}
+:::{.custom-subtitle}
+`sparklyr` integrates with `databricks-connect` via `reticulate`
 :::
-:::{.column width="96%"}
-[`sparklyr` integrates with `databricks-connect` via `reticulate`]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
-:::
-:::
-
-
 
 ![](assets/databricks-connect/db-connect.png){.absolute top="200" left="70" width="1500"}
 
 ## [Why not just use 'reticulate'?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
-
-[**sparklyr** extends functionality and user experience:]{style="font-size:65px;line-height:1;font-weight:400;color:#666;"}
-
+:::{.custom-subtitle}
+`sparklyr` extends functionality and user experience
+:::
 
 :::{.columns}
-:::{.column width="45%"}
-
-:::{.custom-subtitle}
+:::{.column width="20%"}
+:::
+:::{.column width="70%"}
+:::{.custom-smaller}
 :::{.incremental1}
   - `dplyr` back-end
   - `DBI` back-end
@@ -93,24 +75,9 @@ Databricks <br/> Connect
 :::
 
 :::
-:::{.column width="55%"}
-:::{.code-slim-35}
-```r
-library(sparklyr) 
-sc <- spark_connect(method = "databricks_connect") 
+:::
 
-trips <- tbl(sc, I("samples.nyctaxi.trips")) 
-
-trips |>  
-  group_by(pickup_zip) |> 
-  summarise( 
-    count = n(), 
-    avg_distance = mean(trip_distance) 
-    )
-```
-:::
-:::
-:::
+![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
 ## [Getting started]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -119,7 +86,7 @@ trips |>
 :::{.columns}
 :::{.column width="42%"}
 
-:::{.custom-subtitle}
+:::{.custom-smaller}
 :::{.incremental1}
 - Python 3.10+ 
 - A Python environment with `databricks-connect` and its dependencies
@@ -129,14 +96,17 @@ trips |>
 
 :::
 :::{.column width="58%"}
-:::{.code-slim-35}
+:::{.custom-smaller}
+<br/>
 ```r
 install.packages("pysparklyr")
+
 library(sparklyr) 
+
 sc <- spark_connect(
-  cluster_id = "1026-175310-7cpsh3g8",
-  method = "databricks_connect"
-  )
+ cluster_id = "[cluster's id]",
+ method = "databricks_connect"
+ )
 ```
 :::
 :::
