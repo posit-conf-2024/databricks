@@ -17,6 +17,8 @@ Unit `r no_dashboards`
 Dashboards
 :::
 
+<br/><br/>
+
 ## [Why dashboards?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 <br/>
@@ -80,7 +82,7 @@ Exercise `r no_dashboards`.1
 :::{.columns}
 :::{.column width="55%"}
 :::{.custom}
-<br><br><br><br>
+<br><br>
 [Data driven dropdowns]{style="font-size:140px;"}
 :::
 :::
@@ -114,7 +116,7 @@ Exercise `r no_dashboards`.2
 
 :::{.columns}
 :::{.column}
-:::{.sample-code1}
+:::{.custom-smallest}
 ```r
 sales_by_year <- prep_orders |>
   filter(n_name == country) |>
@@ -140,7 +142,7 @@ sales_by_year |>
 :::
 :::
 :::{.column}
-:::{.sample-code1}
+:::{.custom-smallest}
 
 ```{r}
 #| eval: false
@@ -164,14 +166,12 @@ shinyApp(
 :::
 
 ## [Adding the plot]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="20%"}
+
+:::{.custom-subtitle}
+Prefix `input$` to both instances of `country`
 :::
-:::{.column width="80%"}
-[Prefix `input$` to both instances of `country`]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
-:::{.sample-code1}
+
+:::{.custom-smallest}
 ```{r}
 #| eval: false
 #| echo: true
@@ -179,9 +179,7 @@ shinyApp(
 sales_by_year <- prep_orders |>
   filter(n_name == country) |>
   group_by(order_year) |>
-  summarise(
-    total_price = sum(o_totalprice, na.rm = TRUE)
-  ) |>
+  summarise(total_price = sum(o_totalprice, na.rm = TRUE)) |>
   collect()
 
 sales_by_year |>
@@ -197,24 +195,20 @@ sales_by_year |>
 :::
 
 ## [Adding the plot]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="20%"}
+
+:::{.custom-subtitle}
+Prefix `input$` to both instances of `country`
 :::
-:::{.column width="80%"}
-[Prefix `input$` to both instances of `country`]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
-:::{.sample-code1}
+
+:::{.custom-smallest}
 ```{r}
 #| eval: false
 #| echo: true
-#| code-line-numbers: "2,16"
+#| code-line-numbers: "2,14"
 sales_by_year <- prep_orders |>
   filter(n_name == input$country) |>
   group_by(order_year) |>
-  summarise(
-    total_price = sum(o_totalprice, na.rm = TRUE)
-  ) |>
+  summarise(total_price = sum(o_totalprice, na.rm = TRUE)) |>
   collect()
 
 sales_by_year |>
@@ -240,7 +234,7 @@ Exercise `r no_dashboards`.3
 :::{.columns}
 :::{.column width="55%"}
 :::{.custom}
-<br><br><br><br>
+<br><br>
 [Interactive Plots]{style="font-size:140px;"}
 :::
 :::
@@ -252,13 +246,7 @@ Exercise `r no_dashboards`.3
 
 ![](assets/dashboards/ggiraph.png){.absolute top="0" left="1400"}
 
-<br/>
-
-:::{.columns}
-:::{.column width="5%"}
-:::
-:::{.column width="95%"}
-:::{.custom-subtitle}
+:::{.custom-smaller}
 :::{incremental1}
 - Allows you to create dynamic `ggplot` graphs. 
 - Adds tooltips, hover effects, and JavaScript actions 
@@ -266,8 +254,7 @@ Exercise `r no_dashboards`.3
 - Adds interactivity to `ggplot` geometries, legends and theme elements
 :::
 :::
-:::
-:::
+
 
 :::{.footer}
 [https://davidgohel.github.io/ggiraph/]{style="font-size:40px;"}
@@ -281,7 +268,7 @@ Exercise `r no_dashboards`.3
 [Replace with `ggiraph` functions]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
-:::{.sample-code1}
+:::{.custom-smallest}
 ```{r}
 #| eval: false
 #| echo: true
@@ -314,7 +301,7 @@ Exercise `r no_dashboards`.3
 [Replace with `ggiraph` functions]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
-:::{.sample-code1}
+:::{.custom-smallest}
 ```{r}
 #| eval: false
 #| echo: true
@@ -424,7 +411,7 @@ Exercise `r no_dashboards`.4
 [Add a `showModal()` that reacts when a column in the plot is clicked]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
-:::{.sample-code1}
+:::{.custom-smallest}
 ```{r}
 #| eval: false
 #| echo: true
@@ -454,7 +441,7 @@ Exercise `r no_dashboards`.4
 [Add a `showModal()` that reacts when a column in the plot is clicked]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
-:::{.sample-code1}
+:::{.custom-smallest}
 ```{r}
 #| eval: false
 #| echo: true
@@ -488,7 +475,7 @@ Exercise `r no_dashboards`.4
 [Make the plot allow only 1 column to be selected at the time]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
-:::{.sample-code1}
+:::{.custom-smallest}
 ```{r}
 #| eval: false
 #| echo: true
@@ -522,7 +509,7 @@ Exercise `r no_dashboards`.4
 [Make the plot allow only 1 column to be selected at the time]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
 :::
 :::
-:::{.sample-code1}
+:::{.custom-smallest}
 ```{r}
 #| eval: false
 #| echo: true
@@ -598,7 +585,7 @@ observeEvent(input$sales_plot_selected, {
 :::
 :::
 
-:::{.sample-code1}
+:::{.custom-smallest}
 ```{r}
 #| eval: false
 #| echo: true
