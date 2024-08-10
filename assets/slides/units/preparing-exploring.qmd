@@ -10,7 +10,7 @@ if(!("no_exploring" %in% ls())) no_exploring <- 1
 # {background-image="assets/background/content-slide.svg" background-size="1700px" background-color="#2a7070"}
 
 :::{.custom-unit-number}
-`r no_exploring`
+Unit `r no_exploring`
 :::
 
 :::{.custom-unit-title}
@@ -26,10 +26,10 @@ Using `select()` with these functions make variable selection easy:
 :::
 
 :::{.columns}
-:::{.column width="10%"}
+:::{.column width="5%"}
 :::
-:::{.column width="80%"}
-:::{.custom-subtitle}
+:::{.column width="93%"}
+:::{.custom-center .custom-smaller}
 - `starts_with()` - Starts with an exact prefix
 - `ends_with()` - Ends with an exact suffix
 - `contains()` - Contains a literal string
@@ -49,25 +49,17 @@ Exercise `r no_exploring`.1
 ![](assets/prepare-exploring/join-x.png){.absolute top="100" left="600"}
 ![](assets/prepare-exploring/join-y.png){.absolute top="100" left="800"}
 
-<br/><br/><br/><br/><br/><br/>
 
-:::{.columns}
-:::{.column width="10%"}
-:::
-:::{.column width="30%"}
-`left_join()`
-:::
-:::{.column width="30%"}
-`right_join()`
-:::
-:::{.column width="30%"}
-`full_join()`
-:::
-:::
+[`left_join()`]{.absolute top="410" left="60"}
+
+[`right_join()`]{.absolute top="410" left="550"}
+
+[`full_join()`]{.absolute top="410" left="1100"}
+
 
 ![](assets/prepare-exploring/join-left.png){.absolute top="500" left="170"}
 ![](assets/prepare-exploring/join-right.png){.absolute top="500" left="660"}
-![](assets/prepare-exploring/join-full.png){.absolute top="500" left="1150"}
+![](assets/prepare-exploring/join-full.png){.absolute top="494" left="1150"}
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
@@ -82,7 +74,7 @@ Exercise `r no_exploring`.2
 Load prepared data to a variable, without downloading it
 :::
 
-:::{.sample-code}
+:::{.custom-smaller}
 ```r
 prep_orders <- orders |> 
   left_join(customers, by = c("o_custkey" = "c_custkey")) |> 
@@ -104,11 +96,11 @@ Exercise `r no_exploring`.3
 
 ## [Exploring data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom-subtitle}
+:::{.custom-subtitle .custom-closer}
 Use the base query for data exploration
 :::
 
-:::{.sample-code}
+:::{.custom-smaller}
 ```r
 prep_orders |> 
   group_by(n_name) |> 
