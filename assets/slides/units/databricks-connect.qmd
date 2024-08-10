@@ -116,16 +116,22 @@ sc <- spark_connect(
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
-:::{.custom-subtitle .custom-smaller .custom-closer}
+:::{.custom-subtitle .custom-smaller}
 Automatically, checks for, and installs the Python packages
 :::
 
-:::{.custom-smaller}
+:::{.columns}
+:::{.column width="8%"}
+:::
+:::{.column width="90%"}
+:::{.custom-smallest}
 ```r
 install.packages("pysparklyr")
 library(sparklyr) 
-sc <- spark_connect(cluster_id = "[cluster's id]", 
-                    method = "databricks_connect")
+sc <- spark_connect(
+  cluster_id = "[cluster's id]", 
+  method = "databricks_connect"
+  )
 #> ! Retrieving version from cluster '1026-175310-7cpsh3g8'
 #> Cluster version: '14.1' 
 #> ! No viable Python Environment was identified for 
@@ -135,6 +141,8 @@ sc <- spark_connect(cluster_id = "[cluster's id]",
 #> 2: No
 #> 3: Cancel
 ```
+:::
+:::
 :::
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}

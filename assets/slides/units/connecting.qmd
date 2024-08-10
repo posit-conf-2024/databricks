@@ -72,7 +72,7 @@ Exercises `r no_connecting`.1 - `r no_connecting`.2
 Easily connect with `dbConnect()` & `odbc()` 
 :::
 
-:::{.custom-smaller}
+:::{.custom-smallest}
 
 ```{r}
 #| eval: false

@@ -96,11 +96,15 @@ Exercise `r no_exploring`.3
 
 ## [Exploring data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom-subtitle .custom-closer}
+:::{.custom-subtitle}
 Use the base query for data exploration
 :::
 
-:::{.custom-smaller}
+:::{.columns}
+:::{.column width="8%"}
+:::
+:::{.column width="90%"}
+:::{.custom-smallest}
 ```r
 prep_orders |> 
   group_by(n_name) |> 
@@ -115,6 +119,8 @@ prep_orders |>
 #> 4 FRANCE    45713656960.
 #> 5 IRAN      45708446851.
 ```
+:::
+:::
 :::
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}

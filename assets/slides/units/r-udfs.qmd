@@ -230,12 +230,20 @@ R packages have to be referenced from within
 your function's code using `library()` or `::`
 :::
 
-:::{.custom-smaller}
+:::{.columns}
+:::{.column width="8%"}
+:::
+:::{.column width="90%"}
+:::{.custom-smallest}
 ```r
 tbl_mtcars |> 
   spark_apply(function(x) {
-      library(broom); model <- lm(mpg ~ ., x); tidy(model)[1,]
-      }, group_by = "am")
+      library(broom)
+      model <- lm(mpg ~ ., x)
+      tidy(model)[1,]
+      }, 
+      group_by = "am"
+      )
 #> # Source:   table<`sparklyr_tmp`> [2 x 6]
 #> # Database: spark_connection
 #>      am term        estimate std_error statistic p_value
@@ -245,6 +253,9 @@ tbl_mtcars |>
 ```
 :::
 :::
+:::
+:::
+
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.custom-exercise}
@@ -315,7 +326,10 @@ An example of different R versions
 :::
 :::{.column width="80%"}
 :::{.custom-smaller}
-```r
+```{r}
+#| eval: false
+#| echo: true
+
 my_func <- function(x) R.Version()$minor
 # Local output ------------------------
 my_func(mtcars)
