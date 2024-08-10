@@ -18,16 +18,14 @@ Intro to <br/>
 R UDFs
 :::
 
+ <br/> <br/>
+
 ## [What is an UDF?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-<br/>
-
-:::{.custom}
 :::{.incremental1}
 - Stands for **"User Defined Function"**
 - Enables operations not built-in Spark
 - Can be written in Scala, Python, or R
-:::
 :::
 
 ## [Ok, but what does that mean?!]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -35,18 +33,14 @@ R UDFs
 ## [Ok, but what does that mean?!]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 [
-<br/><br/><br/>
+<br/><br/>
 We can run R code *inside* Spark! 🎉 🎉
 ]{style="font-size:100px;line-height:0.5;font-weight:600;color:#579297;"}
 
 ## [But first... parallel processing]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="25%"}
-:::
-:::{.column width="75%"}
-[Spark partitions the data logically]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
+:::{.custom-subtitle}
+Spark partitions the data logically
 :::
 
 ![](assets/r-udfs/spark-1.png){.absolute top="200" left="400" width="400"}
@@ -56,12 +50,8 @@ We can run R code *inside* Spark! 🎉 🎉
 
 ## [Parallel processing]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="20%"}
-:::
-:::{.column width="70%"}
-[Each node gets one, or several partitions]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
+:::{.custom-subtitle}
+Each node gets one, or several partitions
 :::
 
 ![](assets/r-udfs/spark-6.png){.absolute top="250" left="320" width="200"}
@@ -81,12 +71,8 @@ We can run R code *inside* Spark! 🎉 🎉
 
 ## [Parallel processing]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="5%"}
-:::
-:::{.column width="95%"}
-[The cluster runs jobs that process each partition in parallel]{style="font-size:55px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
+:::{.custom-subtitle}
+The cluster runs jobs that process each partition in parallel
 :::
 
 ![](assets/r-udfs/spark-6.png){.absolute top="250" left="320" width="200"}
@@ -109,12 +95,8 @@ We can run R code *inside* Spark! 🎉 🎉
 
 ## [Parallel processing]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="10%"}
-:::
-:::{.column width="90%"}
-[Your R function runs on each partition independently]{style="font-size:55px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
+:::{.custom-subtitle}
+Your R function runs on each partition independently
 :::
 
 ![](assets/r-udfs/spark-6.png){.absolute top="250" left="320" width="200"}
@@ -140,12 +122,8 @@ We can run R code *inside* Spark! 🎉 🎉
 
 ## [Parallel processing]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="1%"}
-:::
-:::{.column width="99%"}
-[Results are appended, and returned to user as a single table]{style="font-size:60px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
+:::{.custom-subtitle}
+Results are appended, and returned to user as a single table
 :::
 
 ![](assets/r-udfs/spark-5.png){.absolute top="190" left="575" width="450" height="620"}
@@ -161,34 +139,22 @@ We can run R code *inside* Spark! 🎉 🎉
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
 :::{.columns}
-:::{.column width="42%"}
+:::{.column width="50%"}
 
-:::{.incremental1}
-:::: {style="text-align: left; float:left;"}
-[
-`spark_apply()` enables acces to the R runtime installed in the cluster. 
-The R function will run over each individual partition.
-]{style="color:#666; font-weight:500;font-size:52px;"} 
-<br><br>
-[
-In this case, 4 partitions of 8 rows each. The results from each partition are 
-merged in a single table.
-]{style="color:#666; font-weight:500;font-size:52px;"} 
-
-
-:::
+:::{.custom-smaller}
+- `spark_apply()` Enables access to the R run-time installed in the cluster
+- The R function will run over each individual partition
 :::
 
 :::
-:::{.column width="58%"}
-:::{.code-slim-45}
+:::{.column width="50%"}
+:::{.custom-smaller}
 ```r
-tbl_mtcars <- copy_to(sc, mtcars)
+tbl_mtcars <- copy_to(sc, 
+                      mtcars)
 
 tbl_mtcars |> 
   spark_apply(nrow)
-#> # Source:   table<`sparklyr_tmp_table_d83f7f26`> [4 x 1]
-#> # Database: spark_connection
 #>       x
 #>   <dbl>
 #> 1     8
@@ -211,24 +177,16 @@ Exercise `r no_udfs`.1
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
 
-:::{.columns}
-:::{.column width="2%"}
-:::
-:::{.column width="95%"}
-[
+:::{.custom-subtitle}
 Use `group_by` to override the partitions, and divide data by a column
-<br> 
-]{style="color:#666; font-weight:500;font-size:52px;"} 
-
-:::
 :::
 
-:::{.code-slim-45}
+:::{.custom-smaller}
 
 ```r
 tbl_mtcars |> 
   spark_apply(nrow, group_by = "am")
-#> # Source:   table<`sparklyr_tmp_table_c30d3aba_515f`> [2 x 2]
+#> # Source:   table<`sparklyr_tmp_table`> [2 x 2]
 #> # Database: spark_connection
 #>      am     x
 #>   <dbl> <dbl>
@@ -249,12 +207,8 @@ Exercise `r no_udfs`.2
 
 ![](assets/r-udfs/expectations.png){.absolute top="250" left="50" width="1800"}
 
-:::{.columns}
-:::{.column width="4%"}
-:::
-:::{.column width="95%"}
-[Create custom R functions that expects and outputs tables]{style="font-size:58px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
+:::{.custom-subtitle}
+R function should expect and return a table
 :::
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
@@ -270,36 +224,19 @@ Exercise `r no_udfs`.3
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
-:::{.columns}
-:::{.column width="42%"}
-
-:::{.incremental1}
-:::: {style="text-align: left; float:left;"}
-[
-R packages are available for use, but they have to be referenced from within
-your function's code. 
-<br/><br/>
-You can reference them using `library()` or by directly calling them using `::`,
-for example: `broom::tidy()`
-]{style="color:#666; font-weight:500;font-size:52px;"} 
-
-
-:::
+:::{.custom-closer}
+:::{.custom-subtitle .custom-smaller}
+R packages have to be referenced from within
+your function's code using `library()` or `::`
 :::
 
-:::
-:::{.column width="58%"}
-:::{.code-slim-35}
+:::{.custom-smaller}
 ```r
 tbl_mtcars |> 
   spark_apply(function(x) {
-      library(broom)
-      model <- lm(mpg ~ ., x)
-      tidy(model)[1,]
-      },
-    group_by = "am"
-    )
-#> # Source:   table<`sparklyr_tmp_table_f2ddbd6d`> [2 x 6]
+      library(broom); model <- lm(mpg ~ ., x); tidy(model)[1,]
+      }, group_by = "am")
+#> # Source:   table<`sparklyr_tmp`> [2 x 6]
 #> # Database: spark_connection
 #>      am term        estimate std_error statistic p_value
 #>   <dbl> <chr>          <dbl>     <dbl>     <dbl>   <dbl>
@@ -308,8 +245,6 @@ tbl_mtcars |>
 ```
 :::
 :::
-:::
-
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
 :::{.custom-exercise}
@@ -318,23 +253,25 @@ Exercise `r no_udfs`.4
 
 ## [Dependencies in Databricks]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-[In Databricks, Spark clusters are tied to a Databricks Runtime version. And each
-version of DBR contain [specific versions](https://docs.databricks.com/en/release-notes/runtime/15.3.html#system-environment) of:]{style="color:#666; font-weight:500;font-size:52px;"} 
+:::{.custom-subtitle .custom-smaller}
+Spark clusters are tied to a Databricks Runtime version. Each
+version of DBR contains [specific versions](https://docs.databricks.com/en/release-notes/runtime/15.3.html#system-environment) of:
+:::
 
 :::{.columns}
-:::{.column width="40%"}
+:::{.column width="25%"}
 :::
-:::{.column width="40%"}
+:::{.column width="70%"}
+:::{.custom-smaller .custom-closer}
 - Spark
 - Java
 - Scala
 - Python
 - R
+- Set of Python and R packages
 :::
 :::
-
-[A set of Python and R packages are also pre-installed in the cluster.]{style="color:#666; font-weight:500;font-size:52px;"} 
-
+:::
 
 :::{.footer}
 https://docs.databricks.com/en/release-notes/runtime/15.3.html#installed-r-libraries
@@ -343,43 +280,50 @@ https://docs.databricks.com/en/release-notes/runtime/15.3.html#installed-r-libra
 ## [Missing packages]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
-:::{.column width="40%"}
+:::{.column width="45%"}
+:::{.custom-smaller .custom-closer}
 - Additional packages can be installed 
-- In the Databricks portal, use the `Libraries` tab of the cluster
+- In the Databricks portal, use the *Libraries* tab of the cluster
 - Python packages will install from PyPi
 - R packages will install from CRAN
 :::
-:::{.column width="0%"}
+:::
+:::{.column width="55%"}
+![](assets/r-udfs/install.png)
 :::
 :::
-
-![](assets/r-udfs/install.png){.absolute top="140" left="700" width="900"}
 
 ## [Key considerations]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="55%"}
 :::{.incremental1}
-- You are dealing with **two** different environments, your machine and DBR
-- Your Python version **must** match that of your Spark cluster
-- R version can be different, but could be source of errors (a.k.a. *"works locally, but not in the cluster"*)
+:::{.custom-smaller}
+- You are dealing with **two** different environments
+- Your Python version **must** match the cluster
+- R version can be different, but could be source of errors 
 - Same for Python, and R packages. OK if mismatch, but could be errors
 :::
 :::
-:::{.column width="45%"}
-:::{.code-slim-35}
+
+## [Key considerations]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom-subtitle}
+An example of different R versions
+:::
+
+:::{.columns}
+:::{.column width="15%"}
+:::
+:::{.column width="80%"}
+:::{.custom-smaller}
 ```r
-tbl_mtcars <- copy_to(sc, mtcars)
 my_func <- function(x) R.Version()$minor
-# Local output
+# Local output ------------------------
 my_func(mtcars)
 #> [1] "4.0"
-# Remote output
+# Remote output ----------------------
 tbl_mtcars |> 
   spark_apply(my_func) |> 
   head(1)
-#> # Source:   SQL [1 x 1]
-#> # Database: spark_connection
 #>   x    
 #>   <chr>
 #> 1 3.1
@@ -396,54 +340,48 @@ Exercise `r no_udfs`.5
 
 ## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
 
+<br/><br/>
+
 :::{.columns}
 :::{.column width="15%"}
 :::
 :::{.column width="70%"}
 :::{.custom-unit-title}
-<br/><br/>
 Solving for R UDFs
 :::
 :::
 :::
-
-
 
 ## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
 
+<br/><br/>
+
 :::{.columns}
 :::{.column width="15%"}
 :::
 :::{.column width="70%"}
 :::{.custom-unit-title}
-<br/><br/>
 Solving for R UDFs
-
-:::{.content-slide-thin}
+:::
 It wasn't easy...
 :::
-
 :::
-:::
-:::
-
 
 ## [Problem]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-
-[
-<br/><br/><br/>
-Spark Connect does not support R UDFs natively
-]{style="font-size:77px;line-height:0.5;font-weight:600;color:#579297;"}
-
-## [Problem]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-
-[
-<br/><br/><br/>
-Spark Connect does not support R UDFs natively
-]{style="font-size:77px;line-height:0.5;font-weight:600;color:#579297;"}
 
 [
 <br/>
+Spark Connect does not support R UDFs natively
+]{style="font-size:77px;line-height:0.5;font-weight:600;color:#579297;"}
+
+## [Problem]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+[
+<br/>
+Spark Connect does not support R UDFs natively
+]{style="font-size:77px;line-height:0.5;font-weight:600;color:#579297;"}
+
+[
 (Databricks Connect v2, is based on Spark Connect)
 ]{style="font-size:73px;line-height:0.5;font-weight:200;color:#999;"}
 
@@ -451,13 +389,8 @@ Spark Connect does not support R UDFs natively
 
 ![](assets/r-udfs/python-udfs.png){.absolute top="270" left="50" width="1800"}
 
-:::{.columns}
-:::{.column width="0%"}
-:::
-:::{.column width="100%"}
-[Code sent through gRPC, code runs in remote Python environment through Spark
-]{style="font-size:46px;line-height:1;font-weight:400;color:#666;"}
-:::
+:::{.custom-subtitle}
+Code sent through gRPC, code runs in remote Python environment through Spark
 :::
 
 ## [R UDFs]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
@@ -466,12 +399,8 @@ Spark Connect does not support R UDFs natively
 
 ![](assets/r-udfs/r-udfs.png){.absolute top="230" left="50" width="1800"}
 
-:::{.columns}
-:::{.column width="0%"}
-:::
-:::{.column width="100%"}
-[`sparklyr` inserts your R code in a Python script. Uses `rpy2` to access R]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
-:::
+:::{.custom-subtitle}
+R code is inserted in a Python script, `rpy2` executes
 :::
 
 :::{.footer}
@@ -481,7 +410,7 @@ https://spark.posit.co/deployment/databricks-connect-udfs.html
 ## [Wrapped Python functions]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
-:::{.custom2-thin}
+:::{.custom-smaller}
 
 R: 
 
@@ -499,7 +428,7 @@ tbl.mapInPandas(r_objects.r(my_fun))
 
 <hr>
 
-:::{.custom2-thin}
+:::{.custom-smaller}
 R:
 
 ```r
