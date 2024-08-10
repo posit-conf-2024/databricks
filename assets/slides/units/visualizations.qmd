@@ -55,14 +55,14 @@ Pipe the prepared data into a `ggplot2`
 :::
 
 :::{.columns}
-:::{.column width="55%"}
+:::{.column width="60%"}
 
-:::{.sample-code}
+:::{.custom-smaller}
 ```r
 prep_orders |> 
   group_by(order_year) |> 
   summarise(
-    total_price = sum(o_totalprice, na.rm = TRUE)
+   total_price = sum(o_totalprice, na.rm = TRUE)
   ) |> 
   arrange(order_year) |> 
   ggplot() +
@@ -73,7 +73,7 @@ prep_orders |>
 :::
 
 :::
-:::{.column width="45%"}
+:::{.column width="40%"}
 
 ![](assets/visualizations/plotting-example.png){.absolute top="200" left="900" width="700"}
 
@@ -89,11 +89,12 @@ prep_orders |>
 :::{.custom-subtitle}
 Pipe the prepared data into a `ggplot2` 
 :::
-<br/>
+
+:::{.custom-smaller}
 ```{r}
 #| eval: false
 #| echo: true
-#| code-line-numbers: "6"
+#| code-line-numbers: |6
 prep_orders |> 
   group_by(order_year) |> 
   summarise(
@@ -104,6 +105,7 @@ prep_orders |>
   ggplot() +
   geom_col(aes(order_year, total_price)) 
 ```
+:::
 
 ![](assets/visualizations/ggplot2.png){.absolute top="0" left="1450" width="120"}
 
@@ -113,15 +115,23 @@ prep_orders |>
 *Be careful! It downloads all of the data!*
 :::
 
-<br/>
 
+:::{.columns}
+:::{.column width="8%"}
+:::
+:::{.column width="90%"}
 ```r
-nation <- tbl(con, I("workshops.tpch.nation"))
+nation <- tbl(
+  con, 
+  I("workshops.tpch.nation")
+  )
 
 nation |> 
   ggplot() +
   geom_col(aes(n_name, n_regionkey))
 ```
+:::
+:::
 
 ![](assets/visualizations/ggplot2.png){.absolute top="0" left="1450" width="120"}
 
@@ -141,9 +151,8 @@ A plot gets refined iteratively, data must be local.
 :::{.column width="6%"}
 :::
 :::{.column width="90%"}
-<br/>
-
 :::{.incremental1}
+:::{.custom-smaller}
 - *'Improve scales'*
 - *'Add labels to the data'*
 - *'Add title and subtitle'*
@@ -152,16 +161,15 @@ A plot gets refined iteratively, data must be local.
 :::
 :::
 :::
+:::
 
-![](assets/visualizations/ggplot-dev.png){.absolute top="215" left="700" width="850"}
+![](assets/visualizations/ggplot-dev.png){.absolute top="205" left="750" width="850"}
 
 ## [What that looks like in R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom-subtitle}
 Collect (download) the data into an R variable
 :::
-
-<br/>
 
 ```r
 sales_by_year <- prep_orders |> 
@@ -178,8 +186,6 @@ sales_by_year <- prep_orders |>
 Iterate on the plot using the local data
 :::
 
-<br/>
-
 ```r
 sales_by_year |> 
   ggplot() +
@@ -192,7 +198,7 @@ sales_by_year |>
 Iterate on the plot using the local data
 :::
 
-:::{.sample-code}
+:::{.custom-smaller}
 ```{r}
 #| eval: false
 #| echo: true
