@@ -116,30 +116,16 @@ sc <- spark_connect(
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
-:::{.columns}
-:::{.column width="42%"}
-
-:::{.incremental1}
-:::: {style="text-align: left; float:left;"}
-[
-`pysparklyr` automatically, checks for, and installs the needed Python packages. <br/>
-<br/>
-Once you confirm, it will create a new virtual environment, and installs the 
-packages.
-]{style="color:#666; font-weight:500;font-size:52px;"} 
-:::
+:::{.custom-subtitle .custom-smaller .custom-closer}
+Automatically, checks for, and installs the Python packages
 :::
 
-:::
-:::{.column width="58%"}
-:::{.code-slim-35}
+:::{.custom-smaller}
 ```r
 install.packages("pysparklyr")
 library(sparklyr) 
-sc <- spark_connect(
-  cluster_id = "1026-175310-7cpsh3g8",
-  method = "databricks_connect"
-  )
+sc <- spark_connect(cluster_id = "[cluster's id]", 
+                    method = "databricks_connect")
 #> ! Retrieving version from cluster '1026-175310-7cpsh3g8'
 #> Cluster version: '14.1' 
 #> ! No viable Python Environment was identified for 
@@ -150,8 +136,6 @@ sc <- spark_connect(
 #> 3: Cancel
 ```
 :::
-:::
-:::
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
@@ -161,7 +145,7 @@ Exercise `r no_databricks`.1
 
 ## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
 
-<br/><br/><br/><br/><br/>
+<br/><br/>
 
 :::{.columns}
 :::{.column width="10%"}
@@ -177,7 +161,7 @@ Exercise `r no_databricks`.1
 
 :::{.columns}
 :::{.column width="50%"}
-:::{.custom-subtitle}
+:::{.custom-smaller}
 :::{.incremental2}
 - Spark has the ability to cache large amounts of data
 - Amount of data is limited by the size of the cluster
@@ -192,34 +176,24 @@ Exercise `r no_databricks`.1
 
 ## [Default approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="20%"}
-:::
-:::{.column width="70%"}
-[Data is read and processed. Results go to R.]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
-:::
+:::{.custom-subtitle}
+Data is read and processed. Results go to R.
 :::
 
 ![](assets/databricks-connect/warehouse-r.png){.absolute top="200" left="220" width="1100"}
 
 ## [About this approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom-subtitle}
 :::{.incremental1}
 - [Well suited when exploring the entirety of the data. Usually to find relevant variables]{style="font-size:75px;"}
 - [Not efficient when accessing the same fields and rows over and over]{style="font-size:75px;"}
 
 :::
-:::
 
 ## [Uploading data from R]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="2%"}
-:::
-:::{.column width="98%"}
-[`copy_to()` to upload data to Spark. Use for "enrichment" purposes]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
-:::
+:::{.custom-subtitle .custom-smaller}
+`copy_to()` to upload data to Spark
 :::
 
 ![](assets/databricks-connect/r-ram.png){.absolute top="200" left="220" width="1100"}
@@ -233,24 +207,16 @@ Exercise `r no_databricks`.2
 
 ## [Caching data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="12%"}
-:::
-:::{.column width="80%"}
-[2 step process. first, cache all or some data in memory]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
-:::
+:::{.custom-subtitle}
+2 step process. first, cache all or some data in memory
 :::
 
 ![](assets/databricks-connect/warehouse-ram.png){.absolute top="200" left="220" width="1100"}
 
 ## [Caching data]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="15%"}
-:::
-:::{.column width="80%"}
-[Second, read and process from memory. *Much faster*]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
-:::
+:::{.custom-subtitle}
+Second, read and process from memory. *Much faster*
 :::
 
 ![](assets/databricks-connect/ram-r.png){.absolute top="200" left="220" width="1100"}
@@ -274,31 +240,23 @@ Exercise `r no_databricks`.3
 
 ## [Reading files]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="20%"}
-:::
-:::{.column width="80%"}
-[By default, files are read and saved to memory]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
-:::
+:::{.custom-subtitle}
+By default, files are read and saved to memory
 :::
 
 ![](assets/databricks-connect/files-ram.png){.absolute top="200" left="220" width="1100"}
 
 ## [Reading files]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="10%"}
-:::
-:::{.column width="90%"}
-[Afterwards, the data is read from memory for processing]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
-:::
+:::{.custom-subtitle}
+Afterwards, the data is read from memory for processing
 :::
 
 ![](assets/databricks-connect/ram-r.png){.absolute top="200" left="220" width="1100"}
 
 ## [About this approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom-subtitle}
+:::{.custom-closer}
 :::{.incremental1}
 - Read files using the `spark_read...` family of functions
 - The file path needs to be relative to your Databricks environment
@@ -314,25 +272,18 @@ Exercise `r no_databricks`.4
 
 ## ["Mapping" files]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="15%"}
-:::
-:::{.column width="85%"}
-[The files can be mapped but not imported to memory]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
-:::
+:::{.custom-subtitle}
+The files can be mapped but not imported to memory
 :::
 
 ![](assets/databricks-connect/files-map.png){.absolute top="200" left="220" width="1100"}
 
 ## ["Mapping" files]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="20%"}
+:::{.custom-subtitle}
+Data is read and processed. Results sent to R.
 :::
-:::{.column width="80%"}
-[Data is read and processed. Results sent to R.]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
-:::
-:::
+
 
 ![](assets/databricks-connect/files-r.png){.absolute top="200" left="220" width="1100"}
 
@@ -344,24 +295,17 @@ Exercise `r no_databricks`.5
 
 ## [Partial cache]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="12%"}
+:::{.custom-subtitle}
+Alternatively, you can cache specific data from the files
 :::
-:::{.column width="80%"}
-[Alternatively, you can cache specific data from the files]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
-:::
-:::
+
 
 ![](assets/databricks-connect/files-ram-partial.png){.absolute top="200" left="220" width="1100"}
 
 ## [Partial cache]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="10%"}
-:::
-:::{.column width="90%"}
-[Afterwards, the data is read from memory for processing]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
-:::
+:::{.custom-subtitle}
+Afterwards, the data is read from memory for processing
 :::
 
 ![](assets/databricks-connect/ram-r.png){.absolute top="200" left="220" width="1100"}
@@ -374,27 +318,23 @@ Exercise `r no_databricks`.6
 
 ## [Very large files, read or map]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom-subtitle}
+:::{.custom-closer}
 :::{.incremental1}
 - [Reading, you "pay" in time at the beginning]{style="font-size:65px;"}
 - [Mapping, you "pay" in time as you access the data]{style="font-size:65px;"}
 - [Extended EDA, reading would be better]{style="font-size:65px;"}
-- [EDA of targeted data (specific days or variables), partial caching would be better]{style="font-size:65px;"}
+- [EDA of targeted data, partial caching would be better]{style="font-size:65px;"}
 - [Jobs that pull a predetermined set of data, mapping would be better]{style="font-size:65px;"}
 :::
 :::
 
 ## [End game]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.columns}
-:::{.column width="2%"}
-:::
-:::{.column width="98%"}
-[Combine the data from any approach. Cache the resulting table]{style="font-size:54px;line-height:1;font-weight:400;color:#666;"}
-:::
+:::{.custom-subtitle}
+Combine the data from any approach. Cache the resulting table
 :::
 
-![](assets/databricks-connect/my-data-set.png){.absolute top="250" left="100" width="1300"}
+![](assets/databricks-connect/my-data-set.png){.absolute top="270" left="100" width="1250"}
 
 ## {background-image="assets/background/boxed-green.svg" background-size="1700px" background-color="#799857"}
 
