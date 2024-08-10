@@ -30,7 +30,7 @@ Unit `r no_visualizations`
 :::{.custom-subtitle}
 Pipe the prepared data into a `ggplot2` 
 :::
-<br/>
+:::{.custom-smaller}
 ```{r}
 #| eval: false
 #| echo: true
@@ -44,6 +44,7 @@ prep_orders |>
   ggplot() +
   geom_col(aes(order_year, total_price)) 
 ```
+:::
 
 ![](assets/visualizations/ggplot2.png){.absolute top="0" left="1450" width="120"}
 

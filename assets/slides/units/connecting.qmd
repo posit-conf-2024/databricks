@@ -68,18 +68,18 @@ Exercises `r no_connecting`.1 - `r no_connecting`.2
 
 ## [Connecting - Good]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.custom-subtitle}
+:::{.custom-subtitle .custom-closer}
 Easily connect with `dbConnect()` & `odbc()` 
 :::
 
+:::{.custom-smaller}
 
 ```{r}
 #| eval: false
 #| echo: true
 #| code-line-numbers: "|1|2|3|4-5|6|7-12"
 
-con <- dbConnect(
-  odbc::odbc(),
+con <- dbConnect(odbc::odbc(),
   Driver = ".../lib/libsparkodbc_sb64-universal.dylib",
   Host = Sys.getenv("DATABRICKS_HOST"),
   PWD = Sys.getenv("DATABRICKS_TOKEN"),
@@ -91,6 +91,8 @@ con <- dbConnect(
   SSL = 1,
   UID = "token")
 ```
+
+:::
 
 :::{.footer}
 https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcodbc-function
