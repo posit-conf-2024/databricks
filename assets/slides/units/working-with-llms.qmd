@@ -19,9 +19,11 @@ LLMs in <br/>
 Databricks
 :::
 
+<br/><br/>
+
 ## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
 
-<br/><br/><br/><br/><br/>
+<br/><br/>
 
 :::{.columns}
 :::{.column width="5%"}
@@ -38,31 +40,33 @@ Databricks
 
 :::{.columns}
 :::{.column width="46%"}
-:::{.custom-subtitle}
+:::{.custom-smaller}
 :::{.incremental1}
 - Databricks allows us to access LLM functionality right from SQL 
 - Accessible via calling the `ai_` family of functions
-- Adds new way of leveraging LLMs, batch scoring
+- New way of leveraging LLMs, batch scoring
 :::
 :::
 :::
 :::{.column width="54%"}
 
-<br/><br/>
+<br/>
 
-:::{.code-slim-45}
+:::{.custom-smaller}
 ```sql
-> SELECT ai_analyze_sentiment('I am happy');
+> SELECT ai_analyze_sentiment(
+'I am happy');
   positive
 ```
 :::
 
 <br/>
 
-:::{.code-slim-45}
+:::{.custom-smaller}
 ```sql
-> SELECT ai_analyze_sentiment('I am sad');
-  negative
+> SELECT ai_analyze_sentiment(
+'I am sad');
+negative
 ```
 :::
 :::
@@ -78,32 +82,32 @@ https://docs.databricks.com/en/large-language-models/ai-functions-example.html
 ![](assets/remote-processing/dbplyr.png){.absolute top="0" left="1500" width="90"}
 
 :::{.columns}
-:::{.column width="40%"}
-:::{.custom-subtitle}
+:::{.column width="37%"}
+:::{.custom-smaller}
 :::{.incremental1}
-- Easily access the `ai` functions by calling them via `dplyr` verbs
+- Call the `ai` functions via `dplyr` verbs
 - `dbplyr` passes unrecognized functions 'as-is' in the query
 :::
 :::
 :::
-:::{.column width="60%"}
-:::{.code-slim-35}
+:::{.column width="63%"}
+:::{.custom-smallest}
 ```r
 orders |>
   head() |> 
   select(o_comment) |> 
-  mutate(sentiment = ai_analyze_sentiment(o_comment)) 
-  
+  mutate(
+    sentiment = ai_analyze_sentiment(o_comment)
+    )
 #> # Source:   SQL [6 x 2]
-#> # Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]
-#>   o_comment                         sentiment
-#>   <chr>                                  <chr>    
-#> 1 ", pending theodolites …     neutral  
-#> 2 "uriously special foxes …     neutral  
-#> 3 "sleep. courts after the …    neutral  
+#>   o_comment                   sentiment
+#>   <chr>                        <chr>    
+#> 1 ", pending theodolites …    neutral  
+#> 2 "uriously special foxes …   neutral  
+#> 3 "sleep. courts after the …  neutral  
 #> 4 "ess foxes may sleep …      neutral  
-#> 5 "ts wake blithely unusual …  mixed    
-#> 6 "hins sleep. fluffily …            neutral
+#> 5 "ts wake blithely unusual … mixed    
+#> 6 "hins sleep. fluffily …     neutral
 ```
 :::
 :::
@@ -116,7 +120,7 @@ orders |>
 :::
 :::{.column width="90%"}
 :::{.incremental1}
-:::{.sample-code}
+:::{.custom-smallest}
 - `ai_analyze_sentiment` - [Text is positve, negative, neutral, etc.]{style="font-size: 45px;"}
 - `ai_classify` - [Give choices, LLM chooses which of the choice match]{style="font-size: 45px;"}
 - `ai_extract` - [Have LLM extract specific elements from the text]{style="font-size: 45px;"}
@@ -138,7 +142,7 @@ orders |>
 :::
 :::{.column width="90%"}
 :::{.incremental1}
-:::{.custom-subtitle}
+:::{.custom-smaller}
 - Need APIs pay-per-token supported region
 - Functions not available on Databricks SQL Classic
 - In preview, functions have performance restrictions
@@ -161,7 +165,7 @@ Exercise `r no_working_with_llms`.1
 
 :::{.columns}
 :::{.column width="35%"}
-:::{.custom-subtitle}
+:::{.custom-smaller .custom-closer}
 :::{.incremental1}
 - Most `ai` functions require an argument of `ARRAY` type
 - SQL's `array()` function can be called directly inside the `ai` function
@@ -169,14 +173,15 @@ Exercise `r no_working_with_llms`.1
 :::
 :::
 :::{.column width="65%"}
-
+:::{.custom-smallest}
 [SQL]{style="font-size: 50px;"}
 
-:::{.code-slim-35}
+:::{.custom-smallest .custom-closer}
 ```sql
 > SELECT
      description,
-     ai_classify(description, array('clothing', 'furniture')) AS category
+     ai_classify(
+     description, array('clothing', 'furniture')) AS category
    FROM
      products
 ```
@@ -184,11 +189,12 @@ Exercise `r no_working_with_llms`.1
 
 [R]{style="font-size: 50px;"}
 
-:::{.code-slim-35}
+
 ```r
 tbl_products |> 
   mutate(
-    category = ai_classify(description, array("clothing", "furniture"))
+    category = ai_classify(
+      description, array("clothing", "furniture"))
   ) |> 
   select(description, category)
 ```
@@ -205,21 +211,25 @@ Exercise `r no_working_with_llms`.2
 ## [Process complex output]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.columns}
-:::{.column width="30%"}
+:::{.column width="40%"}
 :::{.incremental1}
+:::{.custom-smaller .custom-closer}
 - Some `ai` functions return a `STRUCT`
 - It is a more complex variable type
 - It can only be coerced to a string
 - `as.character()` does the trick
 :::
 :::
-:::{.column width="70%"}
+:::
+:::{.column width="60%"}
 
-:::{.code-slim-45}
+:::{.custom-smallest}
 ```r
 tbl_reviews |> 
   mutate(
-    product = as.character(ai_extract(review, array("product")))
+    product = as.character(
+      ai_extract(review, array("product"))
+      )
     ) |> 
   select(product, review)
 #> # Source:   SQL [4 x 2]
@@ -242,7 +252,7 @@ Exercise `r no_working_with_llms`.3
 
 ## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
 
-<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/>
 
 :::{.columns}
 :::{.column width="5%"}
@@ -259,18 +269,20 @@ Exercise `r no_working_with_llms`.3
 ![](assets/llms/chattr.png){.absolute top="0" left="1450" width="150"}
 
 :::{.columns}
-:::{.column width="45%"}
+:::{.column width="43%"}
 :::{.incremental1}
+:::{.custom-smaller .custom-closer}
 - `chattr` is an interface to LLMs (Large Language Models)
 - It enables interaction with the model directly from  RStudio
 - Submit a prompt to the LLM from your script, or by using the provided Shiny Gadget.
 :::
 :::
-:::{.column width="55%"}
+:::
+:::{.column width="57%"}
 
 <br/><br/>
 
-:::{.code-slim-45}
+:::{.custom-smaller}
 ```r
 library(chattr)
 
@@ -286,7 +298,7 @@ chattr_app()
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
-![](assets/llms/chattr-db.png){.absolute top="300" left="450" width="700"}
+![](assets/llms/chattr-db.png){.absolute top="350" left="450" width="700"}
 
 ## [chattr supports Databricks' LLM]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -303,7 +315,7 @@ chattr_app()
 :::
 
 
-![](assets/llms/chattr-db.png){.absolute top="300" left="450" width="700"}
+![](assets/llms/chattr-db.png){.absolute top="350" left="450" width="700"}
 
 :::{.footer}
 https://github.com/mlverse/chattr/pull/99
@@ -313,9 +325,11 @@ https://github.com/mlverse/chattr/pull/99
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
-[`chattr` can connect Databricks LLM models. Automatically makes the options available if it detects your Databricks token.]{style="font-size:50px;line-height:1;font-weight:400;color:#666;"}
+:::{.custom-subtitle .custom-closer}
+[Automatically makes the options available if it detects your Databricks token.<br>]{style="font-size:50px;"}
+:::
 
-:::{.code-slim-35}
+:::{.custom-smallest}
 ```r
 > chattr_app()
 ── chattr - Available models 
