@@ -261,30 +261,25 @@ Exercise `r no_dashboards`.3
 :::
 
 ## [Interactive Plots]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="30%"}
+
+:::{.custom-subtitle}
+Replace with `ggiraph` functions
 :::
-:::{.column width="70%"}
-[Replace with `ggiraph` functions]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
+
 :::{.custom-smallest}
 ```{r}
 #| eval: false
 #| echo: true
-#| code-line-numbers: "|3,6,16"
+#| code-line-numbers: "|3,5,14"
   ui = fluidPage(
     selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
-    plotOutput()("sales_plot")
-  ),
+    plotOutput()("sales_plot")),
   server = function(input, output) {
     output$sales_plot <- renderPlot()({
       sales_by_year <- prep_orders |>
         filter(n_name == !!input$country) |>
         group_by(order_year) |>
-        summarise(
-          total_price = sum(o_totalprice, na.rm = TRUE)
-        ) |>
+        summarise(total_price = sum(o_totalprice, na.rm = TRUE)) |>
         collect()
       sales_by_year |>
         ggplot() +
@@ -294,30 +289,25 @@ Exercise `r no_dashboards`.3
 :::
 
 ## [Interactive Plots]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="30%"}
+
+:::{.custom-subtitle}
+Replace with `ggiraph` functions
 :::
-:::{.column width="70%"}
-[Replace with `ggiraph` functions]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
+
 :::{.custom-smallest}
 ```{r}
 #| eval: false
 #| echo: true
-#| code-line-numbers: "3,6,16"
+#| code-line-numbers: "3,5,14"
   ui = fluidPage(
     selectInput("country", "Country:", choices = countries, selected = "FRANCE"),
-    girafeOutput("sales_plot")
-  ),
+    girafeOutput("sales_plot")),
   server = function(input, output) {
     output$sales_plot <- renderGirafe({
       sales_by_year <- prep_orders |>
         filter(n_name == !!input$country) |>
         group_by(order_year) |>
-        summarise(
-          total_price = sum(o_totalprice, na.rm = TRUE)
-        ) |>
+        summarise(total_price = sum(o_totalprice, na.rm = TRUE)) |>
         collect()
       sales_by_year |>
         ggplot() +
@@ -328,14 +318,12 @@ Exercise `r no_dashboards`.3
 
 
 ## [Interactive Plots]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="30%"}
+
+:::{.custom-subtitle}
+Add `girafe()` output step
 :::
-:::{.column width="70%"}
-[Add `girafe()` output step]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
-:::{.sample-code}
+
+:::{.custom-smallest}
 ```{r}
 #| eval: false
 #| echo: true
@@ -353,14 +341,12 @@ Exercise `r no_dashboards`.3
 :::
 
 ## [Interactive Plots]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="30%"}
+
+:::{.custom-subtitle}
+Add `girafe()` output step
 :::
-:::{.column width="70%"}
-[Add `girafe()` output step]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
-:::{.sample-code}
+
+:::{.custom-smallest}
 ```{r}
 #| eval: false
 #| echo: true
@@ -395,7 +381,7 @@ Exercise `r no_dashboards`.4
 :::{.columns}
 :::{.column width="55%"}
 :::{.custom}
-<br><br><br><br>
+<br><br>
 [Plot drill-down]{style="font-size:140px;"}
 :::
 :::
@@ -404,13 +390,11 @@ Exercise `r no_dashboards`.4
 ![](assets/dashboards/dashboard-drill-down.png){.absolute top="50" left="875" width="750"}
 
 ## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="3%"}
+
+:::{.custom-subtitle}
+Add a `showModal()` when a column is clicked
 :::
-:::{.column width="97%"}
-[Add a `showModal()` that reacts when a column in the plot is clicked]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
+
 :::{.custom-smallest}
 ```{r}
 #| eval: false
@@ -434,18 +418,16 @@ Exercise `r no_dashboards`.4
 :::
 
 ## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="3%"}
+
+:::{.custom-subtitle}
+Add a `showModal()` when a column is clicked
 :::
-:::{.column width="97%"}
-[Add a `showModal()` that reacts when a column in the plot is clicked]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
+
 :::{.custom-smallest}
 ```{r}
 #| eval: false
 #| echo: true
-#| code-line-numbers: "|14-16"
+#| code-line-numbers: "14-16"
       g <- sales_by_year |>
         ggplot() +
         geom_col_interactive(aes(order_year, total_price, data_id = order_year, tooltip = total_price)) +
@@ -468,13 +450,11 @@ Exercise `r no_dashboards`.4
 :::
 
 ## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="7%"}
+
+:::{.custom-subtitle}
+Allow only 1 column to be selected at the time
 :::
-:::{.column width="93%"}
-[Make the plot allow only 1 column to be selected at the time]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
+
 :::{.custom-smallest}
 ```{r}
 #| eval: false
@@ -502,13 +482,11 @@ Exercise `r no_dashboards`.4
 :::
 
 ## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="7%"}
+
+:::{.custom-subtitle}
+Allow only 1 column to be selected at the time
 :::
-:::{.column width="93%"}
-[Make the plot allow only 1 column to be selected at the time]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
+
 :::{.custom-smallest}
 ```{r}
 #| eval: false
@@ -536,14 +514,12 @@ Exercise `r no_dashboards`.4
 :::
 
 ## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="10%"}
+
+:::{.custom-subtitle}
+Add a dynamic title using the country and year selected
 :::
-:::{.column width="90%"}
-[Add a dynamic title using the country and year selected]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
-:::{.sample-code}
+
+:::{.custom-smaller}
 ```{r}
 #| eval: false
 #| echo: true
@@ -555,14 +531,12 @@ Exercise `r no_dashboards`.4
 :::
 
 ## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="10%"}
+
+:::{.custom-subtitle}
+Add a dynamic title using the country and year selected
 :::
-:::{.column width="90%"}
-[Add a dynamic title using the country and year selected]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
-:::{.sample-code}
+
+:::{.custom-smaller}
 ```{r}
 #| eval: false
 #| echo: true
@@ -577,12 +551,9 @@ observeEvent(input$sales_plot_selected, {
 :::
 
 ## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="1%"}
-:::
-:::{.column width="99%"}
-[ Add a new `renderPLot()` function, with code from **Plot data by month**.]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
+
+:::{.custom-subtitle .custom-smallest}
+ Add a new `renderPLot()` function, with code from **Plot data by month**
 :::
 
 :::{.custom-smallest}
@@ -621,14 +592,12 @@ observeEvent(input$sales_plot_selected, {
 :::
 
 ## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="5%"}
+
+:::{.custom-subtitle}
+Add `plotOutput("monthly_sales")` to the `modelDialog()` call
 :::
-:::{.column width="95%"}
-[Add `plotOutput("monthly_sales")` to the `modelDialog()` call]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
-:::{.sample-code}
+
+:::{.custom-smaller}
 ```{r}
 #| eval: false
 #| echo: true
@@ -643,14 +612,12 @@ observeEvent(input$sales_plot_selected, {
 :::
 
 ## [Plot drill down]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
-:::{.columns}
-:::{.column width="5%"}
+
+:::{.custom-subtitle}
+Add `plotOutput("monthly_sales")` to the `modelDialog()` call
 :::
-:::{.column width="95%"}
-[Add `plotOutput("monthly_sales")` to the `modelDialog()` call]{style="font-size:50px;line-height:0.5;font-weight:600;color:#579297;"}
-:::
-:::
-:::{.sample-code}
+
+:::{.custom-smaller}
 ```{r}
 #| eval: false
 #| echo: true
