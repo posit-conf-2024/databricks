@@ -123,8 +123,8 @@ tbl(con, "diamonds") |>
 :::{.column width="60%"}
 
 <br/>
-:::{.custom-smaller}
 
+:::{.custom-smaller}
 ```r
 tbl_diamonds <- tbl(con, “diamonds”)
 
