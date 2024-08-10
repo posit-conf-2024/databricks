@@ -121,9 +121,9 @@ tbl(con, "diamonds") |>
 
 :::
 :::{.column width="60%"}
-:::{.custom-smaller}
 
 <br/>
+:::{.custom-smaller}
 
 ```r
 tbl_diamonds <- tbl(con, “diamonds”)
@@ -151,7 +151,7 @@ Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]
 :::{.columns}
 :::{.column width="55%"}
 
-:::{.custom-subtitle}
+:::{.custom-closer .custom-smaller}
 :::{.incremental1}
 - Create a variable in R without importing data
 - SQL is sent **only** when data is requested
@@ -161,18 +161,16 @@ Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]
 
 :::
 :::{.column width="45%"}
-<br/>
-[
-tbl_diamonds |> <br/>
-[XX]{style="color: #fff;"}**count**() |><br/>
-[XX]{style="color: #fff;"}**show_query**()<br/>
-]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:55px;"} 
-[
-<br/>
-\<SQL\><br/>
-SELECT COUNT(*) AS 'n'<br/>
-FROM 'diamonds'<br/>
-]{style="color:#999; font-family:Helvetica Neue; font-weight:300;font-size:45px;"} 
+
+```r
+tbl_diamonds |>
+  count() |>
+  show_query()
+
+<SQL>
+SELECT COUNT(*) AS ‘n’
+FROM ‘diamonds’
+```
 
 :::
 :::
@@ -186,18 +184,22 @@ Exercises `r no_remote`.1 - `r no_remote`.2
 ## [PSA]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom-subtitle}
-Please, please, please...don't pass a full query to `tbl()`
+Please,please,please...don't pass a full query to `tbl()`
 :::
 
+<br/>
+
 :::{.columns}
-:::{.column width="2%"}
+:::{.column width="4%"}
 :::
-:::{.column width="98%"}
+:::{.column width="95%"}
 [
 **tbl**(con, "Select * from 'table' where x = 1")
-]{style="font-size: 90px;font-family:Helvetica Neue; font-weight:150;"}
+]{style="font-size: 82px;font-family:Helvetica Neue; font-weight:150;"}
 :::
 :::
+
+<br/><br/><br/>
 
 ## [PSA]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
@@ -206,12 +208,12 @@ Please, please, please...don't pass a full query to `tbl()`
 :::
 
 :::{.columns}
-:::{.column width="2%"}
+:::{.column width="4%"}
 :::
-:::{.column width="98%"}
+:::{.column width="95%"}
 [
 **tbl**(con, "Select * from 'table' where x = 1")
-]{style="text-decoration: line-through; font-size: 90px;font-family:Helvetica Neue; font-weight:150;"}
+]{style="text-decoration: line-through; font-size: 82px;font-family:Helvetica Neue; font-weight:150;"}
 :::
 :::
 
@@ -219,12 +221,12 @@ Please, please, please...don't pass a full query to `tbl()`
 :::{.column width="25%"}
 :::
 :::{.column width="75%"}
-<br/>
+
 [
-tbl_table <- **tbl**(con, "table") <br/><br/>
+tbl_table <- **tbl**(con, "table") <br/>
 x_1 <- tbl_table |> <br/>
 [XX]{style="color: #fff;"}**filter**(x == 1) 
-]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:80px; line-height: 0.8"} 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px; line-height: 0.8"} 
 :::
 :::
 
@@ -236,23 +238,23 @@ There are 3 commands that download data:
 
 :::{.columns}
 
-:::{.column width="55%"}
+:::{.column width="50%"}
 
-:::{.custom-subtitle}
+:::{.custom-smaller .custom-closer}
 - `print()` - Downloads the first 1K rows by default (Guardrails)
 - `collect()` - Downloads **all** of the data
 - `pull()` - Download **all** the data of a single field
 :::
 :::
 
-:::{.column width="45%"}
+:::{.column width="50%"}
 [
 tbl_cars <- **tbl**(con, "cars")<br/>
 **print**(tbl_cars)<br/>
 tbl_cars [#Print is implied]{style="color:#aaa"} <br/>
 **collect**(tbl_cars) <br/>
 **pull**(tbl_cars, mpg) 
-]{style="color:#666; font-family:Helvetica Neue; font-weight:150;font-size:65px;line-height:1.8;"} 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:150;font-size:65px;line-height:1.2;"} 
 :::
 :::
 
@@ -280,7 +282,6 @@ https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 *"diamonds"* can be accessed without specifying catalog and schema
 :::
 
-<br/><br/><br/>
 [
 # Why do you work?! <br/>
 ]{style="color:#999; font-family:Helvetica Neue; font-weight:200;font-size:60px; line-height: 0.8"} 
@@ -296,7 +297,6 @@ https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 *"hive_metastore"* & *"default"* are the default catalog & schema respectively 
 :::
 
-<br/><br/><br/>
 [
 # Oooh, that's why! <br/>
 ]{style="color:#999; font-family:Helvetica Neue; font-weight:200;font-size:60px; line-height: 0.8"} 
@@ -312,6 +312,7 @@ https://docs.databricks.com/en/data-governance/unity-catalog/index.html
 How do I access tables not in the default catalog?
 :::
 
+:::{.custom-closer}
 [
 **tbl**(con, "customer") 
 ]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px;"} 
@@ -319,6 +320,7 @@ How do I access tables not in the default catalog?
 [
 x (31740) Table or view not found: ..customer
 ]{style="color:#bc544b; font-family:Helvetica Neue; font-weight:400;font-size:35px; line-height: 1.1"} 
+:::
 
 ![](assets/remote-processing/uc-customer.png){.absolute top="210" left="820" width="820"}
 
@@ -328,6 +330,7 @@ x (31740) Table or view not found: ..customer
 How do I access tables not in the default catalog?
 :::
 
+:::{.custom-closer}
 [
 **tbl**(con, "customer") 
 ]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px;"} 
@@ -341,10 +344,11 @@ x (31740) Table or view not found: ..customer
 [X]{style="color: #fff;"}con, <br/>
 [X]{style="color: #fff;"}"workshops.tpch.customer"<br/>
 [X]{style="color: #fff;"})<br/>
-]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px; line-height: 1.1"} 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:65px; line-height: 1.1"} 
 [
 x (31740) Table or view not found: ..workshops.tpch.<br/>customer
 ]{style="color:#bc544b; font-family:Helvetica Neue; font-weight:400;font-size:35px; line-height: 1.1"} 
+:::
 
 ![](assets/remote-processing/uc-customer.png){.absolute top="210" left="820" width="820"}
 
@@ -354,14 +358,12 @@ x (31740) Table or view not found: ..workshops.tpch.<br/>customer
 :::{.custom-subtitle}
 Use `I()` to create the correct table reference
 :::
-<br/>
-<br/>
 [
 **tbl**(<br/>
 [X]{style="color: #fff;"}con, <br/>
 [X]{style="color: #fff;"}**I**("workshops.tpch.customer")<br/>
 [X]{style="color: #fff;"})<br/>
-]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:70px; line-height: 1.1"} 
+]{style="color:#666; font-family:Helvetica Neue; font-weight:200;font-size:60px; line-height: 1.1"} 
 
 ![](assets/remote-processing/uc-customer.png){.absolute top="210" left="820" width="820"}
 
