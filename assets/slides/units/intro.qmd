@@ -145,6 +145,8 @@ Click on the GitHub icon
 Log into GitHub, and/or approve the **RStudio** org 
 :::
 
+![](assets/intro/login-rstudio.png){.absolute top="220" left="250" width="1100"}
+
 ## [Step 5 - Posit Workbench homepage]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom-subtitle}
