@@ -18,7 +18,7 @@ Workshop <br/> August 12
 ::: {.column width="80%"}
 -   **posit::conf** mobile app
 -   Wi-fi password
--   Accessing your server
+-   Accessing content -[pos.it/databricks_24](https://pos.it/databricks_24){target="_blank"}
 :::
 :::
 
