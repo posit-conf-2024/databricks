@@ -42,7 +42,7 @@ Preferred
 
 :::{.columns}
 :::{.column}
-:::{.incremental1}
+:::{.incremental}
 :::{.custom-smaller .custom-closer}
 
 - SQL language was not meant for exploratory data analysis
@@ -77,7 +77,7 @@ desc
 :::{.columns}
 :::{.column width="40%"}
 :::{.custom-closer .custom-smaller}
-:::{.incremental1}
+:::{.incremental}
 - Translates R code to SQL!
 - 'Modularity' of piped code
 - Guardrails against pulling all of the data 
@@ -111,7 +111,7 @@ tbl(con, "diamonds") |>
 :::{.column width="40%"}
 
 :::{.custom-smaller}
-:::{.incremental1}
+:::{.incremental}
 - Creates a "virtual" table 
 - Behaves like a regular data frame
 - It contains no data
@@ -152,7 +152,7 @@ Database: Spark SQL 3.1.1[token@Spark SQL/hive_metastore]
 :::{.column width="55%"}
 
 :::{.custom-closer .custom-smaller}
-:::{.incremental1}
+:::{.incremental}
 - Create a variable in R without importing data
 - SQL is sent **only** when data is requested
 - Behind the scenes, translates code to SQL

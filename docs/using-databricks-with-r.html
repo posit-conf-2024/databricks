@@ -585,12 +585,12 @@
 <section id="takeaways" class="slide level2" data-background-image="assets/background/slide-light.svg" data-background-size="1700px" data-background-color="white">
 <h2><span style="color:#666;">Takeaways</span></h2>
 <div class="custom-closer">
-<div class="incremental1">
+<div>
 <ul>
-<li><span style="font-size:75px;">Download data if doing something only R can do</span></li>
-<li><span style="font-size:75px;">🔑 Data &amp; processing need to be as <strong>physically close</strong> as possible</span></li>
-<li><span style="font-size:75px;">Move most of the processing to Databricks</span></li>
-<li><span style="font-size:75px;">But how?…</span></li>
+<li class="fragment"><span style="font-size:75px;">Download data if doing something only R can do</span></li>
+<li class="fragment"><span style="font-size:75px;">🔑 Data &amp; processing need to be as <strong>physically close</strong> as possible</span></li>
+<li class="fragment"><span style="font-size:75px;">Move most of the processing to Databricks</span></li>
+<li class="fragment"><span style="font-size:75px;">But how?…</span></li>
 </ul>
 </div>
 </div>
@@ -672,11 +672,11 @@
 <section id="connecting---better" class="slide level2" data-background-image="assets/background/slide-light.svg" data-background-size="1700px" data-background-color="white">
 <h2><span style="color:#666;">Connecting - Better</span></h2>
 <p><img data-src="assets/posit-databricks.png" class="absolute" style="top: -10px; left: 1430px; width: 180px; "></p>
-<div class="incremental1">
+<div>
 <ul>
-<li><code>odbc::databricks()</code> simplifies the setup</li>
-<li>Automatically detects credentials, driver, and sets default arguments</li>
-<li><code>HTTPPath</code> is the only argument that you will need</li>
+<li class="fragment"><code>odbc::databricks()</code> simplifies the setup</li>
+<li class="fragment">Automatically detects credentials, driver, and sets default arguments</li>
+<li class="fragment"><code>HTTPPath</code> is the only argument that you will need</li>
 </ul>
 </div>
 <p><br></p>
@@ -773,12 +773,12 @@
 <h2><span style="color:#666;">SQL not practical</span></h2>
 <div class="columns">
 <div class="column">
-<div class="incremental1">
+<div>
 <div class="custom-smaller custom-closer">
 <ul>
-<li>SQL language was not meant for exploratory data analysis</li>
-<li>“Cognitive cost” of switching between SQL and R</li>
-<li>It is not as easy to plot, model, or present results in SQL as it is with R</li>
+<li class="fragment">SQL language was not meant for exploratory data analysis</li>
+<li class="fragment">“Cognitive cost” of switching between SQL and R</li>
+<li class="fragment">It is not as easy to plot, model, or present results in SQL as it is with R</li>
 </ul>
 </div>
 </div>
@@ -798,12 +798,12 @@
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="custom-closer custom-smaller">
-<div class="incremental1">
+<div>
 <ul>
-<li>Translates R code to SQL!</li>
-<li>‘Modularity’ of piped code</li>
-<li>Guardrails against pulling all of the data</li>
-<li>All your code is in R</li>
+<li class="fragment">Translates R code to SQL!</li>
+<li class="fragment">‘Modularity’ of piped code</li>
+<li class="fragment">Guardrails against pulling all of the data</li>
+<li class="fragment">All your code is in R</li>
 </ul>
 </div>
 </div>
@@ -825,12 +825,12 @@
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="custom-smaller">
-<div class="incremental1">
+<div>
 <ul>
-<li>Creates a “virtual” table</li>
-<li>Behaves like a regular data frame</li>
-<li>It contains no data</li>
-<li>It’s a pointer to the database table</li>
+<li class="fragment">Creates a “virtual” table</li>
+<li class="fragment">Behaves like a regular data frame</li>
+<li class="fragment">It contains no data</li>
+<li class="fragment">It’s a pointer to the database table</li>
 </ul>
 </div>
 </div>
@@ -857,11 +857,11 @@
 <div class="columns">
 <div class="column" style="width:55%;">
 <div class="custom-closer custom-smaller">
-<div class="incremental1">
+<div>
 <ul>
-<li>Create a variable in R without importing data</li>
-<li>SQL is sent <strong>only</strong> when data is requested</li>
-<li>Behind the scenes, translates code to SQL</li>
+<li class="fragment">Create a variable in R without importing data</li>
+<li class="fragment">SQL is sent <strong>only</strong> when data is requested</li>
+<li class="fragment">Behind the scenes, translates code to SQL</li>
 </ul>
 </div>
 </div>
@@ -1220,14 +1220,14 @@
 <div class="column" style="width:6%;">
 
 </div><div class="column" style="width:90%;">
-<div class="incremental1">
+<div>
 <div class="custom-smaller">
 <ul>
-<li><em>‘Improve scales’</em></li>
-<li><em>‘Add labels to the data’</em></li>
-<li><em>‘Add title and subtitle’</em></li>
-<li><em>‘Improve colors’</em></li>
-<li><em>‘Change the theme’</em></li>
+<li class="fragment"><em>‘Improve scales’</em></li>
+<li class="fragment"><em>‘Add labels to the data’</em></li>
+<li class="fragment"><em>‘Add title and subtitle’</em></li>
+<li class="fragment"><em>‘Improve colors’</em></li>
+<li class="fragment"><em>‘Change the theme’</em></li>
 </ul>
 </div>
 </div>
@@ -1297,11 +1297,11 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="custom-smaller">
-<div class="incremental1">
+<div>
 <ul>
-<li>Spark Connect, offers <strong>true</strong> remote connectivity</li>
-<li>Uses <strong>gRPC</strong> to as the communication interface</li>
-<li><strong>Databricks Connect ‘v2’</strong> is based on Spark Connect (DBR 13+)</li>
+<li class="fragment">Spark Connect, offers <strong>true</strong> remote connectivity</li>
+<li class="fragment">Uses <strong>gRPC</strong> to as the communication interface</li>
+<li class="fragment"><strong>Databricks Connect ‘v2’</strong> is based on Spark Connect (DBR 13+)</li>
 </ul>
 </div>
 </div>
@@ -1335,12 +1335,12 @@
 
 </div><div class="column" style="width:70%;">
 <div class="custom-smaller">
-<div class="incremental1">
+<div>
 <ul>
-<li><code>dplyr</code> back-end</li>
-<li><code>DBI</code> back-end</li>
-<li>R UDFs</li>
-<li><strong>RStudio</strong>, and <strong>Positron</strong>, Connections Pane integration</li>
+<li class="fragment"><code>dplyr</code> back-end</li>
+<li class="fragment"><code>DBI</code> back-end</li>
+<li class="fragment">R UDFs</li>
+<li class="fragment"><strong>RStudio</strong>, and <strong>Positron</strong>, Connections Pane integration</li>
 </ul>
 </div>
 </div>
@@ -1353,11 +1353,11 @@
 <div class="columns">
 <div class="column" style="width:42%;">
 <div class="custom-smaller">
-<div class="incremental1">
+<div>
 <ul>
-<li>Python 3.10+</li>
-<li>A Python environment with <code>databricks-connect</code> and its dependencies</li>
-<li><code>pysparklyr</code> extension</li>
+<li class="fragment">Python 3.10+</li>
+<li class="fragment">A Python environment with <code>databricks-connect</code> and its dependencies</li>
+<li class="fragment"><code>pysparklyr</code> extension</li>
 </ul>
 </div>
 </div>
@@ -1447,10 +1447,10 @@
 </section>
 <section id="about-this-approach" class="slide level2" data-background-image="assets/background/slide-light.svg" data-background-size="1700px" data-background-color="white">
 <h2><span style="color:#666;">About this approach</span></h2>
-<div class="incremental1">
+<div>
 <ul>
-<li><span style="font-size:75px;">Well suited when exploring the entirety of the data. Usually to find relevant variables</span></li>
-<li><span style="font-size:75px;">Not efficient when accessing the same fields and rows over and over</span></li>
+<li class="fragment"><span style="font-size:75px;">Well suited when exploring the entirety of the data. Usually to find relevant variables</span></li>
+<li class="fragment"><span style="font-size:75px;">Not efficient when accessing the same fields and rows over and over</span></li>
 </ul>
 </div>
 </section>
@@ -1484,10 +1484,10 @@
 <section id="about-this-approach-1" class="slide level2" data-background-image="assets/background/slide-light.svg" data-background-size="1700px" data-background-color="white">
 <h2><span style="color:#666;">About this approach</span></h2>
 <div class="custom-subtitle">
-<div class="incremental1">
+<div>
 <ul>
-<li><span style="font-size:75px;">Well suited when accessing the same fields and rows over and over</span></li>
-<li><span style="font-size:75px;">Best when running models and UDFs <em>(More about this later)</em></span></li>
+<li class="fragment"><span style="font-size:75px;">Well suited when accessing the same fields and rows over and over</span></li>
+<li class="fragment"><span style="font-size:75px;">Best when running models and UDFs <em>(More about this later)</em></span></li>
 </ul>
 </div>
 </div>
@@ -1515,11 +1515,11 @@
 <section id="about-this-approach-2" class="slide level2" data-background-image="assets/background/slide-light.svg" data-background-size="1700px" data-background-color="white">
 <h2><span style="color:#666;">About this approach</span></h2>
 <div class="custom-closer">
-<div class="incremental1">
+<div>
 <ul>
-<li>Read files using the <code>spark_read...</code> family of functions</li>
-<li>The file path needs to be relative to your Databricks environment</li>
-<li><a href="https://docs.databricks.com/en/sql/language-manual/sql-ref-volumes.html">Databricks Volumes</a> are ideal for this approach</li>
+<li class="fragment">Read files using the <code>spark_read...</code> family of functions</li>
+<li class="fragment">The file path needs to be relative to your Databricks environment</li>
+<li class="fragment"><a href="https://docs.databricks.com/en/sql/language-manual/sql-ref-volumes.html">Databricks Volumes</a> are ideal for this approach</li>
 </ul>
 </div>
 </div>
@@ -1573,13 +1573,13 @@
 <section id="very-large-files-read-or-map" class="slide level2" data-background-image="assets/background/slide-light.svg" data-background-size="1700px" data-background-color="white">
 <h2><span style="color:#666;">Very large files, read or map</span></h2>
 <div class="custom-closer">
-<div class="incremental1">
+<div>
 <ul>
-<li><span style="font-size:65px;">Reading, you “pay” in time at the beginning</span></li>
-<li><span style="font-size:65px;">Mapping, you “pay” in time as you access the data</span></li>
-<li><span style="font-size:65px;">Extended EDA, reading would be better</span></li>
-<li><span style="font-size:65px;">EDA of targeted data, partial caching would be better</span></li>
-<li><span style="font-size:65px;">Jobs that pull a predetermined set of data, mapping would be better</span></li>
+<li class="fragment"><span style="font-size:65px;">Reading, you “pay” in time at the beginning</span></li>
+<li class="fragment"><span style="font-size:65px;">Mapping, you “pay” in time as you access the data</span></li>
+<li class="fragment"><span style="font-size:65px;">Extended EDA, reading would be better</span></li>
+<li class="fragment"><span style="font-size:65px;">EDA of targeted data, partial caching would be better</span></li>
+<li class="fragment"><span style="font-size:65px;">Jobs that pull a predetermined set of data, mapping would be better</span></li>
 </ul>
 </div>
 </div>
@@ -1610,11 +1610,11 @@
 </section>
 <section id="what-is-an-udf" class="slide level2" data-background-image="assets/background/slide-light.svg" data-background-size="1700px" data-background-color="white">
 <h2><span style="color:#666;">What is an UDF?</span></h2>
-<div class="incremental1">
+<div>
 <ul>
-<li>Stands for <strong>“User Defined Function”</strong></li>
-<li>Enables operations not built-in Spark</li>
-<li>Can be written in Scala, Python, or R</li>
+<li class="fragment">Stands for <strong>“User Defined Function”</strong></li>
+<li class="fragment">Enables operations not built-in Spark</li>
+<li class="fragment">Can be written in Scala, Python, or R</li>
 </ul>
 </div>
 </section>
@@ -1815,13 +1815,13 @@
 </section>
 <section id="key-considerations" class="slide level2" data-background-image="assets/background/slide-light.svg" data-background-size="1700px" data-background-color="white">
 <h2><span style="color:#666;">Key considerations</span></h2>
-<div class="incremental1">
+<div>
 <div class="custom-smaller">
 <ul>
-<li>You are dealing with <strong>two</strong> different environments</li>
-<li>Your Python version <strong>must</strong> match the cluster</li>
-<li>R version can be different, but could be source of errors</li>
-<li>Same for Python, and R packages. OK if mismatch, but could be errors</li>
+<li class="fragment">You are dealing with <strong>two</strong> different environments</li>
+<li class="fragment">Your Python version <strong>must</strong> match the cluster</li>
+<li class="fragment">R version can be different, but could be source of errors</li>
+<li class="fragment">Same for Python, and R packages. OK if mismatch, but could be errors</li>
 </ul>
 </div>
 </div>
@@ -1949,10 +1949,10 @@
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="custom-closer">
-<div class="incremental1">
+<div>
 <ul>
-<li>Use <code>dplyr</code>’s <code>slice_sample()</code> function</li>
-<li>Download enough data to be representative</li>
+<li class="fragment">Use <code>dplyr</code>’s <code>slice_sample()</code> function</li>
+<li class="fragment">Download enough data to be representative</li>
 </ul>
 </div>
 </div>
@@ -2006,11 +2006,11 @@
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="custom-smaller">
-<div class="incremental1">
+<div>
 <ul>
-<li><code>vetiver</code> packages <code>tidymodels</code> workflows and models</li>
-<li>Model is automatically reduced in size</li>
-<li>Output is easy to load into another R session</li>
+<li class="fragment"><code>vetiver</code> packages <code>tidymodels</code> workflows and models</li>
+<li class="fragment">Model is automatically reduced in size</li>
+<li class="fragment">Output is easy to load into another R session</li>
 </ul>
 </div>
 </div>
@@ -2036,11 +2036,11 @@
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="custom-smaller">
-<div class="incremental1">
+<div>
 <ul>
-<li>Copy the R model where Spark can access</li>
-<li>Location <strong>has</strong> to be secure</li>
-<li>Options: Databricks UC, s3 buckets, Posit Connect, others</li>
+<li class="fragment">Copy the R model where Spark can access</li>
+<li class="fragment">Location <strong>has</strong> to be secure</li>
+<li class="fragment">Options: Databricks UC, s3 buckets, Posit Connect, others</li>
 </ul>
 </div>
 </div>
@@ -2157,13 +2157,13 @@
 
 </div><div class="column" style="width:75%;">
 <div class="custom-closer">
-<div class="incremental1">
+<div>
 <ol type="1">
-<li><span style="font-size:75px;">Create the function</span></li>
-<li><span style="font-size:75px;">Test the function locally</span></li>
-<li><span style="font-size:75px;">Switch to published model</span></li>
-<li><span style="font-size:75px;">Test function remotely</span></li>
-<li><span style="font-size:75px;">Run predictions</span></li>
+<li class="fragment"><span style="font-size:75px;">Create the function</span></li>
+<li class="fragment"><span style="font-size:75px;">Test the function locally</span></li>
+<li class="fragment"><span style="font-size:75px;">Switch to published model</span></li>
+<li class="fragment"><span style="font-size:75px;">Test function remotely</span></li>
+<li class="fragment"><span style="font-size:75px;">Run predictions</span></li>
 </ol>
 </div>
 </div>
@@ -2201,11 +2201,11 @@
 <div class="columns">
 <div class="column" style="width:46%;">
 <div class="custom-smaller">
-<div class="incremental1">
+<div>
 <ul>
-<li>Databricks allows us to access LLM functionality right from SQL</li>
-<li>Accessible via calling the <code>ai_</code> family of functions</li>
-<li>New way of leveraging LLMs, batch scoring</li>
+<li class="fragment">Databricks allows us to access LLM functionality right from SQL</li>
+<li class="fragment">Accessible via calling the <code>ai_</code> family of functions</li>
+<li class="fragment">New way of leveraging LLMs, batch scoring</li>
 </ul>
 </div>
 </div>
@@ -2233,10 +2233,10 @@
 <div class="columns">
 <div class="column" style="width:37%;">
 <div class="custom-smaller">
-<div class="incremental1">
+<div>
 <ul>
-<li>Call the <code>ai</code> functions via <code>dplyr</code> verbs</li>
-<li><code>dbplyr</code> passes unrecognized functions ‘as-is’ in the query</li>
+<li class="fragment">Call the <code>ai</code> functions via <code>dplyr</code> verbs</li>
+<li class="fragment"><code>dbplyr</code> passes unrecognized functions ‘as-is’ in the query</li>
 </ul>
 </div>
 </div>
@@ -2266,18 +2266,18 @@
 <div class="column" style="width:7%;">
 
 </div><div class="column" style="width:90%;">
-<div class="incremental1">
+<div>
 <div class="custom-smallest">
 <ul>
-<li><code>ai_analyze_sentiment</code> - <span style="font-size: 45px;">Text is positve, negative, neutral, etc.</span></li>
-<li><code>ai_classify</code> - <span style="font-size: 45px;">Give choices, LLM chooses which of the choice match</span></li>
-<li><code>ai_extract</code> - <span style="font-size: 45px;">Have LLM extract specific elements from the text</span></li>
-<li><code>ai_fix_grammar</code> - <span style="font-size: 45px;">Makes grammar more better</span></li>
-<li><code>ai_mask</code> - <span style="font-size: 45px;">Replaces specified elements with ‘[Masked]’</span></li>
-<li><code>ai_similarity</code> - <span style="font-size: 45px;">Compares 2 texts, returns integer indicating similarity</span></li>
-<li><code>ai_summarize</code> - <span style="font-size: 45px;">Summarizes text, you can also specify length of output</span></li>
-<li><code>ai_translate</code> - <span style="font-size: 45px;">Tell LLM to translate to specific language</span></li>
-<li><code>ai_forecast</code> - <span style="font-size: 45px;">Time series prediction, not text</span></li>
+<li class="fragment"><code>ai_analyze_sentiment</code> - <span style="font-size: 45px;">Text is positve, negative, neutral, etc.</span></li>
+<li class="fragment"><code>ai_classify</code> - <span style="font-size: 45px;">Give choices, LLM chooses which of the choice match</span></li>
+<li class="fragment"><code>ai_extract</code> - <span style="font-size: 45px;">Have LLM extract specific elements from the text</span></li>
+<li class="fragment"><code>ai_fix_grammar</code> - <span style="font-size: 45px;">Makes grammar more better</span></li>
+<li class="fragment"><code>ai_mask</code> - <span style="font-size: 45px;">Replaces specified elements with ‘[Masked]’</span></li>
+<li class="fragment"><code>ai_similarity</code> - <span style="font-size: 45px;">Compares 2 texts, returns integer indicating similarity</span></li>
+<li class="fragment"><code>ai_summarize</code> - <span style="font-size: 45px;">Summarizes text, you can also specify length of output</span></li>
+<li class="fragment"><code>ai_translate</code> - <span style="font-size: 45px;">Tell LLM to translate to specific language</span></li>
+<li class="fragment"><code>ai_forecast</code> - <span style="font-size: 45px;">Time series prediction, not text</span></li>
 </ul>
 </div>
 </div>
@@ -2289,14 +2289,14 @@
 <div class="column" style="width:5%;">
 
 </div><div class="column" style="width:90%;">
-<div class="incremental1">
+<div>
 <div class="custom-smaller">
 <ul>
-<li>Need APIs pay-per-token supported region</li>
-<li>Functions not available on Databricks SQL Classic</li>
-<li>In preview, functions have performance restrictions</li>
-<li>Functions are tuned for English, but model can handle several languages</li>
-<li><strong>Mixtral-8x7B Instruct</strong> is the underlying model that powers most of these AI functions</li>
+<li class="fragment">Need APIs pay-per-token supported region</li>
+<li class="fragment">Functions not available on Databricks SQL Classic</li>
+<li class="fragment">In preview, functions have performance restrictions</li>
+<li class="fragment">Functions are tuned for English, but model can handle several languages</li>
+<li class="fragment"><strong>Mixtral-8x7B Instruct</strong> is the underlying model that powers most of these AI functions</li>
 </ul>
 </div>
 </div>
@@ -2313,10 +2313,10 @@
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="custom-smaller custom-closer">
-<div class="incremental1">
+<div>
 <ul>
-<li>Most <code>ai</code> functions require an argument of <code>ARRAY</code> type</li>
-<li>SQL’s <code>array()</code> function can be called directly inside the <code>ai</code> function</li>
+<li class="fragment">Most <code>ai</code> functions require an argument of <code>ARRAY</code> type</li>
+<li class="fragment">SQL’s <code>array()</code> function can be called directly inside the <code>ai</code> function</li>
 </ul>
 </div>
 </div>
@@ -2351,13 +2351,13 @@
 <h2><span style="color:#666;">Process complex output</span></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="incremental1">
+<div>
 <div class="custom-smaller custom-closer">
 <ul>
-<li>Some <code>ai</code> functions return a <code>STRUCT</code></li>
-<li>It is a more complex variable type</li>
-<li>It can only be coerced to a string</li>
-<li><code>as.character()</code> does the trick</li>
+<li class="fragment">Some <code>ai</code> functions return a <code>STRUCT</code></li>
+<li class="fragment">It is a more complex variable type</li>
+<li class="fragment">It can only be coerced to a string</li>
+<li class="fragment"><code>as.character()</code> does the trick</li>
 </ul>
 </div>
 </div>
@@ -2403,12 +2403,12 @@
 <p><img data-src="assets/llms/chattr.png" class="absolute" style="top: 0px; left: 1450px; width: 150px; "></p>
 <div class="columns">
 <div class="column" style="width:43%;">
-<div class="incremental1">
+<div>
 <div class="custom-smaller custom-closer">
 <ul>
-<li><code>chattr</code> is an interface to LLMs (Large Language Models)</li>
-<li>It enables interaction with the model directly from RStudio</li>
-<li>Submit a prompt to the LLM from your script, or by using the provided Shiny Gadget.</li>
+<li class="fragment"><code>chattr</code> is an interface to LLMs (Large Language Models)</li>
+<li class="fragment">It enables interaction with the model directly from RStudio</li>
+<li class="fragment">Submit a prompt to the LLM from your script, or by using the provided Shiny Gadget.</li>
 </ul>
 </div>
 </div>
@@ -2485,10 +2485,10 @@
 <p><br></p>
 <p><span style="font-size:90px;">🔑 Two fundamental points:</span></p>
 <div class="custom-subtitle">
-<div class="incremental1">
+<div>
 <ul>
-<li><span style="font-size:80px">App load time matters! <strong>The faster the better!</strong></span></li>
-<li><span style="font-size:80px">Download <strong>raw</strong> data <strong>only</strong> if there is no other option</span></li>
+<li class="fragment"><span style="font-size:80px">App load time matters! <strong>The faster the better!</strong></span></li>
+<li class="fragment"><span style="font-size:80px">Download <strong>raw</strong> data <strong>only</strong> if there is no other option</span></li>
 </ul>
 </div>
 </div>
@@ -2682,12 +2682,12 @@
 <h2><span style="color:#666;">ggiraph</span></h2>
 <p><img data-src="assets/dashboards/ggiraph.png" class="absolute" style="top: 0px; left: 1400px; "></p>
 <div class="custom-smaller">
-<div class="{incremental1}">
+<div>
 <ul>
-<li>Allows you to create dynamic <code>ggplot</code> graphs.</li>
-<li>Adds tooltips, hover effects, and JavaScript actions</li>
-<li>Enables selecting elements of a plot inside a <code>shiny</code> app</li>
-<li>Adds interactivity to <code>ggplot</code> geometries, legends and theme elements</li>
+<li class="fragment">Allows you to create dynamic <code>ggplot</code> graphs.</li>
+<li class="fragment">Adds tooltips, hover effects, and JavaScript actions</li>
+<li class="fragment">Enables selecting elements of a plot inside a <code>shiny</code> app</li>
+<li class="fragment">Adds interactivity to <code>ggplot</code> geometries, legends and theme elements</li>
 </ul>
 </div>
 </div>

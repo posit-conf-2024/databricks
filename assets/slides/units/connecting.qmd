@@ -102,7 +102,7 @@ https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcod
 
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
-:::{.incremental1}
+:::{.incremental}
 - `odbc::databricks()` simplifies the setup
 - Automatically detects credentials, driver, and sets default arguments
 - `HTTPPath` is the only argument that you will need

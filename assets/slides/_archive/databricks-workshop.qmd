@@ -217,7 +217,7 @@ https://solutions.posit.co/connections/db/databases/databricks/#using-the-odbcod
 ![](assets/posit-databricks.png){.absolute top="-10" left="1430" width="180"}
 
 :::{.sample-code}
-:::{.incremental1}
+:::{.incremental}
 - `odbc::databricks()` super simplifies the setup
 - Automatically detects credentials, driver, and sets default arguments
 - `HTTPPath` is the only argument that you will need
@@ -383,7 +383,7 @@ Data & processing need to be as **physically close** as possible
 ## [Takeaways]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom-subtitle}
-:::{.incremental1}
+:::{.incremental}
 - [Download data if doing something only R can do]{style="font-size:75px;"}
 - [🔑 Data & processing need to be as **physically close** as possible]{style="font-size:75px;"}
 - [Move most of the processing to Databricks]{style="font-size:75px;"}
@@ -425,7 +425,7 @@ Preferred
 :::{.columns}
 :::{.column}
 :::{.custom-subtitle}
-:::{.incremental1}
+:::{.incremental}
 - SQL language was not meant for exploratory data analysis
 - "Cognitive cost" of switching between SQL and R 
 - It is not as easy to plot, model, or present results in SQL as it is with R
@@ -453,7 +453,7 @@ group by 'cut' order by 'avg_price' desc
 :::{.columns}
 :::{.column width="45%"}
 :::{.custom-subtitle}
-:::{.incremental1}
+:::{.incremental}
 - Translates R code to SQL!
 - 'Modularity' of piped code
 - Guardrails against pulling all of the data 
@@ -486,7 +486,7 @@ group by 'cut' order by 'avg_price' desc
 :::{.column width="40%"}
 
 :::{.custom-subtitle}
-:::{.incremental1}
+:::{.incremental}
 - Creates a "virtual" table 
 - Behaves like a regular data frame
 - It contains no data
@@ -526,7 +526,7 @@ tbl_diamonds |> <br/>
 :::{.column width="55%"}
 
 :::{.custom-subtitle}
-:::{.incremental1}
+:::{.incremental}
 - Create a variable in R without importing data
 - SQL is sent **only** when data is requested
 - Behind the scenes, translates code to SQL
@@ -1013,7 +1013,7 @@ A plot gets refined iteratively, data must be local.
 :::{.column width="90%"}
 <br/>
 
-:::{.incremental1}
+:::{.incremental}
 - *'Improve scales'*
 - *'Add labels to the data'*
 - *'Add title and subtitle'*
@@ -1104,7 +1104,7 @@ Dashboards
 [🔑 Two fundamental points:]{style="font-size:90px;"}
 
 :::{.custom-subtitle}
-:::{.incremental1}
+:::{.incremental}
 - [App load time matters! **The faster the better!**]{style="font-size:80px"}
 - [Download **raw** data **only** if there is no other option]{style="font-size:80px"}
 :::
@@ -1339,7 +1339,7 @@ Exercise 6.3
 :::
 :::{.column width="95%"}
 :::{.custom-subtitle}
-:::{incremental1}
+:::{.incremental}
 - Allows you to create dynamic `ggplot` graphs. 
 - Adds tooltips, hover effects, and JavaScript actions 
 - Enables selecting elements of a plot inside a `shiny` app

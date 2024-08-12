@@ -41,7 +41,7 @@ Databricks
 :::{.columns}
 :::{.column width="46%"}
 :::{.custom-smaller}
-:::{.incremental1}
+:::{.incremental}
 - Databricks allows us to access LLM functionality right from SQL 
 - Accessible via calling the `ai_` family of functions
 - New way of leveraging LLMs, batch scoring
@@ -84,7 +84,7 @@ https://docs.databricks.com/en/large-language-models/ai-functions-example.html
 :::{.columns}
 :::{.column width="37%"}
 :::{.custom-smaller}
-:::{.incremental1}
+:::{.incremental}
 - Call the `ai` functions via `dplyr` verbs
 - `dbplyr` passes unrecognized functions 'as-is' in the query
 :::
@@ -119,7 +119,7 @@ orders |>
 :::{.column width="7%"}
 :::
 :::{.column width="90%"}
-:::{.incremental1}
+:::{.incremental}
 :::{.custom-smallest}
 - `ai_analyze_sentiment` - [Text is positve, negative, neutral, etc.]{style="font-size: 45px;"}
 - `ai_classify` - [Give choices, LLM chooses which of the choice match]{style="font-size: 45px;"}
@@ -141,7 +141,7 @@ orders |>
 :::{.column width="5%"}
 :::
 :::{.column width="90%"}
-:::{.incremental1}
+:::{.incremental}
 :::{.custom-smaller}
 - Need APIs pay-per-token supported region
 - Functions not available on Databricks SQL Classic
@@ -166,7 +166,7 @@ Exercise `r no_working_with_llms`.1
 :::{.columns}
 :::{.column width="35%"}
 :::{.custom-smaller .custom-closer}
-:::{.incremental1}
+:::{.incremental}
 - Most `ai` functions require an argument of `ARRAY` type
 - SQL's `array()` function can be called directly inside the `ai` function
 :::
@@ -212,7 +212,7 @@ Exercise `r no_working_with_llms`.2
 
 :::{.columns}
 :::{.column width="40%"}
-:::{.incremental1}
+:::{.incremental}
 :::{.custom-smaller .custom-closer}
 - Some `ai` functions return a `STRUCT`
 - It is a more complex variable type
@@ -270,7 +270,7 @@ Exercise `r no_working_with_llms`.3
 
 :::{.columns}
 :::{.column width="43%"}
-:::{.incremental1}
+:::{.incremental}
 :::{.custom-smaller .custom-closer}
 - `chattr` is an interface to LLMs (Large Language Models)
 - It enables interaction with the model directly from  RStudio

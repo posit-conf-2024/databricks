@@ -23,7 +23,7 @@ Databricks <br/> Connect
 :::{.column width="50%"}
 
 :::{.custom-smaller}
-:::{.incremental1}
+:::{.incremental}
 - Spark Connect, offers **true** remote connectivity
 - Uses **gRPC** to as the communication interface
 - **Databricks Connect 'v2'** is based on Spark Connect (DBR 13+)
@@ -66,7 +66,7 @@ Databricks <br/> Connect
 :::
 :::{.column width="70%"}
 :::{.custom-smaller}
-:::{.incremental1}
+:::{.incremental}
   - `dplyr` back-end
   - `DBI` back-end
   - R UDFs 
@@ -87,7 +87,7 @@ Databricks <br/> Connect
 :::{.column width="42%"}
 
 :::{.custom-smaller}
-:::{.incremental1}
+:::{.incremental}
 - Python 3.10+ 
 - A Python environment with `databricks-connect` and its dependencies
 - `pysparklyr` extension
@@ -192,7 +192,7 @@ Data is read and processed. Results go to R.
 
 ## [About this approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.incremental1}
+:::{.incremental}
 - [Well suited when exploring the entirety of the data. Usually to find relevant variables]{style="font-size:75px;"}
 - [Not efficient when accessing the same fields and rows over and over]{style="font-size:75px;"}
 
@@ -232,7 +232,7 @@ Second, read and process from memory. *Much faster*
 ## [About this approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom-subtitle}
-:::{.incremental1}
+:::{.incremental}
 - [Well suited when accessing the same fields and rows over and over]{style="font-size:75px;"}
 - [Best when running models and UDFs *(More about this later)*]{style="font-size:75px;"}
 
@@ -265,7 +265,7 @@ Afterwards, the data is read from memory for processing
 ## [About this approach]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom-closer}
-:::{.incremental1}
+:::{.incremental}
 - Read files using the `spark_read...` family of functions
 - The file path needs to be relative to your Databricks environment
 - [Databricks Volumes](https://docs.databricks.com/en/sql/language-manual/sql-ref-volumes.html) are ideal for this approach
@@ -327,7 +327,7 @@ Exercise `r no_databricks`.6
 ## [Very large files, read or map]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom-closer}
-:::{.incremental1}
+:::{.incremental}
 - [Reading, you "pay" in time at the beginning]{style="font-size:65px;"}
 - [Mapping, you "pay" in time as you access the data]{style="font-size:65px;"}
 - [Extended EDA, reading would be better]{style="font-size:65px;"}

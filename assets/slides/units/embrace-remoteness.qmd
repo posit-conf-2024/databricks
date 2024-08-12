@@ -77,7 +77,7 @@ engine: knitr
 ## [Takeaways]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom-closer}
-:::{.incremental1}
+:::{.incremental}
 - [Download data if doing something only R can do]{style="font-size:75px;"}
 - [🔑 Data & processing need to be as **physically close** as possible]{style="font-size:75px;"}
 - [Move most of the processing to Databricks]{style="font-size:75px;"}

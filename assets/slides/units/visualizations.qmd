@@ -151,7 +151,7 @@ A plot gets refined iteratively, data must be local.
 :::{.column width="6%"}
 :::
 :::{.column width="90%"}
-:::{.incremental1}
+:::{.incremental}
 :::{.custom-smaller}
 - *'Improve scales'*
 - *'Add labels to the data'*

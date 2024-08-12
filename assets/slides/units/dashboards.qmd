@@ -26,7 +26,7 @@ Dashboards
 [🔑 Two fundamental points:]{style="font-size:90px;"}
 
 :::{.custom-subtitle}
-:::{.incremental1}
+:::{.incremental}
 - [App load time matters! **The faster the better!**]{style="font-size:80px"}
 - [Download **raw** data **only** if there is no other option]{style="font-size:80px"}
 :::
@@ -247,7 +247,7 @@ Exercise `r no_dashboards`.3
 ![](assets/dashboards/ggiraph.png){.absolute top="0" left="1400"}
 
 :::{.custom-smaller}
-:::{incremental1}
+:::{.incremental}
 - Allows you to create dynamic `ggplot` graphs. 
 - Adds tooltips, hover effects, and JavaScript actions 
 - Enables selecting elements of a plot inside a `shiny` app

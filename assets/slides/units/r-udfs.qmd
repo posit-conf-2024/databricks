@@ -22,7 +22,7 @@ R UDFs
 
 ## [What is an UDF?]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.incremental1}
+:::{.incremental}
 - Stands for **"User Defined Function"**
 - Enables operations not built-in Spark
 - Can be written in Scala, Python, or R
@@ -306,7 +306,7 @@ https://docs.databricks.com/en/release-notes/runtime/15.3.html#installed-r-libra
 
 ## [Key considerations]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
-:::{.incremental1}
+:::{.incremental}
 :::{.custom-smaller}
 - You are dealing with **two** different environments
 - Your Python version **must** match the cluster
