@@ -1,0 +1,63 @@
+---
+engine: knitr
+---
+
+## {background-image="assets/background/boxed-white.svg" background-size="1700px" background-color="#fff"}
+
+<br/><br/><br/>
+
+:::{.columns}
+:::{.column width="1%"}
+:::
+:::{.column width="95%"}
+
+[Additional resources]{style="font-size:130px; line-height: 0.5;"}
+
+:::
+:::
+
+
+## [Official Site]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom-subtitle}
+spark.posit.co
+:::
+
+![](assets/outro/spark.posit.co.png){.absolute top="220" left="250" width="1100"}
+
+## [Cheatsheet]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom-subtitle}
+spark.posit.co/images/homepage/sparklyr.pdf
+:::
+
+![](assets/outro/cheatsheet.png){.absolute top="220" left="450" width="700"}
+
+## [Ask questions]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom-subtitle}
+forum.posit.co
+:::
+
+![](assets/outro/forum.posit.co.png){.absolute top="220" left="400" width="900"}
+
+## [Let us know what you thought]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+<br/>
+
+:::{.custom-subtitle}
+Please take our survey:  <br/>
+[pos.it/conf-workshop-survey](https://pos.it/conf-workshop-survey)
+:::
+
+
+
+
+## {background-image="assets/background/thank-you.svg" background-size="1700px" background-color="#2a7070"}
+
+
+![](assets/background/racoon.jpg){.absolute top=100 left=270 width=380}
+
+
+
+

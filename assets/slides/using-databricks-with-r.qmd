@@ -40,3 +40,4 @@ no_dashboards <- 9
 {{< include units/modeling.qmd >}}
 {{< include units/working-with-llms.qmd >}}
 {{< include units/dashboards.qmd >}}
+{{< include units/outro.qmd >}}
