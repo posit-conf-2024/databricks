@@ -118,7 +118,7 @@ Special work we have done as part of the new partnership
 ## [Step 1 - Landing Page]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
 
 :::{.custom-subtitle}
-Navigate to {{site}}, and click on **Posit Workbench**
+Navigate to [conf.posit.team](https://conf.posit.team/), click on **Posit Workbench**
 :::
 
 ![](assets/intro/login-landing.png){.absolute top="220" left="250" width="1100"}
