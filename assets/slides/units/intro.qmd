@@ -162,3 +162,19 @@ Click on the **New Session** button
 :::
 
 ![](assets/intro/login-posit2.png){.absolute top="220" left="250" width="1100"}
+
+## [Step 7 - Run setup command]{style="color:#666;"} {background-image="assets/background/slide-light.svg" background-size="1700px" background-color="white"}
+
+:::{.custom-subtitle}
+In the R console type 
+:::
+
+```r
+workshop:::begin()
+
+ℹ Adding DATABRICKS_HOST to .Renviron file
+ℹ Adding DATABRICKS_TOKEN to .Renviron file
+- Enter password: 
+```
+
+
